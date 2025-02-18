@@ -3,25 +3,60 @@
         <li><a href="/events">Events</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/join-wics">Join WiCS</a></li>
-        <li><a img="/img.jpg" href="/join-wics">ICON</a></li>
+        <li><img src="assets/astro.svg" alt="logo"></li>
         <li><a href="/our-team">Our Team</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/collaborate">Collaborate</a></li>
-
     </ul>
+    
 </nav>
-
 <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        /* padding: 10px; */
+        background-color: pink;
+    }
+    li, a {
+        font-weight: 500;
+        font-size: 19px;
+        color: white;
+    }
+    /* header { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 10%; 
+    }  */
+    .logo {
+        cursor: pointer;
+    }
+    .nav-list {
+        /* display: flex;
+        grid-auto-flow: column; */
+        list-style: none;
+    }
+    .nav-list li {
+        display: inline-block;
+        padding: 0px 30px;
+    }
+    .nav-list li a {
+        transition: all 0.3s ease 0s;
+    }
+    .nav-list li a:hover{
+        color: rgb(222, 42, 102);
+    }
+
     .nav {
     display: flex;
-    position: absolute; /* sticky */
+    position: absolute;
+    z-index: 1000; 
     align-items: center;
     justify-content: center;
     
     background: pink;
     color: white;
     
-
     width: 75%;
     height: 10%;
     top: 50px;
@@ -29,15 +64,16 @@
     left: 0;
     margin: auto;
 
-    
-    padding: 10px 20px;
-    }
-    .nav-list {
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 0px 3px 4px rgba(80, 79, 79, 0.4);
+    /* padding: 10px 10%; */
+    } 
+    /* .nav-list {
         display: flex;
         grid-auto-flow: column;
     }
-    .nav-list hover {
-        color: palevioletred;
+    .nav-list: hover { */
+        /* color: palevioletred;
     }
 </style>
 
