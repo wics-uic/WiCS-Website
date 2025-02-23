@@ -1,0 +1,25 @@
+---
+import Card from './Card.astro';
+
+export interface Props {
+    events: Array<{imagePath: string; eventName: string }>;
+}
+
+const { events } = Astro.props;
+---
+
+<section class="cards-page py-[400px] bg-[#fff4ec]">
+    <div class="container w-[70%] mx-auto">
+        <h1 class="cards-header text-center lg:text-left text-4xl sm:text-5xl md:text-6xl lg:text-[64px] text-[#944029] font-['Lora'] font-bold">Get Involved!</h1>
+        <div class="cards flex flex-wrap gap-12 md:gap-10 2xl:gap-5 justify-center pt-[65px]">
+            {events.map((event) => (
+                <Card event={event} />
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Play&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Play&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
