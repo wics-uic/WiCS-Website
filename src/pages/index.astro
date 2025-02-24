@@ -1,11 +1,17 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import CardsPage from "../components/CardsPage.astro"
+import CardPopUp from "../components/CardPopUp.astro"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const sampleEvents = [
+    { eventName: 'Wired:\nWiCS Dev Project', imagePath: '/src/assets/Group80.png' },
+    { eventName: 'Aspire to Inspire:\nMentorship Program', imagePath: '/src/assets/Group80.png' },
+    { eventName: 'Women in\nTech Week', imagePath: '/src/assets/Group80.png' }
+];
 ---
 
 <Layout>
-	<Welcome />
+    <CardsPage events={sampleEvents}/>
+    <CardPopUp eventInfo="This semester long project allows particpants to collaborate in teams to design and develop a website, providing a hands-on opportunity to enhance technical skills and gain real-world experience."/>
 </Layout>
