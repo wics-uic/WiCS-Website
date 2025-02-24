@@ -1,71 +1,96 @@
-<nav class="nav">
-    <ul class="nav-list">
-        <li><a href="/events">Events</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li><a href="/join-wics">Join WiCS</a></li>
-        <li><img src="assets/astro.svg" alt="logo"></li>
-        <li><a href="/our-team">Our Team</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/collaborate">Collaborate</a></li>
+<nav class="top-bar">
+    <ul class="hideOnMobile">
+        <li class="events"><a href='/events'>Events</a></li>
+        <li><a href='/resources'>Resources</a></li>
+        <li><a href='/join-wics'>Join WiCS</a></li>
+    </ul>
+    <a href='/'><img src="src/assets/logo.png" alt="Logo" width="100px" height="auto"></a>
+    <ul class="hideOnMobile">
+        <li><a href='/our-team'>Our Team</a></li>
+        <li><a href='/about'>About</a></li>
+        <li><a href='/collaborate'>Collaborate</a></li>
     </ul>
     
 </nav>
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        /* padding: 10px; */
-        background-color: pink;
-    }
-    li, a {
-        font-weight: 500;
-        font-size: 19px;
-        color: white;
-    }
-    .nav {
-    display: flex;
-    position: absolute;
-    z-index: 1000; 
-    align-items: center;
-    justify-content: center;
-    
-    background: pink;
-    color: white;
-    
-    width: 75%;
-    height: 10%;
-    top: 50px;
-    right: 0;
-    left: 0;
-    margin: auto;
 
-    border-radius: 25px 25px 25px 25px;
-    box-shadow: 0px 3px 4px rgba(80, 79, 79, 0.4);
-    /* padding: 10px 10%; */
-    } 
-    /* header { 
+
+<ul class="dropdown-events">
+    <li>Calendar</li>
+    <li>Upcoming Events</li>
+    <li>Past Events</li>
+</ul>
+
+
+
+<style>
+    nav {
+        background-color: #F9BFC0;
+    }
+    .top-bar {
+        box-shadow: 0px 4px 4px #00000040;
+        
+        border-radius: 20px;
+
+        position: absolute;
+
+        width: 70%;
+        top: 50px;
+        right: 0;
+        left: 0;
+        margin: auto;
+
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        padding: 30px 10%; 
-    }  */
-    .logo {
-        cursor: pointer;
     }
-    .nav-list {
-        /* display: flex; */
-        /* grid-auto-flow: column; */
+    nav ul {
+        width: 100%;
+
         list-style: none;
+        padding: 0;
+        gap: 30px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 15px;
     }
-    .nav-list li {
-        display: inline-block;
-        padding: 0px 30px;
+    nav li {
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+
+        padding: 5px 10px;
+        line-height: normal;
     }
-    .nav-list li a {
-        transition: all 0.3s ease 0s;
+    nav li:hover {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        color: #e57f81;
+        background-color: #FCFAF2;
+        border-radius: 20px;
+
+        box-shadow: 0px 4px 2px #00000054;
     }
-    .nav-list li a:hover{
-        color: rgb(222, 42, 102);
+    .events {
+        text-align: center;
+    }
+    .dropdown-events {
+        visibility: hidden;
+        color:black;
+
+        display: flex;
+        flex-direction: column;
+    }
+    .events:hover .dropdown-events {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    @media(max-width: 1080px) {
+        .hideOnMobile{
+            visibility: hidden;
+        }
     }
 </style>
-
