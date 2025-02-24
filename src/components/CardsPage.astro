@@ -1,5 +1,6 @@
 ---
 import Card from './Card.astro';
+import CardPopUp from './CardPopUp.astro';
 
 export interface Props {
     events: Array<{imagePath: string; eventName: string }>;
@@ -14,6 +15,7 @@ const { events } = Astro.props;
         <div class="cards flex flex-wrap gap-12 md:gap-10 2xl:gap-5 justify-center pt-[65px]">
             {events.map((event) => (
                 <Card event={event} />
+                
             ))}
         </div>
     </div>
