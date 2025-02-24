@@ -11,11 +11,11 @@ const { event: {eventName, imagePath }} = Astro.props;
         src={imagePath}
         alt={eventName}
         class="w-full h-auto sm:h-[400px] 
-           border-15 border-[#ffcccc] rounded-[35px]
+           border-15 border-pink-100 rounded-[35px]
            shadow-[4px_4px_4px_0_rgba(64,64,64,0.5)]
            cursor-pointer"
        />
     <h3 class="event-name font-['Raleway'] font-semibold text-2lg sm:text-2xl lg:text-2xl
-              pt-4 text-[#944029] whitespace-pre-line cursor-pointer
-              transition delay-60 duration-140 ease-in-out group-hover:text-[#7a301c]"> {eventName}</h3>
+              pt-4 text-red-500 whitespace-pre-line cursor-pointer
+              transition delay-60 duration-140 ease-in-out group-hover:text-red-500"> {eventName}</h3>
 </div>
