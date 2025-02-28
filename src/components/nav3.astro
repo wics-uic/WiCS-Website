@@ -3,7 +3,7 @@
         <ul class="hideOnMobile">
             <li>
                 <a href='/events'>Events
-                    <ul class="dropdown-events">
+                    <ul class="dropdown-events hideOnMobile">
                         <li><a href='/calendar'>Calendar</a></li>
                         <li><a href='/upcoming-events'>Upcoming Events</a></li>
                         <li><a href='/past-events'>Past Events</a></li>
@@ -84,11 +84,23 @@
     nav ul li ul.dropdown-events li {
         display: inline-block;
         color: #e57f81;
+
+        margin: auto;
+    }
+    /* style for dropdown hover only */
+    nav ul li ul.dropdown-events li:hover {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        color: #a95c5d;
+        background-color: #FCFAF2;
+        border-radius: 20px;
+
+        box-shadow: 0px 0px 0px #FCFAF2;
+
     }
     nav ul li ul.dropdown-events {
-        width: 16%;
-        /* top: 70px; */
-        left: 45px;
+        width: 18%;
+        top: 4em;
+        left: 3%;
         right: 0px;
 
         position: absolute;
@@ -105,6 +117,7 @@
         /* display: inline-block; */
         display: block;
         flex-direction: column;
+        justify-content: center;
         align-items: flex-start;
 
         gap: 0px;
