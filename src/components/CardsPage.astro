@@ -1,6 +1,7 @@
 ---
 import Card from './Card.astro';
 import CardPopUp from './CardPopUp.astro';
+import '../styles/global.css';
 
 export interface Props {
     events: Array<{imagePath: string; eventName: string }>;
@@ -20,8 +21,3 @@ const { events } = Astro.props;
         </div>
     </div>
 </section>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Play&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Play&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-</style>
