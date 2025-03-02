@@ -1,33 +1,38 @@
 ---
+import PopUpCard from '../components/timeline component/PopUpCard.astro'
 ---
 
 <!-- Background of the component -->
-<div id="container" class="flex flex-col gap-10 w-full justify-center items-center h-screen bg-[#fff5e8]">
+<div id="container" class="flex flex-row gap-10 w-full justify-center items-center h-screen bg-[#fff5e8]">
+    <PopUpCard 
+    title="Demo Title"
+    year="2015"
+    description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
 
-    <!-- Copy and paste this to create more cards and change the text -->
-    <div class="flex flex-col gap-3 ">
-        
-        <a href="#" class="relative group inline-block p-2 flex w-10 h-10 justify-center items-center rounded-full bg-[#f9bfc0] bg-cover bg-center border-6 border-[#fcfaf2] drop-shadow-md">
-            <div class="flex content-center justify-items-center absolute left-1/2 -translate-x-1/2 top-[-20px] -translate-y-full -mt-2 w-52 h-47 bg-[#c6e8e8] hidden group-hover:block rounded-[1.5vw]">
-                
-                <div class="absolute left-1/2 -translate-x-1/2 bottom-[-10px] w-0 h-0 
-                border-l-10 border-l-transparent 
-                border-r-10 border-r-transparent 
-                border-t-10 border-t-[#c6e8e8]"></div>
-                
-                <!-- The hover box -->
-                <div class="flex content-center justify-items-center w-45 h-42 bg-[#fff7ed] hidden group-hover:block rounded-[1.5vw] p-2">
+    <PopUpCard 
+    title="Demo Title"
+    year="2016"
+    description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
 
-                    <!-- Title of the card -->
-                    <p class="text-xl text-[#4D9999]">Title</p>
+    <PopUpCard 
+    title="Demo Title"
+    year="2017"
+    description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
 
-                    <!-- Description of the event -->
-                    <p class="text-xs text-[#a95c5d] text-wrap ">Enter the description of the even here. Enter the description of the even here. Enter the description of the even here. Enter the description of the even here.</p>
-                </div>
-            </div>
-        </a>
+    <PopUpCard 
+    title="Demo Title"
+    year="2020"
+    description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
 
-        <!-- Enter the year of the card here -->
-        <p class="text-xl text-[#4D9999]">2015</p>
-	</div>
+    <PopUpCard 
+    title="Demo Title"
+    year="2022"
+    description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
+
+    <PopUpCard 
+    title="Demo Title"
+    year="2025"
+    description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
+
+
 </div>

@@ -1,0 +1,29 @@
+---
+const {title, year, description} = Astro.props
+---
+<!-- Copy and paste this to create more cards and change the text -->
+<div class="flex flex-col gap-3 ">
+        
+    <a class="relative group inline-block p-2 flex w-10 h-10 justify-center items-center rounded-full bg-[#f9bfc0] bg-cover bg-center border-6 border-[#fcfaf2] drop-shadow-md">
+        <div class="flex content-center justify-items-center absolute left-1/2 -translate-x-1/2 top-[-20px] -translate-y-full -mt-2 w-52 h-47 bg-[#c6e8e8] hidden group-hover:block rounded-[1.5vw]">
+            
+            <div class="absolute left-1/2 -translate-x-1/2 bottom-[-10px] w-0 h-0 
+            border-l-10 border-l-transparent 
+            border-r-10 border-r-transparent 
+            border-t-10 border-t-[#c6e8e8]"></div>
+            
+            <!-- The hover box -->
+            <div class="flex content-center justify-items-center w-45 h-42 bg-[#fff7ed] hidden group-hover:block rounded-[1.5vw] p-2">
+
+                <!-- Title of the card -->
+                <p class="text-xl text-[#4D9999]">{title}</p>
+
+                <!-- Description of the event -->
+                <p class="text-xs text-[#a95c5d] text-wrap ">{description}</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- Enter the year of the card here -->
+    <p class="text-xl text-[#4D9999]">{year}</p>
+</div>
