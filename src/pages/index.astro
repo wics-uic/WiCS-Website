@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #fff7ed;
+		
+	}
+</style>
+<div class="m-20 w-3/4 h-full bg-[944029] text-red-500 text-left p-5 font-raleway flex items-center gap-x-25 justify-center min-h-screen">
+	<p>
+		Women in Computer Science (WiCS) at UIC is a student organization that strives to provide a support network compromising of mentors and peers and acts as a social, technical, and networking community. We help provide resources and opportunities to all students to help broaden their careers within the tech industry.
+	</p>
+	<img src="group.png" alt="WiCS Logo" class="w-100 h-auto mr-5 flex items-right" />
+	</div>
+
+	  
