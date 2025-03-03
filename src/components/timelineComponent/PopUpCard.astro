@@ -1,29 +1,31 @@
 ---
-const {title, year, description} = Astro.props
+const {title, year, description, offsetLocation} = Astro.props
 ---
 <!-- Copy and paste this to create more cards and change the text -->
-<div class="flex flex-col gap-3 ">
+<div>
+    <div class="flex flex-col gap-3 ">
         
-    <a class="relative group inline-block p-2 flex w-10 h-10 justify-center items-center rounded-full bg-[#f9bfc0] bg-cover bg-center border-6 border-cream-100 drop-shadow-md">
-        <div class="flex content-center justify-items-center absolute left-1/2 -translate-x-1/2 top-[-20px] -translate-y-full -mt-2 w-52 h-47 bg-teal-100 hidden group-hover:block rounded-[1.5vw]">
-            
-            <div class="absolute left-1/2 -translate-x-1/2 bottom-[-10px] w-0 h-0 
-            border-l-10 border-l-transparent 
-            border-r-10 border-r-transparent 
-            border-t-10 border-t-teal-100"></div>
-            
-            <!-- The hover box -->
-            <div class="flex content-center justify-items-center w-45 h-42 bg-cream-200 hidden group-hover:block rounded-[1.5vw] p-2">
-
-                <!-- Title of the card -->
-                <p class="text-xl text-[#4D9999]">{title}</p>
-
-                <!-- Description of the event -->
-                <p class="text-xs text-pink-600 text-wrap ">{description}</p>
+        <a class="relative group inline-block p-2 flex w-10 h-10 justify-center items-center rounded-full bg-pink-300 bg-cover bg-center border-6 border-cream-100 drop-shadow-md">
+            <div class="flex content-center justify-items-center absolute left-1/2 -translate-x-1/2 top-[-20px] -translate-y-full -mt-2 w-52 h-47 bg-teal-100 hidden group-hover:block rounded-[1.5vw]">
+                
+                <div class="absolute left-1/2 -translate-x-1/2 bottom-[-10px] w-0 h-0 
+                border-l-10 border-l-transparent 
+                border-r-10 border-r-transparent 
+                border-t-10 border-t-teal-100"></div>
+                
+                <!-- The hover box -->
+                <div class="flex content-center justify-items-center w-45 h-42 bg-cream-200 hidden group-hover:block rounded-[1.5vw] p-2">
+    
+                    <!-- Title of the card -->
+                    <p class="text-xl text-[#4D9999]">{title}</p>
+    
+                    <!-- Description of the event -->
+                    <p class="text-xs text-pink-600 text-wrap ">{description}</p>
+                </div>
             </div>
-        </div>
-    </a>
-
-    <!-- Enter the year of the card here -->
-    <p class="text-xl text-[#4D9999]">{year}</p>
-</div>
+        </a>
+    
+        <!-- Enter the year of the card here -->
+        <p class="text-xl text-[#4D9999]">{year}</p>
+    </div>
+</div>   
