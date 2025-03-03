@@ -1,1 +1,31 @@
-@import "tailwindcss";
+
+/* Google Fonts import */
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Custom Theme */
+:root {
+  --font-lora: "Lora", serif;
+  --font-raleway: "Raleway", sans-serif;
+
+  /* Pink Scale */
+  --color-pink-100: #fdcbcd;
+  --color-pink-200: #ffbfc5;
+  --color-pink-300: #f9bfc0;
+  --color-pink-400: #f1a2ad;
+  --color-pink-500: #e298a0;
+  --color-pink-600: #a95c5d;
+
+  /* Teal Scale */
+  --color-teal-100: #c6e8e8;
+  --color-teal-200: #98d3d3;
+  --color-teal-300: #71c3c3;
+
+  /* Cream (Off-White) Scale */
+  --color-cream-100: #fcfaf2;
+  --color-cream-200: #fff7ed;
+  --color-cream-300: #fff5e8;
+
+  /* Red/Maroon */
+  --color-red-500: #944029;
+}
