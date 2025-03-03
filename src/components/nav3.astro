@@ -1,0 +1,142 @@
+<div class="nav">
+    <nav class="top-bar">
+        <ul class="hideOnMobile">
+            <li>
+                <a href='/events'>Events
+                    <ul class="dropdown-events hideOnMobile">
+                        <li><a href='/calendar'>Calendar</a></li>
+                        <li><a href='/upcoming-events'>Upcoming Events</a></li>
+                        <li><a href='/past-events'>Past Events</a></li>
+                    </ul>
+                </a>
+            </li>
+            <li><a href='/resources'>Resources</a></li>
+            <li><a href='/join-wics'>Join WiCS</a></li>
+        </ul>
+        <a href='/'><img src="src/assets/logo.png" alt="Logo" width="100px" height="auto"></a>
+        <ul class="hideOnMobile">
+            <li><a href='/our-team'>Our Team</a></li>
+            <li><a href='/about'>About</a></li>
+            <li><a href='/collaborate'>Collaborate</a></li>
+        </ul>
+        
+    </nav>
+
+</div>
+
+<style>
+    nav {
+        background-color: #F9BFC0;
+    }
+    .top-bar {
+        box-shadow: 0px 4px 4px #00000040;
+        
+        border-radius: 20px;
+
+        position: absolute;
+
+        width: 70%;
+        top: 50px;
+        right: 0;
+        left: 0;
+        margin: auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav ul {
+        width: 100%;
+
+        list-style: none;
+        padding: 0;
+        gap: 30px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 15px;
+    }
+    nav li {
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+
+        padding: 5px 10px;
+        line-height: normal;
+    }
+    nav li:hover {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        color: #e57f81;
+        background-color: #FCFAF2;
+        border-radius: 20px;
+
+        box-shadow: 0px 4px 2px #00000054;
+    }
+
+    /* dropdown for events */
+    nav ul li ul.dropdown-events li {
+        display: inline-block;
+        color: #e57f81;
+
+        margin: auto;
+    }
+    /* style for dropdown hover only */
+    nav ul li ul.dropdown-events li:hover {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        color: #a95c5d;
+        background-color: #FCFAF2;
+        border-radius: 20px;
+
+        box-shadow: 0px 0px 0px #FCFAF2;
+
+    }
+    nav ul li ul.dropdown-events {
+        width: 18%;
+        top: 4em;
+        left: 3%;
+        right: 0px;
+
+        position: absolute;
+        z-index: 999;
+
+        display: none;
+    }
+    nav ul li:hover ul.dropdown-events {
+        background-color: #FCFAF2;
+        box-shadow: 0px 4px 4px #00000040;
+
+        border-radius: 20px;
+
+        /* display: inline-block; */
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        gap: 0px;
+
+    }
+    /* .events {
+        text-align: center;
+    } */
+    .dropdown-events {
+        visibility: visible;
+        color:black;
+
+        display: flex;
+        flex-direction: column;
+    }
+    /* .events:hover .dropdown-events {
+        visibility: visible;
+        opacity: 1;
+    } */
+
+    @media(max-width: 1080px) {
+        .hideOnMobile{
+            visibility: hidden;
+        }
+    }
+</style>
