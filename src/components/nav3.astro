@@ -70,6 +70,7 @@
 
         padding: 5px 10px;
         line-height: normal;
+        cursor: pointer;
     }
     nav li:hover {
         transition: background-color 0.3s ease, transform 0.3s ease;
@@ -82,14 +83,26 @@
 
     /* dropdown for events */
     nav ul li ul.dropdown-events li {
-        display: inline-block;
+        /* display: inline-block; */
+        display: block;
+        width: 100%;
+
+        padding: 5px;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
         color: #e57f81;
 
-        margin: auto;
+        /* margin: auto; */
     }
-    /* style for dropdown hover only */
     nav ul li ul.dropdown-events li:hover {
         transition: background-color 0.3s ease, transform 0.3s ease;
+        /* transition: visibility 0.3s, opacity 0.3s; */
         color: #a95c5d;
         background-color: #FCFAF2;
         border-radius: 20px;
@@ -98,15 +111,19 @@
 
     }
     nav ul li ul.dropdown-events {
-        width: 18%;
+        width: 15%;
         top: 4em;
-        left: 3%;
-        right: 0px;
+        left: 50px;
+        right: auto;
 
         position: absolute;
         z-index: 999;
 
-        display: none;
+        /* display: none; */
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0s ease-out, 0.3s ease-in, visibility 0s ease-out, 0.3s ease-in;
+
     }
     nav ul li:hover ul.dropdown-events {
         background-color: #FCFAF2;
@@ -115,13 +132,14 @@
         border-radius: 20px;
 
         /* display: inline-block; */
-        display: block;
+        /* display: block; */
+        visibility: visible;
+        opacity: 1;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
 
         gap: 0px;
-
     }
     /* .events {
         text-align: center;
