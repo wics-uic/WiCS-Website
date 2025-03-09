@@ -1,0 +1,55 @@
+---
+// update if your localhost is a different port!!
+const BASE_URL = "http://localhost:4321";
+const res = await fetch(`${BASE_URL}/api/calendar`);
+const data = await res.json()
+const events = data.items
+console.log(events)
+---
+<section>
+    <h1>Events</h1>
+    <div class="container">
+      {events.length > 0 &&
+        events.map(event => {
+          // Getting the start date and time
+          const startDateTime = event.start?.dateTime;
+          const startDate = startDateTime ? new Date(startDateTime) : null;
+  
+          // Getting the end date and time
+          const endDateTime = event.end?.dateTime;
+          const endDate = endDateTime ? new Date(endDateTime) : null;
+  
+          // Formatting day of the week
+          const dayOfWeek = startDate 
+            ? startDate.toLocaleDateString("en-US", {weekday: "long" }) 
+            : "No date";
+  
+          // Formatting start time of event
+          const startTime = startDate 
+            ? startDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) 
+            : "No start time";
+  
+          // Formatting end time of event
+          const endTime = endDate 
+            ? endDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) 
+            : "No end time";
+  
+          // Getting location or set a default message
+          const location = event.location ? event.location : "Location not provided";
+  
+          return (
+            <div class="card-container">
+              <h2 class="event-title">{event.summary}</h2>
+              <p class="event-day"><strong>Day:</strong> {dayOfWeek}</p>
+              <p class="event-time"><strong>Time:</strong> {startTime} - {endTime}</p>
+              <p class="event-location"><strong>Location:</strong> {location}</p>
+              <a href={event.htmlLink} class="event-link">
+                View Event
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+  
