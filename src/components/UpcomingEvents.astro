@@ -6,15 +6,19 @@ const events = [
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
-    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
   },
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
-    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
   },
-]
-
+  {
+    Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
+    Location: "WICS Lounge",
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
+  },
+];
 ---
 
 <section class="upcoming-events">
@@ -38,44 +42,21 @@ const events = [
 
     <div class="events-container">
       {
-      events.map((event) => (
-        <div class="event-card">
-<EventCard title={event.Title} location={event.Location} time={event.Time}/>
-        </div>
-        
-      ))
+        events.map((event) => (
+          <div class="event-card">
+            <EventCard
+              title={event.Title}
+              location={event.Location}
+              time={event.Time}
+            />
+          </div>
+        ))
       }
-      <!-- <div class="event-card">
-        <EventCard
-          title="Intro to UI/UX Design -- Pixel Perfect: Personal Website Series"
-          location="WICS Lounge"
-          time="Thursday, Feb 20th | 4:00 PM - 5:00 PM"
-        />
-      </div>
-
-      <div class="event-card">
-        <EventCard
-          title="Design Your Website -- Pixel Perfect: Personal Website Series"
-          location="WICS Lounge"
-          time="Thursday, Feb 27th | 4:00 PM - 5:00 PM"
-        />
-      </div>
-
-      <div class="event-card">
-        <EventCard
-          title="Build Your Website -- Pixel Perfect: Personal Website Series"
-          location="WICS Lounge"
-          time="Thursday, Mar 6th | 4:00 PM - 5:00 PM"
-        />
-      </div> -->
     </div>
   </div>
 </section>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-
   .upcoming-events {
     position: relative;
     width: 100%;
