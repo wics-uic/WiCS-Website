@@ -1,0 +1,25 @@
+---
+// FIXME: Import TeamCard component
+
+export interface Props {
+    team: Array<{name: string; position: string; imagePath: string; linkedin: string;}>;
+}
+
+const { team } = Astro.props;
+---
+
+<section class="team-cards py-[100px] bg-cream-300">
+    <div class="container w-[85%] mx-auto">
+
+        <h1>hello world</h1>
+        {team.map( member => {
+            // FIXME: Add TeamCard component and pass member object as props
+            // <TeamCard member={member} />
+
+            // rendering sample list:
+            const {name, position, imagePath, linkedin} = member;
+            <h2>{name}</h2>
+            <p>{position}</p>
+        })}
+    </div>
+</section>
