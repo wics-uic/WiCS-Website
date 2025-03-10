@@ -1,21 +1,90 @@
 ---
 export interface Props {
-    event: { eventName: string; imagePath: string };
+    event: { eventName: string; imagePath: string; eventInfo: string};
 }
 
-const { event: {eventName, imagePath }} = Astro.props;
+const { event: {eventName, imagePath, eventInfo }} = Astro.props;
 ---
 
-<div class="card group flex flex-col items-center text-center max-w-[313px] w-full mx-auto">
-    <img
-        src={imagePath}
-        alt={eventName}
-        class="w-full h-auto sm:h-[400px] 
-           border-15 border-pink-100 rounded-[35px]
-           shadow-[4px_4px_4px_0_rgba(64,64,64,0.5)]
-           cursor-pointer"
-       />
+<div class="cardcontainer card group flex flex-col items-center text-center max-w-[313px] w-full">
+    <div class="cardhover w-full h-auto sm:h-[395px] max-w-md
+    border-15 rounded-[35px] cursor-pointer">
+        <div class="cardhover-inner max-h-sm sm:w-[286px]">
+            <div class="cardhover-front">
+                <img class="w-full h-auto" src={imagePath} alt={eventName}/>
+            </div>
+            <div class="cardhover-back">
+                <p class="text-red-500">{eventInfo}</p>
+            </div>
+        </div>
+        
+    </div>
+    
     <h3 class="event-name font-['Raleway'] font-semibold text-2lg sm:text-2xl lg:text-2xl
-              pt-4 text-red-500 whitespace-pre-line cursor-pointer
-              transition delay-60 duration-140 ease-in-out group-hover:text-red-500"> {eventName}</h3>
+            pt-4 text-red-500 whitespace-pre-line cursor-pointer
+            transition delay-60 duration-140 ease-in-out group-hover:text-red-500"> {eventName}</h3>
 </div>
+
+<style>
+    .cardhover {
+        background-color: var(--color-cream-100);
+        transition-duration: 0.5s;
+        perspective: 1000px;
+    }
+    .cardhover-inner {
+        position: relative;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+    .cardhover:hover {
+        background-color: var(--color-teal-100);
+        transition-duration: 0.5s;
+    }
+    .cardhover:hover .cardhover-inner {
+        transform: rotateY(180deg);
+    }
+    .cardhover-front, .cardhover-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .cardhover-back {
+        color: var(--text-red-500);
+        transform: rotateY(180deg);
+    }
+
+    .cardcontainer {
+        color: var(--color-pink-100);
+        transition-duration: 0.1s;
+    }
+    .cardcontainer:hover {
+        color: var(--color-teal-200);
+        transition-duration: 0.1s;
+    }
+    #cardcover-text {
+        color: var(--text-red-500);
+    }
+
+    /*
+    .cardhover {
+        color: var(--color-pink-100);
+        transition-duration: 0.5s;
+    }
+    .cardhover:hover {
+        color: var(--color-teal-200);
+        transition-duration: 0.5s;
+    }
+    .cardhover img {
+        opacity: 100%;
+        transition-duration: 0.5s;
+    }
+    .cardhover:hover img {
+        opacity: 0%;
+        transition-duration: 0.5s;
+    }
+    */
+
+</style>

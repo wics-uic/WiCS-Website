@@ -5,13 +5,12 @@ import CardPopUp from "../components/CardPopUp.astro"
 
 
 const sampleEvents = [
-    { eventName: 'Wired:\nWiCS Dev Project', imagePath: '/src/assets/Group80.png' },
-    { eventName: 'Aspire to Inspire:\nMentorship Program', imagePath: '/src/assets/Group80.png' },
-    { eventName: 'Women in\nTech Week', imagePath: '/src/assets/Group80.png' }
+    { eventName: 'Wired:\nWiCS Dev Project', imagePath: '/src/assets/Group80.png', eventInfo: 'Text1' },
+    { eventName: 'Aspire to Inspire:\nMentorship Program', imagePath: '/src/assets/Group80.png', eventInfo: 'Text2' },
+    { eventName: 'Women in\nTech Week', imagePath: '/src/assets/Group80.png', eventInfo: 'Text3' }
 ];
 ---
 
 <Layout>
     <CardsPage events={sampleEvents}/>
-    <CardPopUp eventInfo="This semester long project allows particpants to collaborate in teams to design and develop a website, providing a hands-on opportunity to enhance technical skills and gain real-world experience."/>
 </Layout>
