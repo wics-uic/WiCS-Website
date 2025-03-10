@@ -1,34 +1,9 @@
 ---
-// UpcomingEvents.astro
-// Import any necessary components or data here
+import EventCard from "./EventCard.astro";
 ---
 
 <section class="upcoming-events">
   <div class="wave-background">
-    <!-- 
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 320"
-      class="wave wave-top"
-    >
-      <path
-        fill="#ffebee"
-        d="M0,192L80,181.3C160,171,320,149,480,149.3C640,149,800,171,960,176C1120,181,1280,171,1360,165.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-      ></path>
-    </svg>
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 320"
-      class="wave wave-bottom"
-    >
-      <path
-        fill="#ffebee"
-        fill-opacity="0.7"
-        d="M0,64L60,69.3C120,75,240,85,360,122.7C480,160,600,224,720,245.3C840,267,960,245,1080,213.3C1200,181,1320,139,1380,117.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
-      ></path>
-    </svg>
-  -->
     <img
       src="/cloud1.png"
       alt="Test cloud 1"
@@ -47,30 +22,28 @@
     <h2>Upcoming Events</h2>
 
     <div class="events-container">
-      <!-- Event 1 -->
       <div class="event-card">
-        <h3>Intro to UI/UX Design -- Pixel Perfect: Personal Website Series</h3>
-        <ul>
-          <li>Location: WICS Lounge</li>
-          <li>Time: Thursday, Feb 20th | 4:00 PM - 5:00 PM</li>
-        </ul>
-      </div>
-      <!-- Event 2 -->
-      <div class="event-card">
-        <h3>Design Your Website -- Pixel Perfect: Personal Website Series</h3>
-        <ul>
-          <li>Location: WICS Lounge</li>
-          <li>Time: Thursday, Feb 27th | 4:00 PM - 5:00 PM</li>
-        </ul>
+        <EventCard
+          title="Intro to UI/UX Design -- Pixel Perfect: Personal Website Series"
+          location="WICS Lounge"
+          time="Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+        />
       </div>
 
-      <!-- Event 3 -->
       <div class="event-card">
-        <h3>Build Your Website -- Pixel Perfect: Personal Website Series</h3>
-        <ul>
-          <li>Location: WICS Lounge</li>
-          <li>Time: Thursday, Mar 6th | 4:00 PM - 5:00 PM</li>
-        </ul>
+        <EventCard
+          title="Design Your Website -- Pixel Perfect: Personal Website Series"
+          location="WICS Lounge"
+          time="Thursday, Feb 27th | 4:00 PM - 5:00 PM"
+        />
+      </div>
+
+      <div class="event-card">
+        <EventCard
+          title="Build Your Website -- Pixel Perfect: Personal Website Series"
+          location="WICS Lounge"
+          time="Thursday, Mar 6th | 4:00 PM - 5:00 PM"
+        />
       </div>
     </div>
   </div>
@@ -164,7 +137,7 @@
   .events-container {
     background-color: #fdcbcd;
     border-radius: 25px;
-    padding: 1.5rem;
+    padding: 2rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   }
 
@@ -172,12 +145,14 @@
     background-color: #fff7ed;
     border-radius: 15px;
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     box-shadow: 0 4px 1px rgba(0, 0, 0, 1);
     transition:
       background-color 0.3s ease,
       transform 0.3s ease,
       box-shadow 0.3s ease;
+    font-family: "Raleway";
+    color: #944029;
   }
 
   .event-card:hover {
@@ -190,14 +165,6 @@
     margin-top: 0;
     margin-bottom: 0.75rem;
     font-family: "Raleway";
-  }
-
-  .event-card ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-    font-family: "Raleway";
-    color: #944029;
   }
 
   .event-card li {
