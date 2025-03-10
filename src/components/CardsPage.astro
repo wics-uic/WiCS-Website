@@ -2,18 +2,24 @@
 import Card from './Card.astro';
 import '../styles/global.css';
 
-export interface Props {
-    events: Array<{imagePath: string; eventName: string }>;
-}
+// export interface Props {
+//     events: Array<{imagePath: string; eventName: string }>;
+// }
 
-const { events } = Astro.props;
+// const { events } = Astro.props;
+
+const sampleEvents = [
+    { eventName: 'Wired:\nWiCS Dev Project', imagePath: '/src/assets/cards/devproject.svg', eventInfo: 'Text1' },
+    { eventName: 'Aspire to Inspire:\nMentorship Program', imagePath: '/src/assets/cards/picnic.svg', eventInfo: 'Text2' },
+    { eventName: 'Women in\nTech Week', imagePath: '/src/assets/cards/scavenger.svg', eventInfo: 'Text3' }
+];
 ---
 
 <section class="cards-page py-[400px] bg-cream-300">
     <div class="container w-[70%] mx-auto">
         <h1 class="cards-header text-center lg:text-left text-4xl sm:text-5xl md:text-6xl lg:text-[64px] text-red-500 font-['Lora'] font-bold">Get Involved!</h1>
         <div class="cards flex flex-wrap gap-12 md:gap-10 2xl:gap-5 justify-center pt-[65px]">
-            {events.map((event) => (
+            {sampleEvents.map((event) => (
                 <Card event={event} />
             ))}
         </div>
