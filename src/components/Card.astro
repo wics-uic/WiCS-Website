@@ -1,14 +1,16 @@
 ---
 export interface Props {
-    event: { eventName: string; imagePath: string; eventInfo: string};
+    event: { 
+        eventName: string; 
+        imagePath: string; 
+        eventInfo: string};
 }
 
 const { event: {eventName, imagePath, eventInfo }} = Astro.props;
 ---
 
 <div class="cardcontainer card group flex flex-col items-center text-center max-w-[313px] w-full">
-    <div class="cardhover w-full h-auto sm:h-[395px] max-w-md
-    border-15 rounded-[35px] cursor-pointer">
+    <div class="cardhover w-full h-auto sm:h-[395px] max-w-md rounded-[35px] cursor-pointer">
         <div class="cardhover-inner max-h-sm sm:w-[286px]">
             <div class="cardhover-front">
                 <img class="w-full h-auto" src={imagePath} alt={eventName}/>
