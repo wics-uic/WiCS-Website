@@ -16,6 +16,7 @@ import "../styles/global.css";
                     <!-- <a href="#" class="linkedin">
                         <i class="fab fa-linkedin-in"></i>
                     </a> -->
+                    <div class="border"></div>
                 </div>
             </div>
         </div>
@@ -31,9 +32,11 @@ import "../styles/global.css";
                     <!-- <a href="#" class="linkedin">
                         <i class="fab fa-linkedin-in"></i>
                     </a> -->
+                    <div class="border"></div>
                 </div>
             </div>
         </div>
+
 
         <div class="row">
             <div class="column">
@@ -46,10 +49,28 @@ import "../styles/global.css";
                     <!-- <a href="#" class="linkedin">
                         <i class="fab fa-linkedin-in"></i>
                     </a> -->
+                    <div class="border"></div>
                 </div>
             </div>
         </div>
-    
+
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <!-- <img src=""> -->
+                    <div class="info">
+                        <div class="name">Name</div>
+                        <div class="position">Position</div>
+                    </div>
+                    <!-- <a href="#" class="linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a> -->
+                    <div class="border"></div>
+                </div>
+            </div>
+        </div>
+
     </section>
 </body>
 
@@ -88,6 +109,7 @@ import "../styles/global.css";
         align-items: center;
         justify-content: flex-end;
         position: relative;
+        overflow: hidden;
     }
 
     .info{
@@ -104,16 +126,21 @@ import "../styles/global.css";
         font-weight: bold;
     }
 
-    @media (max-width: 768px){
-        .column{
-            flex: 1 1 calc(50% - 20px);
-        }
+    .border{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 75px;
+      background: rgba(255,255,255,0.7);
+      opacity: 0;
+      transition:opacity 0.3s ease;
+      outline: none;
+      border: none;
     }
 
-    @media (max-width: 480px){
-        .column{
-            flex: 1 1 100%;
-        }
+    .card:hover .border{
+      opacity: 1;
     }
 
 </style>
