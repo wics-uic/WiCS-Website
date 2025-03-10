@@ -1,20 +1,22 @@
 ---
-const { member: {name, position, imagePath, linkedin} } = Astro.props;
+const { member: { name, position, imagePath, linkedin } } = Astro.props;
 ---
 
-<div class="card relative w-[360px] h-[410px] mx-[20px] my-[50px] rounded-[35px] border-18 border-pink-100 shadow-[0_4px_4px_0_rgba(64,64,64,0.5)]">
-    <div class="relative w-full h-full overflow-hidden rounded-[17px]">
-        {imagePath && (
-            <img src={imagePath} alt={name} class="absolute inset-0 w-full h-full object-cover z-0" onerror="this.style.display='none';" />
-        )}        
-        <div class="absolute bottom-0 left-0 w-full h-[75px]
-            bg-[rgba(255,255,255,0.7)] z-10"></div>
-        <div class="info absolute bottom-0 left-0 w-full px-4 py-3 z-20 text-red-500 font-raleway">
-            <div class="name font-semibold text-lg">{name}</div>
-            <div class="position text-lg">{position}</div>
+
+<div class="card w-[350px] h-[400px] mx-[20px] my-[50px] rounded-[35px] border-18 border-pink-100 shadow-[0_4px_4px_0_rgba(64,64,64,0.5)] flex flex-col">
+    {imagePath && (
+        <div class="w-full h-[325px] overflow-hidden rounded-t-[17px] flex-grow">
+            <img src={imagePath} alt={name} class="w-full h-full object-cover" onerror="this.style.display='none';" />
         </div>
-        <a href={linkedin} class="linkedin absolute bottom-2 right-2 p-4 z-30">
-            <i class="fab fa-linkedin-in text-[1.5em] text-pink-500"></i>
-        </a>
+    )}
+    <div class="flex flex-col w-full mt-auto bg-[rgba(255,255,255,0.5)] px-4 py-2 text-red-500 font-raleway">
+        <div class="name font-semibold text-lg leading-tight">{name}</div>
+        <div class="position text-lg leading-tight">{position}</div>
+
+        <div class="flex justify-end w-full px-4 pt-1">
+            <a href={linkedin} class="linkedin p-2">
+                <i class="fab fa-linkedin-in text-[1.5em] text-pink-500"></i>
+            </a>
+        </div>
     </div>
 </div>
