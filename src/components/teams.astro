@@ -1,0 +1,119 @@
+---
+import "../styles/global.css";
+---
+
+
+<body>
+    <section>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <!-- <img src=""> -->
+                    <div class="info">
+                        <div class="name">Name</div>
+                        <div class="position">Position</div>
+                    </div>
+                    <!-- <a href="#" class="linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <!-- <img src=""> -->
+                    <div class="info">
+                        <div class="name">Name</div>
+                        <div class="position">Position</div>
+                    </div>
+                    <!-- <a href="#" class="linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <!-- <img src=""> -->
+                    <div class="info">
+                        <div class="name">Name</div>
+                        <div class="position">Position</div>
+                    </div>
+                    <!-- <a href="#" class="linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    
+    </section>
+</body>
+
+
+
+<style>
+
+    body{
+        background-color: #fcfaf2;
+    }
+
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .column {
+        flex: 1 1 calc(33.33% - 20px)
+        max-width: calc(33.33% - 20px);
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        background-color: #FDCBCD;
+        border-radius: 10px;
+        margin: 20px auto;
+        padding: 20px;
+        height: 250px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    .info{
+        position: absolute
+        bottom: 10px;
+        left: 10px;
+        text-align: left;
+        color: #a95c5d;
+        width: 100%;
+    }
+
+    .name{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px){
+        .column{
+            flex: 1 1 calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 480px){
+        .column{
+            flex: 1 1 100%;
+        }
+    }
+
+</style>
