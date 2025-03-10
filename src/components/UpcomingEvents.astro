@@ -1,5 +1,20 @@
 ---
 import EventCard from "./EventCard.astro";
+import "../styles/global.css";
+
+const events = [
+  {
+    Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
+    Location: "WICS Lounge",
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+  },
+  {
+    Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
+    Location: "WICS Lounge",
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+  },
+]
+
 ---
 
 <section class="upcoming-events">
@@ -22,7 +37,15 @@ import EventCard from "./EventCard.astro";
     <h2>Upcoming Events</h2>
 
     <div class="events-container">
-      <div class="event-card">
+      {
+      events.map((event) => (
+        <div class="event-card">
+<EventCard title={event.Title} location={event.Location} time={event.Time}/>
+        </div>
+        
+      ))
+      }
+      <!-- <div class="event-card">
         <EventCard
           title="Intro to UI/UX Design -- Pixel Perfect: Personal Website Series"
           location="WICS Lounge"
@@ -44,7 +67,7 @@ import EventCard from "./EventCard.astro";
           location="WICS Lounge"
           time="Thursday, Mar 6th | 4:00 PM - 5:00 PM"
         />
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
