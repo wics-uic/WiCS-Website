@@ -13,59 +13,74 @@ import Nav3 from '../components/nav3.astro';
     <Nav3/>
 
     <!-- Add Header Here -->
+    <div class="space-y-20">
+        <!-- bubble 1 -->
+        <div class="h-auto w-screen flex items-center justify-center py-10 mt-[125px]">
+            <div class="flex items-center gap-45 translate-x-10">
+                <p class="text-xl font-raleway max-w-xs  text-[#944029]">
+                    <strong class="text-3xl font-lora">Co-Host an Event</strong><br><br>
+                    Join us in creating an enriching event experience for the WiCS community! <br><br>
+        
+                    Past Events: <br>
+                    • Company Info Sessions <br>
+                    • Resume Reviews <br>
+                    • Behavioral Interview Tips <br>
+                    -- and more!
+                </p>
+                <img src="src/assets/extra/Group_147.svg" alt="Centered Image" width="300px">
+            </div>
+        </div>
+        <!-- bubble 2 -->
+        <div class="h-auto w-screen flex items-center justify-center py-10">
+            <div class="flex items-center gap-45 translate-x-10">
+                <img src="src/assets/extra/Group_148.svg" alt="Left Aligned Image" width="300px"> <!-- Image moved first -->
+                <p class="text-xl font-raleway max-w-xs text-[#944029]">
+                    <strong class="text-3xl font-lora">Office Tours</strong><br><br>
+                    Does your company have an office in Chicago? We'd love to visit! Whether it's an office tour or an on-site event, we'd be honored to bring our community to you.<br>
+                </p>
+            </div>
+        </div>
+        <!-- bubble 3 -->
+        <div class="h-auto w-screen flex items-center justify-center py-10">
+            <div class="flex items-center gap-45 translate-x-10">
+                <p class="text-xl font-raleway max-w-xs text-[#944029]">
+                    <strong class="text-3xl font-lora ">Sponsor Us</strong><br><br>
+                    WiCS hosts a number of professional and social events, including workshops, socials, and panels, all throughout the academic year. If you are interested in becoming a WiCS sponsor, we'd love to get in touch! </p>
+                <img src="src/assets/extra/Group_149.svg" alt="Centered Image" width="300px">
+            </div>
+        </div>
+        <!-- bubble 4 -->
+        <div class="h-auto w-screen flex items-center justify-center py-10">
+            <div class="flex items-center gap-45 translate-x-10">
+                <img src="src/assets/extra/Group_149.svg" alt="Left Aligned Image" width="300px"> <!-- Image moved first -->
+                <p class="text-xl font-raleway max-w-xs text-[#944029]">
+                    <strong class="text-3xl font-lora ">Talent Pipeline</strong><br><br>
+                    If your company has any open job or internship opportunities, please let us know! We'd be happy to broadcast them to our talented WiCS community.<br>
+                </p>
+            </div>
+        </div>
+    </div>
 
-<!-- bubble 1 -->
-    <div class="h-screen w-screen flex items-center justify-center">
-        <div class="flex items-center gap-20 translate-x-10">
-            <p class="text-xl font-raleway max-w-xs  text-[#944029]">
-                <strong class="text-3xl font-lora">Co-Host an Event</strong><br><br>
-                Join us in creating an enriching event experience for the WiCS community! <br><br>
-    
-                Past Events: <br>
-                • Company Info Sessions <br>
-                • Resume Reviews <br>
-                • Behavioral Interview Tips <br>
-                -- and more!
-            </p>
-            <img src="src/assets/extra/Group_147.svg" alt="Centered Image" width="300px">
-        </div>
-    </div>
-<!-- bubble 2 -->
-    <div class="h-screen w-screen flex items-center justify-center">
-        <div class="flex items-center gap-20 translate-x-10">
-            <img src="src/assets/extra/Group_148.svg" alt="Left Aligned Image" width="300px"> <!-- Image moved first -->
-            <p class="text-xl font-raleway max-w-xs text-[#944029]">
-                <strong class="text-3xl font-lora">Office Tours</strong><br><br>
-                Does your company have an office in Chicago? We'd love to visit! Whether it's an office tour or an on-site event, we'd be honored to bring our community to you.<br>
-            </p>
-        </div>
-    </div>
-<!-- bubble 3 -->
-    <div class="h-screen w-screen flex items-center justify-center">
-        <div class="flex items-center gap-20 translate-x-10">
-            <p class="text-xl font-raleway max-w-xs text-[#944029]">
-                <strong class="text-3xl font-lora ">Sponsor Us</strong><br><br>
-                WiCS hosts a number of professional and social events, including workshops, socials, and panels, all throughout the academic year. If you are interested in becoming a WiCS sponsor, we'd love to get in touch! </p>
-            <img src="src/assets/extra/Group_149.svg" alt="Centered Image" width="300px">
-        </div>
-    </div>
-<!-- bubble 4 -->
-    <div class="h-screen w-screen flex items-center justify-center">
-        <div class="flex items-center gap-20 translate-x-10">
-            <img src="src/assets/extra/Group_149.svg" alt="Left Aligned Image" width="300px"> <!-- Image moved first -->
-            <p class="text-xl font-raleway max-w-xs text-[#944029]">
-                <strong class="text-3xl font-lora ">Talent Pipeline</strong><br><br>
-                If your company has any open job or internship opportunities, please let us know! We'd be happy to broadcast them to our talented WiCS community.<br>
-            </p>
-        </div>
-    </div>
+    <!-- sponsorship packet section -->
+    <div class="h-auto w-screen flex flex-col items-center justify-center bg-pink-50 relative py-10">
+        <!-- cloud images -->
+        <img src="src/assets/extra/cloud.svg" class="absolute max-w-[999px] left-180 top-[-50px]">
+        <img src="src/assets/extra/cloud.svg" class="absolute max-w-[999px] right-180 top-70">
 
-<!-- sponsorship packet -->    
-    <div class="h-screen w-screen flex items-center justify-center">
+        <!-- header -->
         <p class="text-xl text-center font-raleway max-w-xs text-[#944029]">
-            <strong class="text-3xl font-lora ">Sponsorship Packet</strong><br><br>
+            <strong class="text-3xl font-lora">Sponsorship Packet</strong><br><br>
             This document holds everything you need to know about supporting WiCS!<br>
         </p>
+
+        <!-- embedded packet -->
+        <div class="bg-white p-6 rounded-xl shadow-lg mt-10 border-[10px] border-pink-200">
+            <iframe
+                src="https://drive.google.com/file/d/1fV7yT6chA9hZpgsrO8OELi57WrzVJrQo/view?usp=sharing"
+                width="400" height="500"
+                class="rounded-md">
+            </iframe>
+        </div>
     </div>
 
 </body>
