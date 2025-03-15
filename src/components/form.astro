@@ -1,0 +1,76 @@
+---
+
+---
+
+<section class="form-container">
+  <div class="form-inner-div">
+    <h1>Membership Form</h1>
+    <form>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required />
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required />
+
+      <label for="email">Student Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="schoolYear">School Year:</label>
+      <select id="schoolYear" name="schoolYear" required>
+        <option value="Freshman">Freshman</option>
+        <option value="Sophomore">Sophomore</option>
+        <option value="Junior">Junior</option>
+        <option value="Senior">Senior</option>
+      </select>
+
+      <label for="major">Major:</label>
+      <input type="text" id="major" name="major" required />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f1a2ad;
+  }
+  .form-inner-div {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  input, select {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
+  button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: pink;
+  }
+</style>
