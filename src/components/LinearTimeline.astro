@@ -1,0 +1,62 @@
+---
+import HorizontalTimelineCard from "./timelineComponent/HorizontalTimelineCard.astro";
+---
+
+<!-- Background of the component -->
+<div id="container" class="flex flex-row flex-wrap gap-0 overflow-y-auto w-full items-center justify-center items-center h-full bg-cream-300 mb-150">
+
+    <div class="border-l border-8 border-pink-500 rounded-lg h-[calc(100vh-50px)]" ></div>
+
+    <div class="absolute translate-x-15.5 flex flex-col space-y-[-90px] translate-y-[50px]"> 
+
+        <div class="relative left-[150px]">
+            <HorizontalTimelineCard
+                title = "Title here"
+                year = "2015"
+                description="Enter text here"/>
+        </div> 
+        
+            
+        <div class="relative left-[-275px] top-[-20px]"> 
+            <HorizontalTimelineCard
+                title = "Title here"
+                year = "2016"
+                description="Enter text here"
+                isLeft = True/>
+        </div>
+
+        <div class="relative left-[150px]">
+            <HorizontalTimelineCard
+                title = "Title here"
+                year = "2015"
+                description="Enter text here"/>
+        </div> 
+
+        <div class="relative left-[-275px] top-[-20px]"> 
+            <HorizontalTimelineCard
+                title = "Title here"
+                year = "2020"
+                description="Enter text here"
+                isLeft = True/>
+        </div>
+
+        <div class="relative left-[150px]">
+            <HorizontalTimelineCard
+                title = "Title here"
+                year = "2015"
+                description="Enter text here"/>
+        </div> 
+
+        <div class="relative left-[-275px] top-[-20px]"> 
+            <HorizontalTimelineCard
+                title = "Title here"
+                year = "2025"
+                description="Enter text here"
+                isLeft = True/>
+        </div>
+
+    </div>
+    
+    
+
+</div>
