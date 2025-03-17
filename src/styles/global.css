@@ -1,6 +1,6 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
 
 @theme {
   /* Font Family */
@@ -8,6 +8,7 @@
   --font-raleway: "Raleway", sans-serif;
 
   /* Pink Scale */
+  --color-pink-50: #FFE2DE;
   --color-pink-100: #fdcbcd;
   --color-pink-200: #ffbfc5;
   --color-pink-300: #f9bfc0;
