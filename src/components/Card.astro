@@ -9,7 +9,7 @@ export interface Props {
 const { event: {eventName, imagePath, eventInfo }} = Astro.props;
 ---
 
-<div class="cardcontainer card group flex flex-col items-center text-center max-w-[313px] w-full">
+<div class="cardcontainer card group flex flex-col grid grid-rows-3 sm:grid-rows-1 items-center text-center max-w-[313px] w-full">
     <div class="cardhover flex justify-center  w-full h-auto sm:h-[395px] max-w-md rounded-[35px] cursor-pointer">
         <div class="cardhover-inner max-h-sm sm:w-[286px]">
             <div class="cardhover-front">
