@@ -1,11 +1,12 @@
 ---
-const { title, location, time } = Astro.props;
+const { title, location, time, description } = Astro.props;
 ---
 
 <div class="event-card">
-  <h3>{title}</h3>
+  <h3><b>{title}</b></h3>
   <ul>
     <li><strong>Location:</strong>{location}</li>
-    <li><strong>Time: </strong> {time}</li>
+    <li><strong>Time: </strong>{time}</li>
+    <li>{description}</li>
   </ul>
 </div>

@@ -7,17 +7,22 @@ const events = [
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
     Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
+    Description:
+      "We'll guide you through UI/UX principles, moodboarding, and wireframing to help you design a user-friendly website that will impress recruiters. This workshop is perfect for anyone looking to plan their personal site before diving into development!",
   },
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
     Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
-    Description: "...",
+    Description:
+      "We'll guide you through UI/UX principles, moodboarding, and wireframing to help you design a user-friendly website that will impress recruiters. This workshop is perfect for anyone looking to plan their personal site before diving into development!",
   },
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
     Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
+    Description:
+      "We'll guide you through UI/UX principles, moodboarding, and wireframing to help you design a user-friendly website that will impress recruiters. This workshop is perfect for anyone looking to plan their personal site before diving into development!",
   },
 ];
 ---
@@ -39,17 +44,26 @@ const events = [
   </div>
 
   <div class="content">
-    <h2>Upcoming Events</h2>
-
+    <h2><b>Upcoming Events</b></h2>
     <div class="events-container">
       {
-        events.map((event) => (
+        events.map((event, index) => (
           <div class="event-card">
-            <EventCard
-              title={event.Title}
-              location={event.Location}
-              time={event.Time}
-            />
+            <div class="event-image-container">
+              <img
+                src="/event-image.svg"
+                alt="Event Banner"
+                class="event-image"
+              />
+            </div>
+            <div class="event-details">
+              <EventCard
+                title={event.Title}
+                location={event.Location}
+                time={event.Time}
+                description={event.Description}
+              />
+            </div>
           </div>
         ))
       }
@@ -140,24 +154,33 @@ const events = [
   }
 
   .events-container {
+    display: flex;
+    flex-direction: column;
     background-color: #fdcbcd;
     border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: auto;
     padding: 2rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   }
 
   .event-card {
-    background-color: #fff7ed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
     border-radius: 15px;
-    padding: 1.5rem;
+    padding: 20px;
+    max-width: auto;
+    gap: 10px;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 1px rgba(0, 0, 0, 1);
     transition:
       background-color 0.3s ease,
       transform 0.3s ease,
       box-shadow 0.3s ease;
     font-family: "Raleway";
-    color: #944029;
   }
 
   .event-card:hover {
@@ -165,8 +188,50 @@ const events = [
     transform: translateY(-2px);
   }
 
-  .event-card h3 {
+  .event-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff7ed;
+    border-radius: 15px;
+    padding: 0px;
+    max-width: 800px;
+    width: 190px;
+    height: 190px;
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 1);
+  }
+
+  .event-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .event-details {
+    background: #fff7ed;
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 1);
+    border-radius: 15px;
+    padding: 30px 10px;
+    width: auto;
+    height: auto;
+    flex: 1;
+    text-align: left;
     color: #944029;
+  }
+
+  .event-details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+
+  .event-description li {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .event-card h3 {
     margin-top: 0;
     margin-bottom: 0.75rem;
     font-family: "Raleway";
@@ -182,7 +247,6 @@ const events = [
     content: "•";
     position: absolute;
     left: 0;
-    color: #8d6e63;
   }
   .event-card:last-child {
     margin-bottom: 0;
