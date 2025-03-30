@@ -1,17 +1,24 @@
 ---
 import "../styles/global.css";
+
+const { title = "Pages", subheadline = "Subheadline" ,Main = "Main",Email = "Email" } = Astro.props;
+
+
+
+
+
 ---
 <section class="text-[#A95C5D] header w-full h-full background-layer overflow-hidden flex flex-col justify-center items-center flex-text">
     <div class="text-5xl font-lora flex w-26 h-25 justify-center items-center">
-        <h1 class="font-bold text-5xl font-lora">Collaborate</h1>
+        <h1 class="font-bold text-5xl font-lora">{title}</h1>
     </div>
     <div class="font-lora text-[#A95C5D] text-3xl justify-center items-center ">
         <h1 class="text-[#A95C5D] text-center font-lora semi-bold">
-            If your company is interested in partnering with us,
+           {subheadline}
         </h1>
         <h1 class="text-[#A95C5D] text-center font-lora semi-bold">
-            please contact 
-            <a href="mailto:wics-officer@uic.edu" class="underline">wics-officers@uic.edu.</a>
+            {Main}
+            <a href="mailto:wics-officer@uic.edu" class="underline">{Email}</a>
         </h1>
     </div>
 
