@@ -1,52 +1,57 @@
 ---
-import PopUpCard from '../components/timelineComponent/PopUpCard.astro'
+import LeftItem from "./timelineComponent/LeftItem.astro";
+import RightItem from "./timelineComponent/RightItem.astro";
 ---
 
-<!-- Background of the component -->
-<div id="container" class="flex flex-row flex-wrap gap-50 w-full bg-fixed justify-center items-center h-screen bg-cream-300 bg-[url(src/components/timelineComponent/timelinebackground.png)] h-screen w-full bg-no-repeat bg-contain bg-center ">
-    <div class="absolute 2xl:top-[41%] 2xl:left-[10%] xl:top-[42%] xl:left-[10%] lg:top-[43%] lg:left-[10%] md:top-[45%] md:left-[10%] sm:top-[46%] sm:left-[10%]">
-        <PopUpCard 
-        title="Demo Title"
-        year="2015"
-        description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."
-        offsetLocation = 12 
+<body class="bg-cream-300 min-h-screen">
+  <div class="container mx-auto py-12 px-4">
+
+    <div class="relative">
+
+      <!-- Middle line -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-2 rounded-xl bg-pink-100"></div>
+      
+      <!-- Timeline items -->
+      <div class="space-y-8">
+
+        <LeftItem
+        year = "2015"
+        title = "Event Title"
+        description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         />
-    </div>
-    
-    <div class="absolute top-[55%] left-[29%]">
-        <PopUpCard 
-        title="Demo Title"
-        year="2017"
-        description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
-    </div>
+        
+        <RightItem
+        year = "2016"
+        title = "Event Title"
+        description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        />
 
-    <div class="absolute top-[41%] left-[40%] lg:top-[42%] sm:top-[45%]">
-        <PopUpCard 
-        title="Demo Title"
-        year="2016"
-        description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
-    </div>
-    
-    <div class="absolute 2xl:top-[69%] left-[53%] xl:top-[67%] lg:top-[66%] md:top-[62%] sm:top-[59%]">
-        <PopUpCard 
-        title="Demo Title"
-        year="2020"
-        description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
-    </div>
-    
-    <div class="absolute 2xl:top-[35%] left-[74%] xl:top-[37%] lg:top-[38%] md:top-[41%] sm:top-[42%]">
-        <PopUpCard 
-        title="Demo Title"
-        year="2022"
-        description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
-    </div>
+        <LeftItem
+        year = "2017"
+        title = "Event Title"
+        description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+        />
+        
+        <RightItem
+        year = "2020"
+        title = "Event Title"
+        description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        />
 
-    <div class="absolute 2xl:top-[71%] left-[84%] xl:top-[69%] lg:top-[68%] md:top-[63%] sm:top-[60%]">
-        <PopUpCard 
-        title="Demo Title"
-        year="2025"
-        description="Enter the description here. Enter the description here. Enter the description here. Enter the description here."/>
+        <LeftItem
+        year = "2022"
+        title = "Event Title"
+        description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+        />
+        
+        <RightItem
+        year = "2025"
+        title = "Event Title"
+        description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        />
+
+        
+      </div>
     </div>
-
-
-</div>
+  </div>
+</body>
