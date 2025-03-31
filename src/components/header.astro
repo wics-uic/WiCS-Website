@@ -1,11 +1,7 @@
 ---
 import "../styles/global.css";
 
-const { title = "Pages", subheadline = "Subheadline" ,Main = "Main",Email = "Email" } = Astro.props;
-
-
-
-
+const { title = "Pages", subheadline = "Subheadline"} = Astro.props;
 
 ---
 <section class="text-[#A95C5D] header w-full h-full background-layer overflow-hidden flex flex-col justify-center items-center flex-text">
@@ -15,10 +11,6 @@ const { title = "Pages", subheadline = "Subheadline" ,Main = "Main",Email = "Ema
     <div class="font-lora text-[#A95C5D] text-3xl justify-center items-center ">
         <h1 class="text-[#A95C5D] text-center font-lora semi-bold">
            {subheadline}
-        </h1>
-        <h1 class="text-[#A95C5D] text-center font-lora semi-bold">
-            {Main}
-            <a href="mailto:wics-officer@uic.edu" class="underline">{Email}</a>
         </h1>
     </div>
 
