@@ -1,0 +1,101 @@
+---
+import WiCS_Logo_White_Border from '../assets/WiCS_Logo_White_Border.png';
+import instagram_logo from '../assets/instagram_logo.svg';
+import linkedin_logo from '../assets/linkedin_logo.svg';
+import discord_logo from '../assets/discord_logo.svg';
+import bg_footer from '../assets/bg_footer.png';
+import '/src/styles/global.css';
+---
+
+<section class="relative bottom-0 w-full bg-pink-50">
+    <footer class=" bg-pink-500 text-cream-100 bottom-0 flex flex-col">
+
+        <!-- <div class="flex justify-center flex-row m-10 gap-x-20" style=" bg-color:rgb(249,228,224)" > -->
+            <div id="container" class="pt-15 flex justify-evenly flex-row m-10 gap-x-20" >
+                <!-- left side: Wics Image, Name, Social Handles -->
+                <div id="left-content">
+                    <div class="flex flex-row ">
+                        <img src={WiCS_Logo_White_Border.src} alt="WicsLogo" class="w-[110px] h-[110px]">
+                        <h1 class="font-lora font-bold whitespace-pre-line text-5xl pt-5 pl-5 pb-10">Women in 
+                        Computer Science</h1>
+                    </div>
+                    <!--Social Media Handles and its logo-->
+                    <div> 
+                        <ul class="flex flex-row list-none items-center">
+                            <li class="flex flex-row mr-5">
+                                <img src={instagram_logo.src} alt="InstagramLogo" width="20" height="25">
+                                <a href="https://www.instagram.com/wicsatuic/" style="text-decoration: underline" class="pl-1 text-white">Instagram</a>
+                                <span class="pr-2 pl-2">|</span>
+                            </li>
+                            <li class="flex flex-row mr-5">
+                                <img src={linkedin_logo.src} alt="Linkedin" width="20" height="25">
+                                <a href="https://www.linkedin.com/company/women-in-computer-science-uic" class="pl-1 text-white" style="text-decoration: underline">Linkedin</a>
+                                <span class="pr-2 pl-2">|</span>
+                            </li>
+                            <li class="flex flex-row">
+                                <img src={discord_logo.src} alt="DiscordLogo" width="20" height="25">
+                                <a href="https://discord.gg/YUa3dSS8yR" class="pl-1 text-white" style="text-decoration: underline">Discord</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Right Col: List of different Links -->
+                <div class="font-raleway flex flex-row gap-5">
+                    <!-- left links -->
+                    <div>
+                        <ul class="pr-5 ">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#" class="pr-5"></a>
+                            </li>
+                            <li>
+                                <a href="#">Calendar</a>
+                            </li>
+                            <li>
+                                <a href="#">Current Events</a>
+                            </li>
+                            <li>
+                                <a href="#">Past Events</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- right links -->
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="#">Resources</a>
+                            </li>
+                            <li>
+                                <a href="#">Join WiCS</a>
+                            </li>
+                            <li>
+                                <a href="#">Our Team</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Collaborate</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+        <p class="text-center italic pb-15">Copyright © 2025 Women in Computer Science at University of Illinois Chicago</p>
+        </footer>
+</section>
+
+<!-- Copyright section -->
+
+    
+<style>
+
+    footer {
+        border-radius: 100%/200px 200px 0 0;
+    }
+
+</style>
+
+<!--  -->

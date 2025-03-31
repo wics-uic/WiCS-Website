@@ -8,6 +8,7 @@
   --font-raleway: "Raleway", sans-serif;
 
   /* Pink Scale */
+  --color-pink-50: #FFE2DE;
   --color-pink-100: #fdcbcd;
   --color-pink-200: #ffbfc5;
   --color-pink-300: #f9bfc0;
@@ -25,6 +26,6 @@
   --color-cream-200: #fff7ed;
   --color-cream-300: #fff5e8;
 
-  /* Red/Maroon (single shade) */
+  /* Red/Maroon */
   --color-red-500: #944029;
 }
