@@ -1,0 +1,45 @@
+---
+
+---
+
+<section class="bg-pink-50 flex flex-col items-center content-evenly justify-center h-[900vh] max-h-full ">
+    <div class="text-pink-600 form-container text-center w-[500px]">
+        <h2 class="font-bold text-4xl font-lora">Apply for Membership!</h2>
+        <p class="font-lora">Fill out the form below to become an official member of Women in Computer Science at UIC!</p>
+    </div>
+
+    <form class="bg-pink-300 font-lora form-container gap-3 flex flex-col w-[400px] p-7 rounded-3xl">
+        <label class="font-bold text-pink-600 text-xl" for="name">Name (First Last)</label>
+        <input class="text-pink-300 bg-cream-100 rounded-md" type="text" id="name" name="name" value="Type here..." required>
+
+        <label class="font-bold text-pink-600 text-xl" for="year">Year in University</label>
+        <select class="text-pink-300 bg-cream-100 rounded-md" id="year" name="year">
+            <option value="year1">Freshman</option>
+            <option value="year2">Sophmore</option>
+            <option value="year3">Junior</option>
+            <option value="year4">Sentor</option>
+            <option value="grad">Graduate Student</option>
+        </select>
+
+        <label class="font-bold text-pink-600 text-xl" for="major">College Major</label>
+        <select class="text-pink-300 bg-cream-100 rounded-md" id="major" name="major">
+            <option value="cs">Computer Science</option>
+            <option value="ce">Computer Engineering</option>
+            <option value="ds">Data Science</option>
+        </select>
+
+        <label class="font-bold text-pink-600 text-xl" for="email">Email Address</label>
+        <input class="text-pink-300 bg-cream-100 rounded-md" type="email" id="email" name="email" value="Type here..." required>
+
+        <input class="bg-teal-200 text-cream-100 w-[150px] rounded-md" type="button" value="Submit">
+    </form>
+</section>
+
+<style>
+    .form-container {
+        margin-bottom: 1rem;
+    }
+    input, select, form {
+        box-shadow: 2px 2px 5px grey;
+    }
+</style>
