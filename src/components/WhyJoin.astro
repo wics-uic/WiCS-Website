@@ -2,15 +2,20 @@
 
 ---
 
-<section class="bg-cream-100 flex flex-row justify-around">
+<section class="bg-cream-100 flex flex-col sm:flex-row justify-around h-[800px]">
     <div class="left-side text-pink-600 content-center w-[700px]">
         <h2 class="left-text font-bold text-4xl font-lora">Why Join Us?</h2>
         <p class="left-text text-2xl font-lora">As an organization dedicated to fostering diversity and inclusion, WiCS provides a welcoming environment where you can learn, grow, and make a difference.</p>
         <p class="left-text text-2xl font-lora">With us, you'll find mentorship from inspiring women in tech, opportunities to collaborate on exciting projects, and access to technical and career workshops, all supported by an active network of peers.</p>
     </div>
     
-    <div class="right-side w-[400px]">
-        <img src="src/assets/logo.png" alt="WiCS Logo"/>
+    <div class="right-side flex items-center justify-center relative w-[600px]">
+        <div class="flex flex-col items-center">
+            <img class="absolute max-w-sm top-50 right-30" src="src/assets/extra/twostars.svg" alt="stars" />
+            <img class="absolute top-50 right-0 max-w-sm" src="src/assets/extra/cloud.svg" alt="cloud" />
+            <img class="relative max-w-sm" src="src/assets/logo.png" alt="WiCS Logo"/>
+            <img class="absolute bottom-30 left-0 max-w-sm" src="src/assets/extra/cloud.svg" alt="cloud" />
+        </div>
     </div>
 </section>
 
