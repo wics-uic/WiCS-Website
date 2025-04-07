@@ -3,17 +3,25 @@ export interface Props {
     event: { 
         eventName: string; 
         imagePath: string; 
-        eventInfo: string};
+        eventInfo: string;
+        isLast: boolean;
+        isFirst: boolean;};
 }
 
-const { event: {eventName, imagePath, eventInfo }} = Astro.props;
+const { event: {eventName, imagePath, eventInfo, isLast, isFirst }} = Astro.props;
 ---
 
-<div class="cardcontainer card group flex flex-col items-center text-center max-w-[313px] w-full">
+<!-- <div class="cardcontainer card group ">
+
+</div> -->
+<div class="flex flex-col items-center text-center max-w-[313px] w-full">
+
+    {isLast ? <img src="src/assets/cards/twoStars.svg" class=" w-[50px] h-[50px] scale-x-[-1] lg:mt-[-50px] md:mt-[-10px] md:ml-[340px] sm:ml-[340px]"/>: <img></img>}
+
     <div class="cardhover flex justify-center  w-full h-auto sm:h-[395px] max-w-md rounded-[35px] cursor-pointer">
         <div class="cardhover-inner max-h-sm sm:w-[286px]">
             <div class="cardhover-front">
-                <img class="w-full h-auto border-15 border-pink-100 rounded-2xl bg-pink-100" src={imagePath} alt={eventName}/>
+                <img class="w-full h-auto border-15 border-pink-100 rounded-2xl bg-pink-100 shadow-xl" src={imagePath} alt={eventName}/>
             </div>
             <div class="cardhover-back flex items-center p-[15px]">
                 <p class="text-red-500 flex">{eventInfo}</p>
@@ -21,6 +29,8 @@ const { event: {eventName, imagePath, eventInfo }} = Astro.props;
         </div>
         
     </div>
+
+    {isFirst ? <img src="src/assets/cards/oneStar.svg" class=" w-[30px] h-[35px] scale-x-[-1] md:ml-[-400px] sm:ml-[-400px]"/>: <img></img>}
     
     <h3 class="event-name font-['Raleway'] font-semibold text-2lg sm:text-2xl lg:text-2xl
             mt-15 text-red-500 whitespace-pre-line cursor-pointer
