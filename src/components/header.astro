@@ -5,11 +5,11 @@ const { title = "Pages", subheadline = "Subheadline"} = Astro.props;
 
 ---
 <section class="text-[#A95C5D] header w-full h-full background-layer overflow-hidden flex flex-col justify-center items-center flex-text">
-    <div class="text-5xl font-lora flex w-26 h-25 justify-center items-center">
+    <div class="text-5xl font-lora flex h-25 justify-center items-center">
         <h1 class="font-bold text-5xl font-lora">{title}</h1>
     </div>
-    <div class="font-lora text-[#A95C5D] text-3xl justify-center items-center ">
-        <h1 class="text-[#A95C5D] text-center font-lora semi-bold">
+    <div class="font-lora text-[#A95C5D] p-[30px] text-3xl justify-center items-center ">
+        <h1 class="text-[#A95C5D] text-center font-lora semi-bold p-[15px] ">
            {subheadline}
         </h1>
     </div>
@@ -23,7 +23,7 @@ const { title = "Pages", subheadline = "Subheadline"} = Astro.props;
 
 <style>
     .header {
-        background-image: linear-gradient(180deg, #f5d1cc, #fdf6f1);
+        background-image: linear-gradient(180deg, #f5d1cc, #FFF7ED);
         gap: 60px;
     }
 </style>
