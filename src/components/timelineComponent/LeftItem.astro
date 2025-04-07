@@ -1,0 +1,35 @@
+---
+const { year, title, description } = Astro.props
+---
+
+<!-- Left side components -->
+<div class="flex flex-col md:flex-row items-center relative">
+    
+    <!-- Event Description -->
+    <div class="flex flex-row items-center md:w-1/2 md:pr-8 md:text-right order-2 md:order-1">
+
+      <div class="bg-teal-100 p-4 rounded-2xl shadow-md">
+        <div class="bg-cream-100 p-6 rounded-2xl shadow-md">
+            <h3 class="text-xl font-bold text-pink-600">{year}</h3>
+            <h4 class="text-lg font-semibold text-[#4D9999]">{title}</h4>
+            <p class="mt-2 text-red-500">{description}</p>
+        </div>
+      </div>
+
+        <!-- Triangle -->
+        <div class="hidden md:block w-0 h-0 
+            border-t-[10px] border-t-transparent
+            border-l-[15px] border-l-teal-100
+            border-b-[10px] border-b-transparent">
+        </div>
+
+    </div>
+    
+    <!-- Circle -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center z-10">
+        <div class="w-8 h-8 bg-pink-400 rounded-full border-4 border-white"></div>
+    </div>
+
+    <div class="md:w-1/2 md:pl-8 order-1 md:order-2 py-4 md:py-0"><!-- Empty space for right side --></div>
+    
+</div>
