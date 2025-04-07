@@ -11,9 +11,6 @@ export interface Props {
 const { event: {eventName, imagePath, eventInfo, isLast, isFirst }} = Astro.props;
 ---
 
-<!-- <div class="cardcontainer card group ">
-
-</div> -->
 <div class="flex flex-col items-center text-center max-w-[313px] w-full">
 
     {isLast ? <img src="src/assets/cards/twoStars.svg" class=" w-[50px] h-[50px] scale-x-[-1] lg:mt-[-50px] md:mt-[-10px] md:ml-[340px] sm:ml-[340px]"/>: <img></img>}
