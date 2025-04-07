@@ -1,0 +1,24 @@
+---
+import "../styles/global.css";
+const {title, details} = Astro.props;
+---
+
+<section class="background-container flex relative justify-center items-center w-full h-[900px] max-h-full">
+    <img class="h-auto w-[900px] absolute bottom-10 left-0 max-w-lg object-fill" src="src/assets/extra/whitecloud-2.svg" alt="cloud"/>
+
+    <div class="text-pink-600 absolute text-center w-[800px] h-[400px] flex flex-col items-center justify-center">
+        <h1 class="font-bold text-5xl font-lora m-8">{title}</h1>
+        <p class="text-3xl font-lora m-8">{details}</p>
+        <img src="src/assets/extra/button.svg" alt="button" />
+    </div>
+
+    <img class="w-auto absolute bottom-10 right-0 h-auto max-w-3xl max-h-full" src="src/assets/extra/whitecloud-3.svg" alt="cloud"/>
+
+</section>
+
+<style>
+    .background-container {
+        background-image: linear-gradient(180deg, var(--color-pink-100), var(--color-cream-100));
+}
+</style>
+
