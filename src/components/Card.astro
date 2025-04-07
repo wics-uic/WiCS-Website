@@ -29,9 +29,9 @@ const { event: {eventName, imagePath, eventInfo, isLast, isFirst }} = Astro.prop
 
     {isFirst ? <img src="src/assets/cards/oneStar.svg" class=" w-[30px] h-[35px] scale-x-[-1] md:ml-[-400px] sm:ml-[-400px]"/>: <img></img>}
     
-    <h3 class="event-name font-['Raleway'] font-semibold text-2lg sm:text-2xl lg:text-2xl
-            mt-15 text-red-500 whitespace-pre-line cursor-pointer
-            transition delay-60 duration-140 ease-in-out group-hover:text-red-500">{eventName}</h3>
+    <h3 class={`event-name font-['Raleway'] font-semibold text-2lg sm:text-2xl lg:text-2xl
+            mt-15 ${isFirst && 'mt-[25px]'} text-red-500 whitespace-pre-line cursor-pointer
+            transition delay-60 duration-140 ease-in-out group-hover:text-red-500`}>{eventName}</h3>
 </div>
 
 <style>
