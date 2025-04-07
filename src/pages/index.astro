@@ -1,4 +1,5 @@
 ---
+import Timeline from '../components/Timeline.astro';
 import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/nav3.astro';
 import Landing from '../components/landing.astro';
@@ -10,11 +11,13 @@ import UpcomingEvents from '../components/UpcomingEvents.astro';
 ---
 
 <Layout>
-	 <Landing/>
+	<Landing/>
 	<Nav3/>
+	<Timeline/>
     <Mission/>
     <UpcomingEvents/>
     <Cards/>
 	<Social/>
 	<Footer/>
+	
 </Layout>
