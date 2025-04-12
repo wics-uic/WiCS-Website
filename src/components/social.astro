@@ -1,8 +1,16 @@
 ---
 import astroLogo from '../assets/astro.svg';
 import background from '../assets/background.svg';
+import wave from '../assets/extra/wave.svg'
 ---
 
+<div class="relative z-10 flex flex-col items-center gap-10">
+	<img
+	src={wave.src}
+	alt="wave background"
+	class="w-full h-[300px] object-cover"
+	/>
+ </div>
 <section id="container" class="flex flex-col gap-10 w-full justify-center items-center h-screen bg-pink-50">
 
     <h1 class="font-lora font-bold text-6xl text-pink-600">Stay Connected!</h1>
