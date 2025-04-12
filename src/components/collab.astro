@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Nav3 from '../components/nav3.astro';
+import wave from '../assets/extra/wave.svg'
 ---
 <html lang="en">
 <head>
@@ -84,6 +85,14 @@ import Nav3 from '../components/nav3.astro';
             </div>
         </div>
     </div>
+    
+    <div class="relative z-10 flex flex-col items-center gap-10">
+        <img
+        src={wave.src}
+        alt="wave background"
+        class="w-full h-[300px] object-cover"
+        />
+     </div>
 
     <!-- sponsorship packet section -->
     <div class="h-auto w-screen flex flex-col items-center justify-center bg-pink-50 relative py-10">
