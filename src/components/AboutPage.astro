@@ -1,0 +1,121 @@
+---
+import "../styles/global.css";
+---
+<html lang="en">
+<head>
+    <!-- Head -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#fff7ed]">
+    <div class="flex flex-col items-center text-center px-6">
+        <!-- What is WiCS -->
+        <div class="relative w-[340px] h-[230px] mb-10">
+            <img src="src/assets/about/bubble.svg" class="absolute top-0 left-0 w-full h-full" />
+            <img src="src/assets/about/about1.svg" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]" />
+        </div>
+
+        <p class="text-lg max-w-xl font-medium font-raleway text-[#944029]">
+            <strong class="text-3xl font-lora">What is WiCS?</strong><br><br>
+            WiCS (Women in Computer Science) at UIC is a student-led organization dedicated to empowering women and
+            non-binary students in tech. We provide a supportive community through mentorship, technical workshops,
+            networking events, and professional development opportunities to help our members thrive in the field of tech.<br>
+        </p>
+    </div>
+
+    <!-- WiCS Lounge -->
+    <div class="h-auto w-screen flex flex-wrap flex-col items-center justify-center relative py-10 overflow-hidden">
+        <div class="w-full">
+            <img
+            src="src/assets/about/wave1.svg" 
+            alt="top wave background"
+            class="w-full h-auto object-cover block"
+            />
+        </div>
+
+        <div class="h-auto w-screen flex flex-wrap flex-col items-center justify-center bg-pink-50 relative py-10 overflow-hidden">
+            <!-- cloud images -->
+            <img src="src/assets/extra/cloud.svg" class="absolute w-[500px] bottom-[-100px] left-[-60px] z-0 object-cover block">
+            <img src="src/assets/extra/cloud.svg" class="absolute w-[500px] top-[-60px] right-[-60px] z-0 object-cover block">
+            <img
+                src="src/assets/extra/twostars.svg"
+                alt="two stars"
+                class="absolute w-[30px] top-[30px] left-[290px] z-0 object-cover block"
+            />
+
+            <div class="flex flex-wrap items-center gap-x-20 gap-y-6">
+                <div class="relative w-[350px] h-[350px]">
+                    <img src="src/assets/about/about2.svg" class="absolute top-0 left-0 w-full h-full">
+                </div>
+
+                <p class="text-xl font-medium font-raleway max-w-xs text-[#944029]">
+                    <strong class="text-3xl font-lora overflow-hidden">The WiCS Lounge</strong><br><br>
+                    Located inside the CS Lounge in SELE 2268, the WiCS Lounge is a dedicated space 
+                    for all WiCS members to study, collaborate, or just hang out in a welcoming environment. 
+                    Whether you need a quiet spot to work, a place to meet other members, or just want to take a break,
+                     the lounge is always open for you!<br>
+                </p>
+            </div>
+        </div>
+
+        <div class="w-full">
+            <img
+            src="src/assets/about/wave2.svg" 
+            alt="bottom wave background"
+            class="w-full h-auto object-cover block"
+            />
+         </div>
+    </div>
+
+    <!-- Reach out to an alumni -->
+    <div class="h-auto w-screen flex flex-wrap justify-center gap-x-24 gap-y-10 py-10 mt-[125px] px-6">
+        <div class="flex flex-wrap items-center gap-x-20 gap-y-6">
+            <p class="text-xl font-medium font-raleway max-w-xs text-[#944029]">
+                <strong class="text-3xl font-lora">Reach Out To An Alumni</strong><br><br>
+                Stay connected with WiCS alumni who have ventured into various areas of tech! 
+                Whether you're looking for career advice, industry insights, or networking opportunities, 
+                feel free to reach out to our alumni.<br><br>
+            </p>
+        </div>
+
+        <!-- Linkedin buttons -->
+        <div class="flex flex-col space-y-6">
+            <!-- button 1 -->
+            <a href="https://www.linkedin.com/in/fhuang113/" target="_blank"
+               class="flex justify-between items-center bg-[#fdcbcd] text-white rounded-2xl shadow-md px-6 py-4 w-[320px] hover:shadow-lg transition">
+                <div>
+                    <p class="font-bold font-lora text-[#944029]">Flora Huang</p>
+                    <p class="text-sm font-bold text-white">Software Engineer, Atlassian<br>
+                        Past Role: Web Administrator
+                    </p>
+                </div>
+                <img src="src/assets/linkedin_logo.svg" alt="LinkedIn" class="w-6 h-6" />
+            </a>
+    
+            <!-- button 2 -->
+            <a href="https://www.linkedin.com/in/omotola-elujulo/" target="_blank"
+               class="flex justify-between items-center bg-[#fdcbcd] text-white rounded-2xl shadow-md px-6 py-4 w-[320px] hover:shadow-lg transition">
+                <div>
+                    <p class="font-bold font-lora text-[#944029]">Omotola Elujulo</p>
+                    <p class="text-sm font-bold text-white">Software Engineer, Microsoft<br>
+                        Past Role: Vice President
+                    </p>
+                </div>
+                <img src="src/assets/linkedin_logo.svg" alt="LinkedIn" class="w-6 h-6" />
+            </a>
+    
+            <!-- button 3 -->
+            <a href="https://www.linkedin.com/in/sahaja-reddyp/" target="_blank"
+               class="flex justify-between items-center bg-[#fdcbcd] text-white rounded-2xl shadow-md px-6 py-4 w-[320px] hover:shadow-lg transition">
+                <div>
+                    <p class="font-bold font-lora text-[#944029]">Sahaja P.</p>
+                    <p class="text-sm font-bold text-white">Software Engineer, Google<br>
+                        Past Role: Vice President
+                    </p>
+                </div>
+                <img src="src/assets/linkedin_logo.svg" alt="LinkedIn" class="w-6 h-6" />
+            </a>
+        </div>
+    </div>
+    
+</body>
