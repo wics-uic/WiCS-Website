@@ -1,5 +1,4 @@
 <body>
-
     <div class="card">
         <div class="search">
             <input type="text" placeholder="enter city name" spellcheck="false">
@@ -13,7 +12,7 @@
         <div class="weather">
 
             <img src="src/assets/weather-images/rain.png" class="weather-icon">
-            <h1 class="temp">22c</h1>
+            <h1 class="temp">22°c</h1>
             <h2 class="city">Chicago</h2>
 
             <div class="details">
@@ -40,7 +39,7 @@
 
 <script>
     const API_KEY = "315162c22a7656116cbad3b7a28fcf25";
-    const API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=315162c22a7656116cbad3b7a28fcf25";
+    const API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric";
     // &q=${city}
 
     const searchBox = document.querySelector(".search input");
@@ -49,7 +48,7 @@
     
 
     async function checkWeather(city) {
-        const response = await fetch(API_URL + city);
+        const response = await fetch(`${API_URL}&appid=${API_KEY}&q=${city}`);
         
         if (response.status == 404) {
             document.querySelector(".error").style.display = "block";
@@ -64,10 +63,10 @@
 
         // data from json file 
         document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "*C";
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
-
+        // change icon 
         if(data.weather[0].main == "Clouds") {
             weatherIcon.src = "src/assets/weather-images/clouds.png";
         }
@@ -83,10 +82,10 @@
         else if(data.weather[0].main == "Mist") {
             weatherIcon.src = "src/assets/weather-images/mist.png";
         }
-
-        document.querySelector(".weather").style.display = "block";
-        document.querySelector(".error").style.display = "none";
-    }
+            document.querySelector(".weather").style.display = "block";
+            document.querySelector(".error").style.display = "none";  
+       
+        }
     }
     searchBtn.addEventListener("click", ()=> {
         checkWeather(searchBox.value);
@@ -103,7 +102,8 @@
     }
 
     body {
-        background: #222;
+        /* background: #222; */
+        background: white;
     }
 
     .card {

@@ -1,15 +1,19 @@
 <body>
     <div class="card">
-        <div class="item weather-icon">
-            <p class="title">Rainy</p>
-            <img class="icon" src="src/assets/weather-images/rain.png">
+        <div class="weather">
+            <div class="description">
+                Snowy
+            </div>
+            <img src="src/assets/weather-images/snow.png" class="weather-icon">
+        </div>
+        <div class="seperator">
 
         </div>
-        <div class="item weather-info">
-            <h3>New York, USA</h3>
-            <p>Monday</p>
-            <h1>22*</h1>
-            <h2>71.6 F</h2>
+        <div class="weather-info">
+            <div class="location">New York, USA</div>
+            <div class="description">Monday</div>
+            <div class="temp">22°C</div>
+            <div class="degree">71.6 F</div>
         </div>
     </div>
 </body>
@@ -41,68 +45,47 @@
 
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        box-sizing: border-box;
-    }
-    .card {
-        /* width: 90%;
-        max-width: 470px;
-        background: purple;
-        color: white; */
-        /* background: linear-gradient(135deg, #5b548a, #5b548a) */
-        background-color: plum;
-        color: white;
-        border-radius: 5px;
+   * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    color: white;
+   }
+   .card {
+    width: 90%;
+    max-width: 600px;
+    max-height: 300px;
+    background: plum;
+    margin: 100px auto 0;
+    border-radius: 5px;
 
-        display: flex;
-        align-items: center;
-        /* justify-content: space-evenly; */
-        gap: 1rem;
-        width: 70%;
-        max-width: 700px;
-        margin: 2rem auto;
-    }
-    /* .item {
-        flex: 1;
-    } */
-    .card:before {
-        content: "";
-        border: 1px solid #d3d3d3;
-        align-self: stretch;
-    }
-   
-
-    .weather-icon {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        /* padding: 10px 30px; */
-
-        order: -1;
-    }
-    .title {
-        /* display:flex; */
-        justify-content: flex-start;
-    }
-    .icon {
-        /* display: flex; */
-        justify-content: flex-end;
-    }
+    display: flex;
+    justify-content: flex-end;
     
-    .weather-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        /* padding: 10px 30px; */
-    }
-    /* mobile line direction change */
-    @media (min-width: 700px) {
-        .section {
-            align-items: center;
-            flex-direction: row;
-        }
-    }
+   }
+   .weather {
+
+   }
+   .seperator {
+    width: 1px;
+    height: 170px;
+    margin: auto 0;
+    background-color: white;
+   }
+   .weather-info {
+    padding: top
+   }
+
+   .location {
+    font-size: 18px;
+    font-weight: 600;
+   }
+   .description {
+
+   }
+   .temp {
+    font-size: 22px;
+    font-weight {}
+   }
 </style>
