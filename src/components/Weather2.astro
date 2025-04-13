@@ -21,31 +21,6 @@
     </div>
 </body>
 
-<script>
-    const API_KEY = "315162c22a7656116cbad3b7a28fcf25";
-    const API_URL = "https://api.openweathermap.org/data/2.5/weather?q=Chicago&units=metric&appid=315162c22a7656116cbad3b7a28fcf25";
-
-    const weatherIcon = document.querySelector(".weather-icon");
-
-    async function checkWeather(city) {
-        const response = await fetch(API_URL + city);
-
-        if (response.status = 404) {
-            document.querySelector(".error").style.display = "block";
-            document.querySelector(".weather").style.display = "none";
-        }
-        else {
-            var data = await response.json();
-        }
-
-        // display on console
-        console.log(data);
-
-
-    }
-</script>
-
-
 
 <style>
    * {
