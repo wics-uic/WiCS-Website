@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+---
+<section class="bg-pink-50 relative flex flex-col items-center content-evenly justify-center h-[150vh] max-h-5xl ">
+    <div class="left-components absolute bottom-0 left-0">
+        <img class="w-[600px] max-w-full" src="src/assets/extra/cloud-2.svg" alt="cloud" />
+    </div>
+
+    <div class="right-components top-0 right-0 absolute">
+        <img class="w-[600px] max-w-full" src="src/assets/extra/cloud-3.svg" alt="cloud" />
+    </div>
+
+    <div class="middle-components justify-center absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center">
+        <form class="bg-pink-300 font-lora form-container flex flex-col justify-between h-[700px] w-[500px] p-7 rounded-3xl">
+            <div class="flex flex-col gap-3">
+                <label for="firstName" class="font-bold text-pink-600 text-xl">Name (First)</label>
+                <input class="text-pink-300 font-raleway italic rounded-2xl h-[50px] p-3 bg-cream-100" type="text" name="firstName" id="firstName" value="Type here..." required>
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="lastName" class="font-bold text-pink-600 text-xl">Name (Last)</label>
+                <input class="text-pink-300 font-raleway italic rounded-2xl h-[50px] p-3 bg-cream-100" type="text" name="lastName" id="lastName" value="Type here..." required>
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="email" class="font-bold text-pink-600 text-xl">Email</label>
+                <input class="text-pink-300 font-raleway italic rounded-2xl h-[50px] p-3 bg-cream-100" type="email"  name="email" id="email" value="Type here..." required>
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="feedback" class="font-bold text-pink-600 text-xl">Suggestion</label>
+                <input class="text-pink-300 font-raleway italic rounded-2xl h-[50px] p-3 bg-cream-100" type="text" name="feedback" id="feedback" value="Type here..." required>
+            </div>
+
+            <button type="submit" class="text-cream-100 h-[40px] w-[150px] font-bold font-raleway rounded-xl bg-pink-600 hover:bg-pink-700">
+                Submit
+            </button>
+        </form>
+    </div>
+</section>
+
+<script>
+    const form = document.querySelector('form'); //Grabs the form data
+    if(form){
+        form.addEventListener('submit', async event => {
+            event.preventDefault();
+            try{
+                const data = new FormData(event.target as HTMLFormElement);
+                const value = Object.fromEntries(data.entries()); //converts to Json Object
+                form.reset();
+                //console.log("Sending this to backend:", value);
+                //console.log(JSON.stringify(value));
+
+                //Send data to the backend (sheets.ts)
+                const response = await fetch('/api/sheets', {
+                    method: 'Post', //Secure
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(value) //Converts the object into JSON String, send to the server
+                });
+            }
+            catch (error){
+                console.error("Submission Form Error: ", error);
+            }
+        });
+    }
+</script>
+
