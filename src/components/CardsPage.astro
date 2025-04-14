@@ -1,6 +1,7 @@
 ---
 import Card from './Card.astro';
 import '../styles/global.css';
+import { fade } from 'astro:transitions';
 
 // export interface Props {
 //     events: Array<{imagePath: string; eventName: string }>;
@@ -9,16 +10,19 @@ import '../styles/global.css';
 // const { events } = Astro.props;
 
 const sampleEvents = [
-    { eventName: 'Wired:\nWiCS Dev Project', imagePath: '/src/assets/cards/devproject.svg', eventInfo: 'Join the WiCS Dev Project and get involved in a community of fellow programmers. Hone your technical skills while also getting the change to connect with other students.' },
-    { eventName: 'Aspire to Inspire:\nMentorship Program', imagePath: '/src/assets/cards/picnic.svg', eventInfo: 'Be part of a program that helps CS students with career and academic advice. Underclassmen are paired with mentors for weekly meetings and a long-term connection to ask questions.' },
-    { eventName: 'Women in\nTech Week', imagePath: '/src/assets/cards/scavenger.svg', eventInfo: 'The Women in Tech Week has everything! From workshops to a final scavenger hunt at the very end, this annual event is for CS students with all levels of experience!' }
+    { eventName: 'Wired:\nWiCS Dev Project', imagePath: '/src/assets/cards/devproject.svg', eventInfo: 'Join the WiCS Dev Project and get involved in a community of fellow programmers. Hone your technical skills while also getting the change to connect with other students.', isLast: false, isFirst: true },
+    { eventName: 'Aspire to Inspire:\nMentorship Program', imagePath: '/src/assets/cards/picnic.svg', eventInfo: 'Be part of a program that helps CS students with career and academic advice. Underclassmen are paired with mentors for weekly meetings and a long-term connection to ask questions.', isLast: false, isFirst: false },
+    { eventName: 'Women in\nTech Week', imagePath: '/src/assets/cards/scavenger.svg', eventInfo: 'The Women in Tech Week has everything! From workshops to a final scavenger hunt at the very end, this annual event is for CS students with all levels of experience!', isLast: true, isFirst: false }
 ];
 ---
 
-<section class="cards-page py-[400px] bg-cream-100">
-    <div class="container mx-auto">
-        <h1 class="flex cards-header justify-center text-center lg:text-left text-4xl sm:text-5xl md:text-6xl lg:text-[64px] text-red-500 font-['Lora'] font-bold">Get Involved!</h1>
-        <div class="cards flex flex-wrap gap-12 md:gap-10 2xl:gap-5 justify-center pt-[65px]">
+<section class="cards-page py-[400px] bg-cream-300">
+
+    <div class="flex flex-col p-0 container mx-auto">
+        <h1 class="flex cards-header justify-center text-center lg:text-left text-4xl sm:text-5xl md:text-6xl lg:text-[64px] text-red-500 font-['Lora'] font-bold">
+            Get Involved!
+        </h1>
+        <div class="cards flex flex-wrap m-0 sm:gap-10 gap-1 md:gap-10 2xl:gap-5 justify-center pt-[65px]">
             {sampleEvents.map((event) => (
                 <Card event={event} />
             ))}
