@@ -1,0 +1,24 @@
+---
+const { member: { name, position, imagePath, linkedin } } = Astro.props;
+---
+
+
+<div class="card w-[350px] h-[400px] mx-[20px] my-[50px] overflow-hidden rounded-[35px] border-18 border-pink-100 shadow-[0_4px_4px_0_rgba(64,64,64,0.5)] flex flex-col">
+    {imagePath && (
+        <div class="w-full h-[325px] overflow-hidden rounded-t-[17px] flex-grow">
+            <img src={imagePath} alt={name} class="w-full h-full object-cover" onerror="this.style.display='none';" />
+        </div>
+    )}
+    <div class="flex w-full mt-auto bg-[rgba(255,255,255,0.5)] px-4 py-2 text-red-500 font-raleway">
+        <div class="flex flex-col w-full">
+            <div class="name font-semibold text-lg pb-1 leading-tight">{name}</div>
+            <div class="position text-md leading-tight">{position}</div>
+        </div>
+
+        <div class="flex justify-end px- pt-">
+            <a href={linkedin} class="linkedin p-2">
+                <svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#e298a0" d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" /></svg>
+            </a>
+        </div>
+    </div>
+</div>
