@@ -40,7 +40,6 @@
 <script>
     const API_KEY = "315162c22a7656116cbad3b7a28fcf25";
     const API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric";
-    // &q=${city}
 
     const searchBox = document.querySelector(".search input");
     const searchBtn = document.querySelector(".search button");
@@ -62,7 +61,7 @@
         console.log(data);
 
         // data from json file 
-        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".city").innerHTML = data.name + ", " + data.sys.country;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";

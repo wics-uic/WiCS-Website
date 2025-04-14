@@ -21,6 +21,34 @@
     </div>
 </body>
 
+<script>
+    // import type { APIRoute } from "astro";
+    const API_KEY = import.meta.env.WEATHER_API_KEY;
+    const API_URL = import.meta.env.WEATHER_API_URL;
+        
+    async function checkWeather(city) {
+        const response = await fetch(`${API_URL}&appid=${API_KEY}&q=${city}`);
+
+        if (response.status >= 400) {
+            // display Chicago 
+            var data = await response.json();
+        }
+        else {
+            var data = await response.json();
+        }
+        console.log(data);
+
+        // data from json file 
+        document.querySelector(".location").innerHTML = data.name + ", " + data.sys.country;
+        document.querySelector(".date").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+        document.querySelector(".degree").innerHTML = Math.round(data.main.temp) + "°C";
+        
+    }
+    checkWeather("Chicago");
+
+
+</script>
 
 <style>
    * {
