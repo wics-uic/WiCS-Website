@@ -1,0 +1,98 @@
+---
+export interface Props {
+    event: { 
+        eventName: string; 
+        imagePath: string; 
+        eventInfo: string};
+}
+
+const { event: {eventName, imagePath, eventInfo }} = Astro.props;
+---
+
+<div class="cardcontainer card group flex flex-col items-center text-center max-w-[313px] w-full">
+    <div class="cardhover flex justify-center  w-full h-auto sm:h-[395px] max-w-md rounded-[35px] cursor-pointer">
+        <div class="cardhover-inner max-h-sm sm:w-[286px]">
+            <div class="cardhover-front">
+                <img class="w-full h-auto border-15 border-pink-100 rounded-2xl bg-pink-100" src={imagePath} alt={eventName}/>
+            </div>
+            <div class="cardhover-back flex items-center p-[15px]">
+                <p class="text-red-500 flex">{eventInfo}</p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <h3 class="event-name font-['Raleway'] font-semibold text-2lg sm:text-2xl lg:text-2xl
+            mt-15 text-red-500 whitespace-pre-line cursor-pointer
+            transition delay-60 duration-140 ease-in-out group-hover:text-red-500">{eventName}</h3>
+</div>
+
+<style>
+    .cardhover {
+        border-radius: 15px;
+        background-color: transparent;
+        transition-duration: 0.5s;
+        perspective: 1000px;
+    }
+    .cardhover-inner {
+        border-radius: 15px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+    .cardhover:hover {
+        border-radius: 15px;
+        transition-duration: 0.5s;
+    }
+    .cardhover:hover .cardhover-inner {
+        transform: rotateY(180deg);
+    }
+    .cardhover-front, .cardhover-back {
+        border-radius: 15px;
+        background-color: var(--color-teal-100);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .cardhover-back {
+        color: var(--text-red-500);
+        transform: rotateY(180deg);
+    }
+
+    .cardcontainer {
+        color: var(--color-pink-100);
+        transition-duration: 0.1s;
+    }
+    .cardcontainer:hover {
+        color: var(--color-teal-200);
+        transition-duration: 0.1s;
+    }
+    #cardcover-text {
+        color: var(--text-red-500);
+    }
+
+    /*
+    .cardhover {
+        color: var(--color-pink-100);
+        transition-duration: 0.5s;
+    }
+    .cardhover:hover {
+        color: var(--color-teal-200);
+        transition-duration: 0.5s;
+    }
+    .cardhover img {
+        opacity: 100%;
+        transition-duration: 0.5s;
+    }
+    .cardhover:hover img {
+        opacity: 0%;
+        transition-duration: 0.5s;
+    }
+    */
+
+</style>

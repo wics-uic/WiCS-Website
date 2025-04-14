@@ -1,0 +1,209 @@
+---
+import EventCard from "./EventCard.astro";
+import "../styles/global.css";
+
+const events = [
+  {
+    Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
+    Location: "WICS Lounge",
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
+    Description: "..."
+  },
+  {
+    Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
+    Location: "WICS Lounge",
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+  },
+]
+
+---
+
+<section class="upcoming-events">
+  <div class="wave-background">
+    <img
+      src="/cloud1.png"
+      alt="Test cloud 1"
+      style="width: 500px; height: auto;"
+      class="cloud cloud-1"
+    />
+    <img
+      src="/cloud2.png"
+      alt="Test cloud 1"
+      style="width: 500px; height: auto;"
+      class="cloud cloud-2"
+    />
+  </div>
+
+  <div class="content">
+    <h2>Upcoming Events</h2>
+
+    <div class="events-container">
+      {
+      events.map((event) => (
+        <div class="event-card">
+<EventCard title={event.Title} location={event.Location} time={event.Time}/>
+        </div>
+        
+      ))
+      }
+      <!-- <div class="event-card">
+        <EventCard
+          title="Intro to UI/UX Design -- Pixel Perfect: Personal Website Series"
+          location="WICS Lounge"
+          time="Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+        />
+      </div>
+
+      <div class="event-card">
+        <EventCard
+          title="Design Your Website -- Pixel Perfect: Personal Website Series"
+          location="WICS Lounge"
+          time="Thursday, Feb 27th | 4:00 PM - 5:00 PM"
+        />
+      </div>
+
+      <div class="event-card">
+        <EventCard
+          title="Build Your Website -- Pixel Perfect: Personal Website Series"
+          location="WICS Lounge"
+          time="Thursday, Mar 6th | 4:00 PM - 5:00 PM"
+        />
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+  .upcoming-events {
+    position: relative;
+    width: 100%;
+    padding: 6rem 1rem;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  .wave-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffebee;
+    z-index: -2;
+  }
+
+  .wave {
+    position: absolute;
+    width: 100%;
+  }
+
+  .wave-top {
+    top: 0;
+    z-index: -1;
+  }
+
+  .wave-bottom {
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .cloud {
+    position: absolute;
+    opacity: 0.8;
+    z-index: 0; /* Increased z-index to make clouds visible */
+    filter: brightness(1.05);
+  }
+
+  .cloud-1 {
+    top: 15%;
+    right: 10%;
+    width: 180px;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .cloud-2 {
+    top: 45%;
+    left: 5%;
+    width: 220px;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  h2 {
+    color: #944029;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: "Lora";
+  }
+
+  .events-container {
+    background-color: #fdcbcd;
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .event-card {
+    background-color: #fff7ed;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 1);
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    font-family: "Raleway";
+    color: #944029;
+  }
+
+  .event-card:hover {
+    background-color: #c6e8e8;
+    transform: translateY(-2px);
+  }
+
+  .event-card h3 {
+    color: #944029;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-family: "Raleway";
+  }
+
+  .event-card li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .event-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #8d6e63;
+  }
+  .event-card:last-child {
+    margin-bottom: 0;
+  }
+</style>
