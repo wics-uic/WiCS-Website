@@ -1,42 +1,35 @@
 ---
-import "../styles/global.css";
 ---
 
-<section class="relative landing w-full h-full background-layer overflow">
-  <img src="src/assets/extra/whitecloud.svg" class="absolute z-0" />
-  <img src="src/assets/extra/whitecloud.svg" id="cloud1" class="absolute right-0 left-1/3 tablet:left-[50%] w-3/5 max-w-sm top-10" />
-  <img src="src/assets/extra/whitecloud.svg" id="cloud2" class="absolute center right-1/3 tablet:left-[50%] w-3/5 max-w-sm top-10"/>
-  <div class="text-[#A95C5D] text-left px-30 py-50 z-999 relative">
-    <h2 class="text-xl py-2 font-raleway">Innovate. Lead. Succeed.</h2>
-    <h1 class="font-bold text-5xl font-lora">Women in</h1>
-    <h1 class="font-bold text-5xl font-lora">Computer Science</h1>
-    <h2 class="text-xl py-5 font-raleway">UNIVERSITY OF ILLINOIS CHICAGO</h2>
-
-    <div class="text-left py-5">
+<section class="relative landing w-full sm:min-h-[900px] min-h-[500px] background-layer overflow-hidden">
+  <!-- CLOUDS -->
+  <img src="src/assets/extra/whitecloud.svg" class="absolute md:right-[-300px] md:top-[-130px] sm:right-[-200px] sm:top-[20px] md:scale-[1] xs:right-[-150px] xs:top-[80px] scale-[1.1] right-[-150px] top-[80px] z-0" />
+  <img src="src/assets/extra/whitecloud.svg" class="absolute md:left-[-350px] md:top-[-130px] sm:left-[-250px] sm:top-[90px] md:scale-[0.7] xs:left-[-150px] xs:top-[80px] scale-[0.9] top-[90px] left-[-100px] z-0" />
+  <img src="src/assets/extra/whitecloud.svg" class="absolute md:top-0 sm:top-[170px] md:scale-[0.8] xs:top-[220px] scale-[1] top-[200px] z-0" />
+  <!-- TEXT -->
+  <div class="text-[#A95C5D] md:text-left sm:text-left md:pl-50 md:py-50 sm:pl-15 sm:px-5 sm:py-50 text-center pl-0 px-0 py-50 z-999 relative">
+    <h2 class="lg:text-3xl md:text-3xl sm:text-3xl xs:text-2xl text-xl py-2 font-raleway">Innovate. Lead. Succeed.</h2>
+    <h1 class="font-bold lg:text-7xl md:text-7xl sm:text-6xl xs:text-5xl text-4xl font-lora">Women in</h1>
+    <h1 class="font-bold lg:text-7xl md:text-7xl sm:text-6xl xs:text-5xl text-4xl font-lora">Computer Science</h1>
+    <h2 class="lg:text-3xl md:text-3xl sm:text-3xl xs:text-2xl text-xl sm:py-8 py-5 font-raleway">UNIVERSITY OF ILLINOIS CHICAGO</h2>
+    <!-- BUTTON -->
+    <div class="py-5 sm:text-left text-center">
       <a
-        class="bg-[#71C3C3] text-[#FFF4ED] px-6 py-2 rounded-full font-semibold font-raleway shadow-md inline-block text-center hover:bg-[#5a9d9d] transition"
+        class="bg-[#71C3C3] text-[#FFF4ED] md:text-3xl sm:text-xl xs:text-md text-sm md:px-18 px-14 py-4 shadow-[0_4px_4px_0_rgba(64,64,64,0.6)] rounded-full font-bold font-raleway inline-block text-center hover:bg-[#5a9d9d] transition"
         href="#">Join Us!</a
       >
     </div>
+  <!-- BACKGROUND WAVE -->
   </div>
+    <svg class="absolute bottom-0 left-0 w-full h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff4ed" fill-opacity="1" d="M0,288L48,288C96,288,192,288,288,256C384,224,480,160,576,117.3C672,75,768,53,864,64C960,75,1056,117,1152,112C1248,107,1344,53,1392,26.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
 </section>
 
 <style>
   .landing {
-    background-image: linear-gradient(180deg, #98d3d3, #fff4ed);
+    background-image: linear-gradient(180deg, #98d3d3, #d7e7e3);
   }
 
-  #cloud1{
-    position: absolute;
-    scale: .8;
-    left: 145px;
-    top: 100px;
-  }
-  
-  #cloud2  {
-    scale: .8;
-    position: absolute;
-    left: -110px;
-    top: 55px;
+  media only screen and (max-width: 640px) {
+
   }
 </style>

@@ -27,4 +27,7 @@
 
   /* Red/Maroon (single shade) */
   --color-red-500: #944029;
+
+  /* Breakpoints */
+  --breakpoint-xs: 30rem;
 }
