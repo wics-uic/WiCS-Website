@@ -1,18 +1,22 @@
 
 
 <div class="hamburger-menu" id="mobile-menu">
-    <a href='/events' class="dropdown">Events</a>
-    <ul class="dropdown-menu">
-        <a href='/calendar'>Calendar</a>
-        <a href='/upcoming-events'>Upcoming Events</a>
-        <a href='/past-events'>Past Events</a>
-    </ul>
-    <a href='/resources'>Resources</a>
-    <a href='/join-wics'>Join WiCS</a>
-    <a href='/our-team'>Our Team</a>
-    <a href='/about'>About</a>
-    <a href='/collaborate'>Collaborate</a>
+    <div class="menu-item">
+        <a href="/events" class="dropdown">Events</a>
+        <div class="dropdown-menu">
+            <a href="/calendar">Calendar</a>
+            <a href="/upcoming-events">Upcoming Events</a>
+            <a href="/past-events">Past Events</a>
+        </div>
+    </div>
+    <a href="/resources">Resources</a>
+    <a href="/join-wics">Join WiCS</a>
+    <a href="/our-team">Our Team</a>
+    <a href="/about">About</a>
+    <a href="/collaborate">Collaborate</a>
 </div>
+
+
 
 <button class="hamburger-icon" id="hamburger-btn">&#9776;</button>
 
@@ -20,9 +24,9 @@
 <style>
 
 .hamburger-icon {
-        display: block;
-        font-size: 47px;
+        font-size: 36px;
         background: #F9BFC0;
+        border: none;
         box-shadow: 0px 4px 4px #00000040;
         border-radius: 10px;
         border-color: #F9BFC0;
@@ -30,31 +34,43 @@
         position: absolute;
         top: 50px;
         left: 75%;
-        transform: translateX(20%);
         z-index: 1000;
         width: 60px;
         height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
+        opacity: 0;
         transition: transform 0.3s ease;
+        cursor: pointer;
     }
 
 .hamburger-menu{
-    display: none;
+    max-height: 0;
+    overflow: hidden;
     flex-direction: column;
     background-color: #F9BFC0;
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 10px;
     position: absolute;
-    top: 110px;
-    right: -200px;
+    top: 120px;
+    right: 10%;
     width: 200px;
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 4px #00000040;
+    transform-origin: top;
+    transition: all 0.3s ease;
+}
+
+
+.hamburger-menu.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 20px;
 }
 
 .hamburger-menu a {
+    display: block;
     color: white;
     padding: 10px 0;
     font-family: 'Raleway', sans-serif;
@@ -68,8 +84,7 @@
     background-color: #F9BFC0;
     border-radius: 10px;
     margin-top: 10px
-    opacity: 10px;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
 }
 
 .dropdown-menu a {
@@ -82,20 +97,31 @@
     display: flex;
 }
 
-.dropdown-menu a: hover{
+.hamburger-menu a:hover, 
+.hamburger-menu a:hover, 
+.hamburger-menu .dropdown:hover{
     color: #e57f81;
+    transition: color 0.3s ease;
 }
 
-.hamburger-menu a:hover, .hamburger-menu .dropdown:hover{
-    color: #e57f81;
-}
-
-    @media (min-width: 1000px){
-        .hamburger-icon,
-        .hamburger-menu {
-            display: none !important;
-        }
+ @media (min-width: 1081px){
+    .hamburger-icon,
+    .hamburger-menu {
+        display: none !important;
     }
+}
+
+@media(max-width: 1080px) {
+    .top-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+    }
+    .hamburger-icon{
+        opacity: 1;
+    }
+}
+
 
 </style>
 
@@ -106,25 +132,15 @@
         const btn = document.getElementById("hamburger-btn");
         const menu = document.getElementById("mobile-menu");
 
-        // Immediately make the hamburger icon visible
-        btn.style.display = 'block';
-
         btn.addEventListener("click", () => {
-            const currentDisplay = window.getComputedStyle(menu).display;
+            const isOpen = menu.classList.contains("open");
 
-            // Toggle between showing and hiding the menu with sliding effect
-            if (currentDisplay === "none") {
-                menu.style.display = "flex"; // Make menu visible
-                menu.style.transform = "translateX(-220px)"; // Slide in from the left
-                menu.style.opacity = "1"; // Fade in
-                btn.style.transform = "rotate(90deg)"; // Rotate hamburger icon on click
+            if (!isOpen) {
+                menu.classList.add("open");
+                btn.style.transform = "rotate(90deg)";
             } else {
-                menu.style.transform = "translateX(250px)"; // Slide out to the right
-                menu.style.opacity = "0"; // Fade out
-                setTimeout(() => { 
-                    menu.style.display = "none"; // Hide menu after animation
-                }, 300); // Delay matching the transition time
-                btn.style.transform = "rotate(0deg)"; // Reset hamburger icon to initial state
+                menu.classList.remove("open");
+                btn.style.transform = "rotate(0deg)";
             }
         });
     });
