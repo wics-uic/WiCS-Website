@@ -16,8 +16,8 @@
         <div class="weather-info">
             <div class="location"></div>
             <div class="date"></div>
-            <div class="temp"></div>
-            <div class="degree"></div>
+            <div class="degree-cel"></div>
+            <div class="degree-fahre"></div>
         </div>
     </div>
 </body>
@@ -44,15 +44,15 @@
 
         // update weather location 
         document.querySelector(".location").innerHTML = `${data.name}, ${data.sys.country}`;
-        document.querySelector(".date").innerHTML = new Date().toLocaleDateString(); // grab current date
+        document.querySelector(".date").innerHTML = new Date().toLocaleDateString('en-US', {weekday: 'long'}); // grab current date
         
         // celsius temperature
         const tempCelsius = Math.round(data.main.temp);
-        document.querySelector(".temp").innerHTML = `${tempCelsius} °C`;
+        document.querySelector(".degree-cel").innerHTML = `${tempCelsius}°C`;
 
         // convert to fahrenheit
         const tempF = Math.round((tempCelsius * (9/5)) + 32);
-        document.querySelector(".degree").innerHTML = `${tempF} F`;
+        document.querySelector(".degree-fahre").innerHTML = `${tempF} F`;
 
         // update weather description and icon
         document.querySelector(".description").innerHTML = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
@@ -136,11 +136,11 @@
    .date {
     padding-bottom: 35px;
    }
-   .temp {
+   .degree-cel {
     font-size: 35px;
     font-weight: 600;
    }
-   .degree {
+   .degree-fahre {
     font-size: 22px;
     font-weight: 600;
    }
