@@ -45,6 +45,9 @@
     const searchBtn = document.querySelector(".search button");
     const weatherIcon = document.querySelector(".weather-icon");
     
+    function convertCtoF(celsius) {
+        return (celsius * (9/5)) + 32;
+    }
 
     async function checkWeather(city) {
         const response = await fetch(`${API_URL}&appid=${API_KEY}&q=${city}`);
@@ -62,7 +65,10 @@
 
         // data from json file 
         document.querySelector(".city").innerHTML = data.name + ", " + data.sys.country;
-        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+        const celsiusTemp = Math.round(data.main.temp);
+        const fahrenheitTemp = convertCtoF(celsiusTemp);
+        // document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+        document.querySelector(".temp").innerHTML = Math.round(fahrenheitTemp) + "°F";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
         // change icon 
