@@ -1,9 +1,8 @@
 ---
 import EventCard from "./EventCard.astro";
 import "../../styles/global.css";
-import wave from '../../assets/extra/wave.svg'
-import wavebottom from '../../assets/extra/wavebottom.svg'
-
+import Wave from '../Extra/wavetop.astro'
+import Wavebottom from '../Extra/wavebottom.astro'
 const events = [
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
@@ -20,13 +19,8 @@ const events = [
 
 ---
 
-<div class="relative z-10 flex flex-col items-center gap-10 bg-[#FFF7ED]">
-	<img
-	src={wave.src}
-	alt="wave background"
-	class="w-full h-[300px] object-cover"
-	/>
- </div>
+
+<Wave/>
 <section class="upcoming-events">
   <div class="wave-background bg-pink-50">
     <img
@@ -81,13 +75,7 @@ const events = [
     </div>
   </div>
 </section>
-<div>
-  <img
-	src={wavebottom.src}
-	alt="wave background"
-	class="w-full h-[300px] object-cover bg-[#FFF7ED]"
-	/>
-</div>
+<Wavebottom/>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
