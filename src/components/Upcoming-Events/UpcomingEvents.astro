@@ -1,7 +1,8 @@
 ---
 import EventCard from "./EventCard.astro";
-import "../styles/global.css";
-
+import "../../styles/global.css";
+import Wave from '../Extra/wavetop.astro'
+import Wavebottom from '../Extra/wavebottom.astro'
 const events = [
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
@@ -18,8 +19,10 @@ const events = [
 
 ---
 
+
+<Wave/>
 <section class="upcoming-events">
-  <div class="wave-background">
+  <div class="wave-background bg-pink-50">
     <img
       src="/cloud1.png"
       alt="Test cloud 1"
@@ -72,6 +75,7 @@ const events = [
     </div>
   </div>
 </section>
+<Wavebottom/>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
@@ -91,7 +95,6 @@ const events = [
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffebee;
     z-index: -2;
   }
 

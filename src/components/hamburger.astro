@@ -1,0 +1,146 @@
+<div class="hamburger-menu" id="mobile-menu">
+    <div class="menu-item">
+        <a href="/" class="dropdown">Home</a>
+        <a href="/events" class="dropdown">Events</a>
+        <div class="dropdown-menu">
+            <a href="/events">Calendar</a>
+            <a href="/events">Upcoming Events</a>
+            <a href="/events">Past Events</a>
+        </div>
+    </div>
+    <a href="/resources">Resources</a>
+    <a href="/join-wics">Join WiCS</a>
+    <a href="/team">Our Team</a>
+    <a href="/about">About</a>
+    <a href="/collaborate">Collaborate</a>
+</div>
+
+
+
+<button class="hamburger-icon" id="hamburger-btn">&#9776;</button>
+
+
+<style>
+
+.hamburger-icon {
+        font-size: 36px;
+        background: #F9BFC0;
+        border: none;
+        box-shadow: 0px 4px 4px #00000040;
+        border-radius: 10px;
+        border-color: #F9BFC0;
+        color: white;
+        position: absolute;
+        top: 50px;
+        left: 75%;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+.hamburger-menu{
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: #F9BFC0;
+    padding: 0 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 120px;
+    right: 10%;
+    width: 200px;
+    opacity: 0;
+    box-shadow: 0px 4px 4px #00000040;
+    transform-origin: top;
+    transition: all 0.3s ease;
+}
+
+
+.hamburger-menu.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 20px;
+}
+
+.hamburger-menu a {
+    display: block;
+    color: white;
+    padding: 10px 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+.dropdown-menu{
+    display: none;
+    flex-direction: column;
+    padding-left: 20px;
+    background-color: #F9BFC0;
+    border-radius: 10px;
+    margin-top: 10px
+    transition: opacity 0.5s ease;
+}
+
+.dropdown-menu a {
+    padding: 8px 0;
+    color: white;
+}
+
+.dropdown:hover + .dropdown-menu,
+.dropdown-menu:hover {
+    display: flex;
+}
+
+.hamburger-menu a:hover, 
+.hamburger-menu a:hover, 
+.hamburger-menu .dropdown:hover{
+    color: #e57f81;
+    transition: color 0.3s ease;
+}
+
+ @media (min-width: 1081px){
+    .hamburger-icon,
+    .hamburger-menu {
+        display: none !important;
+    }
+}
+
+@media(max-width: 1080px) {
+    .top-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+    }
+    .hamburger-icon{
+        opacity: 1;
+    }
+}
+
+
+</style>
+
+
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("hamburger-btn");
+        const menu = document.getElementById("mobile-menu");
+
+        btn.addEventListener("click", () => {
+            const isOpen = menu.classList.contains("open");
+
+            if (!isOpen) {
+                menu.classList.add("open");
+                btn.style.transform = "rotate(90deg)";
+            } else {
+                menu.classList.remove("open");
+                btn.style.transform = "rotate(0deg)";
+            }
+        });
+    });
+</script>

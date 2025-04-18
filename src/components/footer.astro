@@ -5,9 +5,12 @@ import linkedin_logo from '../assets/linkedin_logo.svg';
 import discord_logo from '../assets/discord_logo.svg';
 import bg_footer from '../assets/bg_footer.png';
 import '/src/styles/global.css';
+
+const {background="bg-pink-50"} = Astro.props;
+
 ---
 
-<section class="relative bottom-0 w-full">
+<section class={`relative bottom-0 w-full ${background}`}>
     <footer class=" bg-pink-500 text-cream-100 bottom-0 flex flex-col">
 
         <!-- <div class="flex justify-center flex-row m-10 gap-x-20" style=" bg-color:rgb(249,228,224)" > -->

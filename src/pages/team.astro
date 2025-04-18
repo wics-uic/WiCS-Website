@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Nav3 from "../components/nav3.astro"
-import Header from "../components/header.astro"
-import TeamCardsPage from "../components/TeamCardsPage.astro"
-import Footer from "../components/footer.astro"
-import Sublanding from '../components/sublanding.astro';
+import Nav3 from '../components/Nav.astro';
+import TeamCardsPage from "../components/Team/TeamCardsPage.astro"
+import Footer from "../components/Footer.astro"
+import Sublanding from '../components/Sublanding.astro';
 
 const sampleTeamList = [
     {name: 'Nandana Sheri', position: 'Co-President', imagePath: '../src/assets/team-pictures/NandanaSheri.jpg', linkedin: 'https://www.linkedin.com/in/nsheri/'},
@@ -26,5 +25,5 @@ const sampleTeamList = [
     <Sublanding title="Meet the Team" subheadline="Meet the passionate team behind WiCS, dedicated to empowering, connecting, and supporting women in tech!"/>
     <Nav3 />
     <TeamCardsPage team={sampleTeamList} />
-    <Footer/>
+    <Footer background="bg-cream-300"/>
 </Layout>
