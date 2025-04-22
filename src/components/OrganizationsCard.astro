@@ -1,0 +1,9 @@
+
+---
+const { name, logo} = Astro.props;
+---
+
+<div class="bg-[#fff] border-2 border-pink-200 rounded-xl w-40 h-40 flex flex-col justify-center items-center shadow-sm hover:shadow-md transition">
+    <img src={logo} alt={name} class="w-14 h-14 object-contain mb-2" />
+    <p class="text-center text-sm text-[#5c2c2c] px-2">{name}</p>
+  </div>

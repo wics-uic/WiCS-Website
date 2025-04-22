@@ -1,0 +1,36 @@
+
+---
+import "../styles/global.css";
+const { title, links = []} = Astro.props;
+
+
+
+---
+<section class="flex justify-center w-full px-4">
+    <div class="w-full max-w-xl bg-[#FFEFF1] rounded-xl shadow-md mb-12">
+      
+     
+      <div class="bg-[#F4C2C2] rounded-t-xl py-4 px-6 text-center text-lg font-bold text-[#5c2c2c]">
+        {title}
+      </div>
+  
+      
+      <ul class="bg-[#FFEFF1] rounded-b-xl px-6 py-6 text-center space-y-3">
+        {links.map((link: { href: string | URL | null | undefined; label: unknown; }) => (
+          <li>
+            <a 
+              href={link.href} 
+              target="_blank" 
+              class="text-[#5c2c2c] underline text-base hover:text-[#d14b78] transition"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  
+  
+
+  
