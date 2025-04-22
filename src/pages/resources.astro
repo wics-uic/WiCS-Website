@@ -6,12 +6,67 @@ import Footer from '../components/footer.astro';
 import Apply from '../components/Apply.astro';
 import WhyJoin from '../components/WhyJoin.astro';
 import Sublanding from '../components/sublanding.astro';
+import Resource from '../components/Resource.astro'
+import OrganizationsCard from '../components/OrganizationsCard.astro';
 
+
+
+
+const section = [
+   {title : 'Internship List 2024',
+    links: [
+        { label: 'Internship List 2024', href: '#'},
+        { label: 'Summer 2024 Intenrship List', href: '#'},
+]
+   },
+   {
+    title: 'Resume guide',
+    links: [
+        { label: 'Ins and Outs of a resume', href: '#'},
+        { label: 'Example Resumes', href: '#'},    
+    ]
+   },
+   
+
+    {
+        title: 'Workshop Slides Archive', 
+        links: [
+            { label: 'Build Your Personal Website', href: '#'},
+            { label: 'Intro to APIs', href: '#'},
+            { label: 'Linkedin Workshop', href: '#'},
+            { label: 'Hack the Gap - Git Workshop', href: '#'},
+
+        ]
+    },
+    {
+        title:'Other Resources', 
+        links: [
+            { label: 'Cs student guide', href: '#'}
+        ]
+    }
+
+]
+
+
+const orgs = [
+    {name: 'Society of Women Engineers' }
+]
 ---
-<Layout>
 
 
-    <Sublanding title="Resources", details="Be a part of a diverse community dedicated to empowering women in tech!"/>
+
+
+
+
+
+    
     <Nav3/>
+    <Layout/>
+    <Sublanding title="Resources", details="Be a part of a diverse community dedicated to empowering women in tech!"/>
+    {section.map(sec => (
+        <Resource title={sec.title} links={sec.links} />
+      ))}
+
+
     <Footer/>
 </Layout>
