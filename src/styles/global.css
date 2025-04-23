@@ -32,3 +32,12 @@
   /* Breakpoints */
   --breakpoint-xs: 30rem;
 }
+
+h2 {
+  color: #944029;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-family: "Lora";
+  font-weight: bold;
+}
