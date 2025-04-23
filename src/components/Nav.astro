@@ -1,34 +1,27 @@
 <!-- added file by michelle-tanner -->
 
 <div class="nav">
-    <nav class="top-bar bg-pink-300 rounded-2xl flex justify-evenly items-center">
-        <ul class="hideOnMobile">
-            <li>
-                <a href='/events'>Events
-                    <ul class="dropdown-events hideOnMobile">
-                        <li><a href='/calendar'>Calendar</a></li>
-                        <li><a href='/upcoming-events'>Upcoming Events</a></li>
-                        <li><a href='/past-events'>Past Events</a></li>
-                    </ul>
-                </a>
-            </li>
-            <li><a href='/resources'>Resources</a></li>
-            <li><a href='/join-wics'>Join WiCS</a></li>
-        </ul>
-        <a href='/'><img src="src/assets/logo.png" alt="Logo" width="100px" height="auto"></a>
-        <ul class="hideOnMobile">
-            <li><a href='/our-team'>Our Team</a></li>
-            <li><a href='/about'>About</a></li>
-            <li><a href='/collaborate'>Collaborate</a></li>
-        </ul>
+    <nav class="navbar bg-pink-300 rounded-2xl flex justify-between items-center px-12 py-3">
+        <div class="dropdown">
+            <a href='/event' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Events</a>
+            <ul class="dropdown-events bg-cream-400 rounded-3xl">
+                <li><a href='/calendar' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600">Calendar</a></li>
+                <li><a href='/upcoming-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600">Upcoming Events</a></li>
+                <li><a href='/past-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600">Past Events</a></li>
+            </ul>
+
+        </div>
         
+        <a href='/resources' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Resources</a>
+        <a href='/join-wics' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Join WiCs</a>
+        <a href='/' class="px-3 py-2">
+            <img src="src/assets/logo.png" alt="Logo" class="w-12 h-auto">
+        </a>
+        <a href='/our-team' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Our Team</a>
+        <a href='/about' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">About</a>
+        <a href='/collaborate' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Collaborate</a>
     </nav>
-
-
 </div>
-
-
-
 
 <style>
     nav {
@@ -36,136 +29,57 @@
         width: 70%;
         top: 50px;
         left: 15%;
-    }
-    .top-bar {
+
         box-shadow: 0px 4px 4px #00000040;
         height: 60px;
-        /* border-radius: 20px; */
-
-        position: absolute;
-
-
-        width: 70%;
-        top: 50px;
-        right: 0;
-        left: 0;
-        margin: auto;
-
-        /* display: flex;
-        justify-content: space-evenly; */
-        /* align-items: center; */
-
     }
-    nav ul {
-        width: 100%;
+ 
 
-        list-style: none;
-        padding: 0;
-        gap: 30px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 15px;
-    }
-    nav li {
-        color: white;
-        font-family: 'Raleway', sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-
+    .nav-link {
         padding: 5px 10px;
-        line-height: normal;
-        cursor: pointer;
     }
-    nav li:hover {
+    .nav-link:hover {
         transition: background-color 0.3s ease, transform 0.3s ease;
-        color: #e57f81;
-        background-color: #FCFAF2;
-        border-radius: 20px;
-
         box-shadow: 0px 4px 2px #00000054;
+        /* color: #e57f81; */
     }
-
-    /* dropdown for events */
-    nav ul li ul.dropdown-events li {
-        /* display: inline-block; */
-        display: block;
-        width: 100%;
-
-        padding: 5px;
-        margin: 0;
-        box-sizing: border-box;
-        text-align: left;
-
-        white-space: wrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        color: #e57f81;
-
-        /* margin: auto; */
+    
+    /* dropdown  */
+ 
+    /* hover over events, links will show  */
+    .dropdown:hover .dropdown-events {
+        visibility: visible;
+        opacity: 1;
     }
-    nav ul li ul.dropdown-events li:hover {
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        /* transition: visibility 0.3s, opacity 0.3s; */
-        color: #a95c5d;
-        background-color: #FCFAF2;
-        border-radius: 20px;
-
-        box-shadow: 0px 0px 0px #FCFAF2;
-
-    }
-    nav ul li ul.dropdown-events {
-        width: 15%;
-        top: 4em;
-        left: 50px;
-        right: auto;
+    .dropdown-events {
+        /* background-color: #FFF5E8; */
+        box-shadow: 0px 4px 4px #00000040;
 
         position: absolute;
+        top: 4em;
         z-index: 999;
+        width: 15%;
+        padding: 15px;
 
-        /* display: none; */
         visibility: hidden;
         opacity: 0;
         transition: opacity 0s ease-out, 0.3s ease-in, visibility 0s ease-out, 0.3s ease-in;
-
     }
-    nav ul li:hover ul.dropdown-events {
-        background-color: #FCFAF2;
-        box-shadow: 0px 4px 4px #00000040;
-
-        border-radius: 20px;
-
-        /* display: inline-block; */
-        /* display: block; */
-        visibility: visible;
-        opacity: 1;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-
-        gap: 0px;
+    li {
+        width: 100%;
+        padding-left: 5px;
+        
+        box-sizing: border-box;
+        text-align: left;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* color: #e57f81; */
     }
-    /* .events {
-        text-align: center;
-    } */
-    .dropdown-events {
-        visibility: visible;
-        color:black;
-
-        display: flex;
-        flex-direction: column;
+    li:hover {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        /* color: #a95c5d; */
     }
-    /* .events:hover .dropdown-events {
-        visibility: visible;
-        opacity: 1;
-    } */
-
-    @media(max-width: 1080px) {
-        .hideOnMobile{
-            visibility: hidden;
-        }
-    }
+    
+    
 </style>
