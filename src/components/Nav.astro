@@ -1,13 +1,16 @@
-<!-- added file by michelle-tanner -->
+---
+import Hamburger from './hamburger.astro';
+---
 
 <div class="nav">
-    <nav class="navbar bg-pink-300 rounded-2xl flex justify-between items-center px-12 py-3">
+    <Hamburger/>
+    <nav class="navbar hideOnMobile bg-pink-300 rounded-2xl flex justify-between items-center px-12 py-3">
         <div class="dropdown">
             <a href='/event' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Events</a>
-            <ul class="dropdown-events bg-cream-400 rounded-3xl">
-                <li><a href='/calendar' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600">Calendar</a></li>
-                <li><a href='/upcoming-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600">Upcoming Events</a></li>
-                <li><a href='/past-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600">Past Events</a></li>
+            <ul class="dropdown-events z-999 bg-cream-400 rounded-3xl">
+                <li><a href='/calendar' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Calendar</a></li>
+                <li><a href='/upcoming-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Upcoming Events</a></li>
+                <li><a href='/past-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Past Events</a></li>
             </ul>
 
         </div>
@@ -57,12 +60,11 @@
 
         position: absolute;
         top: 4em;
-        z-index: 999;
-        width: 15%;
+        width: 16%;
         padding: 15px;
 
-        visibility: hidden;
-        opacity: 0;
+        /* visibility: hidden; */
+        /* opacity: 0; */
         transition: opacity 0s ease-out, 0.3s ease-in, visibility 0s ease-out, 0.3s ease-in;
     }
     li {
@@ -80,6 +82,13 @@
         transition: background-color 0.3s ease, transform 0.3s ease;
         /* color: #a95c5d; */
     }
-    
+    @media(max-width: 1050px) {
+        .hideOnMobile {
+            display: none;
+        }
+        .top-bar img {
+            display: none;
+        }
+    }
     
 </style>
