@@ -1,11 +1,43 @@
 ---
-const { title, location, time } = Astro.props;
+const { title, location, time, description, image } = Astro.props;
 ---
 
 <div class="event-card">
-  <h3>{title}</h3>
+  <img class="event-image" src={image}>
+  <div class="right-section">
+    <h3>{title}</h3>
   <ul>
-    <li><strong>Location:</strong>{location}</li>
-    <li><strong>Time: </strong> {time}</li>
+    <li class="text-pink-500"><strong>Location: </strong>{location}</li>
+    <li class="text-pink-500"><strong>Time: </strong> {time}</li>
   </ul>
+  <p class="mt-[15px]">{description}</p>
+  </div>
+  
 </div>
+
+<style>
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    justify-content: center;
+    align-self: center;
+    margin-right: 15px;
+    border-radius: 10px;
+    border: 2px solid #fff7ed;
+    box-shadow: 0px 2px 2px rgb(0,0,0,.5);
+  }
+  .event-card {
+    display: flex;
+    flex-direction: row;
+  }
+  .right-section {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (max-width: 500px){
+    img {
+      display: none;
+    }
+  }
+</style>

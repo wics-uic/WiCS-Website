@@ -3,10 +3,10 @@ import "../styles/global.css";
 const {title, subheadline} = Astro.props;
 ---
 
-<section class="background-container flex relative justify-center items-center w-full h-[900px] max-h-full pointer-events-none z-0">
+<section class="background-container flex relative justify-center items-center w-full min-h-screen max-h-full pointer-events-none z-0">
     <img class="h-auto w-[900px] absolute bottom-10 left-0 max-w-lg object-fill z-0" src="src/assets/extra/whitecloud-2.svg" alt="cloud"/>
 
-    <div class="text-pink-600 absolute text-center w-[800px] h-[400px] flex flex-col items-center justify-center z-1 pointer-events-none">
+    <div class="text-pink-600 text-center max-w-[600px] flex flex-col items-center justify-center z-1 pointer-events-none">
         <h1 class="font-bold text-5xl font-lora m-8">{title}</h1>
         <p class="text-3xl font-lora m-8">{subheadline}</p>
         <img src="src/assets/extra/button.svg" alt="button" />

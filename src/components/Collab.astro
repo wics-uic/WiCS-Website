@@ -8,21 +8,24 @@ import Wavetop from "./Extra/wavetop.astro";
 
 <div class="space-y-20">
   <div
-    class="h-auto w-screen flex flex-wrap items-center justify-center py-10 mt-[125px]"
+    class="h-auto w-screen flex items-center justify-center py-10 "
   >
-    <div class="flex flex-wrap items-center gap-x-20 gap-y-6">
-      <p class="text-xl font-raleway max-w-xs text-[#944029]">
-        <strong class="text-3xl font-lora">Co-Host an Event</strong><br /><br />
-        Join us in creating an enriching event experience for the WiCS community!
-        <br /><br />
-
-        Past Events: <br />
-        • Company Info Sessions <br />
-        • Resume Reviews <br />
-        • Behavioral Interview Tips <br />
-        -- and more!
-      </p>
-      <!-- <img src="src/assets/extra/Group_147.svg" alt="Centered Image" width="300px"> -->
+    <div class="flex flex-wrap items-center justify-center gap-x-20 gap-y-6">
+      <div class="text-xl left-section font-raleway text-[#944029]">
+        <p class="text-xl max-w-xs">
+          <strong class="text-3xl font-lora">Co-Host an Event</strong><br /><br />
+          Join us in creating an enriching event experience for the WiCS community!
+        </p>
+  
+        <h3 class="mt-[15px] ">Past Events:</h3>
+          <ul class="mb-[15px]"> 
+            <li>- Company Info Sessions</li>
+            <li>- Resume Reviews </li>
+            <li>- Behavioral Interview Tips</li>
+          </ul>
+          <h3 class="italic">-- and more!</h3>
+      </div>
+    
       <div class="relative min-w-[300px] min-h-[300px]">
         <img
           src="src/assets/extra/Group1.svg"
@@ -36,9 +39,10 @@ import Wavetop from "./Extra/wavetop.astro";
       </div>
     </div>
   </div>
+
   <!-- bubble 2 -->
-  <div class="h-auto w-screen flex flex-wrap items-center justify-center py-10">
-    <div class="flex flex-wrap items-center gap-x-20 gap-y-6">
+  <div class="flex flex-wrap items-center justify-center gap-x-20 gap-y-6">
+    <div class="text-xl left-section font-raleway text-[#944029]">
       <div class="relative w-[300px] h-[300px]">
         <img
           src="src/assets/extra/Group2.svg"
@@ -50,6 +54,7 @@ import Wavetop from "./Extra/wavetop.astro";
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]"
         />
       </div>
+    </div>
       <!-- <img src="src/assets/extra/Group2.svg" alt="Left Aligned Image" width="300px">  -->
       <p class="text-xl font-raleway max-w-xs text-[#944029]">
         <strong class="text-3xl font-lora">Office Tours</strong><br /><br />
@@ -57,11 +62,11 @@ import Wavetop from "./Extra/wavetop.astro";
         it's an office tour or an on-site event, we'd be honored to bring our community
         to you.<br />
       </p>
-    </div>
+    
   </div>
   <!-- bubble 3 -->
-  <div class="h-auto w-screen flex flex-wrap items-center justify-center py-10">
-    <div class="flex flex-wrap items-center gap-x-20 gap-y-6">
+  <!-- <div class="h-auto w-screen flex flex-wrap items-center justify-center py-10"> -->
+    <div class="flex flex-wrap items-center justify-center gap-x-20 gap-y-6">
       <p class="text-xl font-raleway max-w-xs text-[#944029]">
         <strong class="text-3xl font-lora">Sponsor Us</strong><br /><br />
         WiCS hosts a number of professional and social events, including workshops,
@@ -81,10 +86,10 @@ import Wavetop from "./Extra/wavetop.astro";
         />
       </div>
     </div>
-  </div>
+  <!-- </div> -->
   <!-- bubble 4 -->
-  <div class="h-auto w-screen flex flex-wrap items-center justify-center py-10">
-    <div class="flex flex-wrap items-center gap-x-20 gap-y-6">
+  <!-- <div class="h-auto w-screen flex flex-wrap items-center justify-center py-10"> -->
+    <div class="flex flex-wrap items-center justify-center gap-x-20 gap-y-6">
       <!-- <img src="src/assets/extra/Group4.svg" alt="Left Aligned Image" width="300px">  -->
       <div class="relative w-[300px] h-[300px]">
         <img
@@ -104,7 +109,7 @@ import Wavetop from "./Extra/wavetop.astro";
         />
       </p>
     </div>
-  </div>
+  <!-- </div> -->
 </div>
 
 <!-- sponsorship packet section -->
@@ -151,3 +156,7 @@ import Wavetop from "./Extra/wavetop.astro";
     </iframe>
   </div>
 </div>
+
+<style>
+
+</style>
