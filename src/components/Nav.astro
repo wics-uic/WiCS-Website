@@ -6,7 +6,7 @@ import Hamburger from './hamburger.astro';
     <Hamburger/>
     <nav class="navbar hideOnMobile bg-pink-300 rounded-2xl flex justify-between items-center px-12 py-3">
         <div class="dropdown">
-            <a href='/event' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Events</a>
+            <a href='/events' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Events</a>
             <ul class="dropdown-events z-999 bg-cream-400 rounded-3xl">
                 <li><a href='/calendar' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Calendar</a></li>
                 <li><a href='/upcoming-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Upcoming Events</a></li>
@@ -50,7 +50,7 @@ import Hamburger from './hamburger.astro';
     /* dropdown  */
  
     /* hover over events, links will show  */
-    .dropdown:hover .dropdown-events {
+    .dropdown:hover > .dropdown-events {
         visibility: visible;
         opacity: 1;
     }
@@ -63,8 +63,8 @@ import Hamburger from './hamburger.astro';
         width: 16%;
         padding: 15px;
 
-        /* visibility: hidden; */
-        /* opacity: 0; */
+        visibility: hidden; 
+         opacity: 0;
         transition: opacity 0s ease-out, 0.3s ease-in, visibility 0s ease-out, 0.3s ease-in;
     }
     li {
