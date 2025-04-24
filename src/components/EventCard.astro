@@ -1,12 +1,33 @@
 ---
-const { title, location, time, description } = Astro.props;
+const { title, starttime, endtime, description } = Astro.props;
+
+const start = new Date(starttime);
+const end = new Date(endtime);
+
+const options_start : {} = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: '2-digit',
+  hour: 'numeric',
+  minute: '2-digit',
+  hour12: true
+};
+
+const options_end : {} = {
+  hour: 'numeric',
+  minute: '2-digit',
+  hour12: true
+};
+
+const formatted_start = start.toLocaleString('en-US', options_start);
+const formatted_end = end.toLocaleString('en-US', options_end);
 ---
 
 <div class="event-card">
   <h3><b>{title}</b></h3>
   <ul>
-    <li><strong>Location:</strong>{location}</li>
-    <li><strong>Time: </strong>{time}</li>
+    <li><strong>When: </strong>{formatted_start} - {formatted_end}</li>
     <li>{description}</li>
   </ul>
 </div>
