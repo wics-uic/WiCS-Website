@@ -1,0 +1,77 @@
+{
+    "team": [
+      {
+        "name": "Nandana Sheri",
+        "position": "Co-President",
+        "imagePath": "/src/assets/team-pictures/NandanaSheri.jpg",
+        "linkedin": "https://www.linkedin.com/in/nsheri/"
+      },
+      {
+        "name": "Jelena Gvero",
+        "position": "Co-President",
+        "imagePath": "/src/assets/team-pictures/JelenaGvero.JPG",
+        "linkedin": "https://www.linkedin.com/in/jelena-gvero/"
+      },
+      {
+        "name": "Mehtab Kaur",
+        "position": "Secretary",
+        "imagePath": "../src/assets/team-pictures/Mehtabkaur.jpeg",
+        "linkedin": "https://www.linkedin.com/in/mehtabkaurr"
+      },
+      {
+        "name": "Naga Maddipudi",
+        "position": "Professional Events Chair",
+        "imagePath": "../src/assets/team-pictures/NagaMaddipudi.png",
+        "linkedin": "https://www.linkedin.com/in/naga-maddipudi"
+      },
+      {
+        "name": "Sajal Shukla",
+        "position": "Treasurer",
+        "imagePath": "../src/assets/team-pictures/SajalShukla.jpeg",
+        "linkedin": "https://www.linkedin.com/in/sajal-shukla-6b55842b6/"
+      },
+      {
+        "name": "Kayla Sison",
+        "position": "Co-Outreach Chair",
+        "imagePath": "../src/assets/team-pictures/KaylaSison.png",
+        "linkedin": "https://www.linkedin.com/in/kayla-sison126"
+      },
+      {
+        "name": "Eman Arsham",
+        "position": "Co-Outreach Chair",
+        "imagePath": "../src/assets/team-pictures/EmanArsham.jpeg",
+        "linkedin": "http://www.linkedin.com/in/emanarsham"
+      },
+      {
+        "name": "Rasleen Dhaliwal",
+        "position": "Co-Social Events Chair",
+        "imagePath": "../src/assets/team-pictures/RasleenDhaliwal.jpg",
+        "linkedin": "https://www.linkedin.com/in/rasleen-dhaliwal-218a85247/"
+      },
+      {
+        "name": "Rajvi Shah",
+        "position": "Co-Social Events Chair",
+        "imagePath": "../src/assets/team-pictures/RajviShah.jpg",
+        "linkedin": "https://www.linkedin.com/in/rajvi-shah12/"
+      },
+      {
+        "name": "Zainab Ahmed",
+        "position": "Co-Mentorship Chair",
+        "imagePath": "../src/assets/team-pictures/ZainabAhmed.jpg",
+        "linkedin": "https://www.linkedin.com/in/zainab-ahmed1204"
+      },
+      {
+        "name": "Claudia Jimenez",
+        "position": "Co-Mentorship Chair",
+        "imagePath": "../src/assets/team-pictures/ClaudiaJimenez.jpg",
+        "linkedin": "https://www.linkedin.com/in/jimenez-claudia"
+      },
+      {
+        "name": "Florianne Che",
+        "position": "Web Dev Lead",
+        "imagePath": "../src/assets/team-pictures/FlorianneChe.JPG",
+        "linkedin": "https://www.linkedin.com/in/florianne-che/"
+      }
+    ]
+  }
+  

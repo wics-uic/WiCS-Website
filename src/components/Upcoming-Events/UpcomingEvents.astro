@@ -1,25 +1,31 @@
 ---
 import EventCard from "./EventCard.astro";
-import "../styles/global.css";
-
+import "../../styles/global.css";
+import Wave from '../Extra/wavetop.astro'
+import Wavebottom from '../Extra/wavebottom.astro'
 const events = [
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
     Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
-    Description: "..."
+    Description: "We’ll guide you through UI/UX principles, moodboarding, and wireframing to help you design a user-friendly website that will impress recruiters. This workshop is perfect for anyone looking to plan their personal site before diving into development!",
+    Image: "src/assets/events/akuna.png"
   },
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
-    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM"
+    Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
+    Description: "We’ll guide you through UI/UX principles, moodboarding, and wireframing to help you design a user-friendly website that will impress recruiters. This workshop is perfect for anyone looking to plan their personal site before diving into development!",
+    Image: "src/assets/events/84.png"
   },
 ]
 
 ---
 
+
+<Wave/>
 <section class="upcoming-events">
-  <div class="wave-background">
+  <div class="wave-background bg-pink-50">
     <img
       src="/cloud1.png"
       alt="Test cloud 1"
@@ -41,7 +47,7 @@ const events = [
       {
       events.map((event) => (
         <div class="event-card">
-<EventCard title={event.Title} location={event.Location} time={event.Time}/>
+<EventCard image={event.Image} title={event.Title} location={event.Location} time={event.Time} description={event.Description}/>
         </div>
         
       ))
@@ -72,6 +78,7 @@ const events = [
     </div>
   </div>
 </section>
+<Wavebottom/>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
@@ -91,7 +98,6 @@ const events = [
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffebee;
     z-index: -2;
   }
 
@@ -156,6 +162,7 @@ const events = [
     font-size: 2.5rem;
     margin-bottom: 2rem;
     font-family: "Lora";
+    font-weight: bold;
   }
 
   .events-container {

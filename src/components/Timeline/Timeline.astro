@@ -1,0 +1,57 @@
+---
+import LeftItem from "./LeftItem.astro";
+import RightItem from "./RightItem.astro";
+---
+
+<div class="bg-cream-300 min-h-screen justify-center items-center">
+  <div class="container mx-auto py-12 px-14">
+
+    <div class="relative">
+
+      <!-- Middle line -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-2 rounded-xl bg-pink-100"></div>
+      
+      <!-- Timeline items -->
+      <div class="space-y-8">
+
+        <LeftItem
+        year = "2013"
+        title = "WiCS Founded"
+        description = "UIC students attend the Grace Hopper Conference at Minneapolis. graduate student Jillian Aurisano establishes WiCS following sessions at GHC."
+        />
+        
+        <RightItem
+        year = "2015"
+        title = "Meeting Space"
+        description = "WiCS Lounge is created as a new student gathering center."
+        />
+
+        <LeftItem
+        year = "2018"
+        title = "Gaining Popularity in CS Lounge"
+        description = "Members increase with GBMs at the CS Lounge."
+        />
+        
+        <RightItem
+        year = "2019"
+        title = "Growing Executive Board"
+        description = "Executive Board consists of 7 officers."
+        />
+
+        <LeftItem
+        year = "2020"
+        title = "Big Events"
+        description = "Hosted first Virtual Scavenger Hunt and Inside Scoop during the COVID era."
+        />
+        
+        <RightItem
+        year = "2022"
+        title = "The Origins of SparkHacks"
+        description = " Idea of a WiCS Hackathon becomes the first iteration of SparkHacks 2023."
+        />
+
+        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,16 @@
 ---
-import Header from '../components/header.astro';
 import Layout from '../layouts/Layout.astro';
-import Nav3 from '../components/nav3.astro';
-import Footer from '../components/footer.astro';
-import Social from '../components/social.astro';
-import Collab from '../components/collab.astro';
-import Sublanding from '../components/sublanding.astro';
+import Nav3 from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import UpcomingEvents from '../components/Upcoming-Events/UpcomingEvents.astro';
+import Sublanding from '../components/Sublanding.astro';
+import Grid from '../components/Upcoming-Events/Grid.astro'
 ---
 
 <Layout>
     <Sublanding title="Events" subheadline="Workshops, networking, and more—find your next WiCS event!"/>
    <Nav3/>
-   <Footer/>
+   <UpcomingEvents/>
+   <Grid/>
+   <Footer background="bg-cream-300"/>
 </Layout>

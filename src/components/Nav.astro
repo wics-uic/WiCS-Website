@@ -1,0 +1,94 @@
+---
+import Hamburger from './Hamburger.astro';
+---
+
+<div class="nav">
+    <Hamburger/>
+    <nav class="navbar hideOnMobile bg-pink-300 rounded-2xl flex justify-between items-center px-12 py-3">
+        <div class="dropdown">
+            <a href='/events' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Events</a>
+            <ul class="dropdown-events z-999 bg-cream-400 rounded-3xl">
+                <li><a href='/calendar' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Calendar</a></li>
+                <li><a href='/upcoming-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Upcoming Events</a></li>
+                <li><a href='/past-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Past Events</a></li>
+            </ul>
+
+        </div>
+        
+        <a href='/resources' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Resources</a>
+        <a href='/join-wics' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Join WiCs</a>
+        <a href='/' class="px-3 py-2">
+            <img src="src/assets/logo.png" alt="Logo" class="w-12 h-auto">
+        </a>
+        <a href='/team' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Our Team</a>
+        <a href='/about' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">About</a>
+        <a href='/collaborate' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Collaborate</a>
+    </nav>
+</div>
+
+<style>
+    nav {
+        position: fixed;
+        z-index: 99999;
+        width: 70%;
+        top: 50px;
+        left: 15%;
+        box-shadow: 0px 4px 4px #00000040;
+        height: 60px;
+    }
+ 
+
+    .nav-link {
+        padding: 5px 10px;
+    }
+    .nav-link:hover {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 2px #00000054;
+        color: #e57f81;
+    }
+    
+    /* dropdown  */
+ 
+    /* hover over events, links will show  */
+    .dropdown:hover > .dropdown-events {
+        visibility: visible;
+        opacity: 1;
+    }
+    .dropdown-events {
+        background-color: #FFF5E8;
+        box-shadow: 0px 4px 4px #00000040;
+
+        position: absolute;
+        top: 4em;
+        width: 16%;
+        padding: 15px;
+
+        visibility: hidden; 
+        opacity: 0;
+        transition: opacity 0s ease-out, 0.3s ease-in, visibility 0s ease-out, 0.3s ease-in;
+    }
+    li {
+        width: 100%;
+        padding-left: 5px;
+        
+        box-sizing: border-box;
+        text-align: left;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #e57f81;
+    }
+    li:hover {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        color: #a95c5d;
+    }
+    @media(max-width: 1050px) {
+        .hideOnMobile {
+            display: none;
+        }
+        .top-bar img {
+            display: none;
+        }
+    }
+    
+</style>

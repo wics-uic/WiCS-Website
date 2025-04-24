@@ -5,9 +5,12 @@ import linkedin_logo from '../assets/linkedin_logo.svg';
 import discord_logo from '../assets/discord_logo.svg';
 import bg_footer from '../assets/bg_footer.png';
 import '/src/styles/global.css';
+
+const {background="bg-pink-50"} = Astro.props;
+
 ---
 
-<section class="relative bottom-0 w-full">
+<section class={`relative bottom-0 w-full ${background}`}>
     <footer class=" bg-pink-500 text-cream-100 bottom-0 flex flex-col">
 
         <!-- <div class="flex justify-center flex-row m-10 gap-x-20" style=" bg-color:rgb(249,228,224)" > -->
@@ -40,7 +43,7 @@ import '/src/styles/global.css';
                     </div>
                 </div>
                 <!-- Right Col: List of different Links -->
-                <div class="font-raleway flex flex-row gap-5">
+                <div id="right-col" class="font-raleway flex flex-row gap-5">
                     <!-- left links -->
                     <div>
                         <ul class="pr-5 ">
@@ -51,13 +54,13 @@ import '/src/styles/global.css';
                                 <a href="#" class="pr-5"></a>
                             </li>
                             <li>
-                                <a href="#">Calendar</a>
+                                <a href="events">Calendar</a>
                             </li>
                             <li>
-                                <a href="#">Current Events</a>
+                                <a href="events">Current Events</a>
                             </li>
                             <li>
-                                <a href="#">Past Events</a>
+                                <a href="events">Past Events</a>
                             </li>
                         </ul>
                     </div>
@@ -65,25 +68,26 @@ import '/src/styles/global.css';
                     <div>
                         <ul>
                             <li>
-                                <a href="#">Resources</a>
+                                <a href="resources">Resources</a>
                             </li>
                             <li>
-                                <a href="#">Join WiCS</a>
+                                <a href="join-wics">Join WiCS</a>
                             </li>
                             <li>
-                                <a href="#">Our Team</a>
+                                <a href="team">Our Team</a>
                             </li>
                             <li>
-                                <a href="#">About</a>
+                                <a href="about">About</a>
                             </li>
                             <li>
-                                <a href="#">Collaborate</a>
+                                <a href="collaborate">Collaborate</a>
                             </li>
                         </ul>
                     </div> 
                 </div>
             </div>
-        <p class="text-center italic pb-15">Copyright © 2025 Women in Computer Science at University of Illinois Chicago</p>
+        <p class="text-center italic">Copyright © 2025 Women in Computer Science at University of Illinois Chicago</p>
+        <p class="text-center italic pb-15">Made with <a href="https://github.com/wics-uic/WiCS-Website" target="_blank" class="underline">&lt3</a> by the WiCS Dev Project (Spr. 2025)</p>
         </footer>
 </section>
 
@@ -94,6 +98,17 @@ import '/src/styles/global.css';
 
     footer {
         border-radius: 100%/200px 200px 0 0;
+    }
+
+    @media (max-width: 1100px){
+        #container {
+            flex-direction: column;
+            justify-content: center;
+        }
+        #right-col {
+            margin-top: 30px;
+            justify-content: center;
+        }
     }
 
 </style>
