@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
+    "is-number": "^7.0.0",
     "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
