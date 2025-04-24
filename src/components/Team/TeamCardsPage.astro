@@ -1,24 +1,21 @@
 ---
 import TeamCard from './TeamCard.astro';
+import teamData from './team.json';
 
-export interface Props {
-    team: Array<{name: string; position: string; imagePath: string; linkedin: string;}>;
-}
-
-const { team } = Astro.props;
+const team = teamData.team;
 ---
 
 <section class="team-cards py-[200px] bg-cream-300">
-    <div class="container w-[85%] mx-auto">
-        <div class="cards-container flex flex-wrap justify-center gap-4">
-            {team.slice(0,2).map(member => (
-                <TeamCard member={member} />
-            ))}
-        </div>
-        <div class="cards-container flex flex-wrap justify-center gap-4">
-            {team.slice(2).map(member => (
-                <TeamCard member={member} />
-            ))}
-        </div>
+  <div class="container w-[85%] mx-auto">
+    <div class="cards-container flex flex-wrap justify-center gap-4">
+      {team.slice(0, 2).map(member => (
+        <TeamCard member={member} />
+      ))}
     </div>
+    <div class="cards-container flex flex-wrap justify-center gap-4">
+      {team.slice(2).map(member => (
+        <TeamCard member={member} />
+      ))}
+    </div>
+  </div>
 </section>
