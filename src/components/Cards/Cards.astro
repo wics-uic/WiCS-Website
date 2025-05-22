@@ -1,0 +1,45 @@
+---
+export interface Props {
+    event: {
+        eventName: string;
+        imagePath: string;
+        eventInfo: string;
+        isLast: boolean;
+        isFirst: boolean;
+    }
+}
+const { event: {eventName, imagePath, eventInfo, isLast, isFirst }} = Astro.props;
+
+---
+
+<div class="">
+
+    <div class="cardhover border-pink-100">
+        <img class="border-15 border-pink-100 rounded-2xl bg-pink-100 shadow-xl" src={imagePath} alt={eventName}/>
+    </div>
+
+    <div class="event-name font-raleway font-semibold text-red-500 ">
+        {eventName}
+    </div>
+</div>
+
+<style>
+    .cardhover {
+        display: flex;
+        justify-content: center;
+
+    }
+    img {
+        box-shadow: 2px 4px 4px 0px rgb(103, 103, 103);
+    }
+    .event-name {
+        width: 330px;
+        padding-top: 20px;
+        font-size: large;
+        font-size: x-large;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
