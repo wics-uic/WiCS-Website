@@ -31,52 +31,28 @@
     <a href="/collaborate">Collaborate</a>
 </div>
 
-<script >
-    // This script will run in the browser after the HTML is parsed
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuButton = document.getElementById('menu-btn');
-        const sidebar = document.querySelector('.hamburger-menu') as HTMLElement;
 
-        if (menuButton && sidebar) {
-            menuButton.addEventListener('click', () => {
-                sidebar.style.display = 'flex';
-                console.log('Sidebar shown via addEventListener!'); // Debugging log
-            });
-        } else {
-            console.error("Error: Could not find menu button or sidebar element.");
-        }
-
-        const closeButton = document.querySelector('.close-btn') as HTMLElement;
-        if (closeButton && sidebar) {
-            closeButton.addEventListener('click', () => {
-                sidebar.style.display = 'none'; // <--- THIS IS THE LINE THAT HIDES IT AGAIN!
-                console.log('Sidebar hidden via close button!');
-            });
-        }
-    });
-
-</script>
 
 <style>
     .navbar {
         position: fixed;
         top: 0;
         width: 100%;
-        background-color: #ffb8b9;
+        background-color: #ffb8b9d9;
         backdrop-filter: blur(10px);
         box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
         justify-content: space-between;
         z-index: 999;
+
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        display: flex;
     }
     .navbar a, button {
         text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3); /* horizontal, vertical, blur, color */
         text-decoration: none;
     }
-
-    
     
     /* sidebar styling */ 
-
     .hamburger-menu {
         position: fixed;
         top: 0;
@@ -89,6 +65,13 @@
         backdrop-filter: blur(10px);
         box-shadow: -10px 0px 10px rgba(0,0,0,0.1);
         /* display: none; */
+
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+    }
+    .hamburger-menu.is-open {
+        transform: translateX(0);
     }
     .hamburger-menu a, button {
         color: white;
@@ -108,6 +91,7 @@
         .hamburger-icon,
         .hamburger-menu {
             display: none;
+            transform: translateX(100%) !important;
         }
     }
     /* shows */
@@ -119,6 +103,77 @@
         }
         .hamburger-icon, .navbar {
             opacity: 1;
+            visibility: visible;
         }
     }
 </style>
+
+<script >
+    // This script will run in the browser after the HTML is parsed
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuButton = document.getElementById('menu-btn');
+        const sidebar = document.querySelector('.hamburger-menu') as HTMLElement;
+        const navbar = document.querySelector(".navbar") as HTMLElement;
+        const closeButton = document.querySelector('.close-btn') as HTMLElement;
+        
+        if (menuButton && sidebar && navbar) {
+            menuButton.addEventListener('click', () => {
+                sidebar.classList.add('is-open');
+                navbar.style.opacity = '0';
+                navbar.style.visibility = 'hidden';
+                
+                console.log('Sidebar shown via addEventListener!'); // Debugging log
+            });
+        } else {
+            console.error("Error: Could not find menu button or sidebar element.");
+        }
+
+        if (closeButton && sidebar && navbar) {
+            closeButton.addEventListener('click', () => {
+                sidebar.classList.remove('is-open');
+                navbar.style.opacity = '1';
+                navbar.style.visibility = 'visible';
+
+                console.log('Sidebar hidden via close button!');
+            });
+        }
+        if (sidebar) {
+            if (window.innerWidth <= 1050) {
+                sidebar.classList.remove('is-open');
+            }
+        }
+    });
+
+</script>
+
+
+<!-- <script >
+    // This script will run in the browser after the HTML is parsed
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuButton = document.getElementById('menu-btn');
+        const sidebar = document.querySelector('.hamburger-menu') as HTMLElement;
+        const navbar = document.querySelector(".navbar") as HTMLElement;
+
+        if (menuButton && sidebar && navbar) {
+            menuButton.addEventListener('click', () => {
+                sidebar.style.display = 'flex';
+                navbar.style.display = 'none';
+                
+                console.log('Sidebar shown via addEventListener!'); // Debugging log
+            });
+        } else {
+            console.error("Error: Could not find menu button or sidebar element.");
+        }
+
+        const closeButton = document.querySelector('.close-btn') as HTMLElement;
+        if (closeButton && sidebar && navbar) {
+            closeButton.addEventListener('click', () => {
+                sidebar.style.display = 'none'; // <--- THIS IS THE LINE THAT HIDES IT AGAIN!
+                navbar.style.display = 'flex';
+
+                console.log('Sidebar hidden via close button!');
+            });
+        }
+    });
+
+</script> -->
