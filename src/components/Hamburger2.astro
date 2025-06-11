@@ -1,25 +1,20 @@
+
 <div class="navbar flex flex-row items-center">
     <a href='/' class="p-3">
         <img src="src/assets/logo.png" alt="Logo" class="w-7 h-auto">
     </a>
-    <a href='/' class="menu-btn pr-3 text-white" role="button">
+    <button id="menu-btn" class="menu-btn flex justify-end pr-3 text-white text-2xl">
         &equiv;
-        <!-- <img 
-        src="src/assets/menu.svg" 
-        alt="menu" 
-        class="cursor-pointer w-5 h-auto"
-        > -->
-    </a>
+    </button>
 </div>
 
+
+
 <div class="hamburger-menu flex flex-col items-start justify-start" id="mobile-menu">
-    <a href='/' class="close-btn text-2xl flex justify-end items-center" role="button" aria-label="Close menu">
-        &times; <!-- HTML entity for 'x' -->
-    </a>
-    <!-- <a href="/" class="dropdown">Home</a> -->
-    <a href='/'>
-        <img src="src/assets/logo.png" alt="Logo" class="w-10 h-auto">
-    </a>
+    <button id="close-btn" class="close-btn flex justify-end text-3xl text-white">
+        &times;
+    </button>
+    <a href='/'><img src="src/assets/logo.png" alt="Logo" class="w-10 h-auto"></a>
     
     <div class="menu-item flex flex-col">
         <a href="/events" class="dropdown">Events</a>
@@ -36,6 +31,31 @@
     <a href="/collaborate">Collaborate</a>
 </div>
 
+<script >
+    // This script will run in the browser after the HTML is parsed
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuButton = document.getElementById('menu-btn');
+        const sidebar = document.querySelector('.hamburger-menu') as HTMLElement;
+
+        if (menuButton && sidebar) {
+            menuButton.addEventListener('click', () => {
+                sidebar.style.display = 'flex';
+                console.log('Sidebar shown via addEventListener!'); // Debugging log
+            });
+        } else {
+            console.error("Error: Could not find menu button or sidebar element.");
+        }
+
+        const closeButton = document.querySelector('.close-btn') as HTMLElement;
+        if (closeButton && sidebar) {
+            closeButton.addEventListener('click', () => {
+                sidebar.style.display = 'none'; // <--- THIS IS THE LINE THAT HIDES IT AGAIN!
+                console.log('Sidebar hidden via close button!');
+            });
+        }
+    });
+
+</script>
 
 <style>
     .navbar {
@@ -48,7 +68,7 @@
         justify-content: space-between;
         z-index: 999;
     }
-    .navbar a {
+    .navbar a, button {
         text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3); /* horizontal, vertical, blur, color */
         text-decoration: none;
     }
@@ -69,9 +89,8 @@
         backdrop-filter: blur(10px);
         box-shadow: -10px 0px 10px rgba(0,0,0,0.1);
         /* display: none; */
-
     }
-    .hamburger-menu a {
+    .hamburger-menu a, button {
         color: white;
         text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3); /* horizontal, vertical, blur, color */
         width: 100%;
@@ -88,7 +107,7 @@
         .navbar,
         .hamburger-icon,
         .hamburger-menu {
-            display: none !important;
+            display: none;
         }
     }
     /* shows */
