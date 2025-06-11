@@ -1,23 +1,24 @@
 <div class="navbar flex flex-row items-center">
     <a href='/' class="p-3">
-        <img src="src/assets/logo.png" alt="Logo" class="w-12 h-auto">
+        <img src="src/assets/logo.png" alt="Logo" class="w-7 h-auto">
     </a>
-    <a href='/' class="pr-5" role="button">
-        <img 
+    <a href='/' class="menu-btn pr-3 text-white" role="button">
+        &equiv;
+        <!-- <img 
         src="src/assets/menu.svg" 
         alt="menu" 
-        class="cursor-pointer"
-        >
+        class="cursor-pointer w-5 h-auto"
+        > -->
     </a>
 </div>
 
-<div class="hamburger-menu flex flex-col items-start justify-start pt-10" id="mobile-menu">
-    <a href='/' class="close-btn text-3xl px-5 py-2 self-end" role="button" aria-label="Close menu">
+<div class="hamburger-menu flex flex-col items-start justify-start" id="mobile-menu">
+    <a href='/' class="close-btn text-2xl flex justify-end items-center" role="button" aria-label="Close menu">
         &times; <!-- HTML entity for 'x' -->
     </a>
     <!-- <a href="/" class="dropdown">Home</a> -->
     <a href='/'>
-        <img src="src/assets/logo.png" alt="Logo" class="w-12 h-auto">
+        <img src="src/assets/logo.png" alt="Logo" class="w-10 h-auto">
     </a>
     
     <div class="menu-item flex flex-col">
@@ -42,15 +43,19 @@
         top: 0;
         width: 100%;
         background-color: #ffb8b9;
+        backdrop-filter: blur(10px);
         box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
         justify-content: space-between;
         z-index: 999;
     }
+    .navbar a {
+        text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3); /* horizontal, vertical, blur, color */
+        text-decoration: none;
+    }
 
-
-
-
-
+    
+    
+    /* sidebar styling */ 
 
     .hamburger-menu {
         position: fixed;
@@ -58,7 +63,7 @@
         right: 0;
         height: 100vh;
         width: 250px;
-        /* max-width: 90vw; */
+        max-width: 90vw;
         z-index: 1000;
         background-color: #ffb8b9d9;
         backdrop-filter: blur(10px);
@@ -72,8 +77,29 @@
         width: 100%;
         padding: 10px;
         padding-left: 30px;
+        text-decoration: none;
     }
     .hamburger-menu a:hover {
         background-color: #f6a3a4d9;
+    }
+
+    /* does not show */
+    @media (min-width: 1051px){
+        .navbar,
+        .hamburger-icon,
+        .hamburger-menu {
+            display: none !important;
+        }
+    }
+    /* shows */
+    @media(max-width: 1050px) {
+        .top-bar {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 90%;
+        }
+        .hamburger-icon, .navbar {
+            opacity: 1;
+        }
     }
 </style>
