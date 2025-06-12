@@ -21,7 +21,13 @@
     </a>
     
     <div class="menu-item flex flex-col w-100">
-        <a href="/events" class="dropdown">Events</a>
+        <!-- <div class="events flex flex-row items-center"> -->
+            <a href="/events" class="dropdown">Events</a>
+            <!-- <button id="dropdown-btn" class="dropdown-btn flex justify-start text-2xl text-white">
+                &#2304;
+            </button> -->
+        <!-- </div> -->
+        
         <div class="dropdown-menu flex flex-col">
             <a href="/events">Calendar</a>
             <a href="/events">Upcoming Events</a>
@@ -60,8 +66,11 @@
         backdrop-filter: blur(10px);
         box-shadow: -10px 0px 10px rgba(0,0,0,0.1);
 
-        transform: translateX(100%);
+        transform: translateX(0%);
         transition: transform 0.3s ease-in-out;
+    }
+    .events button {
+        padding-left: 18px;
     }
     .hamburger-menu a, button {
         text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
@@ -76,7 +85,24 @@
     .hamburger-menu.is-open {
         transform: translateX(0);
     }
-
+    /* hover Events */ 
+    /* menu-item, dropdown, dropdown-menu */
+    .dropdown {
+        display: flex;
+    }
+    .dropdown-menu {
+        display: none;
+        padding-left: 20px;
+    }
+    .dropdown:hover + .dropdown-menu {
+        display: flex;
+    }
+    .dropdown-menu:hover {
+        display: flex;
+    }
+    /* .dropdown-menu.is-open {
+        display: flex;
+    } */
     /* does not show */
     @media (min-width: 1051px){
         .navbar,
