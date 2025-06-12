@@ -42,6 +42,10 @@
 </div>
 
 <style>
+    * {
+        /* margin: auto; */
+        box-sizing: border-box;
+    }
     .navbar {
         position: fixed;
         top: 0;
@@ -60,13 +64,13 @@
         right: 0;
         height: 100vh;
         width: 250px;
-        max-width: 90vw;
-        z-index: 1000;
+        /* max-width: 90vw; */
+        z-index: 1001;
         background-color: #ffb8b9d9;
         backdrop-filter: blur(10px);
         box-shadow: -10px 0px 10px rgba(0,0,0,0.1);
 
-        transform: translateX(0%);
+        transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
     }
     .events button {
