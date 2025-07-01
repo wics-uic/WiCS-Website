@@ -12,13 +12,13 @@
 
 
 <!-- sidebar (visible in mobile) -->
-<div class="hamburger-menu flex flex-col items-start justify-start text-white" id="mobile-menu">
+<div class="hamburger-menu flex flex-col items-start justify-start text-white text-2xl" id="mobile-menu">
     <button id="close-btn" class="close-btn flex justify-end text-3xl text-white">
         &times;
     </button>
-    <a href='/'>
+    <!-- <a href='/'>
         <img src="src/assets/logo.png" alt="Logo" class="w-10 h-auto">
-    </a>
+    </a> -->
     
     <div class="menu-item flex flex-col w-100">
         <!-- <div class="events flex flex-row items-center"> -->
@@ -28,7 +28,7 @@
             </button> -->
         <!-- </div> -->
         
-        <div class="dropdown-menu flex flex-col">
+        <div class="dropdown-menu flex flex-col pl-7">
             <a href="/events">Calendar</a>
             <a href="/events">Upcoming Events</a>
             <a href="/events">Past Events</a>
@@ -49,12 +49,15 @@
     .navbar {
         position: fixed;
         top: 0;
+        height: 50px;
         min-width: 100%;
-        background-color: #ffb8b9; /* #ffb8b9d9; */
+        /* background-color: #ffb8b9;  */
+        background-color:  #ffb8b9d9; 
+        backdrop-filter: blur(10px);
         /* box-shadow: 0px 1px 2px rgba(0,0,0,0.1); */
-        z-index: 999;
+        z-index: 1001;
 
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     }
     
     /* sidebar styling */ 
@@ -63,15 +66,18 @@
         top: 0;
         right: 0;
         height: 100vh;
-        width: 250px;
+        /* width: 250px; */
+        width: 100%;
         /* max-width: 90vw; */
-        z-index: 1001;
+        z-index: 999;
         background-color: #ffb8b9d9;
         backdrop-filter: blur(10px);
-        box-shadow: -10px 0px 10px rgba(0,0,0,0.1);
+        /* box-shadow: -10px 0px 10px rgba(0,0,0,0.1); */
 
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
+        transform: translateY(-91.5%);
+        /* transform: translateY(0%); */
+        transition: transform 0.5s ease-in-out;
+
     }
     .events button {
         padding-left: 18px;
@@ -82,12 +88,13 @@
         padding: 10px;
         padding-left: 30px;
         text-decoration: none;
+        padding-left: 75px;
     }
-    .hamburger-menu a:hover {
+    /* .hamburger-menu a:hover {
         background-color: #f6a3a4d9;
-    }
+    } */
     .hamburger-menu.is-open {
-        transform: translateX(0);
+        transform: translateY(0%);
     }
     /* hover Events */ 
     /* menu-item, dropdown, dropdown-menu */
@@ -96,7 +103,7 @@
     }
     .dropdown-menu {
         display: none;
-        padding-left: 20px;
+        /* display: visible; */
     }
     .dropdown:hover + .dropdown-menu {
         display: flex;
@@ -104,15 +111,12 @@
     .dropdown-menu:hover {
         display: flex;
     }
-    /* .dropdown-menu.is-open {
-        display: flex;
-    } */
     /* does not show */
     @media (min-width: 1051px){
         .navbar,
         .hamburger-menu {
             display: none;
-            transform: translateX(100%) !important;
+            transform: translateY(100%) !important;
         }
     }
     /* shows */
@@ -127,7 +131,7 @@
 <script >
     // This script will run in the browser after the HTML is parsed
     document.addEventListener('DOMContentLoaded', () => {
-        const menuButton = document.getElementById('menu-btn');
+        const menuButton = document.getElementById('menu-btn') as HTMLElement;
         const navbar = document.querySelector(".navbar") as HTMLElement;
         const sidebar = document.querySelector('.hamburger-menu') as HTMLElement;
         const closeButton = document.querySelector('.close-btn') as HTMLElement;
@@ -135,6 +139,7 @@
         if (menuButton && sidebar && navbar) {
             menuButton.addEventListener('click', () => {
                 sidebar.classList.add('is-open');
+                /* if you want topnavbar to disappear, opacity=0 and visibility=hidden */
                 navbar.style.opacity = '0';
                 navbar.style.visibility = 'hidden';
             });
