@@ -17,8 +17,9 @@ const { title, location, time, description, image } = Astro.props;
 
 <style>
   img {
-    width: 150px;
-    height: 150px;
+    /* width: 150px; */
+    width: 22%;
+    /* height: 150px; */
     object-fit: cover;
     justify-content: center;
     align-self: center;
@@ -35,9 +36,13 @@ const { title, location, time, description, image } = Astro.props;
     display: flex;
     flex-direction: column;
   }
+  /* Default (larger screens first) */
   @media (max-width: 500px){
     img {
       display: none;
+    }
+    .event-card {
+      font-size: 10px;
     }
   }
 </style>
