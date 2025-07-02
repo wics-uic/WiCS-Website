@@ -35,9 +35,9 @@ import Wave from './Extra/wavetop.astro'
 	/>
 
 	<div class="relative z-10 flex flex-col items-center gap-10"></>
-		<h1 class="font-lora font-bold text-6xl text-pink-600 text-center">Stay Connected!</h1>
+		<h1 id="title" class="font-lora font-bold text-6xl text-pink-600 text-center">Stay Connected!</h1>
 
-		<div class="flex flex-row gap-10 ">
+		<div class="icons flex flex-row gap-10 ">
 			<a href="https://www.instagram.com/wicsatuic/" target="_blank" class="flex w-26 h-25 justify-center items-center rounded-full bg-[#FFF7ED] bg-cover bg-center shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-xl" href="">
 				<svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 71 72"
 				fill="none">
@@ -58,8 +58,34 @@ import Wave from './Extra/wavetop.astro'
 			</a>
 		</div>
 		
-		<p class="font-raleway text-pink-600 text-xl text-center text-wrap ">Together, we can break barriers in tech.<br> Be a part of the movement and join WiCS today!</p>
-		<a class="font-raleway font-bold flex w-56 h-15 text-2xl justify-center items-center rounded-full bg-teal-200 text-[#FFFFFF] bg-cover bg-center shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-xl" href="">Join Us!</a>
+		<p id="text" class="font-raleway text-pink-600 text-xl text-center text-wrap ">Together, we can break barriers in tech.<br> Be a part of the movement and join WiCS today!</p>
+		<a id="button" class="font-raleway font-bold flex w-56 h-15 text-2xl justify-center items-center rounded-full bg-teal-200 text-[#FFFFFF] bg-cover bg-center shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-xl" href="">Join Us!</a>
 	</div>
 	
 </section>
+
+<style>
+	@media (max-width: 600px) {
+		#title {
+			font-size: 2.5rem;
+			overflow-wrap: normal;
+			width: 300px;
+		}
+		#text {
+			font-size: 1rem;
+		}
+		#button {
+			font-size: 1rem;
+			width: 8rem;
+			height: 2.5rem;
+		}
+		.icons a {
+			width: 4rem;
+			height: 4rem;
+		}
+		.icons a svg {
+			width: 40px;
+			height: 40px;
+		}
+	}
+</style>
