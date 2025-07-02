@@ -6,6 +6,7 @@ import discord_logo from '../assets/discord_logo.svg';
 import bg_footer from '../assets/bg_footer.png';
 import '/src/styles/global.css';
 
+
 const {background="bg-pink-50"} = Astro.props;
 
 ---
@@ -17,26 +18,26 @@ const {background="bg-pink-50"} = Astro.props;
             <div id="container" class="pt-20 flex justify-evenly flex-row m-10 gap-x-20" >
                 <!-- left side: Wics Image, Name, Social Handles -->
                 <div id="left-content">
-                    <div class="flex flex-row ">
-                        <img src={WiCS_Logo_White_Border.src} alt="WicsLogo" class="w-[110px] h-[110px]">
-                        <h1 class="wics-long font-lora font-bold whitespace-pre-line text-5xl pt-5 pl-5 pb-10">Women in 
+                    <div class="flex flex-row justify-center items-center">
+                        <img src={WiCS_Logo_White_Border.src} alt="WicsLogo" class=" logo w-[110px] h-[110px]">
+                        <h1 class="wics-long font-lora font-bold whitespace-pre-line text-5xl pt-5 pl-5 pb-5">Women in 
                         Computer Science</h1>
-                        <h1 class="wics-short font-lora font-bold whitespace-pre-line text-5xl pt-10 pl-5 pb-10">WiCs</h1>
+                        <!-- <h1 class="wics-short font-lora font-bold whitespace-pre-line text-5xl pt-10 pl-5 pb-10">WiCs</h1> -->
                     </div>
                     <!--Social Media Handles and its logo-->
-                    <div> 
+                    <div id="left-col" class="flex flex-row"> 
                         <ul class="flex flex-row list-none items-center">
-                            <li class="flex flex-row mr-5">
+                            <li class="flex flex-row mr-5 items-center">
                                 <img src={instagram_logo.src} alt="InstagramLogo" width="20" height="25">
                                 <a href="https://www.instagram.com/wicsatuic/" style="text-decoration: underline" class="pl-1 text-white">Instagram</a>
                                 <span class="pr-2 pl-2">|</span>
                             </li>
-                            <li class="flex flex-row mr-5">
+                            <li class="flex flex-row mr-5 items-center">
                                 <img src={linkedin_logo.src} alt="Linkedin" width="20" height="25">
                                 <a href="https://www.linkedin.com/company/women-in-computer-science-uic" class="pl-1 text-white" style="text-decoration: underline">Linkedin</a>
                                 <span class="pr-2 pl-2">|</span>
                             </li>
-                            <li class="flex flex-row">
+                            <li class="flex flex-row items-center">
                                 <img src={discord_logo.src} alt="DiscordLogo" width="20" height="25">
                                 <a href="https://discord.gg/YUa3dSS8yR" class="pl-1 text-white" style="text-decoration: underline">Discord</a>
                             </li>
@@ -96,31 +97,52 @@ const {background="bg-pink-50"} = Astro.props;
 
     
 <style>
-
+    a {
+        font-size: 16px;
+    }
     footer {
         border-radius: 100%/200px 200px 0 0;
+        padding: 0;
     }
 
-    .wics-short {
+    /* .wics-short {
         display: none;
-    }
+    } */
     @media (max-width: 1100px){
+        .logo {
+
+            width: 50px;
+            height: 50px;
+        }
+        #left-col {
+            justify-content: center;
+        }
         #container {
             flex-direction: column;
             justify-content: center;
+            margin: 2px;
         }
         #right-col {
-            margin-top: 30px;
+            margin: 10px;
             justify-content: center;
         }
         .wics-long {
+            font-size: 22px;
+        }
+        /* .wics-long {
             display: none;
         }
         .wics-short {
             display: inline-block;
+        } */
+        a {
+            font-size: 12px;
+        }
+        p {
+            font-size: 10px;
+            padding-bottom: 15px;
         }
     }
-
 </style>
 
 <!--  -->
