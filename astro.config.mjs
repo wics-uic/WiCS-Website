@@ -7,5 +7,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  base: '/WiCS-Website/',
+  
   site: 'https://cheetodustflori.github.io'
 });

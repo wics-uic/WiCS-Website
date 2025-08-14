@@ -1,28 +1,30 @@
 ---
 import Hamburger from './Hamburger.astro';
+import '../styles/global.css';
+const B = import.meta.env.BASE_URL;
 ---
 
 <div class="nav">
     <Hamburger/>
     <nav class="navbar hideOnMobile bg-pink-300 rounded-2xl flex justify-between items-center px-12 py-3">
         <div class="dropdown">
-            <a href='/events' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Events</a>
+            <a href={`${B}events`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Events</a>
             <ul class="dropdown-events z-999 bg-cream-400 rounded-3xl">
-                <li><a href='/calendar' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Calendar</a></li>
-                <li><a href='/upcoming-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Upcoming Events</a></li>
-                <li><a href='/past-events' class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Past Events</a></li>
+                <li><a href={`${B}calendar`} class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Calendar</a></li>
+                <li><a href={`${B}upcoming-events`} class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Upcoming Events</a></li>
+                <li><a href={`${B}past-events`} class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Past Events</a></li>
             </ul>
 
         </div>
         
-        <a href='/resources' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Resources</a>
-        <a href='/join-wics' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Join WiCs</a>
-        <a href='/' class="px-3 py-2">
+        <a href={`${B}resources`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Resources</a>
+        <a href={`${B}join-wics`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Join WiCs</a>
+        <a href={`${B}`} class="px-3 py-2">
             <img src="src/assets/logo.png" alt="Logo" class="w-12 h-auto">
         </a>
-        <a href='/team' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Our Team</a>
-        <a href='/about' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">About</a>
-        <a href='/collaborate' class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Collaborate</a>
+        <a href={`${B}team`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Our Team</a>
+        <a href={`${B}about`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">About</a>
+        <a href={`${B}collaborate`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Collaborate</a>
     </nav>
 </div>
 
