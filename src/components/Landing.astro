@@ -1,12 +1,13 @@
 ---
 import "../styles/global.css";
+import whitecloud from '../assets/extra/whitecloud.svg';
 ---
 
 <section class="relative landing w-full sm:min-h-[900px] min-h-[500px] background-layer overflow-hidden">
   <!-- CLOUDS -->
-  <img src="src/assets/extra/whitecloud.svg" class="absolute md:right-[-300px] md:top-[-130px] sm:right-[-200px] sm:top-[20px] md:scale-[1] xs:right-[-150px] xs:top-[80px] scale-[1.1] right-[-150px] top-[80px] z-0" />
-  <img src="src/assets/extra/whitecloud.svg" class="absolute md:left-[-350px] md:top-[-130px] sm:left-[-250px] sm:top-[90px] md:scale-[0.7] xs:left-[-150px] xs:top-[80px] scale-[0.9] top-[90px] left-[-100px] z-0" />
-  <img src="src/assets/extra/whitecloud.svg" class="absolute md:top-0 sm:top-[170px] md:scale-[0.8] xs:top-[220px] scale-[1] top-[200px] z-0" />
+  <img src={whitecloud.src} class="absolute md:right-[-300px] md:top-[-130px] sm:right-[-200px] sm:top-[20px] md:scale-[1] xs:right-[-150px] xs:top-[80px] scale-[1.1] right-[-150px] top-[80px] z-0" />
+  <img src={whitecloud.src} class="absolute md:left-[-350px] md:top-[-130px] sm:left-[-250px] sm:top-[90px] md:scale-[0.7] xs:left-[-150px] xs:top-[80px] scale-[0.9] top-[90px] left-[-100px] z-0" />
+  <img src={whitecloud.src} class="absolute md:top-0 sm:top-[170px] md:scale-[0.8] xs:top-[220px] scale-[1] top-[200px] z-0" />
   <!-- TEXT -->
   <div class="text-[#A95C5D] md:text-left sm:text-left md:pl-50 md:py-50 sm:pl-15 sm:px-5 sm:py-50 text-center pl-0 px-0 py-50 z-0 relative">
     <h2 class="lg:text-3xl md:text-3xl sm:text-3xl xs:text-2xl text-xl py-2 font-raleway">Innovate. Lead. Succeed.</h2>

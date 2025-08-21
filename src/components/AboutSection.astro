@@ -1,13 +1,18 @@
 ---
 import "../styles/global.css";
+import bubble from '../assets/about/bubble.svg';
+import about1 from '../assets/about/about1.svg';
+import about2 from '../assets/about/about2.svg';
+import cloud from '../assets/extra/cloud.svg';
+import linkedin_logo from '../assets/linkedin_logo.svg';
 ---
 
 <section class="bg-[#fff7ed]">
     <div class="flex flex-col items-center text-center px-6">
         <!-- What is WiCS -->
         <div class="relative w-[340px] h-[230px] mb-10">
-            <img src="src/assets/about/bubble.svg" class="absolute top-0 left-0 w-full h-full" />
-            <img src="src/assets/about/about1.svg" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]" />
+            <img src={bubble.src} class="absolute top-0 left-0 w-full h-full" />
+            <img src={about1.src} class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]" />
         </div>
 
         <p class="text-lg max-w-xl font-medium font-raleway text-[#944029]">
@@ -30,8 +35,8 @@ import "../styles/global.css";
 
         <div class="h-auto w-screen flex flex-wrap flex-col items-center justify-center bg-pink-50 relative py-10 overflow-hidden">
             <!-- cloud images -->
-            <img src="src/assets/extra/cloud.svg" class="absolute w-[500px] bottom-[-100px] left-[-60px] z-0 object-cover block">
-            <img src="src/assets/extra/cloud.svg" class="absolute w-[500px] top-[-60px] right-[-60px] z-0 object-cover block">
+            <img src={cloud.src} class="absolute w-[500px] bottom-[-100px] left-[-60px] z-0 object-cover block">
+            <img src={cloud.src} class="absolute w-[500px] top-[-60px] right-[-60px] z-0 object-cover block">
             <img
                 src="src/assets/extra/twostars.svg"
                 alt="two stars"
@@ -40,7 +45,7 @@ import "../styles/global.css";
 
             <div class="flex flex-wrap items-center gap-x-20 gap-y-6">
                 <div class="relative w-[350px] h-[350px]">
-                    <img src="src/assets/about/about2.svg" class="absolute top-0 left-0 w-full h-full">
+                    <img src={about2.src} class="absolute top-0 left-0 w-full h-full">
                 </div>
 
                 <p class="text-xl font-medium font-raleway max-w-xs text-[#944029]">
@@ -84,7 +89,7 @@ import "../styles/global.css";
                         Past Role: Web Administrator
                     </p>
                 </div>
-                <img src="src/assets/linkedin_logo.svg" alt="LinkedIn" class="w-6 h-6" />
+                <img src={linkedin_logo.src} alt="LinkedIn" class="w-6 h-6" />
             </a>
     
             <!-- button 2 -->
@@ -96,7 +101,7 @@ import "../styles/global.css";
                         Past Role: Vice President
                     </p>
                 </div>
-                <img src="src/assets/linkedin_logo.svg" alt="LinkedIn" class="w-6 h-6" />
+                <img src={linkedin_logo.src} alt="LinkedIn" class="w-6 h-6" />
             </a>
     
             <!-- button 3 -->
@@ -108,7 +113,7 @@ import "../styles/global.css";
                         Past Role: Vice President
                     </p>
                 </div>
-                <img src="src/assets/linkedin_logo.svg" alt="LinkedIn" class="w-6 h-6" />
+                <img src={linkedin_logo.src} alt="LinkedIn" class="w-6 h-6" />
             </a>
         </div>
     </div>
