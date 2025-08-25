@@ -1,3 +1,11 @@
+---
+
+import twostars from '../../assets/extra/twostars.svg';
+import cloud from '../../assets/extra/cloud.svg';
+import logo from '../../assets/logo.svg';
+
+---
+
 <section class="bg-cream-300 flex flex-col sm:flex-row justify-center h-[800px] gap-[30px] ">
     <div class="left-side text-pink-600 content-center w-[450px]">
         <h2 class="left-text font-bold text-4xl font-lora">Why Join Us?</h2>
@@ -7,10 +15,10 @@
     
     <div class="right-side flex items-center justify-center relative w-[600px]">
         <div class="flex flex-col items-center">
-            <img class="absolute max-w-sm top-50 right-30" src="src/assets/extra/twostars.svg" alt="stars" />
-            <img class="absolute top-50 right-0 max-w-sm" src="src/assets/extra/cloud.svg" alt="cloud" />
-            <img class="relative max-w-sm" src="src/assets/logo.png" alt="WiCS Logo"/>
-            <img class="absolute bottom-30 left-0 max-w-sm" src="src/assets/extra/cloud.svg" alt="cloud" />
+            <img class="absolute max-w-sm top-50 right-30" src={twostars.src} alt="stars" />
+            <img class="absolute top-50 right-0 max-w-sm" src={cloud.src} alt="cloud" />
+            <img class="relative max-w-sm" src={logo.src} alt="WiCS Logo"/>
+            <img class="absolute bottom-30 left-0 max-w-sm" src={cloud.src} alt="cloud" />
         </div>
     </div>
 </section>

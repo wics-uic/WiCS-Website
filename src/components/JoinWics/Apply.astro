@@ -1,10 +1,15 @@
+---
+import cloud2 from '../../assets/extra/cloud-2.svg';
+import cloud3 from '../../assets/extra/cloud-3.svg';
+---
+
 <section class="bg-pink-50 relative flex flex-col items-center content-evenly justify-center h-[150vh] max-h-5xl ">
     <div class="left-components absolute bottom-0 left-0">
-        <img class="w-[600px] max-w-full" src="src/assets/extra/cloud-2.svg" alt="cloud" />
+        <img class="w-[600px] max-w-full" src={cloud2.src} alt="cloud2" />
     </div>
 
     <div class="right-components top-0 right-0 absolute">
-        <img class="w-[600px] max-w-full" src="src/assets/extra/cloud-3.svg" alt="cloud" />
+        <img class="w-[600px] max-w-full" src={cloud3.src} alt="cloud3" />
     </div>
 
     <div class="middle-components justify-center absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center">

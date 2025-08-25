@@ -4,7 +4,7 @@ import Nav3 from '../components/Nav.astro';
 import TeamCardsPage from "../components/Team/TeamCardsPage.astro"
 import Footer from "../components/Footer.astro"
 import Sublanding from '../components/Sublanding.astro';
-
+import team from "../components/Team/team"; 
 ---
 
 
@@ -12,6 +12,6 @@ import Sublanding from '../components/Sublanding.astro';
     <Sublanding title="Meet the Team" subheadline="Meet the passionate team behind WiCS, dedicated to empowering, connecting, and supporting women in tech!"/>
     <Nav3 />
     <!-- <TeamCardsPage team={sampleTeamList} /> -->
-     <TeamCardsPage/>
+     <TeamCardsPage team={team} />   
     <Footer background="bg-cream-300"/>
 </Layout>

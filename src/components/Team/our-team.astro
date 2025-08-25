@@ -1,28 +1,11 @@
 ---
-import Layout from "../../layouts/Layout.astro"
-import Nav3 from "../../components/Nav.astro"
-import TeamCardsPage from "./TeamCardsPage.astro"
-import teamData from "../../components/Team/team.json"
-
-const sampleTeamList = [
-    {name: 'Nandana Sheri', position: 'Co-President', imagePath: 'src/assets/TeamPictures/NandanaSheri.jpg', linkedin: 'https://www.linkedin.com/in/nsheri/'},
-    {name: 'Jelena Gvero', position: 'Co-President', imagePath: 'src/assets/TeamPictures/JelenaGvero.JPG', linkedin: 'https://www.linkedin.com/in/jelena-gvero/'},
-    {name: 'Mehtab Kaur', position: 'Secretary', imagePath: 'src/assets/TeamPictures/MehtabKaur.jpeg', linkedin: 'https://www.linkedin.com/in/mehtabkaurr'},
-    {name: 'Naga Maddipudi', position: 'Professional Events Chair', imagePath: 'src/assets/TeamPictures/NagaMaddipudi.png', linkedin: 'https://www.linkedin.com/in/naga-maddipudi'},
-    {name: 'Sajal Shukla', position: 'Treasurer', imagePath: 'src/assets/TeamPictures/SajalShukla.jpeg', linkedin: 'https://www.linkedin.com/in/sajal-shukla-6b55842b6/'},
-    {name: 'Kayla Sison', position: 'Co-Outreach Chair', imagePath: 'src/assets/TeamPictures/KaylaSison.png', linkedin: 'https://www.linkedin.com/in/kayla-sison126'},
-    {name: 'Eman Arsham', position: 'Co-Outreach Chair', imagePath: 'src/assets/TeamPictures/EmanArsham.jpeg', linkedin: 'http://www.linkedin.com/in/emanarsham'},
-    {name: 'Rasleen Dhaliwal', position: 'Co-Social Events Chair', imagePath: 'src/assets/TeamPictures/RasleenDhaliwal.jpg', linkedin: 'https://www.linkedin.com/in/rasleen-dhaliwal-218a85247/'},
-    {name: 'Rajvi Shah', position: 'Co-Social Events Chair', imagePath: 'src/assets/TeamPictures/RajviShah.jpg', linkedin: 'https://www.linkedin.com/in/rajvi-shah12/'},
-    {name: 'Zainab Ahmed', position: 'Co-Mentorship Chair', imagePath: 'src/assets/TeamPictures/ZainabAhmed.jpg', linkedin: 'www.linkedin.com/in/zainab-ahmed1204'},
-    {name: 'Claudia Jimenez', position: 'Co-Mentorship Chair', imagePath: 'src/assets/TeamPictures/ClaudiaJimenez.jpg', linkedin: 'www.linkedin.com/in/jimenez-claudia'},
-    {name: 'Florianne Che', position: 'Web Dev Lead', imagePath: 'src/assets/TeamPictures/FlorianneChe.JPG', linkedin: 'https://www.linkedin.com/in/florianne-che/'},
-]
+import Layout from "../../layouts/Layout.astro";
+import Nav3 from "../../components/Nav.astro";
+import TeamCardsPage from "../../components/Team/TeamCardsPage.astro";
+import team from "../../components/Team/team";  // ← use the module we created
 ---
 
 <Layout>
-     <!-- FIXME: Add Header component here -->
-    <Nav3 />
-    <TeamCardsPage team={sampleTeamList} />
-    <!-- FIXME: Add Footer component here -->
+  <Nav3 />
+  <TeamCardsPage team={team} />
 </Layout>
