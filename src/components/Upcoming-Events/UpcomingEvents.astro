@@ -3,20 +3,25 @@ import EventCard from "./EventCard.astro";
 import "../../styles/global.css";
 import Wave from '../Extra/wavetop.astro'
 import Wavebottom from '../Extra/wavebottom.astro'
+import cloud1 from '../../assets/extra/cloud.svg?url';
+import cloud2 from '../../assets/extra/cloud-2.svg?url';
+import akuna from '../../assets/events/akuna.png?url';
+import img84 from '../../assets/events/84.png?url';
+
 const events = [
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
     Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
     Description: "We’ll guide you through UI/UX principles, moodboarding, and wireframing to help you design a user-friendly website that will impress recruiters. This workshop is perfect for anyone looking to plan their personal site before diving into development!",
-    Image: "src/assets/events/akuna.png"
+    Image: akuna
   },
   {
     Title: "Intro to UI/UX Design -- Pixel Perfect: Personal Website Series",
     Location: "WICS Lounge",
     Time: "Thursday, Feb 20th | 4:00 PM - 5:00 PM",
     Description: "We’ll guide you through UI/UX principles, moodboarding, and wireframing to help you design a user-friendly website that will impress recruiters. This workshop is perfect for anyone looking to plan their personal site before diving into development!",
-    Image: "src/assets/events/84.png"
+    Image: img84
   },
 ]
 
@@ -27,14 +32,14 @@ const events = [
 <section class="upcoming-events">
   <div class="wave-background bg-pink-50">
     <img
-      src="src/assets/extra/cloud1.png"
-      alt="Test cloud 1"
+      src={cloud1}
+      alt="cloud1"
       style="width: 500px; height: auto;"
       class="cloud cloud-1"
     />
     <img
-      src="src/assets/extra/cloud2.png"
-      alt="Test cloud 1"
+      src={cloud2}
+      alt="cloud2"
       style="width: 500px; height: auto;"
       class="cloud cloud-2"
     />

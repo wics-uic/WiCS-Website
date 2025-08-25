@@ -1,9 +1,20 @@
 ---
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  location: string;
+  time: string;
+  description?: string;
+  image: string | ImageMetadata; // accept either a URL string or ImageMetadata
+}
+
 const { title, location, time, description, image } = Astro.props;
+const imgSrc = typeof image === 'string' ? image : image.src;
 ---
 
 <div class="event-card">
-  <img class="event-image" src={image}>
+  <img class="event-image" src={imgSrc}>
   <div class="right-section">
     <h3>{title}</h3>
   <ul>
