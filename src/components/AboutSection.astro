@@ -3,7 +3,10 @@ import bubble from '../assets/about/bubble.svg';
 import about1 from '../assets/about/about1.svg';
 import about2 from '../assets/about/about2.svg';
 import cloud from '../assets/extra/cloud.svg';
+import wave2 from '../assets/about/wave2.svg';
 import linkedin_logo from '../assets/linkedin_logo.svg';
+import wave1 from '../assets/about/wave1.svg';
+import twostars from '../assets/extra/twostars.svg';
 import "../styles/global.css";
 ---
 
@@ -27,7 +30,7 @@ import "../styles/global.css";
     <div class="h-auto w-screen flex flex-wrap flex-col items-center justify-center relative py-10 overflow-hidden">
         <div class="w-full">
             <img
-            src="src/assets/about/wave1.svg" 
+            src={wave1.src}
             alt="top wave background"
             class="w-full h-auto object-cover block"
             />
@@ -38,7 +41,7 @@ import "../styles/global.css";
             <img src={cloud.src} class="absolute w-[500px] bottom-[-100px] left-[-60px] z-0 object-cover block">
             <img src={cloud.src} class="absolute w-[500px] top-[-60px] right-[-60px] z-0 object-cover block">
             <img
-                src="src/assets/extra/twostars.svg"
+                src={twostars.src}
                 alt="two stars"
                 class="absolute w-[30px] top-[30px] left-[290px] z-0 object-cover block"
             />
@@ -60,7 +63,7 @@ import "../styles/global.css";
 
         <div class="w-full">
             <img
-            src="src/assets/about/wave2.svg" 
+            src={wave2.src}
             alt="bottom wave background"
             class="w-full h-auto object-cover block"
             />

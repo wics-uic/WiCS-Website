@@ -2,7 +2,15 @@
 import "../styles/global.css";
 import Nav3 from "../components/Nav.astro";
 import Wavetop from "./Extra/wavetop.astro";
-
+import group1 from '../assets/extra/Group1.svg';
+import group2 from '../assets/extra/Group2.svg';
+import group3 from '../assets/extra/Group3.svg';
+import group4 from '../assets/extra/Group4.svg';
+import pic1 from '../assets/extra/pic1.png';
+import pic2 from '../assets/extra/pic2.png';
+import pic3 from '../assets/extra/pic3.png';
+import pic4 from '../assets/extra/pic4.png';
+import cloud from '../assets/extra/cloud.svg';
 ---
 
 <Nav3 />
@@ -29,12 +37,12 @@ import Wavetop from "./Extra/wavetop.astro";
     
       <div class="relative min-w-[300px] min-h-[300px]">
         <img
-          src="src/assets/extra/Group1.svg"
+          src={group1.src}
           class="absolute top-0 left-0 w-full h-full"
         />
 
         <img
-          src="src/assets/extra/pic1.png"
+          src={pic1.src}
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
       </div>
@@ -46,12 +54,12 @@ import Wavetop from "./Extra/wavetop.astro";
     <div class="text-xl left-section font-raleway text-[#944029]">
       <div class="relative w-[300px] h-[300px]">
         <img
-          src="src/assets/extra/Group2.svg"
+          src={group2.src}
           class="absolute top-0 left-0 w-full h-full"
         />
 
         <img
-          src="src/assets/extra/pic2.png"
+          src={pic2.src}
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]"
         />
       </div>
@@ -77,12 +85,12 @@ import Wavetop from "./Extra/wavetop.astro";
       <!-- <img src="src/assets/extra/Group3.svg" alt="Centered Image" width="300px"> -->
       <div class="relative w-[300px] h-[300px]">
         <img
-          src="src/assets/extra/Group3.svg"
+          src={group3.src}
           class="absolute top-0 left-0 w-full h-full"
         />
 
         <img
-          src="src/assets/extra/pic3.png"
+          src={pic3.src}
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]"
         />
       </div>
@@ -94,12 +102,12 @@ import Wavetop from "./Extra/wavetop.astro";
       <!-- <img src="src/assets/extra/Group4.svg" alt="Left Aligned Image" width="300px">  -->
       <div class="relative w-[300px] h-[300px]">
         <img
-          src="src/assets/extra/Group4.svg"
+          src={group4.src}
           class="absolute top-0 left-0 w-full h-full"
         />
 
         <img
-          src="src/assets/extra/pic4.png"
+          src={pic4.src}
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]"
         />
       </div>
@@ -120,11 +128,11 @@ import Wavetop from "./Extra/wavetop.astro";
 >
   <!-- cloud images -->
   <img
-    src="src/assets/extra/cloud.svg"
+    src={cloud.src}
     class="absolute max-w-[999px] left-240 top-[-50px] z-[0]"
   />
   <img
-    src="src/assets/extra/cloud.svg"
+    src={cloud.src}
     class="absolute max-w-[999px] right-180 top-70 z-[0]"
   />
 
