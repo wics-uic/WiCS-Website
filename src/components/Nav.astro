@@ -1,6 +1,7 @@
 ---
 import Hamburger from './Hamburger.astro';
 import '../styles/global.css';
+import logo from "../assets/logo.png";
 const B = import.meta.env.BASE_URL;
 ---
 
@@ -14,13 +15,12 @@ const B = import.meta.env.BASE_URL;
                 <li><a href={`${B}upcoming-events`} class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Upcoming Events</a></li>
                 <li><a href={`${B}past-events`} class="font-raleway text-pink-550 text-lg font-bold hover:text-pink-600 hover:text-xl">Past Events</a></li>
             </ul>
-
         </div>
         
         <a href={`${B}resources`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Resources</a>
-        <a href={`${B}join-wics`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Join WiCs</a>
+        <a href={`${B}joinevents`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Join WiCs</a>
         <a href={`${B}`} class="px-3 py-2">
-            <img src="src/assets/logo.png" alt="Logo" class="w-12 h-auto">
+            <img src={logo.src} alt="Logo" class="w-12 h-auto">
         </a>
         <a href={`${B}team`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">Our Team</a>
         <a href={`${B}about`} class="nav-link text-cream-100 font-raleway text-lg font-bold hover:bg-cream-100 hover:text-pink-550 hover:rounded-3xl">About</a>
