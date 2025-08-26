@@ -16,7 +16,7 @@ import FlorianneChe     from '../../assets/team-pictures/FlorianneChe.JPG?url';
 export type TeamMember = {
   name: string;
   position: string;
-  imagePath: string;   // URL string
+  imagePath: string;   
   linkedin: string;
 };
 

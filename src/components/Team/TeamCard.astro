@@ -5,14 +5,12 @@ export interface Props {
   member: {
     name: string;
     position: string;
-    imagePath: string | ImageMetadata; // allow either
+    imagePath: string | ImageMetadata; 
     linkedin: string;
   };
 }
 
 const { member: { name, position, imagePath, linkedin } } = Astro.props;
-
-// normalize to a URL string
 const imgSrc = typeof imagePath === 'string' ? imagePath : imagePath.src;
 ---
 
