@@ -2,7 +2,7 @@
 // Import images as URL strings so Vite/Astro fingerprint + prefix them.
 import NandanaSheri     from '../../assets/team-pictures/NandanaSheri.jpg?url';
 import JelenaGvero      from '../../assets/team-pictures/JelenaGvero.JPG?url';
-import MehtabKaur       from '../../assets/team-pictures/Mehtabkaur.jpeg?url';
+import MehtabKaur       from '../../assets/team-pictures/MehtabKaur.jpeg?url';
 import NagaMaddipudi    from '../../assets/team-pictures/NagaMaddipudi.png?url';
 import SajalShukla      from '../../assets/team-pictures/SajalShukla.jpeg?url';
 import KaylaSison       from '../../assets/team-pictures/KaylaSison.png?url';
