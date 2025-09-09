@@ -13,7 +13,7 @@ import ZainabAhmed      from '../../assets/team-pictures/ZainabAhmed.jpg?url';
 import JessieNouna   from '../../assets/team-pictures/JessieNouna.jpeg?url';
 import FatimaRasheed     from '../../assets/team-pictures/FatimaRasheed.jpeg?url';
 import FlorianneChe     from '../../assets/team-pictures/FlorianneChe.jpeg?url';
-import ZeelPatel     from '../../assets/team-pictures/ZeelPatel.JPeG?url';
+import ZeelPatel     from '../../assets/team-pictures/ZeelPatel.jpeg?url';
 
 export type TeamMember = {
   name: string;
