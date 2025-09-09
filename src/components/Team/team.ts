@@ -2,7 +2,7 @@
 // Import images as URL strings so Vite/Astro fingerprint + prefix them.
 import NagaMaddipudi    from '../../assets/team-pictures/NagaMaddipudi.png?url';
 import RajviShah        from '../../assets/team-pictures/RajviShah.png?url';
-import EmanArsham       from '../../assets/team-pictures/EmanArsham.jpg?url';
+import EmanArsham       from '../../assets/team-pictures/EmanArsham.JPG?url';
 import MehtabKaur       from '../../assets/team-pictures/MehtabKaur.jpeg?url';
 import ShrinidhiTanthullu     from '../../assets/team-pictures/ShrinidhiTanthullu.jpeg?url';
 import BushraYazjanova      from '../../assets/team-pictures/BushraYazjanova.jpg?url';
@@ -12,7 +12,7 @@ import RasleenDhaliwal  from '../../assets/team-pictures/RasleenDhaliwal.jpeg?ur
 import ZainabAhmed      from '../../assets/team-pictures/ZainabAhmed.jpg?url';
 import JessieNouna   from '../../assets/team-pictures/JessieNouna.jpeg?url';
 import FatimaRasheed     from '../../assets/team-pictures/FatimaRasheed.jpeg?url';
-import FlorianneChe     from '../../assets/team-pictures/FlorianneChe.JPeG?url';
+import FlorianneChe     from '../../assets/team-pictures/FlorianneChe.jpeg?url';
 import ZeelPatel     from '../../assets/team-pictures/ZeelPatel.JPeG?url';
 
 export type TeamMember = {
