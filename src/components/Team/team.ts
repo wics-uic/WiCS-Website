@@ -1,17 +1,19 @@
 // src/components/Team/team.ts
 // Import images as URL strings so Vite/Astro fingerprint + prefix them.
-import NandanaSheri     from '../../assets/team-pictures/NandanaSheri.jpg?url';
-import JelenaGvero      from '../../assets/team-pictures/JelenaGvero.JPG?url';
-import MehtabKaur       from '../../assets/team-pictures/MehtabKaur.jpeg?url';
 import NagaMaddipudi    from '../../assets/team-pictures/NagaMaddipudi.png?url';
-import SajalShukla      from '../../assets/team-pictures/SajalShukla.jpeg?url';
-import KaylaSison       from '../../assets/team-pictures/KaylaSison.png?url';
-import EmanArsham       from '../../assets/team-pictures/EmanArsham.jpeg?url';
-import RasleenDhaliwal  from '../../assets/team-pictures/RasleenDhaliwal.jpg?url';
-import RajviShah        from '../../assets/team-pictures/RajviShah.jpg?url';
+import RajviShah        from '../../assets/team-pictures/RajviShah.png?url';
+import EmanArsham       from '../../assets/team-pictures/EmanArsham.jpg?url';
+import MehtabKaur       from '../../assets/team-pictures/MehtabKaur.jpeg?url';
+import ShrinidhiTanthullu     from '../../assets/team-pictures/ShrinidhiTanthullu.jpeg?url';
+import BushraYazjanova      from '../../assets/team-pictures/BushraYazjanova.jpg?url';
+import KristineMa      from '../../assets/team-pictures/KristineMa.jpeg?url';
+import HooriyaKazmi       from '../../assets/team-pictures/HooriyaKazmi.jpg?url';
+import RasleenDhaliwal  from '../../assets/team-pictures/RasleenDhaliwal.jpeg?url';
 import ZainabAhmed      from '../../assets/team-pictures/ZainabAhmed.jpg?url';
-import ClaudiaJimenez   from '../../assets/team-pictures/ClaudiaJimenez.jpg?url';
-import FlorianneChe     from '../../assets/team-pictures/FlorianneChe.JPG?url';
+import JessieNouna   from '../../assets/team-pictures/JessieNouna.jpeg?url';
+import FatimaRasheed     from '../../assets/team-pictures/FatimaRasheed.jpeg?url';
+import FlorianneChe     from '../../assets/team-pictures/FlorianneChe.JPeG?url';
+import ZeelPatel     from '../../assets/team-pictures/ZeelPatel.JPeG?url';
 
 export type TeamMember = {
   name: string;
@@ -21,18 +23,21 @@ export type TeamMember = {
 };
 
 const team: TeamMember[] = [
-  { name: 'Nandana Sheri',     position: 'Co-President',            imagePath: NandanaSheri,    linkedin: 'https://www.linkedin.com/in/nsheri/' },
-  { name: 'Jelena Gvero',      position: 'Co-President',            imagePath: JelenaGvero,     linkedin: 'https://www.linkedin.com/in/jelena-gvero/' },
+  { name: 'Rajvi Shah',        position: 'Co-President',  imagePath: RajviShah,       linkedin: 'https://www.linkedin.com/in/rajvi-shah12/' },
+  { name: 'Naga Maddipudi',    position: 'Co-President', imagePath: NagaMaddipudi, linkedin: 'https://www.linkedin.com/in/naga-maddipudi' },
+  { name: 'Eman Arsham',       position: 'Vice President',       imagePath: EmanArsham,      linkedin: 'http://www.linkedin.com/in/emanarsham' },
   { name: 'Mehtab Kaur',       position: 'Secretary',               imagePath: MehtabKaur,      linkedin: 'https://www.linkedin.com/in/mehtabkaurr' },
-  { name: 'Naga Maddipudi',    position: 'Professional Events Chair', imagePath: NagaMaddipudi, linkedin: 'https://www.linkedin.com/in/naga-maddipudi' },
-  { name: 'Sajal Shukla',      position: 'Treasurer',               imagePath: SajalShukla,     linkedin: 'https://www.linkedin.com/in/sajal-shukla-6b55842b6/' },
-  { name: 'Kayla Sison',       position: 'Co-Outreach Chair',       imagePath: KaylaSison,      linkedin: 'https://www.linkedin.com/in/kayla-sison126' },
-  { name: 'Eman Arsham',       position: 'Co-Outreach Chair',       imagePath: EmanArsham,      linkedin: 'http://www.linkedin.com/in/emanarsham' },
-  { name: 'Rasleen Dhaliwal',  position: 'Co-Social Events Chair',  imagePath: RasleenDhaliwal, linkedin: 'https://www.linkedin.com/in/rasleen-dhaliwal-218a85247/' },
-  { name: 'Rajvi Shah',        position: 'Co-Social Events Chair',  imagePath: RajviShah,       linkedin: 'https://www.linkedin.com/in/rajvi-shah12/' },
-  { name: 'Zainab Ahmed',      position: 'Co-Mentorship Chair',     imagePath: ZainabAhmed,     linkedin: 'https://www.linkedin.com/in/zainab-ahmed1204' },
-  { name: 'Claudia Jimenez',   position: 'Co-Mentorship Chair',     imagePath: ClaudiaJimenez,  linkedin: 'https://www.linkedin.com/in/jimenez-claudia' },
-  { name: 'Florianne Che',     position: 'Web Dev Lead',            imagePath: FlorianneChe,    linkedin: 'https://www.linkedin.com/in/florianne-che/' },
+  { name: 'Shrinidhi Tanthullu',     position: 'Treasurer',            imagePath: ShrinidhiTanthullu,    linkedin: 'https://www.linkedin.com/in/shrinidhi-tanthullu/' },
+  { name: 'Bushra Yazjanova',  position: 'Co-Professional Events Chair',            imagePath: BushraYazjanova,     linkedin: 'https://www.linkedin.com/in/bushra-y-2049402b6/' },
+  { name: 'Kristine Ma',       position: 'Co-Professional Events Chair',               imagePath: KristineMa,     linkedin: 'https://www.linkedin.com/in/kristine-m-17106b251/' },
+  { name: 'Hooriya Kazmi',       position: 'Social Events Chair',       imagePath: HooriyaKazmi,      linkedin: 'https://www.linkedin.com/in/hkazmi1/' },
+  { name: 'Rasleen Dhaliwal',  position: 'Co-Outreach Chair',  imagePath: RasleenDhaliwal, linkedin: 'https://www.linkedin.com/in/rasleen-dhaliwal-218a85247/' },
+  { name: 'Zainab Ahmed',      position: 'Co-Outreach Chair',     imagePath: ZainabAhmed,     linkedin: 'https://www.linkedin.com/in/zainab-ahmed1204/' },
+  { name: 'Jessie Nouna',   position: 'Co-Mentorship Chair',     imagePath: JessieNouna,  linkedin: 'https://www.linkedin.com/in/jessienouna/' },
+  { name: 'Fatima Rasheed',   position: 'Co-Mentorship Chair',     imagePath: FatimaRasheed,  linkedin: 'https://www.linkedin.com/in/fatima-rasheed-/' },
+  { name: 'Zeel Patel',     position: 'Co-Web Dev Lead',            imagePath: ZeelPatel,    linkedin: 'https://www.linkedin.com/in/zeel-patel2212/' },
+  { name: 'Florianne Che',     position: 'Co-Web Dev Lead',            imagePath: FlorianneChe,    linkedin: 'https://www.linkedin.com/in/florianne-che/' }
+  
 ];
 
 export default team;
