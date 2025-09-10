@@ -7,6 +7,11 @@ import cloud1 from '../../assets/extra/cloud.svg?url';
 import cloud2 from '../../assets/extra/cloud-2.svg?url';
 import akuna from '../../assets/events/akuna.png?url';
 import img84 from '../../assets/events/84.png?url';
+import type {APIRoute} from "astro";
+const GOOGLE_API_KEY = import.meta.env.GOOGLE_API_KEY;
+const GOOGLE_CALENDAR_ID = import.meta.env.GOOGLE_CALENDAR_ID;
+
+// import type {responseData} from "../../pages/api/calendar.json"
 
 const events = [
   {
@@ -25,12 +30,37 @@ const events = [
   },
 ]
 
+const token = import.meta.env.SPOTIFY_TOKEN;
+const response = await fetch (`https://www.googleapis.com/calendar/v3/calendars/${GOOGLE_CALENDAR_ID}/events?key=${GOOGLE_API_KEY}`, {
+  headers: {
+    Authorization: `Bearer ${token}`
+  },
+});
+
+const artist = await response.json();
+console.log(artist);
+
+// const response = await fetch('https://localhost:4321/WiCS-Website/api/calendar.json'
+  
+// )
+
+// const data = await response.json()
+// console.log(data)
+
+// import type {UserProfile} from "../../pages/api/calendar.json"
+// import type {Image} from "../../pages/api/calendar.json"
+
+
 ---
+
 
 
 <Wave/>
 <section class="upcoming-events">
   <div class="wave-background bg-pink-50">
+
+    <!-- <div>{artist.name}</div>
+    <div>{artist.images[0].url}</div> -->
     <img
       src={cloud1}
       alt="cloud1"
@@ -49,14 +79,23 @@ const events = [
     <h2>Upcoming Events</h2>
 
     <div class="events-container">
-      {
+
+      <!-- { data.map(())} -->
+
+      <!-- { data.map((item: responseData) => (
+    <ul>
+      <li>Post Name: {item.name}</li>
+      <li>Email {item.url}</li>
+      {/* <li>Text {item.body}</li> */}
+    </ul>)) } -->
+      <!-- {
       events.map((event) => (
         <div class="event-card">
 <EventCard image={event.Image} title={event.Title} location={event.Location} time={event.Time} description={event.Description}/>
         </div>
         
       ))
-      }
+      } -->
       <!-- <div class="event-card">
         <EventCard
           title="Intro to UI/UX Design -- Pixel Perfect: Personal Website Series"
