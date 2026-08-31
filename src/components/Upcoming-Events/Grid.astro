@@ -2,6 +2,8 @@
 import "../../styles/global.css";
 import images from './photos';
 const limitedImages = images.slice(0, 9);
+import { getEvents } from "../../libs/events.js";
+const { upcoming, past } = await getEvents();
 ---
 
 <style>
@@ -64,8 +66,8 @@ const limitedImages = images.slice(0, 9);
 <div id="grid-section" >
     <h2 class="font-lora text-3xl">Past Events</h2>
     <div class="grid image-wrapper">
-        {limitedImages.map((src) => (
-          <img src={src} alt="Photo" class="grid-photo"/>
+        {past.map((src : any) => (
+          <img src={src.image} alt="Photo" class="grid-photo"/>
         ))}
       </div>
 </div>

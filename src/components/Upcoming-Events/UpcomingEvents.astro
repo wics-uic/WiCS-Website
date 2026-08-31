@@ -9,33 +9,34 @@ import wics1 from '../../assets/events/wics.png?url';
 import wics2 from '../../assets/events/wics2.png?url';
 import wics3 from '../../assets/events/wics3.png?url';
 
-const events = [
-  {
-    Title: "General Body Meeting",
-    Location: "CDRLC Room 1413",
-    Time: "Wednesday, September 10th | 4:30 PM - 5:30 PM",
-    Description: "A new semester means fresh opportunities — kick off your academic year with us at our General Body Meeting! Learn the perks of becoming a WiCS Member!",
-    Image: wics1
-  },
-  {
-    Title: "AWS Workshop",
-    Location: "TBD",
-    Time: "Friday, September 19th | 1:00 PM - 5:00 PM",
-    Description: "Ready for a day of tech, snacks, and surprises? ✨ Hosted by Colorstack UMD & BES in partnership with AWS, this AWS Workshop is all about exploring AI + Machine Learning in a relaxed, fun way.",
-    Image: wics2
-  },
-  {
-    Title: "Resume Roasts",
-    Location: "CDRLC 2437 or Onlin via Zoom",
-    Time: "Friday, September 19th | 1:00 PM - 5:00 PM",
-    Description: "Drop by online or in person for personalized resume advice from upperclassmen who’ve landed interviews at top companies like Capital One, AbbVie, Ninjatrader, and more! 💼💻",
-    Image: wics3
-  },
-]
+import { getEvents } from "../../libs/events.js";
+const { upcoming, past } = await getEvents();
+
+// const events = [
+//   {
+//     Title: "General Body Meeting",
+//     Location: "CDRLC Room 1413",
+//     Time: "Wednesday, September 10th | 4:30 PM - 5:30 PM",
+//     Description: "A new semester means fresh opportunities — kick off your academic year with us at our General Body Meeting! Learn the perks of becoming a WiCS Member!",
+//     Image: wics1
+//   },
+//   {
+//     Title: "AWS Workshop",
+//     Location: "TBD",
+//     Time: "Friday, September 19th | 1:00 PM - 5:00 PM",
+//     Description: "Ready for a day of tech, snacks, and surprises? ✨ Hosted by Colorstack UMD & BES in partnership with AWS, this AWS Workshop is all about exploring AI + Machine Learning in a relaxed, fun way.",
+//     Image: wics2
+//   },
+//   {
+//     Title: "Resume Roasts",
+//     Location: "CDRLC 2437 or Onlin via Zoom",
+//     Time: "Friday, September 19th | 1:00 PM - 5:00 PM",
+//     Description: "Drop by online or in person for personalized resume advice from upperclassmen who’ve landed interviews at top companies like Capital One, AbbVie, Ninjatrader, and more! 💼💻",
+//     Image: wics3
+//   },
+// ]
 
 ---
-
-
 <Wave/>
 <section class="upcoming-events">
   <div class="wave-background bg-pink-50">
@@ -58,9 +59,9 @@ const events = [
 
     <div class="events-container">
       {
-      events.map((event) => (
+      upcoming.map((e : any) => (
         <div class="event-card">
-<EventCard image={event.Image} title={event.Title} location={event.Location} time={event.Time} description={event.Description}/>
+<EventCard image={e.image} title={e.name} location={e.location} time={e.time} description={e.description}/>
         </div>
         
       ))
