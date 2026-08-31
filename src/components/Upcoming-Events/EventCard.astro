@@ -10,11 +10,11 @@ interface Props {
 }
 
 const { title, location, time, description, image } = Astro.props;
-const imgSrc = typeof image === 'string' ? image : image.src;
+const imgSrc = typeof image === 'string' ? image : image?.src;
 ---
 
 <div class="event-card">
-  <img class="event-image" src={imgSrc}>
+  {imgSrc && <img class="event-image" src={imgSrc}>}
   <div class="right-section">
     <h3>{title}</h3>
   <ul>
