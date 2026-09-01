@@ -14,7 +14,7 @@ import scavenger from '../../assets/cards/scavenger.svg';
 // const { events } = Astro.props;
 
 const sampleEvents = [
-    { eventName: 'Wired:\nWiCS Dev Project', imagePath: devproject, eventInfo: 'Join the WiCS Dev Project and get involved in a community of fellow programmers. Hone your technical skills while also getting the change to connect with other students.', isLast: false, isFirst: true },
+    { eventName: 'Wired:\nWiCS Dev Project', imagePath: devproject, eventInfo: 'Join the WiCS Dev Project and get involved in a community of fellow programmers. Hone your technical skills while also getting the change to connect with other students.', isLast: false, isFirst: true, link:"https://wics-dev-project.vercel.app/",linkName:"Dev Project Website" },
     { eventName: 'Aspire to Inspire:\nMentorship Program', imagePath: picnic, eventInfo: 'Be part of a program that helps CS students with career and academic advice. Underclassmen are paired with mentors for weekly meetings and a long-term connection to ask questions.', isLast: false, isFirst: false },
     { eventName: 'Women in\nTech Week', imagePath: scavenger, eventInfo: 'The Women in Tech Week has everything! From workshops to a final scavenger hunt at the very end, this annual event is for CS students with all levels of experience!', isLast: true, isFirst: false }
 ];
@@ -28,7 +28,7 @@ const sampleEvents = [
         </h1>
         <div class="cards flex flex-wrap m-0 sm:gap-10 gap-1 md:gap-10 2xl:gap-5 justify-center pt-[65px]">
             {sampleEvents.map((event) => (
-                <Card event={event} />
+                <Card event={event}/>
             ))}
         </div>
     </div>
