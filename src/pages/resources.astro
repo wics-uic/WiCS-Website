@@ -4,6 +4,9 @@ import Nav3 from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import Sublanding from "../components/Sublanding.astro";
 import Resource from "../components/Resource.astro";
+import { getResourceGroups } from "../libs/resources.js";
+
+const groups = await getResourceGroups();
 
 const section = [
   {
@@ -48,7 +51,7 @@ const orgs = [{ name: "Society of Women Engineers" }];
 />
 
 <section class="mb-[100px]">
-  {section.map((sec) => <Resource title={sec.title} links={sec.links} />)}
+  {groups.map((sec) => <Resource title={sec.name} links={sec.items} />)}
 </section>
 
 <Footer background="bg-cream-300" />
