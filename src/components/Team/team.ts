@@ -93,7 +93,7 @@ const team: TeamMember[] = [
   {
     name: 'Salam Bouso',
     position: 'Media Co-Chair',
-    imagePath: SalamBouso,
+    imagePath: AarnaPatel,
     linkedin: 'https://www.linkedin.com/in/salambouso/',
   },
   {
