@@ -14,6 +14,7 @@ import AarnaPatel from '../../assets/team-pictures/AarnaPatel.png?url';
 import ZeelPatel from '../../assets/team-pictures/ZeelPatel.png?url';
 import ParineetSond from '../../assets/team-pictures/ParineetSond.png?url';
 import AyelinVellikara from '../../assets/team-pictures/AyelinVellikara.png?url';
+import SalamBouso from '../../assets/team-pictures/SalamBouso.png?url';
 
 export type TeamMember = {
   name: string;
@@ -88,6 +89,12 @@ const team: TeamMember[] = [
     position: 'Media Co-Chair',
     imagePath: AarnaPatel,
     linkedin: 'https://www.linkedin.com/in/aarna-patel-915606331/',
+  },
+  {
+    name: 'Salam Bouso',
+    position: 'Media Co-Chair',
+    imagePath: SalamBouso,
+    linkedin: 'https://www.linkedin.com/in/salambouso/',
   },
   {
     name: 'Zeel Patel',
