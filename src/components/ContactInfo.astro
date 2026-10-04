@@ -1,0 +1,94 @@
+---
+export interface Props {
+    title?: string;
+}
+
+const {
+    title = "Contact Information"
+} = Astro.props;
+---
+
+<section class="w-full max-w-md font-lora">
+
+    <h2 class="mb-5 text-2xl font-semibold text-red-500">
+        {title}
+    </h2>
+
+    <div class="flex flex-col gap-5">
+
+        <!-- full name -->
+        <div>
+            <label
+                for="full-name"
+                class="mb-2 block text-sm font-medium text-red-500"
+            >
+                Full Name (First Last)
+            </label>
+
+            <input
+                id="full-name"
+                name="fullName"
+                type="text"
+                placeholder="Type here..."
+                class="w-full rounded-full bg-cream-100 px-4 py-2
+                       text-sm text-red-500 shadow-md outline-none
+                       placeholder:italic placeholder:text-pink-600
+                       focus:ring-2 focus:ring-teal-300"
+            />
+        </div>
+
+
+        <!-- UIC email -->
+        <div>
+            <label
+                for="uic-email"
+                class="block text-sm font-medium text-red-500"
+            >
+                UIC Email
+            </label>
+
+            <p class="mb-2 text-xs text-pink-600">
+                If current student:
+            </p>
+
+            <input
+                id="uic-email"
+                name="uicEmail"
+                type="email"
+                placeholder="Type here..."
+                class="w-full rounded-full bg-cream-100 px-4 py-2
+                       text-sm text-red-500 shadow-md outline-none
+                       placeholder:italic placeholder:text-pink-600
+                       focus:ring-2 focus:ring-teal-300"
+            />
+        </div>
+
+
+        <!-- personal email -->
+        <div>
+            <label
+                for="personal-email"
+                class="block text-sm font-medium text-red-500"
+            >
+                Personal Email
+            </label>
+
+            <p class="mb-2 text-xs text-pink-600">
+                If alumni:
+            </p>
+
+            <input
+                id="personal-email"
+                name="personalEmail"
+                type="email"
+                placeholder="Type here..."
+                class="w-full rounded-full bg-cream-100 px-4 py-2
+                       text-sm text-red-500 shadow-md outline-none
+                       placeholder:italic placeholder:text-pink-600
+                       focus:ring-2 focus:ring-teal-300"
+            />
+        </div>
+
+    </div>
+
+</section>
