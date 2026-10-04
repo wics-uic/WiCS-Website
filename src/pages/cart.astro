@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+/* Issues noted (10/4/26):
+    - The nav bar doesn't seem to fit with the figma layout, 
+    the logo is yet to reside at the corner of the screen and same goes for the cart icon.
+    - The nav bar doesn't adjust to screen sizes yet.
+    - Can't seem to know how to get the background accurately from figma along with the text.
+*/
+---
+
+<Layout title="Cart">
+  <Nav />
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="text-center mb-10">
+      <h1 class="text-4xl font-serif font-bold">Cart</h1>
+      <p class="text-1xl font-serif font-bold">Ready to place your order?</p>
+    </div>
+  </main>
+
+  <Footer background="bg-pink-50" />
+</Layout>
