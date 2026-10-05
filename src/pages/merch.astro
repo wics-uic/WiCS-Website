@@ -2,75 +2,72 @@
 import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Sublanding from '../components/Sublanding.astro';
 
-
+// component imports and images
 import ProductCard from '../components/Merch/ProductCard.astro';
 import keychainImage from '../assets/merch/keychain.png';
 import crewneckImage from '../assets/merch/crewneck.png';
-
-const B = import.meta.env.BASE_URL;
 ---
 
 <Layout>
     <Nav3/>
+    
+    <!--  Sublanding component header -->
+    <Sublanding title="WiCS Merch Shop" subheadline="Reserve your favorite merch."/>
 
     <main class="min-h-screen px-6 py-12">
-       
-        
-         <section class="px-6 py-20">
-
+        <section class="px-6 py-20">
             <div class="mx-auto max-w-[1264px]">
 
-                <!-- title -->
-                <div
-                    class="mx-auto flex h-[225px] max-w-[909px]
-                           items-center justify-center"
-                >
-                    <h2
-                        class="text-center font-lora text-[48px]
-                               font-bold leading-none text-pink-600
-                               [text-shadow:0_4px_4px_rgba(0,0,0,0.05)]"
-                    >
+                <!-- centered Lora font headline -->
+                <div class="mx-auto flex h-[225px] max-w-[909px] items-center justify-center">
+                    <h2 class="text-center font-lora text-[48px] font-bold leading-none text-[#944029]">
                         You might also like..
                     </h2>
                 </div>
 
+                <!--  clean responsive layout grid -->
+                <div class="mt-[30px] grid grid-cols-1 justify-items-center gap-y-12 lg:grid-cols-[repeat(3,362px)] lg:justify-center lg:gap-x-[89px]">
 
-                <!-- 3 cards -->
-                <div
-                    class="mt-[30px] grid grid-cols-1
-                           justify-items-center gap-y-12
-                           lg:grid-cols-[repeat(3,362px)]
-                           lg:justify-center lg:gap-x-[89px]"
-                >
-
-                    <!-- Past projects -->
+                    <!-- "Past Projects" interactive box visually fix later -->
+                    <div class="w-89 h-111 bg-pink-50 rounded-3xl shadow-md p-6 font-raleway font-bold text-3xl text-[#944029] shrink-0">
+                        Check out <br>
+                        what we’ve <br>
+                        done in the <br>
+                        past!
+                        <a href="#"> 
+                            <div class="w-18 h-4 bg-[#71C3C3] rounded-3xl shadow-md p-6 mx-38 my-27 shrink-0 font-raleway font-bold text-4xl text-[#944029]">
+                                <div class="-mx-1.5 -my-5 text-white">
+                                     →
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     
-
-                    <!-- Keychain -->
+                    <a href="#"> 
+                    <!-- Keychain component made them clickable -->
                     <ProductCard
                         image={keychainImage}
                         name="WiCS Keychain"
                         price="$3.00"
                     />
-
-
-                    <!-- Crewneck -->
+                    </a>
+                    
+                     <a href="#"> 
+                    <!--  Crewneck component made them clickable -->
                     <ProductCard
                         image={crewneckImage}
                         name="Long Sleeve Crewneck"
                         price="$25.00"
                     />
+                    </a>
 
                 </div>
-
             </div>
-
         </section>
-
-
     </main>
 
     <Footer background="bg-cream-300"/>
-</Layout> 
+</Layout>
 
