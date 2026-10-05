@@ -1,0 +1,32 @@
+---
+export interface Props {
+    title?: string;
+}
+
+const { title = 'Contact Information' } = Astro.props;
+---
+
+<div class="flex flex-col gap-4 w-full max-w-[500px] p-6 sm:p-10 rounded-[25px] bg-pink-100 shadow-xl">
+
+    <h2 class="font-['Lora'] font-bold text-3xl sm:text-4xl text-red-500">{title}</h2>
+
+    <div class="flex flex-col gap-2">
+        <p class="font-['Lora'] font-semibold text-xl sm:text-2xl text-red-500">Full Name (First Last)</p>
+        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-xl" type="text" placeholder="Type here..." />
+    </div>
+
+    <div class="flex flex-col gap-2">
+        <p class="font-['Lora'] font-semibold text-xl sm:text-2xl text-red-500">UIC Email</p>
+        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-xl" type="email" placeholder="Type here..." />
+    </div>
+
+    <div class="flex flex-col gap-2">
+        <p class="font-['Lora'] font-semibold text-xl sm:text-2xl text-red-500">Personal Email</p>
+        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-xl" type="email" placeholder="Type here..." />
+    </div>
+
+    <button class="self-start rounded-full bg-teal-200 px-8 py-3 font-['Raleway'] font-bold text-lg text-white shadow-xl cursor-pointer">
+        Reserve Order
+    </button>
+
+</div>
