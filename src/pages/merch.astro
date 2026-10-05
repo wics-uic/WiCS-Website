@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import image from '../assets/logo.png';
+import PurchaseItem from '../components/PurchaseItem.astro';  
 ---
 
 <Layout>
@@ -11,6 +12,8 @@ import image from '../assets/logo.png';
     <main class="min-h-screen px-6 py-12">
         <h1 class="text-4xl font-bold mb-6">Merch</h1>
         <img src={image.src} alt="Discord Logo" class="w-32 h-auto mb-6"/>
+
+        <PurchaseItem/>
     </main>
 
     <Footer background="bg-cream-300"/>
