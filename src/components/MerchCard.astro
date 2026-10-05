@@ -1,0 +1,42 @@
+---
+const {
+	name,
+	price,
+	image,
+	soldOut = false
+} = Astro.props;
+---
+
+<div class="w-56">
+
+	<div class="relative flex h-64 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-md">
+
+		{image ? (
+			<img
+				src={image}
+				alt={name}
+				class="h-full w-full object-cover"
+			/>
+		) : (
+			<span class="font-raleway text-sm text-pink-500">
+				Product Image
+			</span>
+		)}
+
+		{soldOut && (
+			<span class="absolute rounded-full bg-teal-300 px-7 py-2 font-raleway text-sm font-bold text-white">
+				Sold Out
+			</span>
+		)}
+
+	</div>
+
+	<h3 class="mt-4 font-raleway font-semibold text-red-500">
+		{name}
+	</h3>
+
+	<p class="mt-1 font-raleway text-lg font-bold text-red-500">
+		${price}
+	</p>
+
+</div>

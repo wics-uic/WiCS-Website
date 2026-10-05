@@ -3,16 +3,65 @@ import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Sublanding from '../components/Sublanding.astro';
+import MerchCard from '../components/MerchCard.astro';
+import CartButton from '../components/CartButton.astro';
 ---
 
 <Layout>
-	<Sublanding title= "Merch Shop" class = "text-sm" subheadline ={"Show your support and rep WiCS in style. Any questions and trouble regarding merch: wics.uic.officers@gmail.com"} />
-	<Nav3/>
-	<Footer background="bg-pink-50"/>
+
+    <div class="merch-hero">
+		<Sublanding
+			title="Merch Shop"
+			subheadline="Show your support and rep WiCS in style."
+		/>
+	</div>
+
+    <Nav3/>
+	<CartButton/>
+
+    <section class="flex justify-center gap-10 bg-cream-300 px-8 -mt-24 pb-20">
+        <MerchCard
+            name="Short Sleeve T-shirt"
+            price="15.00"
+        />
+
+        <MerchCard
+            name="WiCS Keychain"
+            price="3.00"
+        />
+
+        <MerchCard
+            name="Long Sleeve Crewneck"
+            price="25.00"
+            soldOut={true}
+        />
+
+    </section>
+
+    <Footer background="bg-cream-300"/>
+
 </Layout>
-
-
-
 <style>
-	
+	.merch-hero :global(h1) {
+		font-size: 2.5rem;
+		margin-bottom: 10px;
+	}
+
+	.merch-hero :global(p) {
+		font-size: 1.15rem;
+		margin: 8px;
+	}
+
+	.merch-hero :global(p::after) {
+		content: "Any questions and trouble regarding merch: wics.uic.officers@gmail.com";
+		display: block;
+		margin-top: 10px;
+		font-family: "Raleway", sans-serif;
+		font-size: 0.55rem;
+	}
+
+	.merch-hero :global(p + img) {
+		width: 28px;
+		margin-top: 25px;
+	}
 </style>
