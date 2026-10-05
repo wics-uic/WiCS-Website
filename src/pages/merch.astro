@@ -3,6 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import image from '../assets/logo.png';
+
+import ProductCard from '../components/Merch/ProductCard.astro';
+import keychainImage from '../assets/merch/keychain.png';
+import crewneckImage from '../assets/merch/crewneck.png';
+
+const B = import.meta.env.BASE_URL;
 ---
 
 <Layout>
@@ -11,6 +17,59 @@ import image from '../assets/logo.png';
     <main class="min-h-screen px-6 py-12">
         <h1 class="text-4xl font-bold mb-50">Merch</h1>
         <img src={image.src} alt="Discord Logo" class="w-32 h-auto mb-6"/>
+        
+         <section class="px-6 py-20">
+
+            <div class="mx-auto max-w-[1264px]">
+
+                <!-- title -->
+                <div
+                    class="mx-auto flex h-[225px] max-w-[909px]
+                           items-center justify-center"
+                >
+                    <h2
+                        class="text-center font-lora text-[48px]
+                               font-bold leading-none text-pink-600
+                               [text-shadow:0_4px_4px_rgba(0,0,0,0.05)]"
+                    >
+                        You might also like..
+                    </h2>
+                </div>
+
+
+                <!-- 3 cards -->
+                <div
+                    class="mt-[30px] grid grid-cols-1
+                           justify-items-center gap-y-12
+                           lg:grid-cols-[repeat(3,362px)]
+                           lg:justify-center lg:gap-x-[89px]"
+                >
+
+                    <!-- Past projects -->
+                    
+
+                    <!-- Keychain -->
+                    <ProductCard
+                        image={keychainImage}
+                        name="WiCS Keychain"
+                        price="$3.00"
+                    />
+
+
+                    <!-- Crewneck -->
+                    <ProductCard
+                        image={crewneckImage}
+                        name="Long Sleeve Crewneck"
+                        price="$25.00"
+                    />
+
+                </div>
+
+            </div>
+
+        </section>
+
+
     </main>
 
     <Footer background="bg-cream-300"/>
