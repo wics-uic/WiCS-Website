@@ -1,0 +1,21 @@
+---
+import type {ImageMetadata} from 'astro';
+import "../styles/global.css";
+
+interface Props {
+  name: string;
+  description: string;
+  image: ImageMetadata;
+  price: number;
+  
+}
+
+const{ name, description, price, image} = Astro.props;
+
+---
+<div class="flex flex-col items-center bg-cream-100 border-0  
+rounded-xl p-4 w-60 shadow-sm hover:shadow-md transition">
+<img src={image.src} alt={name} class="w-full h-48 object-cover rounded-lg mb-3"/>
+<h3 class="font-raleway font-semibold text-lg text-red-500 text-center" >{name}</h3>
+
+</div>
