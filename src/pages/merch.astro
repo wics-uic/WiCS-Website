@@ -3,16 +3,82 @@ import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import image from '../assets/logo.png';
+import Sublanding from '../components/Sublanding.astro';
+
 ---
 
 <Layout>
+    
     <Nav3/>
+    <Sublanding title="WiCS Merch Shop" subheadline="Reserve your favorite merch."/>
+   <main class="min-h-screen px-6 py-12">
+        <!-- <h1 class="text-4xl font-bold mb-50">Merch</h1>
+        <img src={image.src} alt="Discord Logo" class="w-32 h-auto mb-6"/> -->
+        <h1 class="font-lora font-normal text-4xl text-[#944029] mb-10 flex justify-center gap-6">
+        You might also like..
+    </h1>
+        <div class="flex justify-center gap-6 ">
+            <div class="w-75 h-94 bg-pink-50 rounded-3xl shadow-md p-6 mx-7 my-12 shrink-0 font-raleway font-bold text-3xl text-[#944029]">
+                Check out <br>
+                what we’ve <br>
+                done in the <br>
+                past!
+                <a href="#"> 
+                <div class="w-18 h-4 bg-[#71C3C3] rounded-3xl shadow-md p-6 mx-38 my-27 shrink-0 font-raleway font-bold text-4xl text-[#944029]">
+                    <div class="-mx-1.5 -my-5 text-white">
+                         →
+                    </div>
 
-    <main class="min-h-screen px-6 py-12">
-        <h1 class="text-4xl font-bold mb-50">Merch</h1>
-        <img src={image.src} alt="Discord Logo" class="w-32 h-auto mb-6"/>
-    </main>
+                    </a>
+                    <!--the top is clickable version but keeps going back to main wics page as a place holder  -->
+                </div>
+                
+            </div>
+            
+            <a href="#">
+            <div class="w-75 h-94 bg-slate-50 rounded-3xl shadow-md p-6 mx-7 my-12 shrink-0">
+            image here keychain
+            </div>
+             <div class="flex flex-col items-center text-center">
+                <div class=" -mt-9 font-raleway font-bold text-2xl text-[#944029]">
+                            WiCS Keychain
+                            </div>
+                            <div class=" font-raleway font-bold text-2xl text-[#944029]">
+                                $3.00 
+                            </div>
+            </div>
+            </a>
+
+            <a href="#">
+            <div class="w-75 h-94 bg-slate-50 rounded-3xl shadow-md p-6 mx-7 my-12 shrink-0">
+                this box had image 2
+            </div>
+             <div class="flex flex-col items-center text-center">
+                <div class="-mt-9 font-raleway font-bold text-2xl text-[#944029]">
+                            Long Sleeve Crewneck
+                            </div>
+                            <div class=" font-raleway font-bold text-2xl text-[#944029]">
+                                $25.00 
+                            </div>
+            </div>
+            </a>
+        
+
+     
+
+    
+                    
+        </div>
+    </main> 
+
+    
+	
+
+
 
     <Footer background="bg-cream-300"/>
+
 </Layout> 
+ 
+
 
