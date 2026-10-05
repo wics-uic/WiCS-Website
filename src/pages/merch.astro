@@ -2,83 +2,72 @@
 import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import image from '../assets/logo.png';
 import Sublanding from '../components/Sublanding.astro';
 
+// component imports and images
+import ProductCard from '../components/Merch/ProductCard.astro';
+import keychainImage from '../assets/merch/keychain.png';
+import crewneckImage from '../assets/merch/crewneck.png';
 ---
 
 <Layout>
-    
     <Nav3/>
+    
+    <!--  Sublanding component header -->
     <Sublanding title="WiCS Merch Shop" subheadline="Reserve your favorite merch."/>
-   <main class="min-h-screen px-6 py-12">
-        <!-- <h1 class="text-4xl font-bold mb-50">Merch</h1>
-        <img src={image.src} alt="Discord Logo" class="w-32 h-auto mb-6"/> -->
-        <h1 class="font-lora font-normal text-4xl text-[#944029] mb-10 flex justify-center gap-6">
-        You might also like..
-    </h1>
-        <div class="flex justify-center gap-6 ">
-            <div class="w-75 h-94 bg-pink-50 rounded-3xl shadow-md p-6 mx-7 my-12 shrink-0 font-raleway font-bold text-3xl text-[#944029]">
-                Check out <br>
-                what we’ve <br>
-                done in the <br>
-                past!
-                <a href="#"> 
-                <div class="w-18 h-4 bg-[#71C3C3] rounded-3xl shadow-md p-6 mx-38 my-27 shrink-0 font-raleway font-bold text-4xl text-[#944029]">
-                    <div class="-mx-1.5 -my-5 text-white">
-                         →
-                    </div>
 
-                    </a>
-                    <!--the top is clickable version but keeps going back to main wics page as a place holder  -->
+    <main class="min-h-screen px-6 py-12">
+        <section class="px-6 py-20">
+            <div class="mx-auto max-w-[1264px]">
+
+                <!-- centered Lora font headline -->
+                <div class="mx-auto flex h-[225px] max-w-[909px] items-center justify-center">
+                    <h2 class="text-center font-lora text-[48px] font-bold leading-none text-[#944029]">
+                        You might also like..
+                    </h2>
                 </div>
-                
-            </div>
-            
-            <a href="#">
-            <div class="w-75 h-94 bg-slate-50 rounded-3xl shadow-md p-6 mx-7 my-12 shrink-0">
-            image here keychain
-            </div>
-             <div class="flex flex-col items-center text-center">
-                <div class=" -mt-9 font-raleway font-bold text-2xl text-[#944029]">
-                            WiCS Keychain
-                            </div>
-                            <div class=" font-raleway font-bold text-2xl text-[#944029]">
-                                $3.00 
-                            </div>
-            </div>
-            </a>
 
-            <a href="#">
-            <div class="w-75 h-94 bg-slate-50 rounded-3xl shadow-md p-6 mx-7 my-12 shrink-0">
-                this box had image 2
-            </div>
-             <div class="flex flex-col items-center text-center">
-                <div class="-mt-9 font-raleway font-bold text-2xl text-[#944029]">
-                            Long Sleeve Crewneck
-                            </div>
-                            <div class=" font-raleway font-bold text-2xl text-[#944029]">
-                                $25.00 
-                            </div>
-            </div>
-            </a>
-        
+                <!--  clean responsive layout grid -->
+                <div class="mt-[30px] grid grid-cols-1 justify-items-center gap-y-12 lg:grid-cols-[repeat(3,362px)] lg:justify-center lg:gap-x-[89px]">
 
-     
-
-    
+                    <!-- "Past Projects" interactive box visually fix later -->
+                    <div class="w-89 h-111 bg-pink-50 rounded-3xl shadow-md p-6 font-raleway font-bold text-3xl text-[#944029] shrink-0">
+                        Check out <br>
+                        what we’ve <br>
+                        done in the <br>
+                        past!
+                        <a href="#"> 
+                            <div class="w-18 h-4 bg-[#71C3C3] rounded-3xl shadow-md p-6 mx-38 my-27 shrink-0 font-raleway font-bold text-4xl text-[#944029]">
+                                <div class="-mx-1.5 -my-5 text-white">
+                                     →
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     
-        </div>
-    </main> 
+                    <a href="#"> 
+                    <!-- Keychain component made them clickable -->
+                    <ProductCard
+                        image={keychainImage}
+                        name="WiCS Keychain"
+                        price="$3.00"
+                    />
+                    </a>
+                    
+                     <a href="#"> 
+                    <!--  Crewneck component made them clickable -->
+                    <ProductCard
+                        image={crewneckImage}
+                        name="Long Sleeve Crewneck"
+                        price="$25.00"
+                    />
+                    </a>
 
-    
-	
-
-
+                </div>
+            </div>
+        </section>
+    </main>
 
     <Footer background="bg-cream-300"/>
-
-</Layout> 
- 
-
+</Layout>
 
