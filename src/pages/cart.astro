@@ -1,0 +1,102 @@
+
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import CartItem from '../components/CartItem.astro';
+---
+
+<Layout>
+    <main class="min-h-screen px-6 py-12">
+
+        
+<div class="text-center py-16">
+
+    <h1
+        class="text-5xl font-bold text-[#A95B5D] mb-4"
+        style="font-family: 'Lora', serif;"
+    >
+        Cart
+    </h1>
+
+    <p
+        class="text-xl text-[#A95B5D] mb-6"
+        style="font-family: 'Lora', serif;"
+    >
+        Ready to place your order?
+    </p>
+    <p>
+        Total: $43
+    </p>
+    <p>
+        Please pick up your order within one week from the WiCS Lounge
+    </p>
+    <button class="bg-teal-100 p-4 rounded-lg w-60">
+    continue
+    </button>
+
+    <div class="flex justify-center">
+        <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#A95B5D"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="m6 9 6 6 6-6" />
+        </svg>
+    </div>
+
+</div>
+
+
+        <div class="max-w-2xl mx-auto">
+
+            <div
+                class="bg-[#FCE1DD] p-4 rounded-2xl shadow-md grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 mb-4"
+                style="font-family: 'Lora', serif;"
+            >
+                <span class="font-semibold text-sm text-[#9F4B38]">
+                    Product
+                </span>
+
+                <span class="font-semibold text-sm text-[#9F4B38]">
+                    Total
+                </span>
+
+                <span class="font-semibold text-sm text-center text-[#9F4B38]">
+                    Quantity
+                </span>
+
+                <span class="font-semibold text-sm text-center text-[#9F4B38]">
+                    Delete
+                </span>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <CartItem
+                    name="WiCS Keychain"
+                    price={3}
+                    image="/WiCS-Website/KeyChain.png"
+                />
+                <CartItem
+                    name="Short Sleeve Tee"
+                    price={15}
+                    image="/WiCS-Website/ShortSleeve.png"
+                />
+                <CartItem
+                    name="Long Sleeve Crewneck"
+                    price={25}
+                    image="/WiCS-Website/Crewneck.png"
+                />
+            </div>
+
+        </div>
+
+
+    </main>
+
+    <Footer background="bg-cream-300" />
+</Layout>
