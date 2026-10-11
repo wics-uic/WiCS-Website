@@ -52,7 +52,7 @@ import CartItem from '../components/cartitem.astro';
 </div>
 
 
-        <div class="max-w-2xl mx-auto flex flex-col gap-4">
+        <div class="max-w-2xl mx-auto">
 
             <div
                 class="bg-[#FCE1DD] p-4 rounded-2xl shadow-md grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 mb-4"
@@ -75,21 +75,23 @@ import CartItem from '../components/cartitem.astro';
                 </span>
             </div>
 
-            <CartItem
-                name="WiCS Keychain"
-                price={3}
-                image="/WiCS-Website/KeyChain.png"
-            />
-            <CartItem
-                name="Short Sleeve Tee"
-                price={15}
-                image="/WiCS-Website/ShortSleeve.png"
-            />
-            <CartItem
-                name="Long Sleeve Crewneck"
-                price={25}
-                image="/WiCS-Website/Crewneck.png"
-            />
+            <div class="flex flex-col gap-4">
+                <CartItem
+                    name="WiCS Keychain"
+                    price={3}
+                    image="/WiCS-Website/KeyChain.png"
+                />
+                <CartItem
+                    name="Short Sleeve Tee"
+                    price={15}
+                    image="/WiCS-Website/ShortSleeve.png"
+                />
+                <CartItem
+                    name="Long Sleeve Crewneck"
+                    price={25}
+                    image="/WiCS-Website/Crewneck.png"
+                />
+            </div>
 
         </div>
 
