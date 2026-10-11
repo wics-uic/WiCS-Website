@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CartSummary from '../components/CartSummary.astro';
+
+const subtotal = 0;
+const total = 0;
+---
+
+<Layout title="Cart">
+  <Nav />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+  </head>
+
+  <body class="relative min-h-screen bg-[#FFF7ED] text-slate-800 flex flex-col justify-between">
+    <div class="relative z-10 w-full flex flex-col items-center flex-grow">
+      
+      <!-- Header Text -->
+      <header class="w-full text-center pt-12 pb-8">
+        <h1 class="text-4xl font-serif font-medium text-[#7A3645]">Cart</h1>
+        <p class="text-sm text-[#A66E7A] mt-1">Ready to place your order?</p>
+      </header>
+
+      <!-- Layout for Cart Items + Summary -->
+      <main class="w-full max-w-5xl px-4 s,:px-6 lg:px-8 p-b16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- Order Summary -->
+          <aside class="lg:col-span-4 w-full">
+            <CartSummary subtotal={subtotal} total={total} checkoutUrl="/checkout" />
+          </aside>
+        </div>
+
+      </main>
+    </div> 
+
+    <!-- Footer -->
+    <footer class="relative z-10 w-full">
+      <Footer/>
+    </footer>
+    
+  </body>
+</Layout>
