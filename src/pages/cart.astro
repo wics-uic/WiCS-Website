@@ -1,20 +1,28 @@
+
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import CartItem from '../components/cartitem.astro';
 ---
 
 <Layout>
-    <Nav3 />
- 
     <main class="min-h-screen px-6 py-12">
-    <div class= "bg-pink-100 p-6 rounded-lg w-80">
-    
-    <h2 class="text-xl font-bold text-center">
-        Order Summary
-    </h2>
-    <p>
-        Sub Total: $43
+
+        
+<div class="text-center py-16">
+
+    <h1
+        class="text-5xl font-bold text-[#A95B5D] mb-4"
+        style="font-family: 'Lora', serif;"
+    >
+        Cart
+    </h1>
+
+    <p
+        class="text-xl text-[#A95B5D] mb-6"
+        style="font-family: 'Lora', serif;"
+    >
+        Ready to place your order?
     </p>
     <p>
         Total: $43
@@ -26,10 +34,55 @@ import Footer from '../components/Footer.astro';
     continue
     </button>
 
-    <hr />
-
-
+    <div class="flex justify-center">
+        <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#A95B5D"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="m6 9 6 6 6-6" />
+        </svg>
     </div>
+
+</div>
+
+
+        <div class="max-w-2xl mx-auto">
+
+            <div
+                class="bg-[#FCE1DD] p-4 rounded-2xl shadow-md grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 mb-4"
+                style="font-family: 'Lora', serif;"
+            >
+                <span class="font-semibold text-sm text-[#9F4B38]">
+                    Product
+                </span>
+
+                <span class="font-semibold text-sm text-[#9F4B38]">
+                    Total
+                </span>
+
+                <span class="font-semibold text-sm text-center text-[#9F4B38]">
+                    Quantity
+                </span>
+
+                <span class="font-semibold text-sm text-center text-[#9F4B38]">
+                    Delete
+                </span>
+            </div>
+
+            <CartItem
+                name="WiCS Keychain"
+                price={3}
+                image="/WiCS-Website/KeyChain.png"
+            />
+
+        </div>
+
     </main>
 
     <Footer background="bg-cream-300" />

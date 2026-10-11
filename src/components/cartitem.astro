@@ -1,0 +1,71 @@
+
+---
+const { name, price, image } = Astro.props;
+---
+
+<div
+    class="bg-[#FCE1DD] p-4 rounded-2xl shadow-md grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4"
+    style="font-family: 'Lora', serif;"
+>
+    <div class="flex items-center gap-4">
+        <img
+            src={image}
+            alt={name}
+            class="w-20 h-20 object-contain rounded-xl"
+        />
+
+        <p class="font-semibold text-sm text-[#9F4B38]">
+            {name}
+        </p>
+    </div>
+
+    <p class="font-bold text-[#9F4B38]">
+        ${price}
+    </p>
+
+    <div class="flex items-center justify-center gap-2">
+        <button
+            type="button"
+            aria-label="Decrease quantity"
+            class="bg-[#9F4B38] text-white rounded-full w-5 h-5 flex items-center justify-center text-sm"
+        >
+            −
+        </button>
+
+        <span class="font-semibold text-[#9F4B38]">1</span>
+
+        <button
+            type="button"
+            aria-label="Increase quantity"
+            class="bg-[#9F4B38] text-white rounded-full w-5 h-5 flex items-center justify-center text-sm"
+        >
+            +
+        </button>
+    </div>
+
+    <div class="flex justify-center">
+        <button
+            type="button"
+            aria-label="Delete item"
+            class="bg-[#9F4B38] text-white rounded-full w-6 h-6 flex items-center justify-center"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M3 6h18" />
+                <path d="M8 6V4h8v2" />
+                <path d="M19 6l-1 14H6L5 6" />
+                <path d="M10 10v7" />
+                <path d="M14 10v7" />
+            </svg>
+        </button>
+    </div>
+</div>
