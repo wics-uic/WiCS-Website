@@ -8,7 +8,7 @@ export interface Props {
 const { title = 'Checkout Confirmation' } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 w-full max-w-[500px] p-6 rounded-[25px] bg-pink-100 shadow-xl">
+<div class="flex flex-col gap-4 w-full max-w-[500px] p-6 rounded-[25px] bg-pink-100 shadow-xl flex items-center justify-center">
     <Image 
         src={CheckMark} 
         alt="Success Checkmark" 
@@ -18,13 +18,13 @@ const { title = 'Checkout Confirmation' } = Astro.props;
         Your order has been 
         <br>placed!<br>
     </h1>
-    <p class="font-['Lora'] font-normal mx-auto w-100 text-center text-red-500">
+    <p class="font-['Lora'] font-normal mx-auto w-100 text-center text-red-500 py-4">
         Thank you for reserving WICS merch, we have sent you a confirmation email. 
         We will give you a confirmation of your order in <b>2 days</b>, once you
         receive a confirmation you have <b>1 week</b> to pick up your merch!
         If you don't pick up in 1 week, your order will be revoked.
     </p>
-    <button class="font-['Raleway'] font-bold text-lg text-white shadow-xl self-center rounded-full bg-teal-200 px-36">
+    <button class="font-['Raleway'] font-bold text-lg text-white shadow-xl self-center rounded-full bg-teal-300 px-36">
         I understand
     </button>
 </div>
