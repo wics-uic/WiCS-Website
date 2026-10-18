@@ -8,7 +8,7 @@ export interface Props {
 const { title = 'Checkout Confirmation' } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 w-full max-w-[500px] p-6 rounded-[25px] bg-pink-100 shadow-xl flex items-center justify-center">
+<div id="confirmation-modal" class="flex flex-col gap-4 w-full max-w-[500px] p-6 rounded-[25px] bg-pink-100 shadow-md shadow-black/50 flex items-center justify-centerd">
     <Image 
         src={CheckMark} 
         alt="Success Checkmark" 
@@ -24,7 +24,16 @@ const { title = 'Checkout Confirmation' } = Astro.props;
         receive a confirmation you have <b>1 week</b> to pick up your merch!
         If you don't pick up in 1 week, your order will be revoked.
     </p>
-    <button class="font-['Raleway'] font-bold text-lg text-white shadow-xl self-center rounded-full bg-teal-300 px-36">
+    <button id="understand-button" class="font-['Raleway'] font-bold text-lg text-white shadow-md shadow-black/50 self-center rounded-full bg-teal-300 px-36">
         I understand
     </button>
 </div>
+
+<script is:inline>
+    const btn = document.getElementById("understand-button")
+    const modal = document.getElementById("confirmation-modal")
+
+    btn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
+</script>
