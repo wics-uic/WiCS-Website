@@ -16,15 +16,20 @@ const { targetId } = Astro.props;
 <Layout>
     <Nav3/>
 
-    <main class="min-h-screen px-6 py-12">
+    <main class="px-6 py-12">
         <MerchHero> </MerchHero>
         
     </main>
 
-    <main class="min -h screen px-6 py-12">
+    <main class="px-6 py-12">
         <ProductGrid> </ProductGrid>
     </main>
 
     <Footer background="bg-cream-300"/>
 </Layout>
 
+<style is:global>
+  html {
+    overscroll-behavior-y: none;
+  }
+</style>
