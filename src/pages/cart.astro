@@ -3,13 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import CartSummary from '../components/CartSummary.astro';
+import CartItem from '../components/CartItem.astro';
 
-const subtotal = 0;
-const total = 0;
+const subtotal = 43;
+const total = 43;
 ---
 
 <Layout title="Cart">
   <Nav />
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,9 +19,10 @@ const total = 0;
   </head>
 
   <body class="relative min-h-screen bg-[#FFF7ED] text-slate-800 flex flex-col justify-between">
+
     <div class="relative z-10 w-full flex flex-col items-center flex-grow">
-      
-      <!-- Header Text -->
+
+      <!-- Header -->
       <header class="w-full text-center pt-32 pb-14">
         <h1 class="font-lora text-5xl font-bold text-[#A95C5D] mb-5">
           Cart
@@ -49,23 +52,66 @@ const total = 0;
         </div>
       </header>
 
-      <!-- Layout for Cart Items + Summary -->
-      <main class="w-full max-w-5xl px-4 sm:px-6 lg:px-8 pb-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Cart Content -->
+      <main class="w-full max-w-6xl px-6 pb-20">
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-[1fr_340px]">
+
+          <!-- Cart Items -->
+          <section>
+
+            <!-- Table Header -->
+            <div
+              class="mb-4 grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 rounded-2xl bg-[#FCE1DD] p-4 font-lora text-sm font-bold text-[#944029] shadow-sm"
+            >
+              <span>Product</span>
+              <span>Total</span>
+              <span class="text-center">Quantity</span>
+              <span class="text-center">Delete</span>
+            </div>
+
+            <!-- Products -->
+            <div class="flex flex-col gap-4">
+
+              <CartItem
+                name="WiCS Keychain"
+                price={3}
+                image="/WiCS-Website/KeyChain.png"
+              />
+
+              <CartItem
+                name="Short Sleeve Tee"
+                price={15}
+                image="/WiCS-Website/ShortSleeve.png"
+              />
+
+              <CartItem
+                name="Long Sleeve Crewneck"
+                price={25}
+                image="/WiCS-Website/Crewneck.png"
+              />
+
+            </div>
+          </section>
 
           <!-- Order Summary -->
-          <aside class="lg:col-span-4 w-full">
-            <CartSummary subtotal={subtotal} total={total} checkoutUrl="/checkout" />
+          <aside class="w-full">
+            <CartSummary
+              subtotal={subtotal}
+              total={total}
+              checkoutUrl="/WiCS-Website/checkout"
+            />
           </aside>
+
         </div>
 
       </main>
-    </div> 
+    </div>
 
     <!-- Footer -->
     <footer class="relative z-10 w-full">
-      <Footer/>
+      <Footer />
     </footer>
-    
+
   </body>
 </Layout>
