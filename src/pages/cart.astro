@@ -24,7 +24,7 @@ import CartItem from '../components/CartItem.astro';
     >
         Ready to place your order?
     </p>
-    <p>
+    <p id="cart-total">
         Total: $43
     </p>
     <p>
@@ -100,3 +100,51 @@ import CartItem from '../components/CartItem.astro';
 
     <Footer background="bg-cream-300" />
 </Layout>
+
+
+<script client:load>
+    function updateCartTotal() {
+        let total = 0;
+
+        document.querySelectorAll(".cart-item").forEach((item) => {
+            const priceEl = item.querySelector("[data-price]");
+            const qtyEl = item.querySelector(".quantity-number");
+
+            const basePrice = Number(priceEl.dataset.baseprice);
+            const qty = Number(qtyEl.textContent);
+
+            total += basePrice * qty;
+        });
+
+        document.getElementById("cart-total").textContent = `Total: $${total}`;
+    }
+
+    document.querySelectorAll("[aria-label='Increase quantity']").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const qtyEl = btn.parentElement.querySelector(".quantity-number");
+            let qty = Number(qtyEl.textContent);
+            qty++;
+            qtyEl.textContent = qty;
+
+            updateCartTotal();
+        });
+    });
+
+    document.querySelectorAll("[aria-label='Decrease quantity']").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const qtyEl = btn.parentElement.querySelector(".quantity-number");
+            let qty = Number(qtyEl.textContent);
+            if (qty > 1) qty--;
+            qtyEl.textContent = qty;
+
+            updateCartTotal();
+        });
+    });
+
+    document.querySelectorAll("[aria-label='Delete item']").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            btn.closest(".cart-item").remove();
+            updateCartTotal();
+        });
+    });
+</script>
