@@ -28,6 +28,8 @@ const {total} = Astro.props;
    
     <h5 class="font-lora font-semibold text-sm text-red-500 mb-1">Order Total</h5>
 
-    <p class="font-lora font-bold text-2xl text-red-500">{total.toFixed(2)}</p>
+    <p class="font-lora font-bold text-2xl text-red-500">${total.toFixed(2)}</p>
+
+    <a class="bg-[#71C3C3] text-[#FFF4ED] md:text-sm sm:text-sm xs:text-md text-sm md:px-6 px-4 py-1 shadow-[0_4px_4px_0_rgba(64,64,64,0.6)] mt-5 mb-5 rounded-full font-bold font-raleway inline-block text-center hover:bg-[#5a9d9d] transition">Reserve Order</a>
 
 </div>
