@@ -1,10 +1,11 @@
 ---
 import "../styles/global.css";
+import ProductCard from "./merch/productCard.astro";
 ---
 
 <div class="flex flex-row gap-10 justify-center">
-    <div class="w-[300px] h-[350px] bg-pink-50 flex items-center justify-center">01</div>
-    <div class="w-[300px] h-[350px] bg-pink-50 flex items-center justify-center">02</div>
-    <div class="w-[300px] h-[350px] bg-pink-50 flex items-center justify-center">03</div>
+    <div><ProductCard image={"../public/ShortSleeve.png"} name="Short Sleeve T-shirt" price="$15.00"></ProductCard></div>
+    <div><ProductCard image={"../public/KeyChain.png"} name="WiCS Keychain" price="$3.00"></ProductCard></div>
+    <div><ProductCard image={"../public/Crewneck.png"} name="Long Sleeve Crewneck" price="$15.00"></ProductCard></div>
 </div>
 
