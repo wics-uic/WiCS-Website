@@ -5,9 +5,10 @@ interface Props {
     image: string | ImageMetadata;
     name: string;
     price: string;
+    href: string;
 }
 
-const { image, name, price } = Astro.props;
+const { image, name, price, href} = Astro.props;
 
 const imgSrc =
     typeof image === 'string'
@@ -16,6 +17,7 @@ const imgSrc =
 ---
 
 <article class="w-full max-w-[362px]">
+    <a href ={href} class = "block">
     <img
         src={imgSrc}
         alt={name}
