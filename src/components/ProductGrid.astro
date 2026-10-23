@@ -2,9 +2,11 @@
 import "../styles/global.css";
 ---
 
-<div class="flex flex-row gap-10 justify-center">
-    <div class="w-[300px] h-[350px] bg-pink-50 flex items-center justify-center">01</div>
-    <div class="w-[300px] h-[350px] bg-pink-50 flex items-center justify-center">02</div>
-    <div class="w-[300px] h-[350px] bg-pink-50 flex items-center justify-center">03</div>
+<div class="mx-auto grid max-w-[1264px] grid-cols-1
+            justify-items-center gap-y-12
+            sm:grid-cols-3 sm:gap-x-6
+            lg:gap-x-[89px]">
+<slot />   
 </div>
+
 
