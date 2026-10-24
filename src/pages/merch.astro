@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import image from '../assets/logo.png';
+
 import MerchHero from '../components/MerchHero.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import ProductCard from '../components/merch/productCard.astro';
@@ -10,6 +10,8 @@ import ProductCard from '../components/merch/productCard.astro';
 import tshirtImage from '../assets/merch/tshirt.png';
 import keychainImage from '../assets/merch/keychain.png';
 import crewneckImage from '../assets/merch/crewneck.png';
+
+const B = import.meta.env.BASE_URL;
 ---
 
 <Layout>
@@ -23,25 +25,28 @@ import crewneckImage from '../assets/merch/crewneck.png';
     </main>
 
     <!--3 cards-->
-    <main class="min -h screen px-6 py-12">
+    <main class="min-h-screen px-6 py-12">
         <ProductGrid> 
 
             <ProductCard
                 image ={tshirtImage}
                 name ="Short Sleeve T-shirt"
                 price ="$15.00"
+                href={`${B}merch2_afterClick/?product=tshirt`} 
             />
 
             <ProductCard
                 image ={keychainImage}
                 name ="WiCS Keychain"
                 price ="$3.00"
+                href={`${B}merch2_afterClick/?product=keychain`} 
             />
 
             <ProductCard
                 image ={crewneckImage}
                 name ="Long Sleeve Crewnack"
                 price ="$25.00"
+                href={`${B}merch2_afterClick/?product=crewneck`} 
             />
             
         </ProductGrid>
