@@ -54,30 +54,36 @@ const B = import.meta.env.BASE_URL;
                         </div>
 
                         <!-- T-shirt -->
-                            <ProductCard
+                            <div data-product="tshirt" class="w-full max-w-[362px]">
+                                <ProductCard
                                 image={tshirtImage}
                                 name="Short Sleeve T-shirt"
                                 price="$15.00"
 			                    href={`${B}merch2_afterClick/?product=tshirt`}
-                            />
+                                />
+                            </div>
 
 
                         <!-- Keychain -->
+                           <div data-product="keychain" class="w-full max-w-[362px]">
                                <ProductCard
                                 image={keychainImage}
                                 name="WiCS Keychain"
                                 price="$3.00"
 			                    href={`${B}merch2_afterClick/?product=keychain`}
                             />
+                            </div>
 
 
                         <!-- Crewneck -->
+                             <div data-product="crewneck" class="w-full max-w-[362px]">
                                 <ProductCard
                                 image={crewneckImage}
                                 name="Long Sleeve Crewneck"
                                 price="$25.00"
 			                    href={`${B}merch2_afterClick/?product=crewneck`}
                             />
+                            </div>
 
                     </ProductGrid>
 
@@ -88,3 +94,16 @@ const B = import.meta.env.BASE_URL;
 
     <Footer background="bg-cream-300"/>
 </Layout>
+
+<script>
+    const selected = new URLSearchParams(      
+        window.location.search   
+    ).get('product') || 'tshirt';     
+
+    document.querySelectorAll<HTMLElement>('[data-product]')   //hide the selected product card.  
+        .forEach((card) => {
+            if (card.dataset.product === selected) {
+                card.style.display = 'none';
+            }
+        });
+</script>
