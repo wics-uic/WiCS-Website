@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav3 from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import image from '../assets/logo.png';
+
+import ProductGrid from '../components/ProductGrid.astro';
+import ProductCard from '../components/merch/productCard.astro';
+
+import tshirtImage from '../assets/merch/tshirt.png';
+import keychainImage from '../assets/merch/keychain.png';
+import crewneckImage from '../assets/merch/crewneck.png';
+---
+
+<Layout>
+    <Nav3/>
+
+    <main class="min-h-screen px-6 py-12">
+
+    <!--product detail part. (Joselyn/Rahi part)-->
+     <section class="min-h-[300px]">
+        </section>
+
+
+    <!--You might also like part. (Jenny/Connie part)-->
+     <section class="px-6 py-20">
+       <div class="mx-auto max-w-[1264px]">
+
+                <!-- You might also like.. -->
+                <div class="mx-auto flex h-[225px] max-w-[909px]
+                            items-center justify-center">
+
+                    <h2 class="text-center font-lora text-[48px]
+                               font-bold leading-none text-pink-600">
+                        You might also like..
+                    </h2>
+
+                </div>
+
+
+                <!-- 3 Cards -->
+                <div class="mt-[30px]">
+
+                    <ProductGrid>
+
+                        <!-- Past Projects -->
+                        <div class="aspect-[362/447] w-full max-w-[362px]
+                                    rounded-[30px] bg-pink-100 p-6">
+                            Check out what we've done in the past!
+                        </div>
+
+
+                        <!-- T-shirt -->
+                            <ProductCard
+                                image={tshirtImage}
+                                name="Short Sleeve T-shirt"
+                                price="$15.00"
+			                    href={`${B}merch2_afterClick/?product=tshirt`}
+                            />
+                        </div>
+
+
+                        <!-- Keychain -->
+                               <ProductCard
+                                image={keychainImage}
+                                name="WiCS Keychain"
+                                price="$3.00"
+			                    href={`${B}merch2_afterClick/?product=keychain`}>
+                            />
+                        </div>
+
+
+                        <!-- Crewneck -->
+                                <ProductCard
+                                image={crewneckImage}
+                                name="Long Sleeve Crewneck"
+                                price="$25.00"
+			                    href={`${B}merch2_afterClick/?product=crewneck`}
+                            />
+                        </div>
+
+                    </ProductGrid>
+
+                </div>
+        </div>
+     </section>
+    </main>
+
+    <Footer background="bg-cream-300"/>
+</Layout>
