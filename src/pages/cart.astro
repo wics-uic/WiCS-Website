@@ -115,3 +115,74 @@ const total = 43;
 
   </body>
 </Layout>
+
+<script>
+  function updateCartTotal() {
+    let total = 0;
+
+    document.querySelectorAll(".cart-item").forEach((item) => {
+      const priceEl = item.querySelector("[data-price]");
+      const qtyEl = item.querySelector(".quantity-number");
+
+      if (!(priceEl instanceof HTMLElement) || !(qtyEl instanceof HTMLElement)) {
+        return;
+      }
+
+      const basePrice = Number(priceEl.dataset.baseprice);
+      const qty = Number(qtyEl.textContent);
+
+      total += basePrice * qty;
+    });
+
+    const subtotalEl = document.querySelector("[data-cart-subtotal]");
+    const totalEl = document.querySelector("[data-cart-total]");
+
+    if (subtotalEl) subtotalEl.textContent = `$${total}`;
+    if (totalEl) totalEl.textContent = `$${total}`;
+  }
+
+  document
+    .querySelectorAll("[aria-label='Increase quantity']")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const parent = btn.parentElement;
+        const qtyEl = parent?.querySelector(".quantity-number");
+
+        if (!qtyEl) return;
+
+        let qty = Number(qtyEl.textContent);
+        qty++;
+        qtyEl.textContent = String(qty);
+
+        updateCartTotal();
+      });
+    });
+
+  document
+    .querySelectorAll("[aria-label='Decrease quantity']")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const parent = btn.parentElement;
+        const qtyEl = parent?.querySelector(".quantity-number");
+
+        if (!qtyEl) return;
+
+        let qty = Number(qtyEl.textContent);
+
+        if (qty > 1) {
+          qty--;
+          qtyEl.textContent = String(qty);
+          updateCartTotal();
+        }
+      });
+    });
+
+  document
+    .querySelectorAll("[aria-label='Delete item']")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.closest(".cart-item")?.remove();
+        updateCartTotal();
+      });
+    });
+</script>
