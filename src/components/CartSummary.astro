@@ -19,7 +19,7 @@ const { subtotal = 43, total = 43, checkoutUrl = "" } = Astro.props;
     <div class="space-y-0 text-[#944029] font-serif">
       <div class="flex justify-between items-center text-base font-bold">
         <span>Sub Total</span>
-        <span>${subtotal}</span>
+        <span data-cart-subtotal>${subtotal}</span>
       </div>
 
       <!-- Line -->
@@ -27,7 +27,7 @@ const { subtotal = 43, total = 43, checkoutUrl = "" } = Astro.props;
 
       <div class="flex justify-between items-center text-base font-bold">
         <span>Total</span>
-        <span>${total}</span>
+        <span data-cart-total>${total}</span>
       </div>
     </div>
 
