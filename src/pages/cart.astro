@@ -17,13 +17,13 @@ const total = 0;
     <title>Cart</title>
   </head>
 
-  <body class="relative min-h-screen bg-[#FFF7ED] text-slate-800 flex flex-col justify-between">
+  <body class="relative min-h-screen text-slate-800 flex flex-col justify-between">
     <div class="relative z-10 w-full flex flex-col items-center flex-grow">
       
       <!-- Header Text -->
-      <header class="w-full text-center pt-12 pb-8">
-        <h1 class="text-4xl font-serif font-medium text-[#7A3645]">Cart</h1>
-        <p class="text-sm text-[#A66E7A] mt-1">Ready to place your order?</p>
+      <header class="w-full text-center pt-48 pb-8">
+        <h1 class="text-4xl font-serif font-bold text-[#7A3645]">Cart</h1>
+        <p class="text-sm font-serif font-semibold text-[#A66E7A] mt-1">Ready to place your order?</p>
       </header>
 
       <!-- Layout for Cart Items + Summary -->
@@ -40,11 +40,13 @@ const total = 0;
     </div> 
 
     <!-- Recommendations Section -->
-     <Recommendations />
-
+     <div class="p-9 w-full">
+      <Recommendations />
+     </div>
+     
     <!-- Footer -->
-    <footer class="relative z-10 w-full">
-      <Footer/>
+    <footer class="relative z-10 w-full ">
+      <Footer background="bg-pink-50"/>
     </footer>
     
   </body>

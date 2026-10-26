@@ -5,7 +5,7 @@ interface Props {
   checkoutUrl?: string;
 }
 
-const { subtotal = 43, total = 43, checkoutUrl = "" } = Astro.props;
+const { subtotal = 0, total = 0, checkoutUrl = "" } = Astro.props;
 ---
 
 <div class="bg-[#FDCBCD] rounded-3xl p-8 shadow-sm border border-[#FDCBCD] w-full max-w-[340px] flex flex-col justify-between">
