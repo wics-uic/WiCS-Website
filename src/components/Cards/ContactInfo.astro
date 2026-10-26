@@ -1,32 +1,61 @@
 ---
 export interface Props {
     title?: string;
+    total?: bigint;
 }
 
-const { title = 'Contact Information' } = Astro.props;
+const { title = 'Contact Information', total } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 w-full max-w-[500px] p-6 sm:p-10 rounded-[25px] bg-pink-100 shadow-xl">
+<div id="contact-info" class="flex flex-col gap-8 w-full max-w-[500px] p-6 sm:p-10 rounded-[25px] bg-pink-100 shadow-md shadow-black/35">
 
-    <h2 class="font-['Lora'] font-bold text-3xl sm:text-4xl text-red-500">{title}</h2>
+    <h2 class="font-['Lora'] font-bold text-2xl sm:text-3xl text-red-500">{title}</h2>
 
     <div class="flex flex-col gap-2">
-        <p class="font-['Lora'] font-semibold text-xl sm:text-2xl text-red-500">Full Name (First Last)</p>
-        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-xl" type="text" placeholder="Type here..." />
+        <p class="font-['Lora'] font-semibold text-xl sm:text-xl text-red-500">Full Name (First Last)</p>
+        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-md shadow-black/35" type="text" placeholder="Type here..." />
     </div>
 
     <div class="flex flex-col gap-2">
-        <p class="font-['Lora'] font-semibold text-xl sm:text-2xl text-red-500">UIC Email</p>
-        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-xl" type="email" placeholder="Type here..." />
+        <p class="font-['Lora'] font-semibold text-xl sm:text-xl text-red-500">UIC Email</p>
+        <p class="font-['Lora'] text-red-500/60">If current student:</p>
+        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-md shadow-black/35" type="email" placeholder="Type here..." />
     </div>
 
     <div class="flex flex-col gap-2">
-        <p class="font-['Lora'] font-semibold text-xl sm:text-2xl text-red-500">Personal Email</p>
-        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-xl" type="email" placeholder="Type here..." />
+        <p class="font-['Lora'] font-semibold text-xl sm:text-xl text-red-500">Personal Email</p>
+        <p class="font-['Lora'] text-red-500/60">If alumni:</p>
+        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-md shadow-black/35" type="email" placeholder="Type here..." />
     </div>
 
-    <button class="self-start rounded-full bg-teal-200 px-8 py-3 font-['Raleway'] font-bold text-lg text-white shadow-xl cursor-pointer">
+    <h2 class="font-['Lora'] font-bold text-2xl sm:text-3xl text-red-500">Pickup & Payment</h2>
+    <div class="flex flex-col gap-2">
+        <p class="font-['Lora'] font-semibold text-xl sm:text-xl text-red-500">Estimated Pickup Date</p>
+        <p class="font-['Lora'] text-red-500/60">Please enter your preferred pickup date within 7 days of your order confirmation.</p>
+        <input class="w-full rounded-full bg-cream-300 px-5 py-3 font-['Raleway'] italic shadow-md shadow-black/35" type="email" placeholder="MM/DD/YY" />
+    </div>
+
+    <div class="flex flex-col gap-2">
+        <p class="font-['Lora'] font-semibold text-xl sm:text-xl text-red-500">Payment is made at pickup</p>
+        <p class="font-['Lora'] text-red-500/60">WiCS merch is available for in-person purchase only. Payment must be made when you pick up your order using cash, Zelle, or Venmo. Online payment is not available.</p>
+    </div>
+
+    <div class="flex flex-col gap-2">
+        <p class="font-['Lora'] font-semibold text-xl sm:text-xl text-red-500">Order Total</p>
+        <p class="font-['Lora'] font-semibold text-xl sm:text-2xl text-red-500">${total}</p>
+    </div>
+
+    <button id="reserve-button" class="self-start rounded-full bg-teal-300 px-8 py-1 font-['Raleway'] font-bold text-lg text-white shadow-md shadow-black/35 cursor-pointer">
         Reserve Order
     </button>
 
 </div>
+
+<script is:inline>
+    const btn = document.getElementById("reserve-button")
+    const contact = document.getElementById("contact-info")
+
+    btn.addEventListener("click", () => {
+        contact.classList.add("hidden");
+    });
+</script>
