@@ -9,6 +9,10 @@ import "../styles/global.css";
     <p class="text-lg text-center mb-6 font-normal">Any questions and trouble regarding merch: wics.uic.officers@gmail.com</p>
 
     <div class="mt-10 flex justify-center">
+        <a
+        href={`${import.meta.env.BASE_URL}merch#products`}
+        aria-label="View products"
+        class="block transition-transform duration-200 ease-in-out hover:translate-y-1">
         <svg
             width="42"
             height="24"
@@ -16,6 +20,8 @@ import "../styles/global.css";
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             class="text-[#D28E8E]"
+            aria-hidden="true"
+            
         >
             <path
             d="M3 3L21 21L39 3"

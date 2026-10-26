@@ -21,7 +21,7 @@ const { targetId } = Astro.props;
         
     </main>
 
-    <main class="px-6 py-12">
+    <main id="products" class="scroll-mt-32 px-6 py-12">
         <ProductGrid> </ProductGrid>
     </main>
 
@@ -29,7 +29,9 @@ const { targetId } = Astro.props;
 </Layout>
 
 <style is:global>
-  html {
-    overscroll-behavior-y: none;
-  }
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
 </style>
