@@ -56,6 +56,11 @@ const { title = 'Contact Information', total } = Astro.props;
     const contact = document.getElementById("contact-info")
 
     btn.addEventListener("click", () => {
+        const confirmationOverlay = document.getElementById("confirmation-overlay")
+
         contact.classList.add("hidden");
+        confirmationOverlay.classList.remove("hidden")
+        confirmationOverlay.classList.add("flex")
+
     });
 </script>
