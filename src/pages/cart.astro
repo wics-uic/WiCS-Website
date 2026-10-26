@@ -1,131 +1,327 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import CartItem from '../components/CartItem.astro';
+import Nav from '../components/Nav.astro';
+
+import logo from '../assets/logo.png';
+import cloud1 from '../assets/extra/cloud1.png';
+import cloud2 from '../assets/extra/cloud2.png';
+
+const B = import.meta.env.BASE_URL;
 ---
 
 <Layout>
-    <main class="min-h-screen px-6 py-12">
+    <main class="min-h-screen">
 
-        
-<div class="text-center py-16">
+        <!-- CART HEADER AND CLOUD BACKGROUND -->
+        <section class="cart-hero">
 
-    <h1
-        class="text-5xl font-bold text-[#A95B5D] mb-4"
-        style="font-family: 'Lora', serif;"
-    >
-        Cart
-    </h1>
+            <!-- Left cloud -->
+            <img
+                src={cloud1.src}
+                alt=""
+                class="cloud cloud-left"
+            />
 
-    <p
-        class="text-xl text-[#A95B5D] mb-6"
-        style="font-family: 'Lora', serif;"
-    >
-        Ready to place your order?
-    </p>
-    <p id="cart-total">
-        Total: $43
-    </p>
-    <p>
-        Please pick up your order within one week from the WiCS Lounge
-    </p>
-    <button class="bg-teal-100 p-4 rounded-lg w-60">
-    continue
-    </button>
+            <!-- Right cloud -->
+            <img
+                src={cloud2.src}
+                alt=""
+                class="cloud cloud-right"
+            />
 
-    <div class="flex justify-center">
-        <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#A95B5D"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <path d="m6 9 6 6 6-6" />
-        </svg>
-    </div>
+            <!-- Navigation bar -->
+            <Nav merch={true} />
 
-</div>
+            <!-- WiCS logo on the left -->
+            <a href={B} class="side-logo">
+                <img src={logo.src} alt="WiCS Logo" />
+            </a>
 
+            <!-- Shopping cart icon on the right -->
+            <a href={`${B}cart`} class="cart-icon" aria-label="Shopping cart">
+                <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                </svg>
+                <span id="cart-count" class="cart-count">3</span>
+            </a>
 
-        <div class="max-w-2xl mx-auto">
+            <!-- Cart heading -->
+            <div class="cart-heading">
 
-            <div
-                class="bg-[#FCE1DD] p-4 rounded-2xl shadow-md grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 mb-4"
-                style="font-family: 'Lora', serif;"
-            >
-                <span class="font-semibold text-sm text-[#9F4B38]">
-                    Product
-                </span>
+                <h1 class="text-5xl font-bold text-[#A95B5D] mb-4"
+                    style="font-family: 'Lora', serif;">
+                    Cart
+                </h1>
 
-                <span class="font-semibold text-sm text-[#9F4B38]">
-                    Total
-                </span>
+                <p class="text-xl text-[#A95B5D] mb-8"
+                    style="font-family: 'Lora', serif;">
+                    Ready to place your order?
+                </p>
 
-                <span class="font-semibold text-sm text-center text-[#9F4B38]">
-                    Quantity
-                </span>
+                <!-- Down arrow -->
+                <div class="flex justify-center">
+                    <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#A95B5D"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </div>
 
-                <span class="font-semibold text-sm text-center text-[#9F4B38]">
-                    Delete
-                </span>
             </div>
+        </section>
 
-            <div class="flex flex-col gap-4">
-                <CartItem
-                    name="WiCS Keychain"
-                    price={3}
-                    image="/WiCS-Website/KeyChain.png"
-                />
-                <CartItem
-                    name="Short Sleeve Tee"
-                    price={15}
-                    image="/WiCS-Website/ShortSleeve.png"
-                />
-                <CartItem
-                    name="Long Sleeve Crewneck"
-                    price={25}
-                    image="/WiCS-Website/Crewneck.png"
-                />
+        <!-- CART PRODUCT SECTION -->
+        <section class="cart-products px-6 pb-16">
+
+            <div class="max-w-2xl mx-auto">
+
+                <!-- Product table header -->
+                <div
+                    class="bg-[#FCE1DD] p-4 rounded-2xl shadow-md grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 mb-4"
+                    style="font-family: 'Lora', serif;"
+                >
+                    <span class="font-semibold text-sm text-[#9F4B38]">
+                        Product
+                    </span>
+
+                    <span class="font-semibold text-sm text-[#9F4B38]">
+                        Total
+                    </span>
+
+                    <span class="font-semibold text-sm text-center text-[#9F4B38]">
+                        Quantity
+                    </span>
+
+                    <span class="font-semibold text-sm text-center text-[#9F4B38]">
+                        Delete
+                    </span>
+                </div>
+
+                <!-- Product cards -->
+                <div class="flex flex-col gap-7">
+
+                    <CartItem
+                        name="WiCS Keychain"
+                        price={3}
+                        image={`${B}KeyChain.png`}
+                    />
+
+                    <CartItem
+                        name="Short Sleeve Tee"
+                        price={15}
+                        image={`${B}ShortSleeve.png`}
+                    />
+
+                    <CartItem
+                        name="Long Sleeve Crewneck"
+                        price={25}
+                        image={`${B}Crewneck.png`}
+                    />
+
+                </div>
             </div>
-
-        </div>
-
+        </section>
 
     </main>
 
     <Footer background="bg-cream-300" />
 </Layout>
 
+<style>
+    /* Pink background fading smoothly into cream */
+    .cart-hero {
+        position: relative;
+        width: 100%;
+        height: 380px;
+        background: linear-gradient(
+            to bottom,
+            #FFD9D6 0%,
+            #FFE2DE 55%,
+            #FFF7ED 100%
+        );
+        overflow: hidden;
+    }
 
-<script client:load>
+    /* Soft, feathered clouds that scale with screen width */
+    .cloud {
+        position: absolute;
+        width: 48vw;
+        min-width: 600px;
+        max-width: none;
+        height: 290px;
+        object-fit: cover;
+        top: 90px;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 1;
+        filter: brightness(1.12) saturate(0.85);
+
+        /* fade out all four edges of the image */
+        -webkit-mask-image:
+            linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%),
+            linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+        -webkit-mask-composite: source-in;
+        mask-image:
+            linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%),
+            linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+        mask-composite: intersect;
+    }
+
+    /* Left cloud */
+    .cloud-left {
+        left: -8vw;
+    }
+
+    /* Right cloud */
+    .cloud-right {
+        right: -8vw;
+        top: 110px;
+    }
+
+    /* Keep the heading above the clouds */
+    .cart-heading {
+        position: relative;
+        z-index: 5;
+        text-align: center;
+        padding-top: 140px;
+    }
+
+    /* WiCS logo on the left */
+    .side-logo {
+        position: absolute;
+        top: 35px;
+        left: 3%;
+        z-index: 100000;
+    }
+
+    .side-logo img {
+        width: 48px;
+        height: auto;
+    }
+
+    /* Shopping cart icon on the right */
+    .cart-icon {
+        position: absolute;
+        top: 35px;
+        right: 3%;
+        z-index: 100000;
+        background-color: #F9BFC0;
+        padding: 10px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 4px #00000025;
+    }
+
+    /* Number of items in the cart */
+    .cart-count {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background-color: #9F4B38;
+        color: white;
+        font-size: 11px;
+        border-radius: 50%;
+        min-width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Cream background for products */
+    .cart-products {
+        background-color: #FFF7ED;
+        padding-top: 42px;
+        min-height: 500px;
+    }
+
+    @media (max-width: 768px) {
+        .cloud {
+            width: 120vw;
+            min-width: 0;
+            height: 220px;
+            top: 130px;
+        }
+
+        .cloud-left {
+            left: -45vw;
+        }
+
+        .cloud-right {
+            right: -45vw;
+            top: 150px;
+        }
+
+        .cart-heading {
+            padding-top: 145px;
+        }
+
+        .side-logo {
+            top: 20px;
+        }
+
+        .cart-icon {
+            top: 20px;
+        }
+    }
+</style>
+
+<script>
     function updateCartTotal() {
         let total = 0;
+        let count = 0;
 
         document.querySelectorAll(".cart-item").forEach((item) => {
             const priceEl = item.querySelector("[data-price]");
             const qtyEl = item.querySelector(".quantity-number");
 
+            if (!priceEl || !qtyEl) return;
+
             const basePrice = Number(priceEl.dataset.baseprice);
             const qty = Number(qtyEl.textContent);
 
             total += basePrice * qty;
+            count += qty;
         });
 
-        document.getElementById("cart-total").textContent = `Total: $${total}`;
+        const totalEl = document.getElementById("cart-total");
+        if (totalEl) {
+            totalEl.textContent = `Total: $${total}`;
+        }
+
+        const countEl = document.getElementById("cart-count");
+        if (countEl) {
+            countEl.textContent = String(count);
+        }
     }
 
     document.querySelectorAll("[aria-label='Increase quantity']").forEach((btn) => {
         btn.addEventListener("click", () => {
             const qtyEl = btn.parentElement.querySelector(".quantity-number");
+
             let qty = Number(qtyEl.textContent);
             qty++;
-            qtyEl.textContent = qty;
 
+            qtyEl.textContent = qty;
             updateCartTotal();
         });
     });
@@ -133,10 +329,12 @@ import CartItem from '../components/CartItem.astro';
     document.querySelectorAll("[aria-label='Decrease quantity']").forEach((btn) => {
         btn.addEventListener("click", () => {
             const qtyEl = btn.parentElement.querySelector(".quantity-number");
-            let qty = Number(qtyEl.textContent);
-            if (qty > 1) qty--;
-            qtyEl.textContent = qty;
 
+            let qty = Number(qtyEl.textContent);
+
+            if (qty > 1) qty--;
+
+            qtyEl.textContent = qty;
             updateCartTotal();
         });
     });
@@ -147,4 +345,6 @@ import CartItem from '../components/CartItem.astro';
             updateCartTotal();
         });
     });
+
+    updateCartTotal();
 </script>
