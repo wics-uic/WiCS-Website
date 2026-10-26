@@ -7,10 +7,14 @@ import button from '../assets/extra/button.svg';
 import logo from "../assets/logo.png";
 import cloud2 from '../assets/extra/whitecloud-2.svg';
 import cloud3 from '../assets/extra/whitecloud-3.svg';
+import ContactInfo from '../components/MerchCheckout/ContactInfo.astro'
 ---
 
 <Layout>
     <Nav3/>
+    <div class="flex justify-center flex-1 mt-20 p-10">
+            <ContactInfo/>     
+    </div>
     <div  class="px-3 py-2">
             <img src={logo.src} alt="Logo" class="w-12 h-auto">
     </div>

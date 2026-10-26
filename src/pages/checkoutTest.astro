@@ -2,13 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import ContactInfo from '../components/MerchCheckout/ContactInfo.astro'
+import ContactInfo from '../components/MerchCheckout/ContactInfo.astro';
+import Pickup from '../components/Pickup.astro';
 ---
 <Layout>
     <div class="flex flex-col min-h-screen">
         <Nav3/>
         <div class="flex justify-center flex-1 mt-20 p-10">
             <ContactInfo/>
+            <Pickup/>
+            
+        </div>
+        <div class="flex justify-center">
+            <Pickup total = {43}/> 
         </div>
         <Footer/>
     </div>
