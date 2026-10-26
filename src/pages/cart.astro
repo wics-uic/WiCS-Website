@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CartSummary from '../components/CartSummary.astro';
+import CartItem from '../components/CartItem.astro';
+
+const subtotal = 43;
+const total = 43;
+---
+
+<Layout title="Cart">
+  <Nav />
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+  </head>
+
+  <body class="relative min-h-screen bg-[#FFF7ED] text-slate-800 flex flex-col justify-between">
+
+    <div class="relative z-10 w-full flex flex-col items-center flex-grow">
+
+      <!-- Header -->
+      <header class="w-full text-center pt-32 pb-14">
+        <h1 class="font-lora text-5xl font-bold text-[#A95C5D] mb-5">
+          Cart
+        </h1>
+
+        <p class="font-lora text-xl text-[#A95C5D]">
+          Ready to place your order?
+        </p>
+
+        <div class="mt-10 flex justify-center">
+          <svg
+            width="42"
+            height="24"
+            viewBox="0 0 42 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="text-[#D28E8E]"
+          >
+            <path
+              d="M3 3L21 21L39 3"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </header>
+
+      <!-- Cart Content -->
+      <main class="w-full max-w-6xl px-6 pb-20">
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-[1fr_340px]">
+
+          <!-- Cart Items -->
+          <section>
+
+            <!-- Table Header -->
+            <div
+              class="mb-4 grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 rounded-2xl bg-[#FCE1DD] p-4 font-lora text-sm font-bold text-[#944029] shadow-sm"
+            >
+              <span>Product</span>
+              <span>Total</span>
+              <span class="text-center">Quantity</span>
+              <span class="text-center">Delete</span>
+            </div>
+
+            <!-- Products -->
+            <div class="flex flex-col gap-4">
+
+              <CartItem
+                name="WiCS Keychain"
+                price={3}
+                image="/WiCS-Website/KeyChain.png"
+              />
+
+              <CartItem
+                name="Short Sleeve Tee"
+                price={15}
+                image="/WiCS-Website/ShortSleeve.png"
+              />
+
+              <CartItem
+                name="Long Sleeve Crewneck"
+                price={25}
+                image="/WiCS-Website/Crewneck.png"
+              />
+
+            </div>
+          </section>
+
+          <!-- Order Summary -->
+          <aside class="w-full">
+            <CartSummary
+              subtotal={subtotal}
+              total={total}
+              checkoutUrl="/WiCS-Website/checkout"
+            />
+          </aside>
+
+        </div>
+
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 w-full">
+      <Footer />
+    </footer>
+
+  </body>
+</Layout>
+
+<script>
+  function updateCartTotal() {
+    let total = 0;
+
+    document.querySelectorAll(".cart-item").forEach((item) => {
+      const priceEl = item.querySelector("[data-price]");
+      const qtyEl = item.querySelector(".quantity-number");
+
+      if (!(priceEl instanceof HTMLElement) || !(qtyEl instanceof HTMLElement)) {
+        return;
+      }
+
+      const basePrice = Number(priceEl.dataset.baseprice);
+      const qty = Number(qtyEl.textContent);
+
+      total += basePrice * qty;
+    });
+
+    const subtotalEl = document.querySelector("[data-cart-subtotal]");
+    const totalEl = document.querySelector("[data-cart-total]");
+
+    if (subtotalEl) subtotalEl.textContent = `$${total}`;
+    if (totalEl) totalEl.textContent = `$${total}`;
+  }
+
+  document
+    .querySelectorAll("[aria-label='Increase quantity']")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const parent = btn.parentElement;
+        const qtyEl = parent?.querySelector(".quantity-number");
+
+        if (!qtyEl) return;
+
+        let qty = Number(qtyEl.textContent);
+        qty++;
+        qtyEl.textContent = String(qty);
+
+        updateCartTotal();
+      });
+    });
+
+  document
+    .querySelectorAll("[aria-label='Decrease quantity']")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const parent = btn.parentElement;
+        const qtyEl = parent?.querySelector(".quantity-number");
+
+        if (!qtyEl) return;
+
+        let qty = Number(qtyEl.textContent);
+
+        if (qty > 1) {
+          qty--;
+          qtyEl.textContent = String(qty);
+          updateCartTotal();
+        }
+      });
+    });
+
+  document
+    .querySelectorAll("[aria-label='Delete item']")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.closest(".cart-item")?.remove();
+        updateCartTotal();
+      });
+    });
+</script>
