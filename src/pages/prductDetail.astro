@@ -1,0 +1,284 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav3 from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Sublanding from '../components/Sublanding.astro';
+import MerchCard from '../components/MerchCard.astro';
+---
+
+<Layout>
+  <Nav3 />
+
+  <main class="product-page">
+    <section class="product-container">
+      <div class="product-image">
+        <img
+          src="/images/wics-shirt.png"
+          alt="White WiCS short sleeve T-shirt"
+        />
+      </div>
+
+      <div class="product-details">
+        <h1>Short Sleeve T-shirt</h1>
+
+        <div class="price-row">
+          <h2>$15.00</h2>
+          <span class="tag">In-stock</span>
+          <span class="tag">Limited edition</span>
+        </div>
+
+        <p class="description">
+          Rep WiCS in style with this cute, comfy unisex tee!
+          Available in multiple sizes and featuring a fun WiCS
+          design, it’s the perfect way to show your support for
+          our community. Available for a limited time only!
+        </p>
+
+        <p class="availability">
+          Available Until: 10/04/2026
+        </p>
+
+        <div class="sizes">
+          <button type="button" data-size="S" aria-pressed="false">S</button>
+          <button type="button" data-size="M" aria-pressed="false">M</button>
+          <button type="button" data-size="L" aria-pressed="false">L</button>
+          <button type="button" data-size="XL" aria-pressed="false">XL</button>
+        </div>
+
+        <button class="add-to-cart" type="button">
+          Add to Cart
+        </button>
+      </div>
+    </section>
+    <section class="recommended">
+  <h2>You might also like..</h2>
+
+  <div class="recommended-grid">
+    <a href="/events" class="promo-card">
+      <h3>Check out what we've done in the past!</h3>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="/merch" class="recommended-card">
+      <img
+        src="/images/wics-keychain.png"
+        alt="WiCS Keychain"
+      />
+      <h3>WiCS Keychain</h3>
+      <p>$3.00</p>
+    </a>
+
+    <a href="/merch" class="recommended-card">
+      <img
+        src="/images/crewneck.png"
+        alt="Long Sleeve Crewneck"
+      />
+      <h3>Long Sleeve Crewneck</h3>
+      <p>$25.00</p>
+    </a>
+  </div>
+</section>
+  </main>
+
+  <Footer background="bg-cream-300" />
+</Layout>
+
+
+<style>
+  .product-page {
+    min-height: 80vh;
+    padding: 120px 5% 65px;
+    background: linear-gradient(#ffe0df, #fff8ed);
+    color: #9b432d;
+  }
+
+  .product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    align-items: center;
+  }
+
+  .product-image img {
+    display: block;
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 3px 4px #0002;
+  }
+
+  .product-details h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin: 0 0 8px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .price-row h2 {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  .tag {
+    padding: 4px 16px;
+    border-radius: 20px;
+    background: #e98f9b;
+    color: white;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 3px #0003;
+  }
+
+  .description {
+    margin-top: 38px;
+    color: #bd7e7f;
+    font-weight: 600;
+  }
+
+  .availability {
+    color: #a9a9b0;
+    font-style: italic;
+  }
+
+  .sizes {
+    display: flex;
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .sizes button {
+    width: 42px;
+    height: 42px;
+    border: 3px solid #e99aa4;
+    border-radius: 50%;
+    background: transparent;
+    color: #e99aa4;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .sizes button.selected {
+    background: #e99aa4;
+    color: white;
+  }
+
+  .add-to-cart {
+    border: none;
+    border-radius: 28px;
+    background: #6bc2c3;
+    color: white;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  @media (max-width: 700px) {
+    .product-container {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
+    .product-page {
+      padding: 35px 6%;
+    }
+
+
+  .recommended h2 {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    margin-bottom: 48px;
+  }
+
+  .recommended-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 168px));
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .recommended-card {
+    color: #9b432d;
+    text-decoration: none;
+  }
+
+  .recommended-card img {
+    display: block;
+    width: 100%;
+    height: 205px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 2px 3px #0003;
+  }
+
+  .recommended-card h3 {
+    font-size: 0.8rem;
+    margin: 12px 8px 4px;
+  }
+
+  .recommended-card p {
+    margin: 4px 8px;
+    font-weight: bold;
+  }
+
+  .promo-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 205px;
+    padding: 18px;
+    border-radius: 16px;
+    background: #ffe6e0;
+    color: #9b432d;
+    text-decoration: none;
+    box-shadow: 0 2px 3px #0003;
+  }
+
+  .promo-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .arrow {
+    align-self: flex-end;
+    background: #6bc2c3;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 14px;
+  }
+
+  @media (max-width: 650px) {
+    .recommended-grid {
+      grid-template-columns: repeat(2, minmax(0, 168px));
+      gap: 20px;
+    }
+  }
+
+</style>
+
+
+ <!-- a lil button action -->
+<script>
+  const sizeButtons = document.querySelectorAll('.sizes button');
+
+  sizeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      sizeButtons.forEach((item) => {
+        item.classList.remove('selected');
+        item.setAttribute('aria-pressed', 'false');
+      });
+
+      button.classList.add('selected');
+      button.setAttribute('aria-pressed', 'true');
+    });
+  });
+</script>
