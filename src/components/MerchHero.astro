@@ -1,12 +1,21 @@
 
 ---
 import "../styles/global.css";
+import cloud2 from '../assets/extra/whitecloud-2.svg';
+import cloud3 from '../assets/extra/whitecloud-3.svg';
+
 ---
 
+    <!-- <Sublanding title="Merch Shop" subheadline="Show your support and rep WiCS in style" subheadline="Any questions and trouble regarding merch: wics.uic.officers@gmail.com"/> -->
 
-    <h1 class="text-6xl pt-30 text-center mb-6">Merch Shop</h1>
-    <p class="text-[32px] pb-3 text-center">Show your support and rep WiCS in style</p>
-    <p class="text-lg text-center mb-6 font-normal">Any questions and trouble regarding merch: wics.uic.officers@gmail.com</p>
+    <!-- <div>
+        <h1 class="text-6xl pt-30 text-center mb-6">Merch Shop</h1>
+        <p class="text-[32px] pb-3 text-center">Show your support and rep WiCS in style</p>
+        <p class="text-lg text-center mb-6 font-normal">Any questions and trouble regarding merch: wics.uic.officers@gmail.com</p>
+
+    </div>
+
+    
 
     <div class="mt-10 flex justify-center">
         <a
@@ -31,7 +40,57 @@ import "../styles/global.css";
             stroke-linejoin="round"
             />
         </svg>
+    </div> -->
+    <section class="merch-background relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden">
+    <img
+        src={cloud2.src}
+        alt=""
+        class="pointer-events-none absolute bottom-10 left-0 z-0 h-auto w-[900px] max-w-lg object-fill"
+    />
+
+    <div class="relative z-10 px-6 text-center">
+         <div>
+        <h1 class="text-6xl pt-30 text-center mb-6">Merch Shop</h1>
+        <p class="text-[32px] pb-3 text-center">Show your support and rep WiCS in style</p>
+        <p class="text-lg text-center mb-6 font-normal">Any questions and trouble regarding merch: wics.uic.officers@gmail.com</p>
+
     </div>
+
+    
+
+    <div class="mt-10 flex justify-center">
+        <a
+        href={`${import.meta.env.BASE_URL}merch#products`}
+        aria-label="View products"
+        class="block transition-transform duration-200 ease-in-out hover:translate-y-1">
+        <svg
+            width="42"
+            height="24"
+            viewBox="0 0 42 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="text-[#D28E8E]"
+            aria-hidden="true"
+            
+        >
+            <path
+            d="M3 3L21 21L39 3"
+            stroke="currentColor"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            />
+            </svg>
+        </a>
+    </div>
+    </div>
+
+    <img
+        src={cloud3.src}
+        alt=""
+        class="pointer-events-none absolute bottom-10 right-0 z-0 h-auto w-auto max-w-3xl max-h-full"
+    />
+</section>
 
 
 
@@ -46,6 +105,13 @@ import "../styles/global.css";
 
         color: #A95C5D;
     }
+    .merch-background {
+    background: linear-gradient(
+        180deg,
+        var(--color-pink-100),
+        var(--color-cream-300)
+    );
+}
 
 
 
