@@ -8,6 +8,7 @@ import MerchCard from '../components/MerchCard.astro';
 
 <Layout>
   <Nav3 />
+		<Sublanding title="Merch Shop"/> <!--Added this to see if leveled -->
 
   <main class="product-page">
     <section class="product-container">
@@ -39,13 +40,13 @@ import MerchCard from '../components/MerchCard.astro';
         </p>
 
         <div class="sizes">
-          <button type="button" data-size="S" aria-pressed="false">S</button>
-          <button type="button" data-size="M" aria-pressed="false">M</button>
-          <button type="button" data-size="L" aria-pressed="false">L</button>
-          <button type="button" data-size="XL" aria-pressed="false">XL</button>
+          <button id="Small" type="button" data-size="S">S</button>
+          <button id="Medium" type="button" data-size="M">M</button>
+          <button id="Large" type="button" data-size="L">L</button>
+          <button id="Extra" type="button" data-size="XL">XL</button>
         </div>
 
-        <button class="add-to-cart" type="button">
+        <button id="cart" class="add-to-cart" type="button">
           Add to Cart
         </button>
       </div>
@@ -93,7 +94,7 @@ import MerchCard from '../components/MerchCard.astro';
   }
 
   .product-container {
-    max-width: 1200px;
+    max-width: 700px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -110,7 +111,7 @@ import MerchCard from '../components/MerchCard.astro';
 
   .product-details h1 {
     font-family: Georgia, serif;
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: 30px;
     margin: 0 0 8px;
   }
 
@@ -157,26 +158,28 @@ import MerchCard from '../components/MerchCard.astro';
     height: 42px;
     border: 3px solid #e99aa4;
     border-radius: 50%;
-    background: transparent;
+    /* background: transparent; */
     color: #e99aa4;
     font-size: 1.2rem;
     cursor: pointer;
   }
 
-  .sizes button.selected {
-    background: #e99aa4;
-    color: white;
-  }
 
   .add-to-cart {
     border: none;
     border-radius: 28px;
-    background: #8a9b9b; /* changes to this color when no longer disabled -->#6bc2c3 */
+    background: #6bc2c3; /* when no longer disabled */
     color: white;
     padding: 12px 28px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+  }
+
+  .add-to-cart: disabled{
+    color: white;
+    background: #8a9b9b;
+    cursor: not-allowed;
   }
 
   @media (max-width: 700px) {
@@ -263,25 +266,44 @@ import MerchCard from '../components/MerchCard.astro';
     }
   }
 
+  .clicked-state {
+    background-color: #ffb3bd;
+  }
+
+
 </style>
 
 
- <!-- a lil button action -->
+ <!-- a lil button action (Update by adding disabled)-->
 <script>
-  const sizeButtons = document.querySelectorAll('.sizes button');
+  const addToCart = document.getElementById('cart') as HTMLButtonElement | null;
+  const sizeButtons = [
+    document.getElementById('Small'),
+    document.getElementById('Medium'),
+    document.getElementById('Large'),
+    document.getElementById('Extra')
+  ].filter(button => button !== null);
+
+  if (addToCart) {
+    addToCart.disabled = true;
+  }
 
   sizeButtons.forEach((button) => {
     button.addEventListener('click', () => {
       sizeButtons.forEach((item) => {
-        item.classList.remove('selected');
-        item.setAttribute('aria-pressed', 'false');
+        item.classList.remove('clicked-state');
       });
+      button.classList.add('clicked-state');
 
-      button.classList.add('selected');
-      button.setAttribute('aria-pressed', 'true');
+      if (addToCart) {
+        addToCart.disabled = false;
+      }
     });
   });
 </script>
 
+
+
 <!--make sure to add code to disable add to cart. when the user clicks a sz then add-to-cart isn't disabled anymore-->
-<!-- can you add the cart icon -->
+<!--can you add the cart icon -->
+<!--add the 3 product cards below the main one-->
