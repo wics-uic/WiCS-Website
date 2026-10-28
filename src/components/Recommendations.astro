@@ -1,0 +1,41 @@
+---
+import RecommendationCard from './Cards/RecommendationCard.astro';;
+
+interface RecommendationItem {
+  id: string;
+  title: string;
+  price: string;
+  image: string;
+}
+
+interface Props {
+    items?: RecommendationItem[];
+}
+
+// Subject to Change, these are placeholder items
+const placeholderItems: RecommendationItem[] = [
+  { id: '1', title: 'WiCS Keychain', price: '$3.00', image: 'src/assets/logo.png'},
+  { id: '2', title: 'WiCS Long Sleeve Crewneck', price: '$25.00', image: 'src/assets/logo.png'},
+  { id: '3', title: 'WiCS Knitted Sweater', price: '$40.00', image: 'src/assets/logo.png'},
+  { id: '4', title: 'WiCS Hoodie', price: '$40.00', image: 'src/assets/logo.png'},
+  { id: '5', title: 'WiCS T-Shirt', price: '$15.00', image: 'src/assets/logo.png'},
+  { id: '6', title: 'WiCS T-Shirt', price: '$15.00', image: 'src/assets/logo.png'}
+];
+
+const { items = placeholderItems } = Astro.props;
+
+---
+
+<section class="m-8 sm:p-3 md:p-8 max-w-5xl mx-auto">
+  <h2 class="text-2xl font-serif text-[#7A3645] mb-6">You might also like..</h2>
+  
+  <div class="flex p-10 hide-scroll-bar overflow-x-scroll gap-6">
+    {items.map((item) => (
+      <RecommendationCard 
+        title={item.title} 
+        price={item.price} 
+        image={item.image} 
+      />
+    ))}
+  </div>
+</section>
