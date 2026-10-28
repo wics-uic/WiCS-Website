@@ -1,0 +1,167 @@
+---
+interface Props {
+    total: number;
+}
+
+const { total } = Astro.props;
+---
+
+<!-- Main Checkout Container -->
+<section class="w-full max-w-[320px] rounded-xl bg-[#FDCBCD] px-8 py-7 font-lora shadow-lg mx-auto">
+
+    <form class="flex flex-col gap-6">
+
+        <!-- CONTACT INFORMATION -->
+        <div>
+            <h2 class="mb-4 text-lg font-bold text-[#944029]">
+                Contact Information
+            </h2>
+
+            <div class="flex flex-col gap-4">
+
+                <!-- Full Name -->
+                <div>
+                    <label
+                        for="full-name"
+                        class="mb-1 block text-xs font-semibold text-[#944029]"
+                    >
+                        Full Name (First Last)
+                    </label>
+
+                    <input
+                        id="full-name"
+                        name="fullName"
+                        type="text"
+                        placeholder="Type here..."
+                        required
+                        class="w-full rounded-full bg-[#FFF5E8] font-raleway px-3 py-1.5
+                               text-xs text-[#944029] shadow-sm outline-none
+                               placeholder:italic placeholder:text-[#EA8996] placeholder:opacity-[.60]
+                               focus:ring-2 focus:ring-[#71C3C3]"
+                    />
+                </div>
+
+                <!-- UIC Email -->
+                <div>
+                    <label
+                        for="uic-email"
+                        class="block text-xs font-semibold text-[#944029]"
+                    >
+                        UIC Email
+                    </label>
+
+                    <p class="mb-1 text-[10px] text-[#AF8081]">
+                        If current student:
+                    </p>
+
+                    <input
+                        id="uic-email"
+                        name="uicEmail"
+                        type="email"
+                        placeholder="Type here..."
+                        class="w-full rounded-full bg-[#FFF5E8] px-3 py-1.5
+                               text-xs text-[#944029] font-raleway shadow-sm outline-none
+                               placeholder:italic placeholder:text-[#EA8996] placeholder:opacity-[.60]
+                               focus:ring-2 focus:ring-[#71C3C3]"
+                    />
+                </div>
+
+                <!-- Personal Email -->
+                <div>
+                    <label
+                        for="personal-email"
+                        class="block text-xs font-semibold text-[#944029]"
+                    >
+                        Personal Email
+                    </label>
+
+                    <p class="mb-1 text-[10px] text-[#AF8081]">
+                        If alumni:
+                    </p>
+
+                    <input
+                        id="personal-email"
+                        name="personalEmail"
+                        type="email"
+                        placeholder="Type here..."
+                        class="w-full rounded-full bg-[#FFF5E8] font-raleway px-3 py-1.5
+                               text-xs text-[#944029] shadow-sm outline-none
+                               placeholder:italic placeholder:text-[#EA8996] placeholder:opacity-[.60]
+                               focus:ring-2 focus:ring-[#71C3C3]"
+                    />
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PICKUP & PAYMENT -->
+        <div>
+            <h2 class="mb-4 text-lg font-bold text-[#944029]">
+                Pickup & Payment
+            </h2>
+
+            <!-- Estimated Pickup Date -->
+            <div class="mb-4">
+                <label
+                    for="pickup-date"
+                    class="mb-1 block text-xs font-semibold text-[#944029]"
+                >
+                    Estimated Pickup Date
+                </label>
+
+                <p class="mb-2 text-[10px] text-[#AF8081]">
+                    Please enter your preferred pickup date within 7 days
+                    of your order confirmation.
+                </p>
+
+                <input
+                    id="pickup-date"
+                    name="pickupDate"
+                    type="text"
+                    placeholder="MM/DD/YY"
+                    class="w-full rounded-full bg-[#FFF5E8] font-raleway px-3 py-1.5
+                           text-xs text-[#944029] shadow-sm outline-none
+                           placeholder:italic placeholder:text-[#EA8996] placeholder:opacity-[.60]
+                           focus:ring-2 focus:ring-[#71C3C3]"
+                />
+            </div>
+
+            <!-- Payment Information -->
+            <div class="mb-5">
+                <h3 class="mb-2 text-xs font-semibold text-[#944029]">
+                    Payment is made at pickup
+                </h3>
+
+                <p class="text-[10px] text-[#AF8081] leading-relaxed">
+                    WiCS merch is available for in-person purchase only.
+                    Payment must be made when you pick up your order using
+                    cash, Zelle, or Venmo. Online payment is not available.
+                </p>
+            </div>
+
+            <!-- Order Total -->
+            <div class="mb-4">
+                <h3 class="mb-1 text-xs font-semibold text-[#944029]">
+                    Order Total
+                </h3>
+
+                <p class="font-lora text-2xl font-bold text-[#944029]">
+                    ${total.toFixed(2)}
+                </p>
+            </div>
+
+            <!-- Reserve Order Button -->
+            <button
+                type="button"
+                class="inline-block rounded-full bg-[#71C3C3] px-5 py-2
+                       text-center font-raleway text-xs font-bold text-[#FFF4ED]
+                       shadow-[0_4px_4px_0_rgba(64,64,64,0.4)]
+                       transition-all duration-100 hover:bg-[#5a9d9d]
+                       active:translate-y-1 active:scale-95 active:shadow-sm"
+            >
+                Reserve Order
+            </button>
+        </div>
+
+    </form>
+</section>

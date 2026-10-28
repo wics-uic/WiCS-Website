@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav3 from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CheckoutContainer from '../components/CheckoutContainer.astro';
+import button from '../assets/extra/button.svg';
+---
+
+<Layout>
+    <div class="flex flex-col min-h-screen">
+        <Nav3 />
+
+        <main class="flex flex-col items-center flex-1 mt-28 px-4 pt-12 pb-32">
+
+            <!-- Checkout Heading -->
+            <h1 class="font-lora text-4xl font-semibold text-red-500 mb-5">
+                Reserve Your Merch
+            </h1>
+
+            <h2 class="font-lora text-lg text-red-500 text-center mb-11">
+                Complete the form below to reserve your items.
+            </h2>
+
+            <!-- Downward Arrow -->
+            <div class="flex justify-center items-center mb-16">
+                <img
+                    class="w-7 h-auto"
+                    src={button.src}
+                    alt="Downward arrow"
+                />
+            </div>
+
+            <!-- Checkout Container -->
+            <CheckoutContainer total={43} />
+
+        </main>
+
+        <Footer background="bg-cream-300" />
+    </div>
+</Layout>
