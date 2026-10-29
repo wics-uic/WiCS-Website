@@ -12,6 +12,33 @@ import keychainImage from '../assets/merch/keychain.png';
 import crewneckImage from '../assets/merch/crewneck.png';
 
 const B = import.meta.env.BASE_URL;
+
+const products = [
+    {
+        id:'tshirt',
+        name: 'Short Sleeve T-shirt',
+        price:'$15.00',
+        image: tshirtImage,
+        href: `${B}merch2_afterClick/?product=tshirt`,
+        soldOut: false,
+    },
+    {
+        id:'keychain',
+        name: 'WiCS Keychain',
+        price:'$3.00',
+        image: keychainImage,
+        href: `${B}merch2_afterClick/?product=keychain`,
+        soldOut: true, // Keychain remains marked as Sold Out here too!
+    },
+      {
+        id: 'crewneck',
+        name: 'Long Sleeve Crewneck',
+        price: '$25.00',
+        image: crewneckImage,
+        href: `${B}merch2_afterClick/?product=crewneck`,
+        soldOut: false,
+    },
+];
 ---
 
 <Layout>
@@ -53,38 +80,19 @@ const B = import.meta.env.BASE_URL;
                             </div>
                         </div>
 
-                        <!-- T-shirt -->
-                            <div data-product="tshirt" class="w-full max-w-[362px]">
+                        {products.map((product) => (
+                            <div data-product={product.id}
+                            class="relative w-full max-w-[362px]">
                                 <ProductCard
-                                image={tshirtImage}
-                                name="Short Sleeve T-shirt"
-                                price="$15.00"
-			                    href={`${B}merch2_afterClick/?product=tshirt`}
-                                />
-                            </div>
-
-
-                        <!-- Keychain -->
-                           <div data-product="keychain" class="w-full max-w-[362px]">
-                               <ProductCard
-                                image={keychainImage}
-                                name="WiCS Keychain"
-                                price="$3.00"
-			                    href={`${B}merch2_afterClick/?product=keychain`}
-                            />
-                            </div>
-
-
-                        <!-- Crewneck -->
-                             <div data-product="crewneck" class="w-full max-w-[362px]">
-                                <ProductCard
-                                image={crewneckImage}
-                                name="Long Sleeve Crewneck"
-                                price="$25.00"
-			                    href={`${B}merch2_afterClick/?product=crewneck`}
-                            />
-                            </div>
-
+                                    image={product.image}
+                                    name={product.name}
+                                    price={product.price}
+                                    href={product.href}
+                                    soldOut={product.soldOut}
+                                    />
+                                    </div>
+                        ))}
+  
                     </ProductGrid>
 
                 </div>

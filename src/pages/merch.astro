@@ -12,45 +12,62 @@ import keychainImage from '../assets/merch/keychain.png';
 import crewneckImage from '../assets/merch/crewneck.png';
 
 const B = import.meta.env.BASE_URL;
+
+
+// Define products as a list with a soldOut boolean property
+const products = [
+  {
+    name: 'Short Sleeve T-shirt',
+    price: '$15.00',
+    image: tshirtImage,
+    href: `${B}merch2_afterClick/?product=tshirt`,
+    soldOut: false, // Change to true when sold out
+  },
+  {
+    name: 'WiCS Keychain',
+    price: '$3.00',
+    image: keychainImage,
+    href: `${B}merch2_afterClick/?product=keychain`,
+    soldOut: true, // Example sold out item
+  },
+  {
+    name: 'Long Sleeve Crewneck',
+    price: '$25.00',
+    image: crewneckImage,
+    href: `${B}merch2_afterClick/?product=crewneck`,
+    soldOut: false,
+  },
+];
 ---
 
 <Layout>
+  <!-- Merch Shop, Show your support and rep WiCS in style-->
+  <Sublanding title="Merch Shop" subheadline="Show your support and rep WiCS in style" />
+  <Nav3 />
 
-    <!-- Merch Shop, 
-     Show your support and rep WiCS in style-->
-    <Sublanding title="Merch Shop" subheadline="Show your support and rep WiCS in style" />
-    <Nav3/>
+  <main class="min-h-screen px-6 py-12">
+    <ProductGrid>
 
-    
+      {products.map((product) => (
+          <ProductCard
+            image={product.image}
+            name={product.name}
+            price={product.price}
+            href={product.href}
+            soldOut={product.soldOut} 
+          />
+      ))}
+    </ProductGrid>
+  </main>
 
-    <!--3 cards-->
-    <main class="min-h-screen px-6 py-12">
-        <ProductGrid> 
-
-            <ProductCard
-                image ={tshirtImage}
-                name ="Short Sleeve T-shirt"
-                price ="$15.00"
-                href={`${B}merch2_afterClick/?product=tshirt`} 
-            />
-
-            <ProductCard
-                image ={keychainImage}
-                name ="WiCS Keychain"
-                price ="$3.00"
-                href={`${B}merch2_afterClick/?product=keychain`} 
-            />
-
-            <ProductCard
-                image ={crewneckImage}
-                name ="Long Sleeve Crewneck"
-                price ="$25.00"
-                href={`${B}merch2_afterClick/?product=crewneck`} 
-            />
-            
-        </ProductGrid>
-    </main>
-
-    <Footer background="bg-cream-300"/>
+  <Footer background="bg-cream-300" />
 </Layout>
+
+
+
+
+
+
+
+
 

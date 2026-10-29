@@ -6,9 +6,10 @@ interface Props {
     name: string;
     price: string;
     href: string;
+    soldOut?: boolean; // Added optional soldOut prop
 }
 
-const { image, name, price, href} = Astro.props;
+const { image, name, price, href, soldOut = false} = Astro.props;
 
 const imgSrc =
     typeof image === 'string'
@@ -18,11 +19,21 @@ const imgSrc =
 
 <article class="w-full max-w-[362px]">
     <a href ={href} class = "block">
-    <img
-        src={imgSrc}
-        alt={name}
-        class="aspect-[362/447] w-full rounded-[30px] object-cover"
-    />
+    <div class="relative w-full aspect-[362/447]">
+        <img
+            src={imgSrc}
+            alt={name}
+            class="w-full h-full rounded-[30px] object-cover"
+                />
+    {soldOut && (
+            <div class="absolute inset-0 bg-gray-500/60 flex items-center justify-center rounded-[30px]">
+                <span class="bg-[#71C3C3] text-white font-bold text-[20px] px-8 py-3.5 rounded-full shadow-xl shadow-black/40 font-raleway tracking-wider uppercase">
+                    Sold Out
+                </span>
+            </div>
+        )}
+    </div>
+
 
     <div class="mt-[35px] font-raleway text-red-500">
         <h3 class="text-[24px] font-bold leading-[38px]">
@@ -35,4 +46,5 @@ const imgSrc =
     </div>
 
 </a>
+
 </article>
