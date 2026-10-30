@@ -4,9 +4,47 @@ import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import CheckoutContainer from '../components/CheckoutContainer.astro';
 import button from '../assets/extra/button.svg';
+
+import cloud1 from '../assets/extra/cloud1.png';
+import cloud2 from '../assets/extra/cloud2.png';
+import whitecloud2 from '../assets/extra/whitecloud-2.svg';
+import whitecloud3 from '../assets/extra/whitecloud-3.svg';
+
 ---
 
+<section class="checkout_background">
+
+            <!-- Left cloud -->
+            <img
+                src={cloud1.src}
+                alt=""
+                class="cloud cloud-right"
+            />
+
+            <!-- Right cloud -->
+            <img
+                src={cloud2.src}
+                alt=""
+                class="cloud cloud-left"
+            />
+
+            <!-- Left white cloud -->
+            <img
+                src={whitecloud2.src}
+                alt=""
+                class="cloud whitecloud-left"
+            />
+
+            <!-- Right white cloud -->
+            <img
+                src={whitecloud3.src}
+                alt=""
+                class="cloud whitecloud-right"
+            />
+</section>
+
 <Layout>
+
     <div class="flex flex-col min-h-screen">
         <Nav3 />
 
@@ -47,3 +85,38 @@ import button from '../assets/extra/button.svg';
         <Footer background="bg-cream-300" />
     </div>
 </Layout>
+
+<style>
+
+    .cloud {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    width: 550px;
+    height: auto;
+    object-fit: cover;
+    }
+
+    .cloud-right {
+    bottom: -450px;
+    right: 0px;
+    }
+
+  .cloud-left {
+    bottom: -900px;
+    left: 0px;
+    }
+
+    .whitecloud-left {
+        bottom: 120px;
+        left: 40px;
+    }
+
+    .whitecloud-right {
+        bottom: 240px;
+        right: 0px;
+    }
+
+
+
+</style>
