@@ -11,21 +11,63 @@ import Confirmation from '../components/Cards/Confirmation.astro';
     <div class="flex flex-col min-h-screen">
         <Nav3 />
 
-        <main class="flex flex-col items-center flex-1 mt-28 px-4 pt-12 pb-32">
+<!-- Cart Icon -->
+<a
+    href={`${import.meta.env.BASE_URL}cart`}
+    aria-label="Shopping cart"
+    class="fixed top-[50px] right-[5%] z-[99999]
+           flex items-center justify-center
+           w-[60px] h-[60px]
+           bg-pink-300 rounded-2xl shadow-md
+           max-[1050px]:top-[25px] max-[1050px]:right-5"
+>
+    <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+    </svg>
+
+    <span class="absolute -top-2 -right-2
+                 bg-red-500 text-white text-xs font-bold
+                 rounded-full w-5 h-5
+                 flex items-center justify-center">
+        3
+    </span>
+</a>
+
+        <main class="flex flex-col items-center flex-1
+                     mt-16 sm:mt-20 md:mt-28
+                     px-4 sm:px-6
+                     pt-8 sm:pt-10 md:pt-12
+                     pb-16 sm:pb-24 md:pb-32">
 
             <!-- Checkout Heading -->
-            <h1 class="font-lora text-4xl font-semibold text-red-500 mb-5">
+            <h1 class="font-lora font-semibold text-red-500 text-center
+                       text-2xl xs:text-3xl sm:text-4xl
+                       mb-3 sm:mb-5">
                 Reserve Your Merch
             </h1>
 
-            <h2 class="font-lora text-lg text-red-500 text-center mb-11">
+            <h2 class="font-lora text-red-500 text-center
+                       text-sm xs:text-base sm:text-lg
+                       mb-6 sm:mb-9 md:mb-11">
                 Complete the form below to reserve your items.
             </h2>
 
             <!-- Downward Arrow -->
-            <div class="flex justify-center items-center mb-16">
+            <div class="flex justify-center items-center
+                        mb-8 sm:mb-12 md:mb-16">
                 <img
-                    class="w-7 h-auto"
+                    class="w-5 sm:w-6 md:w-7 h-auto"
                     src={button.src}
                     alt="Downward arrow"
                 />
