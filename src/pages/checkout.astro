@@ -5,10 +5,22 @@ import Footer from '../components/Footer.astro';
 import CheckoutContainer from '../components/CheckoutContainer.astro';
 import button from '../assets/extra/button.svg';
 import Confirmation from '../components/Cards/Confirmation.astro';
+
+import cloud1 from '../assets/extra/cloud1.png';
+import cloud2 from '../assets/extra/cloud2.png';
+import whitecloud2 from '../assets/extra/whitecloud-2.svg';
+import whitecloud3 from '../assets/extra/whitecloud-3.svg';
 ---
 
 <Layout>
-    <div class="flex flex-col min-h-screen">
+    <div class="relative isolate overflow-hidden flex flex-col min-h-screen">
+
+        <!-- Clouds -->
+        <img src={cloud1.src} alt="" class="cloud cloud-right" />
+        <img src={cloud2.src} alt="" class="cloud cloud-left" />
+        <img src={whitecloud2.src} alt="" class="cloud whitecloud-left" />
+        <img src={whitecloud3.src} alt="" class="cloud whitecloud-right" />
+
         <Nav3 />
 
 <!-- Cart Icon -->
@@ -83,3 +95,80 @@ import Confirmation from '../components/Cards/Confirmation.astro';
         <Footer background="bg-cream-300" />
     </div>
 </Layout>
+
+
+<style>
+    :global(html) {
+        background-color: #FFF7ED;
+    }
+
+    :global(body) {
+        margin: 0;
+        background: linear-gradient(
+            to bottom,
+            #FFD9D6 0%,
+            #FFE2DE 55%,
+            #FFF7ED 100%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 45vw;
+    }
+
+    .cloud {
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+        height: auto;
+    }
+
+    .cloud-left {
+        bottom: 16vw;
+        left: 0;
+        width: 55vw;
+    }
+
+    .cloud-right {
+        bottom: 53vw;
+        right: 0;
+        width: 55vw;
+    }
+
+    .whitecloud-left {
+        top: 5vw;
+        left: 0;
+        width: 30vw;
+    }
+
+    .whitecloud-right {
+        top: 1vw;
+        right: 0;
+        width: 35vw;
+    }
+
+    @media (orientation: portrait) {
+        :global(body) {
+            background-size: 100% 40vh;
+        }
+
+        .cloud-right,
+        .cloud-left {
+            width: 56vw;
+        }
+
+        .cloud-right {
+            bottom: 114vw;
+        }
+
+        .cloud-left {
+            bottom: 57vw;
+        }
+
+        .whitecloud-left {
+            width: 40vw;
+        }
+
+        .whitecloud-right {
+            width: 50vw;
+        }
+    }
+</style>
