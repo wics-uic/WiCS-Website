@@ -2,308 +2,745 @@
 import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import Sublanding from '../components/Sublanding.astro';
-import MerchCard from '../components/MerchCard.astro';
+import CartButton from '../components/CartButton.astro';
+
+import shirt from '../assets/extra/wics-shirt.png';
+import keychain from '../assets/extra/keychain.png';
+import crewneck from '../assets/extra/crewneck.jpg';
+import cartIcon from '../assets/extra/cart-icon.png';
+
+const B = import.meta.env.BASE_URL;
 ---
 
 <Layout>
+
   <Nav3 />
-		<Sublanding title="Merch Shop"/> <!--Added this to see if leveled -->
+  <CartButton />
 
   <main class="product-page">
+
     <section class="product-container">
+
+      <!-- PRODUCT IMAGE -->
       <div class="product-image">
+
         <img
-          src="/src/assets/extra/wics-shirt.png"
+          class="main-product-image"
+          src={shirt.src}
           alt="White WiCS short sleeve T-shirt"
         />
+
+        <div class="thumbnail-row">
+
+          <button type="button" class="thumbnail active-thumbnail">
+            <img
+              src={shirt.src}
+              alt="Front view of WiCS T-shirt"
+            />
+          </button>
+
+          <button type="button" class="thumbnail">
+            <img
+              src={shirt.src}
+              alt="Alternate view of WiCS T-shirt"
+            />
+          </button>
+
+          <button type="button" class="thumbnail">
+            <img
+              src={shirt.src}
+              alt="Additional view of WiCS T-shirt"
+            />
+          </button>
+
+        </div>
+
       </div>
 
+
+      <!-- PRODUCT DETAILS -->
       <div class="product-details">
+
         <h1>Short Sleeve T-shirt</h1>
 
         <div class="price-row">
+
           <h2>$15.00</h2>
-          <span class="tag">In-stock</span>
-          <span class="tag">Limited edition</span>
+
+          <span class="tag">
+            In-stock
+          </span>
+
+          <span class="tag">
+            Limited edition
+          </span>
+
         </div>
+
 
         <p class="description">
           Rep WiCS in style with this cute, comfy unisex tee!
           Available in multiple sizes and featuring a fun WiCS
-          design, it’s the perfect way to show your support for
+          design, it's the perfect way to show your support for
           our community. Available for a limited time only!
         </p>
+
 
         <p class="availability">
           Available Until: 10/04/2026
         </p>
 
+
+        <!-- SIZE BUTTONS -->
         <div class="sizes">
-          <button id="Small" type="button" data-size="S">S</button>
-          <button id="Medium" type="button" data-size="M">M</button>
-          <button id="Large" type="button" data-size="L">L</button>
-          <button id="Extra" type="button" data-size="XL">XL</button>
+
+          <button id="Small" type="button" data-size="S">
+            S
+          </button>
+
+          <button id="Medium" type="button" data-size="M">
+            M
+          </button>
+
+          <button id="Large" type="button" data-size="L">
+            L
+          </button>
+
+          <button id="Extra" type="button" data-size="XL">
+            XL
+          </button>
+
         </div>
 
-        <button id="cart" class="add-to-cart" type="button">
-          Add to Cart
-        </button>
+
+        <!-- ADD TO CART -->
+        <div class="cart-row">
+
+          <button
+            id="cart"
+            class="add-to-cart"
+            type="button"
+          >
+            Add to Cart
+          </button>
+
+          <img
+            src={cartIcon.src}
+            alt="Cart"
+            class="small-cart-icon"
+          />
+
+        </div>
+
       </div>
+
     </section>
+
+
+    <!-- YOU MIGHT ALSO LIKE -->
     <section class="recommended">
-  <h2>You might also like..</h2>
 
-  <div class="recommended-grid">
-    <a href="/events" class="promo-card">
-      <h3>Check out what we've done in the past!</h3>
-      <span class="arrow">→</span>
-    </a>
+      <h2>
+        You might also like..
+      </h2>
 
-    <a href="/merch" class="recommended-card">
-      <img
-        src="/src/assets/extra/keychain.png"
-        alt="WiCS Keychain"
-      />
-      <h3>WiCS Keychain</h3>
-      <p>$3.00</p>
-    </a>
+      <div class="recommended-grid">
 
-    <a href="/merch" class="recommended-card">
-      <img
-        src="/src/assets/extra/crewneck.jpg"
-        alt="Long Sleeve Crewneck"
-      />
-      <h3>Long Sleeve Crewneck</h3>
-      <p>$25.00</p>
-    </a>
-  </div>
-</section>
+        <!-- EVENTS CARD -->
+        <a
+          href={`${B}events`}
+          class="promo-card"
+        >
+
+          <h3>
+            Check out what we've done in the past!
+          </h3>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <!-- KEYCHAIN -->
+        <a
+          href={`${B}Merch`}
+          class="recommended-card"
+        >
+
+          <img
+            src={keychain.src}
+            alt="WiCS Keychain"
+          />
+
+          <h3>
+            WiCS Keychain
+          </h3>
+
+          <p>
+            $3.00
+          </p>
+
+        </a>
+
+
+        <!-- CREWNECK -->
+        <a
+          href={`${B}Merch`}
+          class="recommended-card"
+        >
+
+          <img
+            src={crewneck.src}
+            alt="Long Sleeve Crewneck"
+          />
+
+          <h3>
+            Long Sleeve Crewneck
+          </h3>
+
+          <p>
+            $25.00
+          </p>
+
+        </a>
+
+      </div>
+
+    </section>
+
   </main>
 
+
   <Footer background="bg-cream-300" />
+
 </Layout>
 
 
 <style>
+
   .product-page {
     min-height: 80vh;
     padding: 120px 5% 65px;
-    background: linear-gradient(#ffe0df, #fff8ed);
-    color: #9b432d;
+
+    /* Figma cream background */
+    background: var(--color-cream-300);
+
+    color: var(--color-red-500);
   }
+
+
+  /* =========================
+     MAIN PRODUCT
+  ========================= */
 
   .product-container {
     max-width: 700px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     gap: 44px;
-    align-items: center;
+    align-items: start;
   }
 
-  .product-image img {
+
+  /* =========================
+     MAIN IMAGE
+  ========================= */
+
+  .main-product-image {
     display: block;
     width: 100%;
-    border-radius: 22px;
-    box-shadow: 0 3px 4px #0002;
+
+    border-radius: 18px;
+
+    box-shadow:
+      0 3px 4px rgba(0, 0, 0, 0.15);
   }
 
-  .product-details h1 {
-    font-family: Georgia, serif;
-    font-size: 30px;
-    margin: 0 0 8px;
+
+  /* =========================
+     THUMBNAILS
+  ========================= */
+
+  .thumbnail-row {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 12px;
   }
+
+
+  .thumbnail {
+    width: 68px;
+    height: 68px;
+
+    padding: 0;
+
+    border: 2px solid transparent;
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    background: var(--color-cream-100);
+
+    cursor: pointer;
+  }
+
+
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+
+  .active-thumbnail {
+    border-color: var(--color-pink-500);
+  }
+
+
+  /* =========================
+     PRODUCT TITLE
+  ========================= */
+
+  .product-details h1 {
+    margin: 0 0 8px;
+
+    font-family: var(--font-lora);
+    font-size: 28px;
+    font-weight: 700;
+
+    color: var(--color-red-500);
+  }
+
+
+  /* =========================
+     PRICE + TAGS
+  ========================= */
 
   .price-row {
     display: flex;
     align-items: center;
+
     flex-wrap: wrap;
-    gap: 12px;
+
+    gap: 10px;
   }
+
 
   .price-row h2 {
-    font-size: 1.6rem;
     margin: 0;
+
+    font-family: var(--font-raleway);
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    color: var(--color-red-500);
   }
+
 
   .tag {
-    padding: 4px 16px;
-    border-radius: 20px;
-    background: #e98f9b;
-    color: white;
-    font-size: 0.8rem;
-    box-shadow: 0 2px 3px #0003;
+    padding: 4px 13px;
+
+    border-radius: 999px;
+
+    background: var(--color-pink-500);
+    color: var(--color-cream-100);
+
+    font-family: var(--font-raleway);
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    box-shadow:
+      0 2px 3px rgba(0, 0, 0, 0.15);
   }
+
+
+  /* =========================
+     DESCRIPTION
+  ========================= */
 
   .description {
-    margin-top: 38px;
-    color: #bd7e7f;
+    margin-top: 32px;
+    margin-bottom: 4px;
+
+    max-width: 340px;
+
+    font-family: var(--font-raleway);
+    font-size: 0.9rem;
     font-weight: 600;
+    line-height: 1.55;
+
+    color: var(--color-pink-600);
   }
 
+
   .availability {
-    color: #a9a9b0;
+    margin-top: 4px;
+
+    font-family: var(--font-raleway);
+    font-size: 0.85rem;
     font-style: italic;
+
+    color: #a9a9b0;
   }
+
+
+  /* =========================
+     SIZE BUTTONS
+  ========================= */
 
   .sizes {
     display: flex;
-    gap: 16px;
-    margin: 32px 0;
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 24px 0 22px;
   }
 
+
   .sizes button {
-    width: 42px;
-    height: 42px;
-    border: 3px solid #e99aa4;
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+      2px solid var(--color-pink-500);
+
     border-radius: 50%;
-    /* background: transparent; */
-    color: #e99aa4;
-    font-size: 1.2rem;
+
+    background: transparent;
+
+    color: var(--color-pink-500);
+
+    font-family: var(--font-raleway);
+    font-size: 0.85rem;
+    font-weight: 500;
+
     cursor: pointer;
+
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+
+  /* EXACT selected-size look */
+  .sizes button.clicked-state {
+    background: var(--color-pink-500);
+
+    border-color: var(--color-pink-500);
+
+    color: var(--color-cream-100);
+  }
+
+
+  /* =========================
+     ADD TO CART
+  ========================= */
+
+  .cart-row {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
   }
 
 
   .add-to-cart {
+    padding: 9px 20px;
+
     border: none;
-    border-radius: 28px;
-    background: #6bc2c3; /* when no longer disabled */
-    color: white;
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: bold;
+    border-radius: 999px;
+
+    background: var(--color-teal-300);
+
+    color: var(--color-cream-100);
+
+    font-family: var(--font-raleway);
+    font-size: 0.82rem;
+    font-weight: 700;
+
     cursor: pointer;
+
+    box-shadow:
+      0 3px 4px rgba(0, 0, 0, 0.22);
   }
 
-  .add-to-cart: disabled{
-    color: white;
+
+  .add-to-cart:disabled {
     background: #8a9b9b;
+
+    color: var(--color-cream-100);
+
     cursor: not-allowed;
   }
 
-  @media (max-width: 700px) {
-    .product-container {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
+
+  /* Exact cart image you added */
+  .small-cart-icon {
+    width: 30px;
+    height: 30px;
+
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
-    .product-page {
-      padding: 35px 6%;
-    }
+
+  /* =========================
+     RECOMMENDED
+  ========================= */
+
+  .recommended {
+    margin-top: 45px;
+  }
 
 
   .recommended h2 {
+    margin-bottom: 42px;
+
     text-align: center;
-    font-family: Georgia, serif;
-    font-size: 1.5rem;
-    margin-bottom: 48px;
+
+    font-family: var(--font-lora);
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    color: var(--color-red-500);
   }
+
 
   .recommended-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 168px));
+
+    grid-template-columns:
+      repeat(3, minmax(0, 168px));
+
     justify-content: center;
+
     gap: 40px;
   }
 
+
+  /* =========================
+     RECOMMENDED PRODUCT CARDS
+  ========================= */
+
   .recommended-card {
-    color: #9b432d;
+    color: var(--color-red-500);
+
     text-decoration: none;
+
+    font-family: var(--font-raleway);
   }
+
 
   .recommended-card img {
     display: block;
+
     width: 100%;
     height: 205px;
+
     border-radius: 16px;
+
     object-fit: cover;
-    box-shadow: 0 2px 3px #0003;
+
+    box-shadow:
+      0 2px 3px rgba(0, 0, 0, 0.15);
   }
+
 
   .recommended-card h3 {
-    font-size: 0.8rem;
-    margin: 12px 8px 4px;
+    margin: 10px 6px 3px;
+
+    font-family: var(--font-raleway);
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    color: var(--color-red-500);
   }
+
 
   .recommended-card p {
-    margin: 4px 8px;
-    font-weight: bold;
+    margin: 3px 6px;
+
+    font-family: var(--font-raleway);
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    color: var(--color-red-500);
   }
 
+
+  /* =========================
+     PROMO CARD
+  ========================= */
+
   .promo-card {
+    box-sizing: border-box;
+
+    height: 205px;
+
+    padding: 18px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
-    height: 205px;
-    padding: 18px;
+
     border-radius: 16px;
-    background: #ffe6e0;
-    color: #9b432d;
+
+    background: var(--color-pink-50);
+
+    color: var(--color-red-500);
+
     text-decoration: none;
-    box-shadow: 0 2px 3px #0003;
+
+    box-shadow:
+      0 2px 3px rgba(0, 0, 0, 0.15);
+
+    font-family: var(--font-raleway);
   }
+
 
   .promo-card h3 {
     margin: 0;
-    font-size: 1.1rem;
+
+    font-family: var(--font-raleway);
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    color: var(--color-red-500);
   }
+
 
   .arrow {
     align-self: flex-end;
-    background: #6bc2c3;
-    color: white;
-    border-radius: 20px;
-    padding: 5px 14px;
+
+    padding: 4px 12px;
+
+    border-radius: 999px;
+
+    background: var(--color-teal-300);
+
+    color: var(--color-cream-100);
+
+    font-family: var(--font-raleway);
+    font-weight: 700;
   }
+
+
+  /* =========================
+     RESPONSIVE
+  ========================= */
+
+  @media (max-width: 700px) {
+
+    .product-container {
+      grid-template-columns: 1fr;
+
+      gap: 28px;
+    }
+
+
+    .product-page {
+      padding: 110px 6% 35px;
+    }
+
+  }
+
 
   @media (max-width: 650px) {
+
     .recommended-grid {
-      grid-template-columns: repeat(2, minmax(0, 168px));
+      grid-template-columns:
+        repeat(2, minmax(0, 168px));
+
       gap: 20px;
     }
-  }
 
-  .clicked-state {
-    background-color: #ffb3bd;
   }
-
 
 </style>
 
 
- <!-- a lil button action (Update by adding disabled)-->
 <script>
-  const addToCart = document.getElementById('cart') as HTMLButtonElement | null;
+
+  const addToCart =
+    document.getElementById(
+      'cart'
+    ) as HTMLButtonElement | null;
+
+
   const sizeButtons = [
-    document.getElementById('Small'),
-    document.getElementById('Medium'),
-    document.getElementById('Large'),
-    document.getElementById('Extra')
-  ].filter(button => button !== null);
+
+    document.getElementById(
+      'Small'
+    ),
+
+    document.getElementById(
+      'Medium'
+    ),
+
+    document.getElementById(
+      'Large'
+    ),
+
+    document.getElementById(
+      'Extra'
+    )
+
+  ].filter(
+    button =>
+      button !== null
+  );
+
 
   if (addToCart) {
     addToCart.disabled = true;
   }
 
-  sizeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      sizeButtons.forEach((item) => {
-        item.classList.remove('clicked-state');
-      });
-      button.classList.add('clicked-state');
 
-      if (addToCart) {
-        addToCart.disabled = false;
-      }
-    });
-  });
+  sizeButtons.forEach(
+    (button) => {
+
+      button.addEventListener(
+        'click',
+        () => {
+
+          sizeButtons.forEach(
+            (item) => {
+
+              item.classList.remove(
+                'clicked-state'
+              );
+
+            }
+          );
+
+
+          button.classList.add(
+            'clicked-state'
+          );
+
+
+          if (addToCart) {
+            addToCart.disabled = false;
+          }
+
+        }
+      );
+
+    }
+  );
+
 </script>
-
-
-
-<!--make sure to add code to disable add to cart. when the user clicks a sz then add-to-cart isn't disabled anymore-->
-<!--can you add the cart icon -->
-<!--add the 3 product cards below the main one-->

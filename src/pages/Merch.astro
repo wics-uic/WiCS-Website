@@ -4,42 +4,56 @@ import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Sublanding from '../components/Sublanding.astro';
 import MerchCard from '../components/MerchCard.astro';
+import CartButton from '../components/CartButton.astro';
+
+import shirt from '../assets/extra/wics-shirt.png';
+import keychain from '../assets/extra/keychain.png';
+import crewneck from '../assets/extra/crewneck.jpg';
+
+const B = import.meta.env.BASE_URL;
 ---
 
 <Layout>
 
-    <div class="merch-hero">
+	<div class="merch-hero">
 		<Sublanding
 			title="Merch Shop"
 			subheadline="Show your support and rep WiCS in style."
 		/>
 	</div>
 
-    <Nav3/>
-	 <!-- <CartButton/> -->
+	<Nav3/>
+	<CartButton/>
 
-    <section class="flex justify-center gap-10 bg-cream-300 px-8 -mt-24 pb-20">
-        <MerchCard
-            name="Short Sleeve T-shirt"
-            price="15.00"
-        />
+	<section class="flex justify-center gap-10 bg-cream-300 px-8 -mt-24 pb-20">
 
-        <MerchCard
-            name="WiCS Keychain"
-            price="3.00"
-        />
+		<a href={`${B}prductDetail`} class="no-underline">
+			<MerchCard
+				name="Short Sleeve T-shirt"
+				price="15.00"
+				image={shirt.src}
+			/>
+		</a>
 
-        <MerchCard
-            name="Long Sleeve Crewneck"
-            price="25.00"
-            soldOut={true}
-        />
+		<MerchCard
+			name="WiCS Keychain"
+			price="3.00"
+			image={keychain.src}
+		/>
 
-    </section>
+		<MerchCard
+			name="Long Sleeve Crewneck"
+			price="25.00"
+			image={crewneck.src}
+			soldOut={true}
+		/>
 
-    <Footer background="bg-cream-300"/>
+	</section>
+
+	<Footer background="bg-cream-300"/>
 
 </Layout>
+
 <style>
 	.merch-hero :global(h1) {
 		font-size: 2.5rem;
@@ -62,5 +76,9 @@ import MerchCard from '../components/MerchCard.astro';
 	.merch-hero :global(p + img) {
 		width: 28px;
 		margin-top: 25px;
+	}
+
+	.no-underline {
+		text-decoration: none;
 	}
 </style>
