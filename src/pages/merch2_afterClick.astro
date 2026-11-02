@@ -74,16 +74,37 @@ const products = [
                     <ProductGrid>
 
                         <!-- Past Projects -->
-                         <div class="relative aspect-[362/447] w-full max-w-[362px] rounded-[30px] bg-red-100 p-8">
-                            <div class="w-72 justify-center text-orange-800 text-4xl font-bold font-['Raleway'] leading-10">
-                            Check out<br/> what we’ve <br/>done in the <br/> past!<br/>
+                         <div class="flex aspect-[362/447] w-full max-w-[362px] min-w-0
+                            flex-col justify-between gap-2
+                            rounded-[30px] bg-red-100
+                            p-6 sm:p-3 md:p-4 lg:p-6 xl:p-8">
+
+                            <!-- text -->
+                            <div class="min-w-0 text-orange-800
+                            text-3xl sm:text-base md:text-xl lg:text-2xl xl:text-4xl
+                            font-bold font-['Raleway'] leading-[1.1]">
+                            Check out what we’ve done in the past!
                             </div>
 
                               <!-- Arrow -->
-                            <div class="absolute bottom-8 right-8 w-20 h-14 ">
-                                <div class="w-20 h-14 left-0 top-0 absolute bg-emerald-300 rounded-[37px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"></div>
-                                <div class="w-16 left-[7.42px] top-[8.61px] absolute text-center justify-center text-orange-50 text-4xl font-bold font-['Raleway'] leading-9">→</div>
-                             </div>
+                            <a href="/pastprojects" 
+                            class="self-end shrink-0
+                                    flex items-center justify-center
+                                    w-[75px] h-[55px]
+                                    sm:w-10 sm:h-8
+                                    md:w-12 md:h-9
+                                    lg:w-16 lg:h-12
+                                    xl:w-[75px] xl:h-[55px]
+                                    bg-emerald-300 rounded-[37px]
+                                    shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]
+                                    hover:scale-105 transition-transform">
+
+                                    <span class="text-orange-50
+                                                text-3xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl
+                                                font-bold font-['Raleway']">
+                                        →
+                                    </span>
+                            </a>
                         </div>
                         
                       
