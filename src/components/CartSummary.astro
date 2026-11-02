@@ -1,0 +1,49 @@
+---
+interface Props {
+  subtotal?: number;
+  total?: number;
+  checkoutUrl?: string;
+}
+
+const { subtotal = 43, total = 43, checkoutUrl = "" } = Astro.props;
+---
+
+<div class="bg-[#FDCBCD] rounded-3xl p-8 shadow-sm border border-[#FDCBCD] w-full max-w-[340px] flex flex-col justify-between">
+  <div>
+    <!-- Header Text -->
+    <h3 class="text-2xl font-serif font-bold text-[#944029] text-center mb-7">
+      Order Summary
+    </h3>
+
+    <!-- Price Section -->
+    <div class="space-y-0 text-[#944029] font-serif">
+      <div class="flex justify-between items-center text-base font-bold">
+        <span>Sub Total</span>
+        <span data-cart-subtotal>${subtotal}</span>
+      </div>
+
+      <!-- Line -->
+      <hr class="border-t-4 border-[#944029] my-4" />
+
+      <div class="flex justify-between items-center text-base font-bold">
+        <span>Total</span>
+        <span data-cart-total>${total}</span>
+      </div>
+    </div>
+
+    <!-- Additional Text -->
+    <p class="text-[12px] text-[#944029] mt-8 text-center leading-snug">
+      Please pick up your order within <strong class="font-bold">one week</strong><br />
+      from the WiCS lounge.
+    </p>
+  </div>
+
+  <!-- Button -->
+  <div class="mt-8">
+    <a
+      href={checkoutUrl}
+      class="block w-full py-3 px-4 bg-[#69C5C3] hover:bg-[#5bb3b1] text-white font-bold text-center text-base rounded-full shadow-md transition-all active:scale-[0.98]">
+      Continue
+    </a>
+  </div>
+</div>

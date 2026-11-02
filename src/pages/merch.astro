@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav3 from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import image from '../assets/logo.png';
+import MerchHero from '../components/MerchHero.astro';
+import Sublanding from '../components/Sublanding.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+
+interface Props {
+    targetId: string;
+}
+
+const { targetId } = Astro.props;
+---
+
+<Layout>
+    <Nav3/>
+
+    <main>
+        <MerchHero/>
+    </main>
+
+    <main id="products" class="scroll-mt-32 px-6 py-12">
+        <ProductGrid> </ProductGrid>
+    </main>
+
+    <Footer background="bg-cream-300"/>
+    
+</Layout>
+
+<style is:global>
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
+</style>

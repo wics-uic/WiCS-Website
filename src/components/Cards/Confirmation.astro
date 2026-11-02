@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import CheckMark from '../../assets/extra/CheckMark.png';
+
+export interface Props {
+    title?: string;
+}
+
+const { title = 'Checkout Confirmation' } = Astro.props;
+---
+<div id="confirmation-overlay" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/30 backdrop-blur-sm p-4">
+
+    <div id="confirmation-modal" class="flex flex-col gap-4 border-6 border-[#EA8996] w-full max-w-[500px] p-6 rounded-[25px] bg-[#FFBFC5]/50 shadow-md shadow-black/50 flex items-center justify-centerd">
+        <Image 
+            src={CheckMark} 
+            alt="Success Checkmark" 
+            class="w-16 h-16 object-contain" 
+        />
+        <h1 class="font-['Lora'] font-bold text-center text-red-500 text-2xl">
+            Your order has been 
+            <br>placed!<br>
+        </h1>
+        <p class="font-['Lora'] font-normal mx-auto w-100 text-center text-red-500 py-4">
+            Thank you for reserving WICS merch, we have sent you a confirmation email. 
+            We will give you a confirmation of your order in <b>2 days</b>, once you
+            receive a confirmation you have <b>1 week</b> to pick up your merch!
+            If you don't pick up in 1 week, your order will be revoked.
+        </p>
+        <button id="understand-button" class="font-['Raleway'] font-bold text-lg text-white shadow-md shadow-black/50 self-center rounded-full bg-teal-300 px-36">
+            I understand
+        </button>
+    </div>
+</div>
+
+
+<script is:inline>
+    const understandBtn = document.getElementById("understand-button")
+    //const modal = document.getElementById("confirmation-modal")
+    const overlay = document.getElementById("confirmation-overlay")
+    understandBtn.addEventListener("click", () => {
+        overlay.classList.add("hidden")
+        overlay.classList.remove("flex")
+    });
+
+
+    // btn.addEventListener("click", () => {
+    //     modal.classList.add("hidden");
+    // });
+</script>

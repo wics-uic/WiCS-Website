@@ -4,4 +4,3 @@
 <img width="1440" height="789" alt="wics-events" src="https://github.com/user-attachments/assets/c720ef01-f66c-44fd-84de-a734f7aa6bba" />
 
 
-fegaifa
