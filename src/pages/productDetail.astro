@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CartButton from '../components/CartButton.astro';
+
+import ProductGallery from '../components/merch/ProductGallery.astro';
+import ProductInfo from '../components/merch/ProductInfo.astro';
+import ProductRecommendations from '../components/merch/ProductRecommendations.astro';
+
+import shirt from '../assets/extra/wics-shirt.png';
+import keychain from '../assets/extra/keychain.png';
+import crewneck from '../assets/extra/crewneck.jpg';
+
+const B = import.meta.env.BASE_URL;
+
+
+const product = {
+    id: 'tshirt',
+    name: 'Short Sleeve T-shirt',
+    price: 15,
+    image: shirt,
+    description:
+        "Rep WiCS in style with this cute, comfy unisex tee! Available in multiple sizes and featuring a fun WiCS design, it's the perfect way to show your support for our community. Available for a limited time only!",
+    availableUntil: '10/04/2026',
+    sizes: ['S', 'M', 'L', 'XL'],
+    inStock: true,
+    limitedEdition: true,
+};
+
+const recommendations = [
+    {
+        id: 'keychain',
+        name: 'WiCS Keychain',
+        price: 3,
+        image: keychain,
+    },
+    {
+        id: 'crewneck',
+        name: 'Long Sleeve Crewneck',
+        price: 25,
+        image: crewneck,
+    },
+];
+---
+
+<Layout title={product.name}>
+    <div class="product-background">
+        <Nav />
+        <CartButton />
+
+        <main class="product-page">
+            <section class="product-container">
+                <ProductGallery
+                    image={product.image}
+                    name={product.name}
+                />
+
+                <ProductInfo
+                    name={product.name}
+                    price={product.price}
+                    description={product.description}
+                    availableUntil={product.availableUntil}
+                    sizes={product.sizes}
+                    inStock={product.inStock}
+                    limitedEdition={product.limitedEdition}
+                    cartUrl={`${B}cart`}
+                />
+            </section>
+
+            <ProductRecommendations
+                items={recommendations}
+            />
+        </main>
+
+        <Footer background="bg-cream-300" />
+    </div>
+</Layout>
+
+<style>
+    .product-background {
+        min-height: 100vh;
+
+        background: linear-gradient(
+            180deg,
+            var(--color-pink-100),
+            var(--color-cream-300) 55%
+        );
+    }
+
+    .product-page {
+        padding: 120px 5% 70px;
+
+        color: var(--color-red-500);
+    }
+
+    .product-container {
+        width: 100%;
+        max-width: 920px;
+
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+        gap: 55px;
+        align-items: start;
+    }
+
+    @media (max-width: 750px) {
+        .product-page {
+            padding: 105px 6% 45px;
+        }
+
+        .product-container {
+            grid-template-columns: 1fr;
+
+            gap: 35px;
+        }
+    }
+</style>

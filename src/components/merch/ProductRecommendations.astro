@@ -1,0 +1,172 @@
+---
+import type { ImageMetadata } from 'astro';
+
+interface Recommendation {
+    id: string;
+    name: string;
+    price: number;
+    image: ImageMetadata;
+}
+
+interface Props {
+    items: Recommendation[];
+}
+
+const { items } = Astro.props;
+
+const B = import.meta.env.BASE_URL;
+---
+
+<section class="recommendations">
+    <h2>You might also like..</h2>
+
+    <div class="recommendation-grid">
+        <a
+            href={`${B}events`}
+            class="past-card"
+        >
+            <h3>
+                Check out what we've done in the past!
+            </h3>
+
+            <span>→</span>
+        </a>
+
+        {items.map((item) => (
+            <a
+                href={`${B}productDetail?product=${item.id}`}
+                class="product-card"
+            >
+                <img
+                    src={item.image.src}
+                    alt={item.name}
+                />
+
+                <h3>{item.name}</h3>
+
+                <p>
+                    ${item.price.toFixed(2)}
+                </p>
+            </a>
+        ))}
+    </div>
+</section>
+
+<style>
+    .recommendations {
+        max-width: 920px;
+
+        margin: 85px auto 0;
+    }
+
+    .recommendations > h2 {
+        margin-bottom: 45px;
+
+        text-align: center;
+
+        font-family: "Lora", serif;
+
+        font-size: 1.7rem;
+        font-weight: 700;
+
+        color: var(--color-red-500);
+    }
+
+    .recommendation-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 40px;
+    }
+
+    .product-card,
+    .past-card {
+        text-decoration: none;
+
+        color: var(--color-red-500);
+    }
+
+    .product-card img {
+        width: 100%;
+        aspect-ratio: 1 / 1.15;
+
+        object-fit: cover;
+
+        border-radius: 18px;
+
+        background: white;
+
+        box-shadow: 0 2px 3px rgb(0 0 0 / 0.15);
+    }
+
+    .product-card h3 {
+        margin: 12px 4px 3px;
+
+        font-family: "Raleway", sans-serif;
+
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .product-card p {
+        margin: 0 4px;
+
+        font-family: "Raleway", sans-serif;
+
+        font-weight: 700;
+    }
+
+    .past-card {
+        min-height: 260px;
+
+        padding: 25px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        border-radius: 18px;
+
+        background: var(--color-pink-50);
+
+        box-shadow: 0 2px 3px rgb(0 0 0 / 0.15);
+    }
+
+    .past-card h3 {
+        margin: 0;
+
+        font-family: "Raleway", sans-serif;
+
+        font-size: 1.2rem;
+    }
+
+    .past-card span {
+        align-self: flex-end;
+
+        padding: 6px 18px;
+
+        border-radius: 999px;
+
+        background: var(--color-teal-300);
+
+        color: white;
+
+        font-size: 1.4rem;
+    }
+
+    @media (max-width: 700px) {
+        .recommendation-grid {
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .past-card {
+            grid-column: 1 / -1;
+
+            min-height: 150px;
+        }
+    }
+</style>

@@ -1,0 +1,301 @@
+---
+interface Props {
+    name: string;
+    price: number;
+
+    description: string;
+    availableUntil: string;
+
+    sizes: string[];
+
+    inStock?: boolean;
+    limitedEdition?: boolean;
+
+    cartUrl: string;
+}
+
+const {
+    name,
+    price,
+    description,
+    availableUntil,
+    sizes,
+    inStock = true,
+    limitedEdition = false,
+    cartUrl,
+} = Astro.props;
+---
+
+<div class="product-info">
+    <h1>{name}</h1>
+
+    <div class="price-row">
+        <h2>${price.toFixed(2)}</h2>
+
+        {inStock && (
+            <span class="status">
+                In-stock
+            </span>
+        )}
+
+        {limitedEdition && (
+            <span class="status">
+                Limited edition
+            </span>
+        )}
+    </div>
+
+    <p class="description">
+        {description}
+    </p>
+
+    <p class="availability">
+        Available Until: {availableUntil}
+    </p>
+
+    <div
+        class="sizes"
+        aria-label="Choose a size"
+    >
+        {sizes.map((size) => (
+            <button
+                type="button"
+                class="size-button"
+                data-size={size}
+                aria-label={`Select size ${size}`}
+            >
+                {size}
+            </button>
+        ))}
+    </div>
+
+    <div class="cart-row">
+        <button
+            id="add-to-cart"
+            type="button"
+            class="add-to-cart"
+            data-cart-url={cartUrl}
+            disabled
+        >
+            Add to Cart
+        </button>
+
+        <span
+            id="size-message"
+            class="size-message"
+        >
+            Select a size first
+        </span>
+    </div>
+</div>
+
+<style>
+    .product-info {
+        padding-top: 5px;
+    }
+
+    h1 {
+        margin: 0 0 12px;
+
+        font-family: "Lora", serif;
+
+        font-size: 2rem;
+        font-weight: 700;
+
+        color: var(--color-red-500);
+    }
+
+    .price-row {
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+
+    .price-row h2 {
+        margin: 0;
+
+        font-family: "Raleway", sans-serif;
+
+        font-size: 1.4rem;
+        font-weight: 700;
+
+        color: var(--color-red-500);
+    }
+
+    .status {
+        padding: 6px 14px;
+
+        border-radius: 999px;
+
+        background: var(--color-pink-500);
+
+        color: white;
+
+        font-family: "Raleway", sans-serif;
+
+        font-size: 0.75rem;
+        font-weight: 600;
+
+        box-shadow: 0 2px 3px rgb(0 0 0 / 0.15);
+    }
+
+    .description {
+        max-width: 400px;
+
+        margin: 42px 0 5px;
+
+        font-family: "Raleway", sans-serif;
+
+        font-size: 0.95rem;
+        font-weight: 600;
+
+        line-height: 1.55;
+
+        color: var(--color-pink-600);
+    }
+
+    .availability {
+        margin: 0;
+
+        font-family: "Raleway", sans-serif;
+
+        font-size: 0.85rem;
+        font-style: italic;
+
+        color: #aaa;
+    }
+
+    .sizes {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 12px;
+
+        margin: 28px 0 24px;
+    }
+
+    .size-button {
+        width: 42px;
+        height: 42px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 2px solid var(--color-pink-500);
+        border-radius: 50%;
+
+        background: transparent;
+
+        color: var(--color-pink-500);
+
+        font-family: "Raleway", sans-serif;
+
+        cursor: pointer;
+    }
+
+    .size-button.selected {
+        background: var(--color-pink-500);
+
+        color: white;
+    }
+
+    .cart-row {
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+
+    .add-to-cart {
+        padding: 10px 24px;
+
+        border: 0;
+        border-radius: 999px;
+
+        background: var(--color-teal-300);
+
+        color: white;
+
+        font-family: "Raleway", sans-serif;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        box-shadow: 0 4px 4px rgb(0 0 0 / 0.25);
+    }
+
+    .add-to-cart:disabled {
+        opacity: 0.55;
+
+        cursor: not-allowed;
+    }
+
+    .size-message {
+        font-family: "Raleway", sans-serif;
+
+        font-size: 0.75rem;
+
+        color: var(--color-pink-600);
+    }
+</style>
+
+<script>
+    const sizeButtons =
+        document.querySelectorAll<HTMLButtonElement>(
+            '.size-button'
+        );
+
+    const addToCart =
+        document.getElementById(
+            'add-to-cart'
+        ) as HTMLButtonElement | null;
+
+    const sizeMessage =
+        document.getElementById(
+            'size-message'
+        );
+
+    let selectedSize: string | null = null;
+
+    sizeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            sizeButtons.forEach((item) => {
+                item.classList.remove('selected');
+            });
+
+            button.classList.add('selected');
+
+            selectedSize =
+                button.dataset.size ?? null;
+
+            if (addToCart) {
+                addToCart.disabled = false;
+            }
+
+            if (sizeMessage && selectedSize) {
+                sizeMessage.textContent =
+                    `Size ${selectedSize} selected`;
+            }
+        });
+    });
+
+    addToCart?.addEventListener('click', () => {
+        if (!selectedSize) {
+            return;
+        }
+
+        const cartUrl =
+            addToCart.dataset.cartUrl;
+
+        if (cartUrl) {
+            window.location.href = cartUrl;
+        }
+    });
+</script>

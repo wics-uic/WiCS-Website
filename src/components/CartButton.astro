@@ -1,0 +1,58 @@
+<button class="cart-button" aria-label="Shopping cart">
+    <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M3 4H5L7.5 15H18L21 7H6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <circle cx="9" cy="19" r="1.5" fill="currentColor" />
+        <circle cx="18" cy="19" r="1.5" fill="currentColor" />
+    </svg>
+</button>
+
+<style>
+    .cart-button {
+        position: fixed;
+        top: 50px;
+        left: calc(85% + 15px);
+
+        width: 60px;
+        height: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: var(--color-pink-300);
+        color: var(--color-cream-100);
+
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 4px 4px #00000040;
+
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    .cart-button svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cart-button:hover {
+        transform: scale(1.04);
+    }
+
+    @media (max-width: 1050px) {
+        .cart-button {
+            left: auto;
+            right: 40px;
+        }
+    }
+</style>
