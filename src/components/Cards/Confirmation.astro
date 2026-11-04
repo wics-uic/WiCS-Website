@@ -34,16 +34,10 @@ const { title = 'Checkout Confirmation' } = Astro.props;
 
 
 <script is:inline>
-    const understandBtn = document.getElementById("understand-button")
-    //const modal = document.getElementById("confirmation-modal")
-    const overlay = document.getElementById("confirmation-overlay")
-    understandBtn.addEventListener("click", () => {
-        overlay.classList.add("hidden")
-        overlay.classList.remove("flex")
+    const understandBtn = document.getElementById("understand-button");
+    const overlay = document.getElementById("confirmation-overlay");
+
+    understandBtn?.addEventListener("click", () => {
+        window.location.href = "/WiCS-Website/merch";
     });
-
-
-    // btn.addEventListener("click", () => {
-    //     modal.classList.add("hidden");
-    // });
 </script>
