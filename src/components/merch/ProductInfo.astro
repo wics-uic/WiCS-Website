@@ -53,21 +53,20 @@ const {
         Available Until: {availableUntil}
     </p>
 
-    <div
-        class="sizes"
-        aria-label="Choose a size"
-    >
-        {sizes.map((size) => (
-            <button
-                type="button"
-                class="size-button"
-                data-size={size}
-                aria-label={`Select size ${size}`}
-            >
-                {size}
-            </button>
-        ))}
-    </div>
+    {sizes.length > 0 && (
+        <div class="sizes" aria-label="Choose a size">
+            {sizes.map((size) => (
+                <button
+                    type="button"
+                    class="size-button"
+                    data-size={size}
+                    aria-label={`Select size ${size}`}
+                >
+                    {size}
+                </button>
+            ))}
+        </div>
+    )}
 
     <div class="cart-row">
         <button
@@ -75,17 +74,19 @@ const {
             type="button"
             class="add-to-cart"
             data-cart-url={cartUrl}
-            disabled
+            disabled={sizes.length > 0}
         >
             Add to Cart
         </button>
 
-        <span
-            id="size-message"
-            class="size-message"
-        >
-            Select a size first
-        </span>
+        {sizes.length > 0 && (
+            <span
+                id="size-message"
+                class="size-message"
+            >
+                Select a size first
+            </span>
+        )}
     </div>
 </div>
 

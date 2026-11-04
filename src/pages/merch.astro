@@ -2,31 +2,66 @@
 import Layout from '../layouts/Layout.astro';
 import Nav3 from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import image from '../assets/logo.png';
 import MerchHero from '../components/MerchHero.astro';
-import Sublanding from '../components/Sublanding.astro';
 import ProductGrid from '../components/ProductGrid.astro';
+import ProductCard from '../components/merch/productCard.astro';
 
-interface Props {
-    targetId: string;
-}
+import tshirtImage from '../assets/merch/tshirt.png';
+import keychainImage from '../assets/merch/keychain.png';
+import crewneckImage from '../assets/merch/crewneck.png';
 
-const { targetId } = Astro.props;
+const B = import.meta.env.BASE_URL;
+
+const products = [
+    {
+        id: 'tshirt',
+        name: 'Short Sleeve T-shirt',
+        price: '$15.00',
+        image: tshirtImage,
+        soldOut: false,
+    },
+    {
+        id: 'keychain',
+        name: 'WiCS Keychain',
+        price: '$3.00',
+        image: keychainImage,
+        soldOut: false,
+    },
+    {
+        id: 'crewneck',
+        name: 'Long Sleeve Crewneck',
+        price: '$25.00',
+        image: crewneckImage,
+        soldOut: false,
+    },
+];
 ---
 
 <Layout>
-    <Nav3/>
+    <Nav3 />
 
     <main>
-        <MerchHero/>
+        <MerchHero />
     </main>
 
-    <main id="products" class="scroll-mt-32 px-6 py-12">
-        <ProductGrid> </ProductGrid>
+    <main
+        id="products"
+        class="scroll-mt-32 px-6 py-12"
+    >
+        <ProductGrid>
+            {products.map((product) => (
+                <ProductCard
+                    image={product.image}
+                    name={product.name}
+                    price={product.price}
+                    href={`${B}productDetail/${product.id}`}
+                    soldOut={product.soldOut}
+                />
+            ))}
+        </ProductGrid>
     </main>
 
-    <Footer background="bg-cream-300"/>
-    
+    <Footer background="bg-cream-300" />
 </Layout>
 
 <style is:global>

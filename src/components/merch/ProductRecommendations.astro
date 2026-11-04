@@ -34,7 +34,7 @@ const B = import.meta.env.BASE_URL;
 
         {items.map((item) => (
             <a
-                href={`${B}productDetail?product=${item.id}`}
+                href={`${B}productDetail/${item.id}`}
                 class="product-card"
             >
                 <img
