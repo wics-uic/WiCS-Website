@@ -1,16 +1,16 @@
+
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import CartSummary from '../components/CartSummary.astro';
-import CartItem from '../components/CartItem.astro';
 import Recommendations from '../components/Recommendations.astro';
 
 import cloud2 from '../assets/extra/whitecloud-2.svg';
 import cloud3 from '../assets/extra/whitecloud-3.svg';
 
-const subtotal = 43;
-const total = 43;
+const subtotal = 0;
+const total = 0;
 
 const B = import.meta.env.BASE_URL;
 ---
@@ -63,7 +63,7 @@ const B = import.meta.env.BASE_URL;
           </svg>
 
           <span id="cart-count" class="cart-count">
-            3
+            0
           </span>
         </a>
 
@@ -122,28 +122,11 @@ const B = import.meta.env.BASE_URL;
               <span class="text-center">Delete</span>
             </div>
 
-            <!-- Products -->
-            <div class="flex flex-col gap-4">
-
-              <CartItem
-                name="WiCS Keychain"
-                price={3}
-                image="/WiCS-Website/KeyChain.png"
-              />
-
-              <CartItem
-                name="Short Sleeve Tee"
-                price={15}
-                image="/WiCS-Website/ShortSleeve.png"
-              />
-
-              <CartItem
-                name="Long Sleeve Crewneck"
-                price={25}
-                image="/WiCS-Website/Crewneck.png"
-              />
-
-            </div>
+            <!-- Products are loaded from localStorage -->
+            <div
+              id="cart-items"
+              class="flex flex-col gap-4"
+            ></div>
 
           </section>
 
@@ -153,7 +136,7 @@ const B = import.meta.env.BASE_URL;
             <CartSummary
               subtotal={subtotal}
               total={total}
-              checkoutUrl="/WiCS-Website/checkout"
+              checkoutUrl={`${B}checkout`}
             />
 
           </aside>
@@ -178,7 +161,6 @@ const B = import.meta.env.BASE_URL;
 
 </Layout>
 
-
 <style>
 
   /* =========================
@@ -198,7 +180,6 @@ const B = import.meta.env.BASE_URL;
 
     overflow: hidden;
   }
-
 
   /* =========================
      CLOUDS
@@ -223,7 +204,6 @@ const B = import.meta.env.BASE_URL;
     width: 560px;
   }
 
-
   /* =========================
      HERO TEXT
      ========================= */
@@ -235,7 +215,6 @@ const B = import.meta.env.BASE_URL;
     text-align: center;
     padding-top: 125px;
   }
-
 
   /* =========================
      CART ICON
@@ -267,7 +246,6 @@ const B = import.meta.env.BASE_URL;
     box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
   }
 
-
   /* Cart Item Count */
 
   .cart-count {
@@ -291,7 +269,6 @@ const B = import.meta.env.BASE_URL;
     align-items: center;
     justify-content: center;
   }
-
 
   /* =========================
      RESPONSIVE
@@ -328,201 +305,240 @@ const B = import.meta.env.BASE_URL;
 
 </style>
 
-
 <script>
+  import {
+    getCart,
+    products,
+    changeQuantity,
+    removeFromCart,
+    type ProductId
+  } from '../scripts/cart';
 
-  function updateCartTotal() {
+  const cartContainer =
+    document.getElementById('cart-items');
 
-    let total = 0;
-    let count = 0;
+  /* =========================
+     DISPLAY CART ITEMS
+     ========================= */
 
-    document
-      .querySelectorAll(".cart-item")
-      .forEach((item) => {
+  function renderCart(): void {
+    if (!cartContainer) return;
 
-        const priceEl =
-          item.querySelector("[data-price]");
+    const cart = getCart();
 
-        const qtyEl =
-          item.querySelector(".quantity-number");
+    if (cart.length === 0) {
 
+      cartContainer.innerHTML = `
+        <div class="rounded-2xl bg-[#FCE1DD] p-8 text-center text-[#944029]">
+          <p class="font-lora text-xl font-bold">
+            Your cart is empty!
+          </p>
+          <p class="mt-2">
+            Add some WiCS merch to get started.
+          </p>
+        </div>
+      `;
 
-        if (
-          !(priceEl instanceof HTMLElement) ||
-          !(qtyEl instanceof HTMLElement)
-        ) {
-          return;
-        }
+    } else {
 
+      cartContainer.innerHTML = cart.map((item) => {
 
-        const basePrice =
-          Number(priceEl.dataset.baseprice);
+        const product = products[item.id];
+        const lineTotal = product.price * item.quantity;
 
-        const qty =
-          Number(qtyEl.textContent);
+        return `
+          <div
+            class="cart-item bg-[#FCE1DD] p-4 rounded-2xl shadow-md grid grid-cols-[2fr_0.7fr_1fr_0.5fr] items-center gap-4 mb-4"
+            style="font-family: 'Lora', serif;"
+            data-id="${item.id}"
+            data-size="${item.size ?? ''}"
+          >
 
+            <!-- Product Image and Name -->
+            <div class="flex items-center gap-4">
 
-        total += basePrice * qty;
-        count += qty;
+              <img
+                src="${product.image}"
+                alt="${product.name}"
+                class="w-20 h-20 object-contain rounded-xl"
+              />
 
-      });
+              <div>
+                <p class="font-semibold text-sm text-[#9F4B38]">
+                  ${product.name}
+                </p>
 
+                ${item.size ? `
+                  <p class="text-xs text-[#9F4B38]">
+                    Size: ${item.size}
+                  </p>
+                ` : ''}
 
-    /* Update subtotal */
+              </div>
+            </div>
+
+            <!-- Product Total -->
+            <p class="font-bold text-[#9F4B38]">
+              $${lineTotal.toFixed(2)}
+            </p>
+
+            <!-- Quantity Controls -->
+            <div class="flex items-center justify-center gap-2">
+
+              <button
+                type="button"
+                data-action="decrease"
+                aria-label="Decrease quantity"
+                class="bg-[#9F4B38] text-white rounded-full w-5 h-5 flex items-center justify-center text-sm"
+              >
+                −
+              </button>
+
+              <span class="font-semibold text-[#9F4B38] quantity-number">
+                ${item.quantity}
+              </span>
+
+              <button
+                type="button"
+                data-action="increase"
+                aria-label="Increase quantity"
+                class="bg-[#9F4B38] text-white rounded-full w-5 h-5 flex items-center justify-center text-sm"
+              >
+                +
+              </button>
+
+            </div>
+
+            <!-- Delete Button -->
+            <div class="flex justify-center">
+
+              <button
+                type="button"
+                data-action="delete"
+                aria-label="Delete item"
+                class="bg-[#9F4B38] text-white rounded-full w-6 h-6 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4h8v2" />
+                  <path d="M19 6l-1 14H6L5 6" />
+                  <path d="M10 10v7" />
+                  <path d="M14 10v7" />
+                </svg>
+              </button>
+
+            </div>
+
+          </div>
+        `;
+
+      }).join('');
+    }
+
+    updateCartTotal();
+  }
+
+  /* =========================
+     UPDATE TOTAL AND COUNT
+     ========================= */
+
+  function updateCartTotal(): void {
+
+    const cart = getCart();
+
+    const total = cart.reduce(
+      (sum, item) =>
+        sum + products[item.id].price * item.quantity,
+      0
+    );
+
+    const count = cart.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
 
     const subtotalEl =
-      document.querySelector(
-        "[data-cart-subtotal]"
-      );
-
-
-    /* Update total */
+      document.querySelector('[data-cart-subtotal]');
 
     const totalEl =
-      document.querySelector(
-        "[data-cart-total]"
-      );
-
-
-    if (subtotalEl) {
-      subtotalEl.textContent = `$${total}`;
-    }
-
-
-    if (totalEl) {
-      totalEl.textContent = `$${total}`;
-    }
-
-
-    /* Update Cart Badge */
+      document.querySelector('[data-cart-total]');
 
     const countEl =
-      document.getElementById("cart-count");
+      document.getElementById('cart-count');
 
+    if (subtotalEl) {
+      subtotalEl.textContent = `$${total.toFixed(2)}`;
+    }
+
+    if (totalEl) {
+      totalEl.textContent = `$${total.toFixed(2)}`;
+    }
 
     if (countEl) {
       countEl.textContent = String(count);
     }
-
   }
 
-
-
   /* =========================
-     INCREASE QUANTITY
+     QUANTITY AND DELETE
      ========================= */
 
-  document
-    .querySelectorAll(
-      "[aria-label='Increase quantity']"
-    )
-    .forEach((btn) => {
+  cartContainer?.addEventListener('click', (event) => {
 
-      btn.addEventListener("click", () => {
+    if (!(event.target instanceof Element)) return;
 
-        const parent =
-          btn.parentElement;
+    const button =
+      event.target.closest<HTMLButtonElement>(
+        'button[data-action]'
+      );
 
-        const qtyEl =
-          parent?.querySelector(
-            ".quantity-number"
-          );
+    if (!button) return;
 
+    const cartItem =
+      button.closest<HTMLElement>('.cart-item');
 
-        if (!qtyEl) return;
+    if (!cartItem) return;
 
+    const id =
+      cartItem.dataset.id as ProductId;
 
-        let qty =
-          Number(qtyEl.textContent);
+    const size =
+      cartItem.dataset.size || null;
 
+    const action =
+      button.dataset.action;
 
-        qty++;
+    if (action === 'increase') {
 
+      changeQuantity(id, size, 1);
 
-        qtyEl.textContent =
-          String(qty);
+    } else if (action === 'decrease') {
 
+      changeQuantity(id, size, -1);
 
-        updateCartTotal();
+    } else if (action === 'delete') {
 
-      });
+      removeFromCart(id, size);
 
-    });
+    }
 
-
-
-  /* =========================
-     DECREASE QUANTITY
-     ========================= */
-
-  document
-    .querySelectorAll(
-      "[aria-label='Decrease quantity']"
-    )
-    .forEach((btn) => {
-
-      btn.addEventListener("click", () => {
-
-        const parent =
-          btn.parentElement;
-
-        const qtyEl =
-          parent?.querySelector(
-            ".quantity-number"
-          );
-
-
-        if (!qtyEl) return;
-
-
-        let qty =
-          Number(qtyEl.textContent);
-
-
-        if (qty > 1) {
-
-          qty--;
-
-          qtyEl.textContent =
-            String(qty);
-
-          updateCartTotal();
-
-        }
-
-      });
-
-    });
-
-
+    renderCart();
+  });
 
   /* =========================
-     DELETE ITEM
+     INITIAL LOAD
      ========================= */
 
-  document
-    .querySelectorAll(
-      "[aria-label='Delete item']"
-    )
-    .forEach((btn) => {
-
-      btn.addEventListener("click", () => {
-
-        btn
-          .closest(".cart-item")
-          ?.remove();
-
-
-        updateCartTotal();
-
-      });
-
-    });
-
-
-
-  /* Initial count / total */
-
-  updateCartTotal();
+  renderCart();
 
 </script>
