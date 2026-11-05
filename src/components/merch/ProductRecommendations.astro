@@ -90,7 +90,7 @@ const B = import.meta.env.BASE_URL;
 
     .product-card img {
         width: 100%;
-        aspect-ratio: 1 / 1.15;
+        aspect-ratio: 1 / 1.23;
 
         object-fit: cover;
 
@@ -119,20 +119,23 @@ const B = import.meta.env.BASE_URL;
     }
 
     .past-card {
-        min-height: 260px;
+    aspect-ratio: 1 / 1.23;
+    min-height: 0;
+    box-sizing: border-box;
+    align-self: start;
 
-        padding: 25px;
+    padding: 25px;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-        border-radius: 18px;
+    border-radius: 18px;
 
-        background: var(--color-pink-50);
+    background: var(--color-pink-50);
 
-        box-shadow: 0 2px 3px rgb(0 0 0 / 0.15);
-    }
+    box-shadow: 0 2px 3px rgb(0 0 0 / 0.15);
+}
 
     .past-card h3 {
         margin: 0;
