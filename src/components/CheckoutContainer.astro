@@ -165,7 +165,10 @@ const { total } = Astro.props;
                     Order Total
                 </h3>
 
-                <p class="font-lora text-xl sm:text-2xl font-bold text-[#944029]">
+                <p
+                    id="checkout-total"
+                    class="font-lora text-xl sm:text-2xl font-bold text-[#944029]"
+                >
                     ${total.toFixed(2)}
                 </p>
             </div>

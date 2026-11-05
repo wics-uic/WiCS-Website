@@ -270,6 +270,85 @@ const B = import.meta.env.BASE_URL;
     justify-content: center;
   }
 
+
+/* =========================
+   DYNAMIC CART ITEMS
+   ========================= */
+
+:global(.cart-item) {
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 1fr 0.5fr;
+    align-items: center;
+    gap: 16px;
+
+    padding: 16px;
+    margin-bottom: 16px;
+
+    background-color: #FCE1DD;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 0.12);
+
+    font-family: "Lora", serif;
+}
+
+:global(.cart-item > div:first-child) {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+}
+
+:global(.cart-product-image) {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+:global(.cart-item p) {
+    color: #9F4B38;
+}
+
+:global(.cart-item button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9F4B38;
+    color: white;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+:global(.cart-item button[aria-label="Increase quantity"]),
+:global(.cart-item button[aria-label="Decrease quantity"]) {
+    width: 20px;
+    height: 20px;
+}
+
+:global(.cart-item button[aria-label="Delete item"]) {
+    width: 24px;
+    height: 24px;
+}
+
+:global(.cart-item > div:nth-child(3)) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+:global(.cart-item > div:nth-child(4)) {
+    display: flex;
+    justify-content: center;
+}
+
+:global(.cart-item .quantity-number) {
+    color: #9F4B38;
+    font-weight: 600;
+}
+
+
   /* =========================
      RESPONSIVE
      ========================= */
@@ -360,7 +439,7 @@ const B = import.meta.env.BASE_URL;
               <img
                 src="${product.image}"
                 alt="${product.name}"
-                class="w-20 h-20 object-contain rounded-xl"
+                class="cart-product-image w-20 h-20 object-contain rounded-xl"
               />
 
               <div>

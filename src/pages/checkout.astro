@@ -51,8 +51,9 @@ import whitecloud3 from '../assets/extra/whitecloud-3.svg';
     <span class="absolute -top-2 -right-2
                  bg-red-500 text-white text-xs font-bold
                  rounded-full w-5 h-5
-                 flex items-center justify-center">
-        3
+                 flex items-center justify-center" 
+           id="checkout-cart-count">
+        0
     </span>
 </a>
 
@@ -86,7 +87,7 @@ import whitecloud3 from '../assets/extra/whitecloud-3.svg';
             </div>
 
             <!-- Checkout Container -->
-            <CheckoutContainer total={43} />
+            <CheckoutContainer total={0} />
 
             <Confirmation />
 
@@ -172,3 +173,32 @@ import whitecloud3 from '../assets/extra/whitecloud-3.svg';
         }
     }
 </style>
+
+
+<script>
+    import { getCart, products } from '../scripts/cart';
+
+    const cart = getCart();
+
+    const total = cart.reduce(
+        (sum, item) =>
+            sum + products[item.id].price * item.quantity,
+        0
+    );
+
+    const count = cart.reduce(
+        (sum, item) => sum + item.quantity,
+        0
+    );
+
+    const totalEl = document.getElementById('checkout-total');
+    const countEl = document.getElementById('checkout-cart-count');
+
+    if (totalEl) {
+        totalEl.textContent = `$${total.toFixed(2)}`;
+    }
+
+    if (countEl) {
+        countEl.textContent = String(count);
+    }
+</script>
