@@ -1,8 +1,18 @@
-<button class="cart-button" aria-label="Shopping cart">
+
+---
+const B = import.meta.env.BASE_URL;
+---
+
+<a
+    href={`${B}cart`}
+    class="cart-button"
+    aria-label="Shopping cart"
+>
     <svg
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
     >
         <path
             d="M3 4H5L7.5 15H18L21 7H6"
@@ -14,13 +24,20 @@
         <circle cx="9" cy="19" r="1.5" fill="currentColor" />
         <circle cx="18" cy="19" r="1.5" fill="currentColor" />
     </svg>
-</button>
+
+    <span
+        class="cart-count"
+        aria-label="0 items in cart"
+    >
+        0
+    </span>
+</a>
 
 <style>
     .cart-button {
         position: fixed;
         top: 50px;
-        left: calc(85% + 15px);
+        right: 5%;
 
         width: 60px;
         height: 60px;
@@ -34,10 +51,13 @@
 
         border: none;
         border-radius: 15px;
-        box-shadow: 0px 4px 4px #00000040;
+        box-shadow: 0 4px 4px #00000040;
 
         z-index: 99999;
         cursor: pointer;
+        text-decoration: none;
+
+        transition: transform 0.2s ease;
     }
 
     .cart-button svg {
@@ -49,10 +69,76 @@
         transform: scale(1.04);
     }
 
+    .cart-count {
+        position: absolute;
+        top: -7px;
+        right: -7px;
+
+        min-width: 20px;
+        height: 20px;
+        padding: 0 4px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: #9F4B38;
+        color: white;
+
+        border-radius: 9999px;
+
+        font-family: "Raleway", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
     @media (max-width: 1050px) {
         .cart-button {
-            left: auto;
-            right: 40px;
+            top: 25px;
+            right: 20px;
         }
     }
 </style>
+
+<script>
+    import { getCart } from '../scripts/cart';
+
+    function updateCartBadge(): void {
+        const cart = getCart();
+
+        const count = cart.reduce(
+            (sum, item) => sum + item.quantity,
+            0
+        );
+
+        document
+            .querySelectorAll<HTMLElement>('.cart-count')
+            .forEach((badge) => {
+                badge.textContent = String(count);
+
+                badge.setAttribute(
+                    'aria-label',
+                    `${count} items in cart`
+                );
+            });
+    }
+
+    // Set the badge from saved cart data.
+    updateCartBadge();
+
+    // Refresh it when the cart changes on the current page.
+    document.addEventListener(
+        'wics-cart-updated',
+        updateCartBadge
+    );
+
+    // Also handle changes made in another browser tab.
+    window.addEventListener('storage', (event) => {
+        if (event.key === 'wics-cart' || event.key === null) {
+            updateCartBadge();
+        }
+    });
+
+    window.addEventListener('pageshow', updateCartBadge);
+</script>

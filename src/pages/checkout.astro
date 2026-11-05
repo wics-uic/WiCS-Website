@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import CheckoutContainer from '../components/CheckoutContainer.astro';
 import button from '../assets/extra/button.svg';
 import Confirmation from '../components/Cards/Confirmation.astro';
+import CartButton from '../components/CartButton.astro';
 
 import cloud1 from '../assets/extra/cloud1.png';
 import cloud2 from '../assets/extra/cloud2.png';
@@ -22,6 +23,7 @@ import whitecloud3 from '../assets/extra/whitecloud-3.svg';
         <img src={whitecloud3.src} alt="" class="cloud whitecloud-right" />
 
         <Nav3 />
+        <CartButton />
 
 <!-- Cart Icon -->
 <a
@@ -186,19 +188,14 @@ import whitecloud3 from '../assets/extra/whitecloud-3.svg';
         0
     );
 
-    const count = cart.reduce(
-        (sum, item) => sum + item.quantity,
-        0
-    );
+
 
     const totalEl = document.getElementById('checkout-total');
-    const countEl = document.getElementById('checkout-cart-count');
+  
 
     if (totalEl) {
         totalEl.textContent = `$${total.toFixed(2)}`;
     }
 
-    if (countEl) {
-        countEl.textContent = String(count);
-    }
+
 </script>
