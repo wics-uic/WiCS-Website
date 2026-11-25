@@ -1,11 +1,13 @@
 ---
 import "../styles/global.css";
-import ProductCard from "./merch/productCard.astro";
 ---
 
-<div class="flex flex-row gap-10 justify-center">
-    <div><ProductCard image={"../public/ShortSleeve.png"} name="Short Sleeve T-shirt" price="$15.00"></ProductCard></div>
-    <div><ProductCard image={"../public/KeyChain.png"} name="WiCS Keychain" price="$3.00"></ProductCard></div>
-    <div><ProductCard image={"../public/Crewneck.png"} name="Long Sleeve Crewneck" price="$25.00"></ProductCard></div>
+<div
+    class="mx-auto grid w-full max-w-[1264px]
+           grid-cols-1 justify-items-center
+           gap-y-12
+           sm:grid-cols-2 sm:gap-x-6
+           lg:grid-cols-3 lg:gap-x-[89px]"
+>
+    <slot />
 </div>
-

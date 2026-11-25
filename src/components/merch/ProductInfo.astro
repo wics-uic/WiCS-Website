@@ -1,0 +1,290 @@
+
+---
+interface Props {
+    id: 'tshirt' | 'keychain' | 'crewneck';
+    name: string;
+    price: number;
+
+    description: string;
+    availableUntil: string;
+
+    sizes: string[];
+
+    inStock?: boolean;
+    limitedEdition?: boolean;
+
+    cartUrl: string;
+}
+
+const {
+    id,
+    name,
+    price,
+    description,
+    availableUntil,
+    sizes,
+    inStock = true,
+    limitedEdition = false,
+    cartUrl,
+} = Astro.props;
+---
+
+<div class="product-info">
+    <h1>{name}</h1>
+
+    <div class="price-row">
+        <h2>${price.toFixed(2)}</h2>
+
+        {inStock && (
+            <span class="status">
+                In-stock
+            </span>
+        )}
+
+        {limitedEdition && (
+            <span class="status">
+                Limited edition
+            </span>
+        )}
+    </div>
+
+    <p class="description">
+        {description}
+    </p>
+
+    <p class="availability">
+        Available Until: {availableUntil}
+    </p>
+
+    {sizes.length > 0 && (
+        <div class="sizes" aria-label="Choose a size">
+            {sizes.map((size) => (
+                <button
+                    type="button"
+                    class="size-button"
+                    data-size={size}
+                    aria-label={`Select size ${size}`}
+                    aria-pressed="false"
+                >
+                    {size}
+                </button>
+            ))}
+        </div>
+    )}
+
+    <div class="cart-row">
+        <button
+            id="add-to-cart"
+            type="button"
+            class="add-to-cart"
+            data-product-id={id}
+            data-cart-url={cartUrl}
+            disabled={sizes.length > 0 || !inStock}
+        >
+            Add to Cart
+        </button>
+
+        {sizes.length > 0 && (
+            <span
+                id="size-message"
+                class="size-message"
+                aria-live="polite"
+            >
+                Select a size first
+            </span>
+        )}
+    </div>
+</div>
+
+<style>
+    .product-info {
+        padding-top: 5px;
+    }
+
+    h1 {
+        margin: 0 0 12px;
+        font-family: "Lora", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-red-500);
+    }
+
+    .price-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .price-row h2 {
+        margin: 0;
+        font-family: "Raleway", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--color-red-500);
+    }
+
+    .description {
+        max-width: 400px;
+        margin: 42px 0 5px;
+        font-family: "Raleway", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.55;
+        color: var(--color-pink-600);
+    }
+
+    .availability {
+        margin: 0;
+        font-family: "Raleway", sans-serif;
+        font-size: 0.85rem;
+        font-style: italic;
+        color: #aaa;
+    }
+
+    .status {
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--color-pink-500);
+        color: white;
+        font-family: "Raleway", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        box-shadow: 0 2px 3px rgb(0 0 0 / 0.15);
+    }
+
+    .sizes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 28px 0 24px;
+    }
+
+    .size-button {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--color-pink-500);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--color-pink-500);
+        font-family: "Raleway", sans-serif;
+        cursor: pointer;
+    }
+
+    .size-button.selected {
+        background: var(--color-pink-500);
+        color: white;
+    }
+
+    .cart-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .add-to-cart {
+        padding: 10px 24px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--color-teal-300);
+        color: white;
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgb(0 0 0 / 0.25);
+    }
+
+    .add-to-cart:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+    }
+
+    .size-message {
+        font-family: "Raleway", sans-serif;
+        font-size: 0.75rem;
+        color: var(--color-pink-600);
+    }
+</style>
+
+<script>
+    import {
+        addToCart,
+        products,
+        type ProductId
+    } from '../../scripts/cart';
+
+    const sizeButtons =
+        document.querySelectorAll<HTMLButtonElement>(
+            '.size-button'
+        );
+
+    const addToCartButton =
+        document.querySelector<HTMLButtonElement>(
+            '#add-to-cart'
+        );
+
+    const sizeMessage =
+        document.getElementById('size-message');
+
+    let selectedSize: string | null = null;
+
+    // Handle size selection
+    sizeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+
+            sizeButtons.forEach((item) => {
+                item.classList.remove('selected');
+                item.setAttribute('aria-pressed', 'false');
+            });
+
+            button.classList.add('selected');
+            button.setAttribute('aria-pressed', 'true');
+
+            selectedSize =
+                button.dataset.size ?? null;
+
+            if (addToCartButton && selectedSize) {
+                addToCartButton.disabled = false;
+            }
+
+            if (sizeMessage && selectedSize) {
+                sizeMessage.textContent =
+                    `Size ${selectedSize} selected`;
+            }
+        });
+    });
+
+    // Handle adding the product to the cart
+    addToCartButton?.addEventListener('click', () => {
+
+        const productId =
+            addToCartButton.dataset.productId as ProductId;
+
+        const product = products[productId];
+
+        if (!product) return;
+
+        // Clothing requires a size; keychains don't.
+        if (
+            product.sizes.length > 0 &&
+            !selectedSize
+        ) {
+            return;
+        }
+
+        // Save the item to the shared cart storage
+        addToCart(productId, selectedSize);
+
+        // Redirect to the cart page
+        const cartUrl =
+            addToCartButton.dataset.cartUrl;
+
+        if (cartUrl) {
+            window.location.href = cartUrl;
+        }
+    });
+</script>
