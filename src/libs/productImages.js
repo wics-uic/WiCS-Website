@@ -14,7 +14,7 @@ function resolveImage(imageName){
     return images[key] ?? null;
 }
 
-// Get API for product images & sizing options (if applicable)
+// Get API for product images & sizing options (if applicable) by ID
 export async function getProductImages(id){
     const res = await fetch (SHEET_CSV_URL);
 
@@ -25,9 +25,9 @@ export async function getProductImages(id){
     const csvText = await res.text();
     const rows = parse(csvText, {columns: true, skip_empty_lines: true, trim: true});
 
-    const productInfo = rows.find((r) => r.id)
+    const productInfo = rows.filter((r) => string(r.id))
     
-    if (!productInfo){
+    if (productInfo == 0){
         return null
     }
 
