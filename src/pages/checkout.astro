@@ -6,13 +6,45 @@ import CheckoutContainer from '../components/CheckoutContainer.astro';
 import button from '../assets/extra/button.svg';
 import Confirmation from '../components/Cards/Confirmation.astro';
 import CartButton from '../components/CartButton.astro';
-
 import cloud1 from '../assets/extra/cloud1.png';
 import cloud2 from '../assets/extra/cloud2.png';
 import whitecloud2 from '../assets/extra/whitecloud-2.svg';
 import whitecloud3 from '../assets/extra/whitecloud-3.svg';
----
+import { contactInfo } from '../libs/contact.js';
 
+
+export const prerender = false;
+
+let status = "";
+if (Astro.request.method == "POST"){
+    try{
+        const type = Astro.request.headers.get("content-type") ?? "";
+        console.log("POST content-type:", type);
+
+        const data = type.includes("application/json") ? await Astro.request.json() : Object.fromEntries(await Astro.request.formData())
+
+
+        await contactInfo({
+            name: data.fullName,
+            uicEmail: data.uicEmail,
+            email: data.personalEmail,
+            pickupDate: data.pickupDate,
+            order : [
+                {id: 1, is_wearable: "True", name: "WiCS Shirt", price: 45, size: "M"},
+                {id: 2, is_wearable: "False", name: "WiCS Keychain", price: 45, size: "N/A"}
+            ],
+
+        });
+
+        status = "Contact Info Received";
+    }catch (err){
+        console.log("Failed to receive contact info", err);
+        status = "failed request";
+    }
+}
+
+---
+<!-- Main Content -->
 <Layout>
     <div class="relative isolate overflow-hidden flex flex-col min-h-screen">
 
