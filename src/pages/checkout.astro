@@ -5,8 +5,36 @@ import Footer from '../components/Footer.astro';
 import CheckoutContainer from '../components/CheckoutContainer.astro';
 import button from '../assets/extra/button.svg';
 import Confirmation from '../components/Cards/Confirmation.astro';
----
+import { contactInfo } from '../libs/contact.js';
 
+
+export const prerender = false;
+
+let status = "";
+if (Astro.request.method == "POST"){
+    try{
+        const type = Astro.request.headers.get("content-type") ?? "";
+        console.log("POST content-type:", type);
+
+        const data = type.includes("application/json") ? await Astro.request.json() : Object.fromEntries(await Astro.request.formData())
+
+        await contactInfo({
+            name: data.fullName,
+            uicEmail: data.uicEmail,
+            email: data.personalEmail,
+            pickupDate: data.pickupDate,
+
+        });
+
+        status = "Contact Info Received";
+    }catch (err){
+        console.log("Failed to receive contact info", err);
+        status = "failed request";
+    }
+}
+
+---
+<!-- Main Content -->
 <Layout>
     <div class="flex flex-col min-h-screen">
         <Nav3 />
