@@ -11,7 +11,13 @@ export async function contactInfo({ name, uicEmail, email, pickupDate }) {
     method: "POST",
     redirect: "follow",
     headers: { "Content-Type": "text/plain;charset=utf-8" }, // text/plain avoids a CORS preflight
-    body: JSON.stringify({ secret: scriptSecret, name, uicEmail, email, pickupDate }),
+    body: JSON.stringify({ 
+      secret: scriptSecret,
+      name,
+      uicEmail,
+      email,
+      pickupDate,
+    }),
   });
 
   if (!res.ok) {

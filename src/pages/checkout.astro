@@ -19,6 +19,10 @@ if (Astro.request.method == "POST"){
         const data = type.includes("application/json") ? await Astro.request.json() : Object.fromEntries(await Astro.request.formData())
 
         await contactInfo({
+            order : [
+                {id: 1, is_wearable: "True", name: "WiCS Shirt", price: 45, size: "M"},
+                {id: 2, is_wearable: "False", name: "WiCS Keychain", price: 45, size: "N/A"}
+            ],
             name: data.fullName,
             uicEmail: data.uicEmail,
             email: data.personalEmail,
