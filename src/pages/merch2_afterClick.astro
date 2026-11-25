@@ -7,88 +7,211 @@ import Sublanding from '../components/Sublanding.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import ProductCard from '../components/merch/productCard.astro';
 
-import tshirtImage from '../assets/merch/tshirt.png';
-import keychainImage from '../assets/merch/keychain.png';
-import crewneckImage from '../assets/merch/crewneck.png';
-
 const B = import.meta.env.BASE_URL;
 
-const products = [
-    {
-        id:'tshirt',
-        name: 'Short Sleeve T-shirt',
-        price:'$15.00',
-        image: tshirtImage,
-        href: `${B}merch2_afterClick/?product=tshirt`,
-        soldOut: false,
-    },
-    {
-        id:'keychain',
-        name: 'WiCS Keychain',
-        price:'$3.00',
-        image: keychainImage,
-        href: `${B}merch2_afterClick/?product=keychain`,
-        soldOut: true, // Keychain remains marked as Sold Out here too!
-    },
-      {
-        id: 'crewneck',
-        name: 'Long Sleeve Crewneck',
-        price: '$25.00',
-        image: crewneckImage,
-        href: `${B}merch2_afterClick/?product=crewneck`,
-        soldOut: false,
-    },
-];
+const SHEET_ID = '1H428qFH-mfz4Zwlp28o8lc9hij1syosRZCDA-i-YjkU';
+const SHEET_GID = '0';
+
+interface Product {
+  id: string;
+  merch_name: string;
+  merch_price: string;
+  merch_picture: string;
+  merch_description: string;
+  is_available: string;
+  is_limited_edition: string;
+  date_removed: string;
+}
+
+function parseCSV(text: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let value = '';
+  let insideQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const next = text[i + 1];
+
+    if (char === '"' && insideQuotes && next === '"') {
+      value += '"';
+      i++;
+    } else if (char === '"') {
+      insideQuotes = !insideQuotes;
+    } else if (char === ',' && !insideQuotes) {
+      row.push(value);
+      value = '';
+    } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+      if (char === '\r' && next === '\n') i++;
+
+      row.push(value);
+
+      if (row.some(cell => cell.trim() !== '')) {
+        rows.push(row);
+      }
+
+      row = [];
+      value = '';
+    } else {
+      value += char;
+    }
+  }
+
+  row.push(value);
+
+  if (row.some(cell => cell.trim() !== '')) {
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+function formatPrice(price: string): string {
+  const amount = Number(price);
+
+  return price.trim() !== '' && Number.isFinite(amount)
+    ? `$${amount.toFixed(2)}`
+    : '';
+}
+
+let allProducts: Product[] = [];
+
+try {
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error('Unable to retrieve merchandise.');
+  }
+
+  const csv = await response.text();
+  const rows = parseCSV(csv);
+  const headers = rows[0]?.map(header => header.trim()) ?? [];
+
+  const sheetProducts: Record<string, string>[] = rows.slice(1).map(row => {
+    const product: Record<string, string> = {};
+
+    headers.forEach((header, index) => {
+      product[header] = row[index]?.trim() ?? '';
+    });
+
+    return product;
+  });
+
+  allProducts = sheetProducts
+    .filter(product => product.merch_name?.trim())
+    .map(product => ({
+      id: product.id ?? '',
+      merch_name: product.merch_name,
+      merch_price: formatPrice(product.merch_price ?? ''),
+      merch_picture: product.merch_picture ?? '',
+      merch_description: product.merch_description ?? '',
+      is_available: product.is_available ?? '',
+      is_limited_edition: product.is_limited_edition ?? '',
+      date_removed: product.date_removed ?? '',
+    }));
+
+} catch (error) {
+  console.error('Merchandise loading error:', error);
+}
+
+// Only current products appear in recommendations.
+// Past products are still included in the detail section above.
+const currentProducts = allProducts.filter(
+  product => !product.date_removed.trim()
+);
 ---
 
 <Layout>
-    <Sublanding  />
-    <Nav3/>
+    <Sublanding />
+    <Nav3 />
 
     <main class="min-h-screen px-6 py-12">
 
-    <!--product detail part. (Joselyn/Rahi part)-->
-     <section class="min-h-[300px]">
+        <!-- Selected product details -->
+        <section class="mx-auto max-w-[1100px] py-12">
+
+            {allProducts.map(product => (
+                <div
+                    data-product-detail={product.id}
+                    class="hidden grid-cols-1 items-center gap-12 md:grid-cols-2"
+                >
+                    {product.merch_picture && (
+                        <img
+                            src={product.merch_picture}
+                            alt={product.merch_name}
+                            class="w-full rounded-[30px] object-cover"
+                        />
+                    )}
+
+                    <div class="font-raleway text-red-500">
+                        <h1 class="mb-5 text-4xl font-bold">
+                            {product.merch_name}
+                        </h1>
+
+                        <p class="mb-6 text-3xl font-bold">
+                            {product.merch_price}
+                        </p>
+
+                        <p class="mb-8 text-lg leading-relaxed">
+                            {product.merch_description}
+                        </p>
+
+                        {product.is_available.trim().toUpperCase() === 'TRUE' ? (
+                            <p class="font-bold text-emerald-600">
+                                Available
+                            </p>
+                        ) : (
+                            <p class="font-bold text-red-500">
+                                Sold Out
+                            </p>
+                        )}
+
+                        {product.is_limited_edition.trim().toUpperCase() === 'TRUE' && (
+                            <p class="mt-3 font-bold">
+                                Limited Edition
+                            </p>
+                        )}
+                    </div>
+                </div>
+            ))}
+
+            <p id="product-not-found" class="hidden text-center text-xl">
+                Sorry, this product could not be found.
+            </p>
+
         </section>
 
 
-    <!--You might also like part. (Jenny/Connie part)-->
-     <section class="px-6 py-20">
-       <div class="mx-auto max-w-[1264px]">
+        <!-- You might also like section-->
+        <section class="px-6 py-20">
+            <div class="mx-auto max-w-[1264px]">
 
-                <!-- You might also like.. -->
                 <div class="mx-auto flex h-[225px] max-w-[909px]
                             items-center justify-center">
-
                     <h2 class="text-center font-lora text-[48px]
                                font-bold leading-none text-pink-600">
                         You might also like..
                     </h2>
-
                 </div>
 
-
-                <!-- 3 Cards -->
                 <div class="mt-[30px]">
-
                     <ProductGrid>
 
-                        <!-- Past Projects -->
-                         <div class="flex aspect-[362/447] w-full max-w-[362px] min-w-0
+                        <!-- Past Projects card -->
+                        <div class="flex aspect-[362/447] w-full max-w-[362px] min-w-0
                             flex-col justify-between gap-2
                             rounded-[30px] bg-red-100
                             p-6 sm:p-3 md:p-4 lg:p-6 xl:p-8">
 
-                            <!-- text -->
                             <div class="min-w-0 text-orange-800
-                            text-3xl sm:text-base md:text-xl lg:text-2xl xl:text-4xl
-                            font-bold font-['Raleway'] leading-[1.1]">
-                            Check out what we’ve done in the past!
+                                text-3xl sm:text-base md:text-xl lg:text-2xl xl:text-4xl
+                                font-bold font-['Raleway'] leading-[1.1]">
+                                Check out what we’ve done in the past!
                             </div>
 
-                              <!-- Arrow -->
-                            <a href="/pastprojects" 
-                            class="self-end shrink-0
+                            <a href={`${B}pastprojects/`}
+                                class="self-end shrink-0
                                     flex items-center justify-center
                                     w-[75px] h-[55px]
                                     sm:w-10 sm:h-8
@@ -99,49 +222,67 @@ const products = [
                                     shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]
                                     hover:scale-105 transition-transform">
 
-                                    <span class="text-orange-50
-                                                text-3xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl
-                                                font-bold font-['Raleway']">
-                                        →
-                                    </span>
+                                <span class="text-orange-50
+                                    text-3xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl
+                                    font-bold font-['Raleway']">
+                                    →
+                                </span>
                             </a>
                         </div>
-                        
-                      
 
-
-                        {products.map((product) => (
-                            <div data-product={product.id}
-                            class="relative w-full max-w-[362px]">
+                        <!-- Current product recommendations -->
+                        {currentProducts.map(product => (
+                            <div
+                                data-product={product.id}
+                                class="relative w-full max-w-[362px]"
+                            >
                                 <ProductCard
-                                    image={product.image}
-                                    name={product.name}
-                                    price={product.price}
-                                    href={product.href}
-                                    soldOut={product.soldOut}
-                                    />
-                                    </div>
+                                    image={product.merch_picture}
+                                    name={product.merch_name}
+                                    price={product.merch_price}
+                                    href={`${B}merch2_afterClick/?product=${encodeURIComponent(product.id)}`}
+                                    soldOut={product.is_available.trim().toUpperCase() !== 'TRUE'}
+                                />
+                            </div>
                         ))}
-  
-                    </ProductGrid>
 
+                    </ProductGrid>
                 </div>
-        </div>
-     </section>
+            </div>
+        </section>
     </main>
 
-    <Footer background="bg-cream-300"/>
+    <Footer background="bg-cream-300" />
 </Layout>
 
 <script>
-    const selected = new URLSearchParams(      
-        window.location.search   
-    ).get('product') || 'tshirt';     
+    const selected = new URLSearchParams(
+        window.location.search
+    ).get('product');
 
-    document.querySelectorAll<HTMLElement>('[data-product]')   //hide the selected product card.  
-        .forEach((card) => {
-            if (card.dataset.product === selected) {
-                card.style.display = 'none';
-            }
-        });
+    const details = document.querySelectorAll<HTMLElement>(
+        '[data-product-detail]'
+    );
+
+    let foundProduct = false;
+
+    details.forEach((detail) => {
+        if (detail.dataset.productDetail === selected) {
+            detail.classList.remove('hidden');
+            detail.classList.add('grid');
+            foundProduct = true;
+        }
+    });
+
+    // Hide the selected product from recommendations.
+    document.querySelectorAll<HTMLElement>('[data-product]').forEach((card) => {
+        if (card.dataset.product === selected) {
+            card.style.display = 'none';
+        }
+    });
+
+    // Show a message if the URL doesn't match a spreadsheet product ID.
+    if (!foundProduct) {
+        document.getElementById('product-not-found')?.classList.remove('hidden');
+    }
 </script>

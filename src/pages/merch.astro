@@ -7,62 +7,139 @@ import Sublanding from '../components/Sublanding.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import ProductCard from '../components/merch/productCard.astro';
 
-import tshirtImage from '../assets/merch/tshirt.png';
-import keychainImage from '../assets/merch/keychain.png';
-import crewneckImage from '../assets/merch/crewneck.png';
-
 const B = import.meta.env.BASE_URL;
 
+const SHEET_ID = '1H428qFH-mfz4Zwlp28o8lc9hij1syosRZCDA-i-YjkU';
+const SHEET_GID = '0';
 
-// Define products as a list with a soldOut boolean property
-const products = [
-  {
-    name: 'Short Sleeve T-shirt',
-    price: '$15.00',
-    image: tshirtImage,
-    href: `${B}merch2_afterClick/?product=tshirt`,
-    soldOut: false, // Change to true when sold out
-  },
-  {
-    name: 'WiCS Keychain',
-    price: '$3.00',
-    image: keychainImage,
-    href: `${B}merch2_afterClick/?product=keychain`,
-    soldOut: true, // Example sold out item
-  },
-  {
-    name: 'Long Sleeve Crewneck',
-    price: '$25.00',
-    image: crewneckImage,
-    href: `${B}merch2_afterClick/?product=crewneck`,
-    soldOut: false,
-  },
-];
+interface Product {
+  id: string;
+  merch_name: string;
+  merch_price: string;
+  merch_picture: string;
+  merch_description: string;
+  is_available: string;
+  is_limited_edition: string;
+  date_removed: string;
+}
+
+let products: Product[] = [];
+
+function parseCSV(text: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let value = '';
+  let insideQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const next = text[i + 1];
+
+    if (char === '"' && insideQuotes && next === '"') {
+      value += '"';
+      i++;
+    } else if (char === '"') {
+      insideQuotes = !insideQuotes;
+    } else if (char === ',' && !insideQuotes) {
+      row.push(value);
+      value = '';
+    } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+      if (char === '\r' && next === '\n') i++;
+
+      row.push(value);
+
+      if (row.some(cell => cell.trim() !== '')) {
+        rows.push(row);
+      }
+
+      row = [];
+      value = '';
+    } else {
+      value += char;
+    }
+  }
+
+  row.push(value);
+
+  if (row.some(cell => cell.trim() !== '')) {
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+try {
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error('Unable to retrieve merchandise.');
+  }
+
+  const csv = await response.text();
+  const rows = parseCSV(csv);
+
+  const headers = rows[0]?.map(header => header.trim()) ?? [];
+
+  const allProducts: Record<string, string>[] = rows.slice(1).map(row => {
+    const product: Record<string, string> = {};
+
+    headers.forEach((header, index) => {
+      product[header] = row[index]?.trim() ?? '';
+    });
+
+    return product;
+  });
+
+  products = allProducts
+    .filter(product => product.merch_name?.trim() && !product.date_removed?.trim())
+    .map(product => ({
+      id: product.id ?? '',
+      merch_name: product.merch_name,
+      merch_price: product.merch_price ?? '',
+      merch_picture: product.merch_picture ?? '',
+      merch_description: product.merch_description ?? '',
+      is_available: product.is_available ?? '',
+      is_limited_edition: product.is_limited_edition ?? '',
+      date_removed: product.date_removed ?? '',
+    }))
+    .map(product => ({
+      ...product,
+      // Keep the price in the format for the card
+      merch_price: `$${Number(product.merch_price).toFixed(2)}`,
+    }));
+
+} catch (error) {
+  console.error('Merchandise loading error:', error);
+}
 ---
 
 <Layout>
-  <!-- Merch Shop, Show your support and rep WiCS in style-->
   <Sublanding title="Merch Shop" subheadline="Show your support and rep WiCS in style" />
   <Nav3 />
 
   <main class="min-h-screen px-6 py-12">
-    <ProductGrid>
-
-      {products.map((product) => (
+    {products.length > 0 ? (
+      <ProductGrid>
+        {products.map(product => (
           <ProductCard
-            image={product.image}
-            name={product.name}
-            price={product.price}
-            href={product.href}
-            soldOut={product.soldOut} 
+            image={product.merch_picture}
+            name={product.merch_name}
+            price={product.merch_price}
+            href={`${B}merch2_afterClick/?product=${encodeURIComponent(product.id)}`}
+            soldOut={product.is_available.trim().toUpperCase() !== 'TRUE'}
           />
-      ))}
-    </ProductGrid>
+        ))}
+      </ProductGrid>
+    ) : (
+      <p class="text-center text-lg">
+        No current merchandise is available right now.
+      </p>
+    )}
   </main>
 
   <Footer background="bg-cream-300" />
 </Layout>
-
 
 
 
