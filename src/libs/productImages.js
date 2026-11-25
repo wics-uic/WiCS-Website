@@ -14,7 +14,7 @@ function resolveImage(imageName){
     return images[key] ?? null;
 }
 
-// Get API for product images & sizing options (if applicable) by ID
+// Get API for product images & sizing options (if applicable)
 export async function getProductImages(id){
     const res = await fetch (SHEET_CSV_URL);
 
